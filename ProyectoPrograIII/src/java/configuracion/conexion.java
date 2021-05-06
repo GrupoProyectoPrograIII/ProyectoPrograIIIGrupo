@@ -14,8 +14,8 @@ public class conexion {
     private Connection coneccion = null;
     private ResultSet resultado = null;
     //Cadena de Conexion    
-    //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> CASA
-
+    //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> ANTONIO
+    //AQUI debe ir el nombre de su servidor SQL***
     String stringConnectionUrl = "jdbc:sqlserver://DESKTOP-O84DBVU\\SQLEXPRESS:1433;"
             + "databaseName=PROYECTOGRUPOA;";
     //Driver o controlador JDBC
