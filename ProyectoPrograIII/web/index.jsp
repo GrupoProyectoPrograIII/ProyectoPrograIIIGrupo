@@ -1,10 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : May 1, 2021, 1:01:04 PM
-    Author     : javie
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>

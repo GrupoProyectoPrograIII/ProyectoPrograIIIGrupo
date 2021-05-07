@@ -14,7 +14,11 @@ public class conexion {
     private Connection coneccion = null;
     private ResultSet resultado = null;
     //Cadena de Conexion    
+    
     //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> ANTONIO
+    //Nombre de mi maquina JAVIER-DIAZ\\SQLEXPRESS:1433 --> Javier Diaz
+    
+    
     //AQUI debe ir el nombre de su servidor SQL***
     String stringConnectionUrl = "jdbc:sqlserver://DESKTOP-O84DBVU\\SQLEXPRESS:1433;"
             + "databaseName=PROYECTOGRUPOA;";
@@ -34,7 +38,6 @@ public class conexion {
         }
         return coneccion;
     }
-
     public void close() throws Exception {
         //Connection coneccion = null;
         try {
@@ -48,7 +51,6 @@ public class conexion {
         }
 
     }
-
     public boolean executeSql(String cmd) throws Exception {
         if (cmd != null) {
             try {
@@ -63,12 +65,9 @@ public class conexion {
         }
         return respuesta;
     }
-
     public ResultSet executeQuery(String strSQL) {
-
         if (strSQL != null) {
             try {
-
                 preparar = coneccion.prepareStatement(strSQL);
                 resultado = preparar.executeQuery();
             } catch (SQLException e) {
