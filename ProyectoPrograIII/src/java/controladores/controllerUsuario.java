@@ -16,7 +16,7 @@ import modelos.Usuario;
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
 
-    String listar = "Paginas/Usuario/consultaUsuarios.jsp";
+    String listar = "Seguridad/Usuario/consultaUsuarios.jsp";
     String eliminar = "";
     String modificar = "";
 

@@ -16,7 +16,7 @@ import modelos.Permiso;
 @WebServlet(name = "controllerPermiso", urlPatterns = {"/controllerPermiso"})
 public class controllerPermiso extends HttpServlet {
 
-    String listar = "Paginas/Permisos/consultaPermisos.jsp";
+    String listar = "Seguridad/Permisos/consultaPermisos.jsp";
     String eliminar = "";
     String modificar = "";
 

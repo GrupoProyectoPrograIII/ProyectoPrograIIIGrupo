@@ -16,7 +16,7 @@ import modelos.Rol;
 @WebServlet(name = "controllerRol", urlPatterns = {"/controllerRol"})
 public class controllerRol extends HttpServlet {
 
-    String listar = "Paginas/Roles/consultaRol.jsp";
+    String listar = "Seguridad/Roles/consultaRol.jsp";
     String eliminar = "";
     String modificar = "";
 

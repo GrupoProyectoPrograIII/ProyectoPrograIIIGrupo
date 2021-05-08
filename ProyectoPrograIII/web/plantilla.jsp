@@ -24,7 +24,25 @@
                         <a class="navbar-brand" href="index.jsp">Inicio</a>
                     </div>
                     <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">                        
+                        <ul class="nav navbar-nav">
+                            <li id="Li2" class="dropdown" >
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a>
+                                <ul id="Ul2" class="dropdown-menu" >
+                                    <li id="Li2" class="dropdown" >
+                                        <a href="controllerModulo?accion=read" id="A2">Modulos</a>
+                                    </li>   
+                                    <li id="Li2" class="dropdown" >
+                                        <a href="controllerPermiso?accion=read" id="A2">Permisos</a>
+                                    </li>   
+                                    <li id="Li2" class="dropdown" >
+                                        <a href="controllerRol?accion=read" id="A2">Roles</a>
+                                    </li>
+                                    <li id="Li2" class="dropdown" >
+                                        <a href="controllerUsuario?accion=read" id="A2">Usuarios</a>
+                                    </li>
+                                    <li id="Li2" class="dropdown" >
+                                    </li> 
+                                </ul>
                             <li id="Li2" class="dropdown" >
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
                                 <ul id="Ul2" class="dropdown-menu" >
@@ -43,8 +61,7 @@
                                     <li id="Li2" class="dropdown" >
                                     </li> 
                                 </ul>
-                            </li>                         
-                            <li > <a href="#" id="A4" > Opcion X</a></li>    
+                            </li>                            
                             <li><a id="A4" href="login.jsp">Login</a></li> 
                         </ul>
                     </div>

@@ -16,7 +16,7 @@ import modelos.Modulo;
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
     
-    String listar = "Paginas/Modulos/consultaModulos.jsp";
+    String listar = "Seguridad/Modulos/consultaModulos.jsp";
     String eliminar="";
     String modificar="";
     
