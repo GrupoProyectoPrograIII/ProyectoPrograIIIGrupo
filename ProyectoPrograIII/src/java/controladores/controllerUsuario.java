@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
 
+    String listar = "Paginas/Usuario/consultaUsuarios.jsp";
+    String eliminar = "";
+    String modificar = "";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -19,7 +24,7 @@ public class controllerUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controllerUsuario</title>");            
+            out.println("<title>Servlet controllerUsuario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controllerUsuario at " + request.getContextPath() + "</h1>");
@@ -31,7 +36,29 @@ public class controllerUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+
+        String acceso = "";
+        String action = request.getParameter("accion");
+
+        switch (action) {
+            case "read":
+                acceso = listar;
+                break;
+            case "nuevo":
+                String nuevo = "";
+                acceso = nuevo;
+                break;
+            case "agregar":
+                acceso = listar;
+                break;
+            case "editar":
+                break;
+            case "modificar":
+                break;
+        }
+        RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
+        vista.forward(request, response);
     }
 
     @Override
@@ -39,7 +66,7 @@ public class controllerUsuario extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

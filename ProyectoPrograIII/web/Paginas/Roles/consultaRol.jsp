@@ -1,10 +1,9 @@
-<%-- 
-    Document   : consultaRol
-    Created on : May 3, 2021, 7:22:55 AM
-    Author     : javie
---%>
-
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="dao.daoModulo"%>
+<%@page import="modelos.Modulo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="../../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +11,39 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container"> 
+            <h1>Roles</h1>           
+            <table border="1" width="1" cellspacing="1" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Id</th>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Apellido</th>
+                            <th class="text-center">NIT</th>
+                            <th class="text-center">Telefono</th>
+                            <th class="text-center">Direccion</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <%
+                        
+                    %>
+
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center">                                
+                                <a class="btn btn-warning" href="ControllerClientes?accion=editar&id=">Editar</a>
+                                <a class="btn btn-danger" href="ControllerClientes?accion=delete&id=">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
     </body>
 </html>

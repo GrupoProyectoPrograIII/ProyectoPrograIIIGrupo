@@ -22,9 +22,7 @@
 
                     <div class="navbar-header" style=" align: center;">
                         <a class="navbar-brand" href="index.jsp">Inicio</a>
-                        <ul class="nav navbar-nav">                        
-                            <li id="Li2" class="dropdown" >
-                                <a href="/" id="A2">Autenticacion</a>
+                        <ul class="nav navbar-nav">                    
                             <li id="Li2" class="dropdown" >
                                 <a href="controllerModulo?accion=read" id="A2">Modulos</a>
                             </li>   
