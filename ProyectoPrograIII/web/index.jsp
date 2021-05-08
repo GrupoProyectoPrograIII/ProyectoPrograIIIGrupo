@@ -3,10 +3,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Bienvenido</title>
+        
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">  
+            <h1>Bienvenido</h1>
+            <a href="Autenticacion/consultaAutenticacion.jsp">Autenticacion</a>
+        </div>
     </body>
 </html>

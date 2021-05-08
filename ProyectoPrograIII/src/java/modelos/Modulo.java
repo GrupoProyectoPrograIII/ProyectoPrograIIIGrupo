@@ -10,8 +10,8 @@ public class Modulo {
     private int idModuloPadre;
     private String fechaCrear;
     private String fechaMod;
-    private String userCrear;
-    private String userMod;
+    private String userCrear; //esto fue marcado como int en DB
+    private String userMod; //esto fue marcado como int en DB
     private int isActivo;
 
     public int getIdModulo() {

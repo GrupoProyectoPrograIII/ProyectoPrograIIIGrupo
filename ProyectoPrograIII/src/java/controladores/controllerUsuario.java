@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "controladorUsuario", urlPatterns = {"/controladorUsuario"})
+@WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -19,10 +19,10 @@ public class controllerUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controladorUsuario</title>");            
+            out.println("<title>Servlet controllerUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet controladorUsuario at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet controllerUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
