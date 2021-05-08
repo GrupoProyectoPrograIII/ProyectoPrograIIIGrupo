@@ -1,13 +1,17 @@
 package controladores;
 
+import dao.daoUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Usuario;
 
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
@@ -43,8 +47,17 @@ public class controllerUsuario extends HttpServlet {
 
         switch (action) {
             case "read":
+                daoUsuario daoUsuario = new daoUsuario();
+                List<Usuario> lstUsuario= daoUsuario.listar();
+                Iterator<Usuario> iteratorUsuario= lstUsuario.iterator();
+                Usuario user = new Usuario();
+                while(iteratorUsuario.hasNext()){
+                    user=iteratorUsuario.next();
+                    request.setAttribute("user", user);
+                }
                 acceso = listar;
                 break;
+
             case "nuevo":
                 String nuevo = "";
                 acceso = nuevo;

@@ -1,5 +1,10 @@
+<%-- 
+    Document   : consultaPermisos
+    Created on : May 3, 2021, 7:25:00 AM
+    Author     : javie
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,8 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container"> 
-            <h1>Permisos</h1>           
+        <div class="container">            
             <table border="1" width="1" cellspacing="1" class="table table-bordered">
                     <thead>
                         <tr>
@@ -22,22 +26,28 @@
                         </tr>
                     </thead>
                     <%
-                        
+                        daoModulo daoModulo = new daoModulo();
+                        List<Modulo> lstClientes = daoModulo.listar();
+                        Iterator<Modulo> iteratorClientes = lstClientes.iterator();
+                        Modulo clientes = null;
+                        while (iteratorClientes.hasNext()) {
+                            clientes = iteratorClientes.next();
                     %>
 
                     <tbody>
                         <tr>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
+                            <td class="text-center"><%=clientes.getIdModulo()%></td>
+                            <td class="text-center"><%=clientes.getNombre()%></td>
+                            <td class="text-center"><%=clientes.getDescripcion()%></td>
+                            <td class="text-center"><%=clientes.getPath()%></td>
+                            <td class="text-center"><%=clientes.getNivel()%></td>
+                            <td class="text-center"><%=clientes.getIsActivo()%></td>
                             <td class="text-center">                                
-                                <a class="btn btn-warning" href="ControllerClientes?accion=editar&id=">Editar</a>
-                                <a class="btn btn-danger" href="ControllerClientes?accion=delete&id=">Eliminar</a>
+                                <a class="btn btn-warning" href="ControllerClientes?accion=editar&id=<%=clientes.getIdModulo()%>">Editar</a>
+                                <a class="btn btn-danger" href="ControllerClientes?accion=delete&id=<%=clientes.getIdModulo()%>">Eliminar</a>
                             </td>
                         </tr>
+                        <%}%>
                     </tbody>
                 </table>
         </div>

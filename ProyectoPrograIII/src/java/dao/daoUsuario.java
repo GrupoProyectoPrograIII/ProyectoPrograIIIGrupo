@@ -32,7 +32,7 @@ public class daoUsuario implements crudUsuario{
                 user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
-                user.setRol(rs.getString("ROL"));
+                //user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
                 user.setFechaCrear(rs.getString("FECHA_CREA"));
                 user.setFechaMod(rs.getString("FECHA_MOD"));
