@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
-
+    
+    String listar = "Paginas/Modulos/consultaModulos.jsp";
+    String eliminar="";
+    String modificar="";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -31,7 +36,28 @@ public class controllerModulo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+
+        switch (action) {
+            case "read":
+                acceso = listar;
+                break;
+            case "nuevo":
+                String nuevo = "";
+                acceso=nuevo;
+                break;
+            case "agregar":
+                acceso=listar;
+                break;
+            case "editar":
+                break;
+            case "modificar":
+                break;
+        }
+        RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
+        vista.forward(request, response);
     }
 
     @Override

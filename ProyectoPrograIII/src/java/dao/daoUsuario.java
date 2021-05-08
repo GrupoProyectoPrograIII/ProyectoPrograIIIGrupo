@@ -82,7 +82,15 @@ public class daoUsuario implements crudUsuario{
 
     @Override
     public boolean insertar(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "INSERT INTO CLIENTE (ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) VALUES((SELECT ISNULL(MAX(ID_CLIENTE),0) + 1 FROM CLIENTE)";
+        try {
+            con.open();            
+            resp = con.executeSql(sql);            
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resp;
     }
 
     @Override
