@@ -1,13 +1,17 @@
 package controladores;
 
+import dao.daoRol;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Rol;
 
 @WebServlet(name = "controllerRol", urlPatterns = {"/controllerRol"})
 public class controllerRol extends HttpServlet {
@@ -43,6 +47,14 @@ public class controllerRol extends HttpServlet {
 
         switch (action) {
             case "read":
+                daoRol daoRol = new daoRol();
+                List<Rol> lstRol= daoRol.listar();
+                Iterator<Rol> iteratorRol= lstRol.iterator();
+                Rol rol = new Rol();
+                while(iteratorRol.hasNext()){
+                    rol=iteratorRol.next();
+                    request.setAttribute("rol", rol);
+                }
                 acceso = listar;
                 break;
             case "nuevo":

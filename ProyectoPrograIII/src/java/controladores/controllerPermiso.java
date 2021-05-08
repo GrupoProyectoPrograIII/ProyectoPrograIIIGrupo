@@ -1,13 +1,17 @@
 package controladores;
 
+import dao.daoPermiso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Permiso;
 
 @WebServlet(name = "controllerPermiso", urlPatterns = {"/controllerPermiso"})
 public class controllerPermiso extends HttpServlet {
@@ -42,6 +46,15 @@ public class controllerPermiso extends HttpServlet {
 
         switch (action) {
             case "read":
+                daoPermiso daoPermiso = new daoPermiso();
+                List<Permiso> lstPermiso= daoPermiso.listar();
+                Iterator<Permiso> iteratorPermiso= lstPermiso.iterator();
+                Permiso permiso = new Permiso();
+                
+                while(iteratorPermiso.hasNext()){
+                    permiso = iteratorPermiso.next();
+                    request.setAttribute("permiso", permiso);
+                }
                 acceso = listar;
                 break;
             case "nuevo":

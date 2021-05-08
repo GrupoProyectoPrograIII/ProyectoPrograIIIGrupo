@@ -27,8 +27,8 @@ public class daoPermiso implements crudPermiso {
                 permiso.setIdPermiso(rs.getInt("ID_PERMISO"));
                 permiso.setIdModulo(rs.getInt("ID_MODULO"));
                 permiso.setIdRol(rs.getInt("ID_ROL"));
-                permiso.setModulo(rs.getString("MODULO"));
-                permiso.setRol(rs.getString("ROL"));
+                //permiso.setModulo(rs.getString("MODULO"));
+                //permiso.setRol(rs.getString("ROL"));
                 permiso.setFechaCrear(rs.getString("FECHA_CREA"));
                 permiso.setFechaMod(rs.getString("FECHA_MOD"));
                 permiso.setUserCrear(rs.getString("USUARIO_CREA"));
@@ -57,7 +57,7 @@ public class daoPermiso implements crudPermiso {
                 permiso.setIdModulo(rs.getInt("ID_MODULO"));
                 permiso.setIdRol(rs.getInt("ID_ROL"));
                 permiso.setModulo(rs.getString("MODULO"));
-                permiso.setRol(rs.getString("ROL"));
+                //permiso.setRol(rs.getString("ROL"));
                 permiso.setFechaCrear(rs.getString("FECHA_CREA"));
                 permiso.setFechaMod(rs.getString("FECHA_MOD"));
                 permiso.setUserCrear(rs.getString("USUARIO_CREA"));

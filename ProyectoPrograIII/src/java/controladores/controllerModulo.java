@@ -1,13 +1,17 @@
 package controladores;
 
+import dao.daoModulo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Modulo;
 
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
@@ -42,6 +46,14 @@ public class controllerModulo extends HttpServlet {
 
         switch (action) {
             case "read":
+                daoModulo daoModulo = new daoModulo();
+                List<Modulo> lstModulo= daoModulo.listar();
+                Iterator<Modulo> iteratorModulo= lstModulo.iterator();
+                Modulo modulo = new Modulo();
+                while(iteratorModulo.hasNext()){
+                    modulo=iteratorModulo.next();
+                    request.setAttribute("modulo", modulo);
+                }
                 acceso = listar;
                 break;
             case "nuevo":

@@ -48,9 +48,7 @@
                             <td class="text-center"><%=user.getUserCrear() %></td>
                             <td class="text-center"><%=user.getUserMod() %></td>
                             <td class="text-center"><%=user.getCodigo()%></td>
-                            <%}else{ %>
-                            <td class="text-center">Null</td>
-                            <%} %>
+                            <%}%>
                             <td class="text-center">                                
                                 <a class="btn btn-warning" href="ControllerUsuario?accion=editar&id=">Editar</a>
                                 <a class="btn btn-danger" href="ControllerUsuario?accion=delete&id=">Eliminar</a>
