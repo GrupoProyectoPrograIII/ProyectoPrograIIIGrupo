@@ -45,24 +45,18 @@ public class controllerUsuario extends HttpServlet {
         String acceso = "";
         String action = request.getParameter("accion");
 
+        daoUsuario daoUsuario = new daoUsuario();
+        List<Usuario> lstUsuario = null;
+
         switch (action) {
             case "read":
-                daoUsuario daoUsuario = new daoUsuario();
-                List<Usuario> lstUsuario= daoUsuario.listar();
-                Iterator<Usuario> iteratorUsuario= lstUsuario.iterator();
-                Usuario user = new Usuario();
-                while(iteratorUsuario.hasNext()){
-                    user=iteratorUsuario.next();
-                    request.setAttribute("user", user);
-                }
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("user", lstUsuario);
                 acceso = listar;
                 break;
-
-            case "nuevo":
-                String nuevo = "";
-                acceso = nuevo;
-                break;
             case "agregar":
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("user", lstUsuario);
                 acceso = listar;
                 break;
             case "editar":
