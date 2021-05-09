@@ -13,8 +13,9 @@ public class conexion {
     private PreparedStatement preparar = null;
     private Connection coneccion = null;
     private ResultSet resultado = null;
-    //Cadena de Conexion    
+    Connection con;
     
+    //Cadena de Conexion   
     //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> ANTONIO
     //Nombre de mi maquina JAVIER-DIAZ\\SQLEXPRESS:1433 --> Javier Diaz
     
@@ -38,6 +39,18 @@ public class conexion {
         }
         return coneccion;
     }
+    
+    public Connection Conexion(){
+        String user = "sa";
+        String pass4= "Login2021";
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(stringConnectionUrl,user, pass4);
+        } catch (Exception e) {
+        }
+        return con;
+    }
+    
     public void close() throws Exception {
         //Connection coneccion = null;
         try {
