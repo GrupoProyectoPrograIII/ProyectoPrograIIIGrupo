@@ -11,12 +11,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dao.daoUsuario;
+import modelos.Usuario;
 /**
  *
  * @author Marvin.Alonso
  */
 public class controllerValidar extends HttpServlet {
+    
+    daoUsuario duser = new daoUsuario();
+    Usuario usr = new Usuario();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,7 +74,21 @@ public class controllerValidar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion=request.getParameter("accionL");
+        if(accion.equalsIgnoreCase("ingresar")){
+            String user = request.getParameter("txtuser");
+            String pass = request.getParameter("txtpass");
+            usr = duser.validar(user, pass);
+            if(usr.getUser()!=null){
+                request.getRequestDispatcher("controllerModulo?accion=Principal").forward(request, response);
+            }
+            else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        }
+        else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     /**

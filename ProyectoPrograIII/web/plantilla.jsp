@@ -123,7 +123,7 @@
                                     </li> 
                                 </ul>
                             </li>                            
-                            <li><a id="A4" href="login.jsp">Login</a></li> 
+                            <li></li> 
                         </ul>
                     </div>
                 </div>

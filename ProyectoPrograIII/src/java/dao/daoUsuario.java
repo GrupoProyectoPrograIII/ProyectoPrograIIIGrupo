@@ -2,7 +2,7 @@ package dao;
 
 import configuracion.conexion;
 import interfaces.crudUsuario;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,9 +14,26 @@ public class daoUsuario implements crudUsuario{
     Usuario user = new Usuario();
     String sql = "";
     conexion con = new conexion();
+    
     ResultSet rs = null;
     boolean resp = false;
     
+    public Usuario validar(String usr,String pass){
+       
+        sql = "SELECT * FROM USUARIO WHERE USUARIO="+ usr +" AND PASSW="+ pass +"";
+        try {
+            con.open();
+            rs = con.executeQuery(sql);            
+            while(rs.next()){
+                user.setIdUser(rs.getInt("ID_USUARIO"));
+                user.setUser(rs.getString("USUARIO"));
+                user.setPass(rs.getString("PASSW"));
+                user.setNombre(rs.getString("NOMBRE"));
+            }
+        } catch (Exception e) {
+        }
+        return user;
+    }
     
     @Override
     public List listar() {

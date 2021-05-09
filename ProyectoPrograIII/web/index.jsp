@@ -1,33 +1,34 @@
-<%@page import="modelos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-            <title>Autenticacion</title>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <title>Autenticacion</title>        
     </head>
     <body>
         <div class="container mt-4 col-lg-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <form>
-                        <div class="form-group">
+            <div class="card col-sm-10">
+                <div class="card-body">
+                    <form class="form-sign" action="controllerValidar" method="POST">
+                        <div class="form-group text-center">
                             <h3>Login</h3>
                             <img src="img/diner-restaurant-logo.jpg" alt="70" width="170"/>
-                            <label>Bienvenidos al sistema</label>
+                            <br><label>Bienvenidos al sistema</label>
                         </div>
                         <div class="form-group">
                             <label>Usuario: </label>
                             <input type="text" name="txtuser" class="form-control">
                         </div>
+                        <br>
                         <div class="form-group">
                             <label>Contraseña: </label>
                             <input type="password" name="txtpass" class="form-control">
                         </div>
-                        <input type="submit" name="accion" value="ingresar" class="btn btn-primary btn-block"
-                    </form>
+                        <div>
+                            <br><input type="submit" name="accionL" value="ingresar" class="btn btn-primary btn-block">
+                        </div>                        
+                    </form>                
                 </div>
             </div>
         </div>
