@@ -18,6 +18,7 @@ public class conexion {
     //Cadena de Conexion   
     //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> ANTONIO
     //Nombre de mi maquina JAVIER-DIAZ\\SQLEXPRESS:1433 --> Javier Diaz
+    //Mi maquina: DESKTOP-G20CI13\\SQLEXPRESS:1433; --> Javier Osorio
     
     
     //AQUI debe ir el nombre de su servidor SQL***
