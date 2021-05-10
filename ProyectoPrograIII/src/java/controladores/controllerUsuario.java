@@ -1,9 +1,9 @@
 package controladores;
 
+import dao.daoRol;
 import dao.daoUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,14 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Rol;
 import modelos.Usuario;
 
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
 
     String listar = "Seguridad/Usuario/consultaUsuarios.jsp";
-    String eliminar = "";
-    String modificar = "";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,24 +43,66 @@ public class controllerUsuario extends HttpServlet {
 
         String acceso = "";
         String action = request.getParameter("accion");
-
+        String usuario, nombre, apellido, codigo, password, activo, rol;
         daoUsuario daoUsuario = new daoUsuario();
         List<Usuario> lstUsuario = null;
+        daoRol daoRol = new daoRol();
+        List<Rol> lstRol = null;
 
         switch (action) {
             case "read":
+                lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar;
                 break;
             case "agregar":
+
+                usuario = request.getParameter("user");
+                nombre = request.getParameter("name");
+                apellido = request.getParameter("apellido");
+                password = request.getParameter("password");
+                rol = request.getParameter("rol");
+                activo = request.getParameter("activo");
+                codigo = request.getParameter("codigo");
+                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
+
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("user", lstUsuario);
+
                 acceso = listar;
+
                 break;
             case "editar":
+                usuario = request.getParameter("user");
+                nombre = request.getParameter("name");
+                apellido = request.getParameter("apellido");
+                password = request.getParameter("password");
+                rol = request.getParameter("rol");
+                activo = request.getParameter("activo");
+                codigo = request.getParameter("codigo");
+                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
+
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("user", lstUsuario);
+
+                acceso = listar;
                 break;
-            case "modificar":
+            case "eliminar":
+                usuario = request.getParameter("user");
+                nombre = request.getParameter("name");
+                apellido = request.getParameter("apellido");
+                password = request.getParameter("password");
+                rol = request.getParameter("rol");
+                activo = request.getParameter("activo");
+                codigo = request.getParameter("codigo");
+                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
+
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("user", lstUsuario);
+
+                acceso = listar;
                 break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
