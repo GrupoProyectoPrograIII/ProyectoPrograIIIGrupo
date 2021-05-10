@@ -70,7 +70,15 @@ public class controllerModulo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String accion = request.getParameter("accionL");
+        switch (accion){
+            case "Principal":
+                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
 
     @Override
