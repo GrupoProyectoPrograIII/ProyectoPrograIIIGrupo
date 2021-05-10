@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import dao.daoEmpleado;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,12 +13,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.daoUsuario;
+import modelos.Empleado;
 import modelos.Usuario;
 /**
  *
  * @author Marvin.Alonso
  */
 public class controllerValidar extends HttpServlet {
+    
+    daoEmpleado edao = new daoEmpleado();
+    Empleado em = new Empleado();
     
     daoUsuario duser = new daoUsuario();
     Usuario usr = new Usuario();
@@ -78,8 +83,9 @@ public class controllerValidar extends HttpServlet {
         if(accion.equalsIgnoreCase("ingresar")){
             String user = request.getParameter("txtuser");
             String pass = request.getParameter("txtpass");
-            usr = duser.validar(user, pass);
-            if(usr.getUser()!=null){
+            //usr = duser.validar(user, pass);
+            em = edao.validar(user, pass);
+            if(em.getUsername()!=null){
                 request.getRequestDispatcher("controllerModulo?accion=Principal").forward(request, response);
             }
             else{
