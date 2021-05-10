@@ -2,8 +2,6 @@ package controladores;
 
 import dao.daoModulo;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,15 +13,15 @@ import modelos.Modulo;
 
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
-    
+
     String listar = "Seguridad/Modulos/consultaModulos.jsp";
-    String eliminar="";
-    String modificar="";
-    
+    String eliminar = "";
+    String modificar = "";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accionL");
-        switch (accion){
+        switch (accion) {
             case "Principal":
                 request.getRequestDispatcher("../plantilla.jsp").forward(request, response);
                 break;
@@ -42,21 +40,16 @@ public class controllerModulo extends HttpServlet {
         switch (action) {
             case "read":
                 daoModulo daoModulo = new daoModulo();
-                List<Modulo> lstModulo= daoModulo.listar();
-                Iterator<Modulo> iteratorModulo= lstModulo.iterator();
-                Modulo modulo = new Modulo();
-                while(iteratorModulo.hasNext()){
-                    modulo=iteratorModulo.next();
-                    request.setAttribute("modulo", modulo);
-                }
+                List<Modulo> lstModulo = daoModulo.listar();
+                request.setAttribute("modulo", lstModulo);
                 acceso = listar;
                 break;
             case "nuevo":
                 String nuevo = "";
-                acceso=nuevo;
+                acceso = nuevo;
                 break;
             case "agregar":
-                acceso=listar;
+                acceso = listar;
                 break;
             case "editar":
                 break;
@@ -72,7 +65,7 @@ public class controllerModulo extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String accion = request.getParameter("accionL");
-        switch (accion){
+        switch (accion) {
             case "Principal":
                 request.getRequestDispatcher("../plantilla.jsp").forward(request, response);
                 break;
