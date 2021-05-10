@@ -25,7 +25,7 @@ public class controllerModulo extends HttpServlet {
         String accion = request.getParameter("accionL");
         switch (accion){
             case "Principal":
-                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+                request.getRequestDispatcher("../plantilla.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();
@@ -74,7 +74,7 @@ public class controllerModulo extends HttpServlet {
         String accion = request.getParameter("accionL");
         switch (accion){
             case "Principal":
-                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+                request.getRequestDispatcher("../plantilla.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();

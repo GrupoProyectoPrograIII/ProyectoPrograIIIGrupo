@@ -86,7 +86,7 @@ public class controllerValidar extends HttpServlet {
             //usr = duser.validar(user, pass);
             em = edao.validar(user, pass);
             if(em.getUsername()!=null){
-                request.getRequestDispatcher("controllerModulo?accion=Principal").forward(request, response);
+                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
             }
             else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);

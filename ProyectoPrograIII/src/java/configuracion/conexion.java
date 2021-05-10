@@ -43,7 +43,7 @@ public class conexion {
     
     public Connection Conexion(){
         String user = "sa";
-        String pass4= "Login2021";
+        String pass4= "1234";
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(stringConnectionUrl,user, pass4);
