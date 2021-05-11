@@ -22,7 +22,7 @@ public class conexion {
     
     
     //AQUI debe ir el nombre de su servidor SQL***
-    String stringConnectionUrl = "jdbc:sqlserver://DESKTOP-O84DBVU\\SQLEXPRESS:1433;"
+    String stringConnectionUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;"
             + "databaseName=PROYECTOGRUPOA;";
     //Driver o controlador JDBC
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -48,6 +48,7 @@ public class conexion {
             Class.forName(driver);
             con = DriverManager.getConnection(stringConnectionUrl,user, pass4);
         } catch (Exception e) {
+            System.out.println("Excepción: " + e.getMessage());
         }
         return con;
     }

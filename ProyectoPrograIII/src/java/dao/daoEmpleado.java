@@ -37,6 +37,7 @@ public class daoEmpleado {
             con.close();
             rs.close();
         } catch (Exception e) {
+            System.err.println(e.toString());
         }
         return em;
         

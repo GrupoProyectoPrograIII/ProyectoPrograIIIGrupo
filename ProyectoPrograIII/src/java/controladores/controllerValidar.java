@@ -85,8 +85,11 @@ public class controllerValidar extends HttpServlet {
             String pass = request.getParameter("txtpass");
             //usr = duser.validar(user, pass);
             em = edao.validar(user, pass);
-            if(em.getUsername()!=null){
+            if(em.getUsername().equals("Admin")){
                 request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+            }
+            if(em.getUsername().equals("gere")){
+                request.getRequestDispatcher("plantilla2.jsp").forward(request, response);
             }
             else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);
