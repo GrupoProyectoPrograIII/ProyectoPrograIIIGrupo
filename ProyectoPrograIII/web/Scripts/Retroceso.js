@@ -12,5 +12,5 @@ function nobackbutton()
         history.pushState(null, document.title, location.href);
     });*/
     
-    history.forward();
+    history.forward(1);
 }

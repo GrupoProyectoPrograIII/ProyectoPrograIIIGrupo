@@ -5,11 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Aplicación Web</title>
+        <link href="Styles/Site.css" rel="stylesheet" type="text/css"/>
+        <link href="Content/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="Scripts/Retroceso.js" type="text/javascript"></script>
     </head>
     <body>
         <h1>Hello World!</h1>

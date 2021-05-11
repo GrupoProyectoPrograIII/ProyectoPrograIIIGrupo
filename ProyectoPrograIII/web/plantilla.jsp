@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.jsp">Inicio</a>
+                        <a class="navbar-brand" href="plantilla.jsp">Inicio</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
@@ -125,8 +125,12 @@
                                     <li id="Li2" class="dropdown" >
                                     </li> 
                                 </ul>
-                            </li>                            
+                            </li>
+
                             <li></li> 
+                        </ul>
+                        <ul class="navbar-brand navbar-nav navbar-right">
+                            <li><a href="index.jsp"> Salir</a></li>
                         </ul>
                     </div>
                 </div>
