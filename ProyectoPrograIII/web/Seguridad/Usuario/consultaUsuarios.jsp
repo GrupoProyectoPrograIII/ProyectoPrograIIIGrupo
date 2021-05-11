@@ -254,7 +254,7 @@
                         .appendChild(form);
             }
 
-            function extraerDatos() {
+          /*  function extraerDatos() {
 
                 var oTable = document.getElementById('myTable');
                 //gets rows of table
@@ -273,7 +273,7 @@
                         console.log(cellVal);
                     }
                 }
-            }
+            }*/
         </script>
     </head>
     <body>
