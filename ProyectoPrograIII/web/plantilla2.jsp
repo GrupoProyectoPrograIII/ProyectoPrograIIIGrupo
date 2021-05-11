@@ -17,7 +17,23 @@
         <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
         <script src="Scripts/Retroceso.js" type="text/javascript"></script>
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    <body onload="nobackbutton();">
+        <form>
+            <nav class="navbar navbar-default" role="navigation" >
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>                    
+                    </div>
+
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="plantilla2.jsp">Inicio</a>
+                    </div>
+                </div>
+            </nav>
+        </form>
     </body>
 </html>
