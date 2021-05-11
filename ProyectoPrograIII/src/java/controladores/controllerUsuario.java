@@ -75,13 +75,13 @@ public class controllerUsuario extends HttpServlet {
 
                 break;
             case "editar":
-                usuario = request.getParameter("user");
-                nombre = request.getParameter("name");
-                apellido = request.getParameter("apellido");
-                password = request.getParameter("password");
-                rol = request.getParameter("rol");
-                activo = request.getParameter("activo");
-                codigo = request.getParameter("codigo");
+                usuario = request.getParameter("Euser");
+                nombre = request.getParameter("Ename");
+                apellido = request.getParameter("Eapellido");
+                password = request.getParameter("Epassword");
+                rol = request.getParameter("Erol");
+                activo = request.getParameter("Eactivo");
+                codigo = request.getParameter("Ecodigo");
                 System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
 
                 lstUsuario = daoUsuario.listar();
