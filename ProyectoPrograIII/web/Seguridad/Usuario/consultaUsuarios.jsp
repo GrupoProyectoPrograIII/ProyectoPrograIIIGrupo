@@ -44,10 +44,18 @@
                 password.setAttribute("name", "Apassword");
                 password.setAttribute("placeholder", "Password");
                 // Create an input element for Rol
-                var role = document.createElement("input");
-                role.setAttribute("type", "text");
-                role.setAttribute("name", "Arol");
+                var role = document.createElement("select");
+                role.setAttribute("name", "role");
                 role.setAttribute("placeholder", "Rol");
+            <%
+                List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
+                for (Rol rol : lstRol) {
+            %>
+                var option = document.createElement("option");
+                option.setAttribute("value", "<%=rol.getIdRol()%>");
+                option.innerHTML = "<%=rol.getDescripcion()%>"
+                role.appendChild(option);
+            <%}%>
                 // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
@@ -205,40 +213,43 @@
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Dnombre");
+                name.setAttribute("disabled","disabled");
                 name.setAttribute("Value", datos[1]);
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
                 apellido.setAttribute("name", "DApellido");
                 apellido.setAttribute("type", "text");
+                apellido.setAttribute("disabled","disabled");
                 apellido.setAttribute("Value", datos[2]);
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
                 users.setAttribute("name", "Duser");
+                users.setAttribute("disabled","disabled");
                 users.setAttribute("Value", datos[3]);
                 // Create an input element for Password
                 var password = document.createElement("input");
                 password.setAttribute("type", "password");
                 password.setAttribute("name", "Dpassword");
+                password.setAttribute("disabled","disabled");
                 password.setAttribute("Value", datos[4]);
-             
                 // Create an input element for Rol
                 var role = document.createElement("input");
                 role.setAttribute("name", "Drole");
+                role.setAttribute("disabled","disabled");
                 role.setAttribute("placeholder", datos[5]);
                 // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
+                active.setAttribute("disabled","disabled");
                 active.setAttribute("Value", datos[7]);
                 // Create an input element for Codigo
                 var codigo = document.createElement("input");
                 codigo.setAttribute("type", "text");
+                codigo.setAttribute("disabled","disabled");
                 codigo.setAttribute("name", "Dcodigo");
                 codigo.setAttribute("Value", datos[11]);
-
-
-
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -254,33 +265,14 @@
                         .appendChild(form);
             }
 
-          /*  function extraerDatos() {
-
-                var oTable = document.getElementById('myTable');
-                //gets rows of table
-                var rowLength = oTable.rows.length;
-                //loops through rows    
-                for (i = 1; i < rowLength; i++) {
-                    //gets cells of current row  
-                    var oCells = oTable.rows.item(i).cells;
-                    //gets amount of cells of current row
-                    var cellLength = oCells.length;
-                    //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        // get your cell info here
-                        var cellVal = oCells.item(j).innerHTML;
-
-                        console.log(cellVal);
-                    }
-                }
-            }*/
+            
         </script>
     </head>
     <body>
         <div class="container"> 
             <h1>Usuarios</h1>
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Usuario</button>
-            <table border="1" width="1" cellspacing="1" class="table-bordered" id="myTable">
+            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Usuario</th>

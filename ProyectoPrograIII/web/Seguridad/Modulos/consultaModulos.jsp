@@ -7,6 +7,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modulos</title>
+        <%
+            List<Modulo> lstModulo = null;
+        %>
         <script>
 
             function agregarFila() {
@@ -277,7 +280,7 @@
         <div class="container"> 
             <h1>Modulos</h1>           
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Modulo</button>
-            <table border="1" width="1" cellspacing="1" class="table table-bordered">
+            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Modulo</th>
@@ -314,9 +317,9 @@
                         <td class="text-center"><%=modulo.getUserMod()%></td>
                         <td class="text-center"><%=modulo.getIsActivo()%></td>
 
-                        <td class="text-center">                                          
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila()">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila()">Eliminar</button>
+                        <td class="text-center">                                
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=modulo.getIdModulo() %>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=modulo.getIdModulo()%>)">Eliminar</button>
                         </td>
                     </tr>
                     <%}%>

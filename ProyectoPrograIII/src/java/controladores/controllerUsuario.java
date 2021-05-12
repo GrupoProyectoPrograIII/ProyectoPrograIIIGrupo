@@ -58,50 +58,45 @@ public class controllerUsuario extends HttpServlet {
                 acceso = listar;
                 break;
             case "agregar":
-
-                usuario = request.getParameter("user");
-                nombre = request.getParameter("name");
-                apellido = request.getParameter("apellido");
-                password = request.getParameter("password");
-                rol = request.getParameter("rol");
-                activo = request.getParameter("activo");
-                codigo = request.getParameter("codigo");
+                usuario = request.getParameter("Auser");
+                nombre = request.getParameter("Aname");
+                apellido = request.getParameter("Aapellido");
+                password = request.getParameter("Apassword");
+                rol = request.getParameter("Arol");
+                activo = request.getParameter("Aactivo");
+                codigo = request.getParameter("Acodigo");
                 System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
 
+                lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-
                 acceso = listar;
 
                 break;
             case "editar":
-                usuario = request.getParameter("Euser");
-                nombre = request.getParameter("Ename");
-                apellido = request.getParameter("Eapellido");
-                password = request.getParameter("Epassword");
-                rol = request.getParameter("Erol");
-                activo = request.getParameter("Eactivo");
-                codigo = request.getParameter("Ecodigo");
+                usuario = request.getParameter("Auser");
+                nombre = request.getParameter("Aname");
+                apellido = request.getParameter("Aapellido");
+                password = request.getParameter("Apassword");
+                rol = request.getParameter("Arol");
+                activo = request.getParameter("Aactivo");
+                codigo = request.getParameter("Acodigo");
                 System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
 
+                lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-
                 acceso = listar;
                 break;
             case "eliminar":
-                usuario = request.getParameter("user");
-                nombre = request.getParameter("name");
-                apellido = request.getParameter("apellido");
-                password = request.getParameter("password");
-                rol = request.getParameter("rol");
-                activo = request.getParameter("activo");
-                codigo = request.getParameter("codigo");
-                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
-
+                request.getParameter("DuserId");
+                //Delete comand dao.eliminar
+                lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-
                 acceso = listar;
                 break;
         }
