@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<meta http-equiv="Expires" content="0" />
-<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv='cache-control' content='no-cache'>
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-store">
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +15,6 @@
         
     </head>
     <body onload="nobackbutton();">
-
         <nav class="navbar navbar-default" role="navigation" >
             <div class="container">
                 <div class="navbar-header">
@@ -144,7 +145,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.jsp" id="A1  ">Salir</a></li>
+                        <li><a href="index.jsp?cerrar=true">Salir</a></li>
                     </ul>
                 </div>
             </div>

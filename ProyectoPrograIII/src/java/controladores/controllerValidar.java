@@ -56,7 +56,11 @@ public class controllerValidar extends HttpServlet {
             em = edao.validar(user, pass);
             if(em.getUsername()!=null){
                 request.setAttribute("usuario", em);
-                request.getRequestDispatcher("NewControlador?menu=Principal").forward(request, response);
+                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+            }
+            else if(em.getUsername() == null){
+                request.setAttribute("success", 0);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             /*
             if(em.getUsername().equals("gere")){
