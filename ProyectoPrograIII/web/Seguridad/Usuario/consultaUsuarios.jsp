@@ -14,8 +14,8 @@
 
             function agregarFila() {
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
-                form.setAttribute("method", "get");
+                form.setAttribute("class", "container");
+                form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
 
 
@@ -53,7 +53,7 @@
             %>
                 var option = document.createElement("option");
                 option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = "<%=rol.getDescripcion()%>"
+                option.innerHTML = ("<%=rol.getDescripcion()%>");
                 role.appendChild(option);
             <%}%>
                 // Create an input element for Activo
@@ -109,8 +109,8 @@
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
-                form.setAttribute("method", "get");
+                form.setAttribute("class", "container");
+                form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
 
                 var newlabel = document.createElement("h1");
@@ -201,8 +201,8 @@
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
-                form.setAttribute("method", "get");
+                form.setAttribute("class", "container");
+                form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
 
                 var newlabel = document.createElement("h1");
@@ -281,12 +281,12 @@
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Password</th>
                         <th class="text-center">Rol</th>
-                        <th class="text-center">Fecha Creacion</th>
+                        <%--<th class="text-center">Fecha Creacion</th>--%>
                         <th class="text-center">Activo</th>
-                        <th class="text-center">Fecha Modificacion</th>
+                        <%--<th class="text-center">Fecha Modificacion</th>
                         <th class="text-center">Usuario Creacion</th>
                         <th class="text-center">Usuario Modificacion</th>
-                        <th class="text-center">Codigo</th>
+                        <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -302,12 +302,12 @@
                         <td class="text-center"><%=user.getUser()%></td>
                         <td class="text-center"><%=user.getPass()%></td>
                         <td class="text-center"><%=user.getIdRol()%></td>
-                        <td class="text-center"><%=user.getFechaCrear()%></td>
+                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
                         <td class="text-center"><%=user.getIsActivo()%></td>
-                        <td class="text-center"><%=user.getFechaMod()%></td>
+                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
                         <td class="text-center"><%=user.getUserCrear()%></td>
                         <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>
+                        <td class="text-center"><%=user.getCodigo()%></td>--%>
 
                         <td class="text-center">                                
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=user.getIdUser()%>)">Editar</button>

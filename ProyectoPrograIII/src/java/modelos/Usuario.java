@@ -9,11 +9,25 @@ public class Usuario {
     private String pass;
     private String rol;
     private int isActivo;
-    private String fechaCrear;
-    private String fechaMod;
-    private String userCrear; //aparece en BD como int
-    private String userMod;   //aparece en BD como int
-    private String codigo;
+//    private String fechaCrear;
+//    private String fechaMod;
+//    private String userCrear; //aparece en BD como int
+//    private String userMod;   //aparece en BD como int
+//    private String codigo;
+
+    public Usuario() {
+    }
+
+    public Usuario(int idUser, int idRol, String nombre, String apellido, String user, String pass, String rol, int isActivo) {
+        this.idUser = idUser;
+        this.idRol = idRol;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.user = user;
+        this.pass = pass;
+        this.rol = rol;
+        this.isActivo = isActivo;
+    }
 
     public int getIdUser() {
         return idUser;
@@ -77,46 +91,5 @@ public class Usuario {
 
     public void setIsActivo(int isActivo) {
         this.isActivo = isActivo;
-    }
-
-    public String getFechaCrear() {
-        return fechaCrear;
-    }
-
-    public void setFechaCrear(String fechaCrear) {
-        this.fechaCrear = fechaCrear;
-    }
-
-    public String getFechaMod() {
-        return fechaMod;
-    }
-
-    public void setFechaMod(String fechaMod) {
-        this.fechaMod = fechaMod;
-    }
-
-    public String getUserCrear() {
-        return userCrear;
-    }
-
-    public void setUserCrear(String userCrear) {
-        this.userCrear = userCrear;
-    }
-
-    public String getUserMod() {
-        return userMod;
-    }
-
-    public void setUserMod(String userMod) {
-        this.userMod = userMod;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-    
+    }    
 }

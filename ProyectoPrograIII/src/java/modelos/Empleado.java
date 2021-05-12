@@ -12,22 +12,22 @@ package modelos;
 public class Empleado {
     int idEmpleado;
     int idRol;
-    String dpi;
+    //String dpi;
     String nombre;
     String username;
-    String telefono;
-    String estado;
+    //String telefono;
+    String clave;
+    int estado;
 
     public Empleado() {
     }
 
-    public Empleado(int idEmpleado, int idRol, String dpi, String nombre, String username, String telefono, String estado) {
+    public Empleado(int idEmpleado, int idRol, String nombre, String username, String clave, int estado) {
         this.idEmpleado = idEmpleado;
         this.idRol = idRol;
-        this.dpi = dpi;
         this.nombre = nombre;
         this.username = username;
-        this.telefono = telefono;
+        this.clave = clave;
         this.estado = estado;
     }
 
@@ -47,14 +47,6 @@ public class Empleado {
         this.idRol = idRol;
     }
 
-    public String getDpi() {
-        return dpi;
-    }
-
-    public void setDpi(String dpi) {
-        this.dpi = dpi;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -71,20 +63,22 @@ public class Empleado {
         this.username = username;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getClave() {
+        return clave;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
+
+    
     
 }

@@ -23,7 +23,7 @@ public class conexion {
     
     //AQUI debe ir el nombre de su servidor SQL***
     String stringConnectionUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;"
-            + "databaseName=PROYECTOGRUPOA;";
+            + "databaseName=DB_PROYECTO_1;";
     //Driver o controlador JDBC
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //

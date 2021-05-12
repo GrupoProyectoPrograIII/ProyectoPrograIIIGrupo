@@ -51,11 +51,11 @@ public class daoUsuario implements crudUsuario{
                 user.setPass(rs.getString("PASSW"));
                 //user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
-                user.setFechaCrear(rs.getString("FECHA_CREA"));
-                user.setFechaMod(rs.getString("FECHA_MOD"));
-                user.setUserCrear(rs.getString("USUARIO_CREA"));
-                user.setUserMod(rs.getString("USUARIO_MOD"));
-                user.setCodigo(rs.getString("CODIGO"));
+//                user.setFechaCrear(rs.getString("FECHA_CREA"));
+//                user.setFechaMod(rs.getString("FECHA_MOD"));
+//                user.setUserCrear(rs.getString("USUARIO_CREA"));
+//                user.setUserMod(rs.getString("USUARIO_MOD"));
+//                user.setCodigo(rs.getString("CODIGO"));
                 lstUsuario.add(user);
             }
             rs.close();
@@ -83,11 +83,11 @@ public class daoUsuario implements crudUsuario{
                 user.setPass(rs.getString("PASSW"));
                 user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
-                user.setFechaCrear(rs.getString("FECHA_CREA"));
-                user.setFechaMod(rs.getString("FECHA_MOD"));
-                user.setUserCrear(rs.getString("USUARIO_CREA"));
-                user.setUserMod(rs.getString("USUARIO_MOD"));
-                user.setCodigo(rs.getString("CODIGO"));
+//                user.setFechaCrear(rs.getString("FECHA_CREA"));
+//                user.setFechaMod(rs.getString("FECHA_MOD"));
+//                user.setUserCrear(rs.getString("USUARIO_CREA"));
+//                user.setUserMod(rs.getString("USUARIO_MOD"));
+//                user.setCodigo(rs.getString("CODIGO"));
             }
             rs.close();
             con.close();

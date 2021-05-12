@@ -21,7 +21,7 @@ public class daoEmpleado {
     
     public Empleado validar(String user, String pass){
         Empleado em = new Empleado();
-        String sql = "SELECT * FROM EMPLEADO WHERE USERNAME=? AND DPI=?";
+        String sql = "SELECT * FROM EMPLEADO WHERE USERNAME=? AND CLAVE=?";
         try {
             con = cnn.Conexion();
             ps = con.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class daoEmpleado {
             while(rs.next()){
                 em.setIdEmpleado(rs.getInt("ID_EMPLEADO"));
                 em.setUsername(rs.getString("USERNAME"));
-                em.setDpi(rs.getString("DPI"));
+                em.setClave(rs.getString("CLAVE"));
                 em.setNombre(rs.getString("NOMBRE"));
             }
             con.close();
