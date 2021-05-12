@@ -51,4 +51,9 @@
             alert("Usuario o Contraseña incorrecto");
         </script>
     </c:if>
+    <c:if test="${success == 1}">
+        <script type="text/javascript">
+            alert("Ingrese un usuario y/o contraseña");
+        </script>
+    </c:if>
 </html>

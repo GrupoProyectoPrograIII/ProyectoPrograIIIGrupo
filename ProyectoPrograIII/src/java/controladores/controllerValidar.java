@@ -1,4 +1,3 @@
-
 package controladores;
 
 import dao.daoEmpleado;
@@ -13,10 +12,10 @@ import modelos.Empleado;
 import modelos.Usuario;
 
 public class controllerValidar extends HttpServlet {
-    
+
     daoEmpleado edao = new daoEmpleado();
     Empleado em = new Empleado();
-    
+
     daoUsuario duser = new daoUsuario();
     Usuario usr = new Usuario();
 
@@ -28,7 +27,7 @@ public class controllerValidar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controllerValidar</title>");            
+            out.println("<title>Servlet controllerValidar</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controllerValidar at " + request.getContextPath() + "</h1>");
@@ -37,40 +36,40 @@ public class controllerValidar extends HttpServlet {
         }
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion=request.getParameter("accionL");
-        if(accion.equalsIgnoreCase("ingresar")){
+        String accion = request.getParameter("accionL");
+        if (accion.equalsIgnoreCase("ingresar")) {
             String user = request.getParameter("txtuser");
             String pass = request.getParameter("txtpass");
-            //usr = duser.validar(user, pass);
-            em = edao.validar(user, pass);
-            if(em.getUsername()!=null){
-                request.setAttribute("usuario", em);
-                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
-            }
-            else if(em.getUsername() == null){
-                request.setAttribute("success", 0);
+            if ("".equals(user) || "".equals(pass)) {
+                request.setAttribute("success", 1);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-            /*
+            } else {
+                //usr = duser.validar(user, pass);
+                em = edao.validar(user, pass);
+                if (em.getUsername() != null) {
+                    request.setAttribute("usuario", em);
+                    request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+                } else if (em.getUsername() == null) {
+                    request.setAttribute("success", 0);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                } /*
             if(em.getUsername().equals("gere")){
                 request.getRequestDispatcher("plantilla2.jsp").forward(request, response);
-            }*/
-            else{
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }*/ else {
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
             }
-        }
-        else{
+
+        } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
