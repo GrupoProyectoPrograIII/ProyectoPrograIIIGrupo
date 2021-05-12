@@ -214,41 +214,41 @@
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Dnombre");
-                name.setAttribute("disabled","disabled");
+                name.setAttribute("disabled", "disabled");
                 name.setAttribute("Value", datos[1]);
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
                 apellido.setAttribute("name", "DApellido");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("disabled","disabled");
+                apellido.setAttribute("disabled", "disabled");
                 apellido.setAttribute("Value", datos[2]);
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
                 users.setAttribute("name", "Duser");
-                users.setAttribute("disabled","disabled");
+                users.setAttribute("disabled", "disabled");
                 users.setAttribute("Value", datos[3]);
                 // Create an input element for Password
                 var password = document.createElement("input");
                 password.setAttribute("type", "password");
                 password.setAttribute("name", "Dpassword");
-                password.setAttribute("disabled","disabled");
+                password.setAttribute("disabled", "disabled");
                 password.setAttribute("Value", datos[4]);
                 // Create an input element for Rol
                 var role = document.createElement("input");
                 role.setAttribute("name", "Drole");
-                role.setAttribute("disabled","disabled");
+                role.setAttribute("disabled", "disabled");
                 role.setAttribute("placeholder", datos[5]);
                 // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
-                active.setAttribute("disabled","disabled");
+                active.setAttribute("disabled", "disabled");
                 active.setAttribute("Value", datos[7]);
                 // Create an input element for Codigo
                 var codigo = document.createElement("input");
                 codigo.setAttribute("type", "text");
-                codigo.setAttribute("disabled","disabled");
+                codigo.setAttribute("disabled", "disabled");
                 codigo.setAttribute("name", "Dcodigo");
                 codigo.setAttribute("Value", datos[11]);
                 // Create a submit button
@@ -266,14 +266,13 @@
                         .appendChild(form);
             }
 
-            
+
         </script>
     </head>
     <body>
         <div class="container"> 
             <h1>Usuarios</h1>
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Usuario</button>
-            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
+            <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Usuario</th>
@@ -282,12 +281,12 @@
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Password</th>
                         <th class="text-center">Rol</th>
-                        <%--<th class="text-center">Fecha Creacion</th>--%>
+                            <%--<th class="text-center">Fecha Creacion</th>--%>
                         <th class="text-center">Activo</th>
-                        <%--<th class="text-center">Fecha Modificacion</th>
-                        <th class="text-center">Usuario Creacion</th>
-                        <th class="text-center">Usuario Modificacion</th>
-                        <th class="text-center">Codigo</th>--%>
+                            <%--<th class="text-center">Fecha Modificacion</th>
+                            <th class="text-center">Usuario Creacion</th>
+                            <th class="text-center">Usuario Modificacion</th>
+                            <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -302,15 +301,20 @@
                         <td class="text-center"><%=user.getApellido()%></td>
                         <td class="text-center"><%=user.getUser()%></td>
                         <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getIdRol()%></td>
+                        <td class="text-center"><%=user.getRol()%></td>
                         <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <td class="text-center"><%=user.getIsActivo()%></td>
+                        <% if(user.getIsActivo()==1){ %>
+                            <td class="text-center">Activo</td>
+                            <%}else{%>
+                            <td class="text-center">Inactivo</td>
+                            <%}%>
                         <%--<td class="text-center"><%=user.getFechaMod()%></td>
                         <td class="text-center"><%=user.getUserCrear()%></td>
                         <td class="text-center"><%=user.getUserMod()%></td>
                         <td class="text-center"><%=user.getCodigo()%></td>--%>
 
-                        <td class="text-center">                                
+                        <td class="text-center">   
+                            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>                             
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=user.getIdUser()%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=user.getIdUser()%>)">Eliminar</button>
                         </td>

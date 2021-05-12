@@ -20,15 +20,15 @@ public class daoPermiso implements crudPermiso {
     public List listar() {
         ArrayList<Permiso> lstPermiso = new ArrayList<>();
         try {
-            sql = "SELECT * FROM PERMISO";
+            sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.PERMISO.ID_MODULO,dbo.MODULO.DESCRIPCION as 'MODULO', dbo.PERMISO.ID_ROL,dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 permiso.setIdPermiso(rs.getInt("ID_PERMISO"));
                 permiso.setIdModulo(rs.getInt("ID_MODULO"));
                 permiso.setIdRol(rs.getInt("ID_ROL"));
-                //permiso.setModulo(rs.getString("MODULO"));
-                //permiso.setRol(rs.getString("ROL"));
+                permiso.setModulo(rs.getString("MODULO"));
+                permiso.setRol(rs.getString("ROL"));
 //                permiso.setFechaCrear(rs.getString("FECHA_CREA"));
 //                permiso.setFechaMod(rs.getString("FECHA_MOD"));
 //                permiso.setUserCrear(rs.getString("USUARIO_CREA"));
@@ -48,7 +48,7 @@ public class daoPermiso implements crudPermiso {
     
     @Override
     public Permiso list(int id) {
-         sql = "SELECT * FROM PERMISO WHERE ID_PERMISO="+ id;
+         sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.MODULO.DESCRIPCION as 'MODULO', dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL WHERE ID_PERMISO="+ id;
         try {
             con.open();
             rs = con.executeQuery(sql);

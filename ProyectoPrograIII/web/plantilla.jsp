@@ -142,11 +142,9 @@
 
                             </ul>
                         </li>
-
-
                     </ul>
-                    <ul class="navbar-brand navbar-nav navbar-right">
-                        <li><a href="index.jsp"> Salir</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.jsp" id="A1  ">Salir</a></li>
                     </ul>
                 </div>
             </div>

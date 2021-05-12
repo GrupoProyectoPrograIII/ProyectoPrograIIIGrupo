@@ -23,7 +23,8 @@ public class controllerUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
+        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); al quitar el comentario, si el usuario pone el link, lo va a sacar y devolver al login, ya que no esta autorizado
+        
         daoUsuario daoUsuario = new daoUsuario();
         List<Usuario> lstUsuario = null;
         daoRol daoRol = new daoRol();
@@ -32,6 +33,7 @@ public class controllerUsuario extends HttpServlet {
         lstUsuario = daoUsuario.listar();
         request.setAttribute("rol", lstRol);
         request.setAttribute("user", lstUsuario);
+        
         RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
         vista.forward(request, response);
     }

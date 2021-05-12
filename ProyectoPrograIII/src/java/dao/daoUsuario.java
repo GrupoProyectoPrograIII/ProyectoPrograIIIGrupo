@@ -39,7 +39,7 @@ public class daoUsuario implements crudUsuario{
     public List listar() {
         ArrayList<Usuario> lstUsuario = new ArrayList<>();
         try {
-            sql = "SELECT * FROM USUARIO";
+            sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE, dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO,dbo.USUARIO.PASSW,dbo.USUARIO.ID_ROL,dbo.ROL.NOMBRE as 'ROL',dbo.USUARIO.ACTIVO from dbo.USUARIO join dbo.ROL on dbo.USUARIO.ID_ROL=dbo.ROL.ID_ROL";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
@@ -49,7 +49,7 @@ public class daoUsuario implements crudUsuario{
                 user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
-                //user.setRol(rs.getString("ROL"));
+                user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
 //                user.setFechaCrear(rs.getString("FECHA_CREA"));
 //                user.setFechaMod(rs.getString("FECHA_MOD"));

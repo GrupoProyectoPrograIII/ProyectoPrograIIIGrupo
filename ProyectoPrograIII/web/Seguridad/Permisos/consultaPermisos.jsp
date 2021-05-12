@@ -273,10 +273,8 @@
         </script>
     </head>
     <body>
-        <div class="container">            
-                       
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Permiso</button>
-            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
+        <div class="container">    
+            <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Permiso</th>
@@ -293,11 +291,14 @@
                         %>
                     <tr>
                             <td class="text-center"><%=permiso.getIdPermiso()%></td>
-                            <td class="text-center"><%=permiso.getIdModulo()%></td>
-                            <td class="text-center"><%=permiso.getIdRol()%></td>
-                            <td class="text-center"><%=permiso.getIsActivo()%></td>
-                        
-                        <td class="text-center">                                
+                            <td class="text-center"><%=permiso.getModulo()%></td>
+                            <td class="text-center"><%=permiso.getRol()%></td>
+                            <% if(permiso.getIsActivo()==1){ %>
+                            <td class="text-center">Activo</td>
+                            <%}else{%>
+                            <td class="text-center">Inactivo</td>
+                            <%}%>
+                        <td class="text-center">    <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=permiso.getIdPermiso() %>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=permiso.getIdPermiso()%>)">Eliminar</button>
                         </td>

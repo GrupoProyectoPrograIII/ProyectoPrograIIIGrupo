@@ -280,7 +280,7 @@
     <body>
         <div class="container"> 
             <h1>Modulos</h1>           
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Modulo</button>
+            
             <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
@@ -308,9 +308,14 @@
                         <td class="text-center"><%=modulo.getNivel()%></td>
                         <td class="text-center"><%=modulo.getOrden()%></td>
                         <td class="text-center"><%=modulo.getIdModuloPadre()%></td>
-                        <td class="text-center"><%=modulo.getIsActivo()%></td>
+                        <% if(modulo.getIsActivo()==1){ %>
+                            <td class="text-center">Activo</td>
+                            <%}else{%>
+                            <td class="text-center">Inactivo</td>
+                            <%}%>
 
-                        <td class="text-center">                                
+                        <td class="text-center">        
+                            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=modulo.getIdModulo() %>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=modulo.getIdModulo()%>)">Eliminar</button>
                         </td>
