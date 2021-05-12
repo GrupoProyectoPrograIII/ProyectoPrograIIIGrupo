@@ -19,28 +19,21 @@ public class controllerUsuario extends HttpServlet {
 
     String listar = "Seguridad/Usuario/consultaUsuarios.jsp";
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet controllerUsuario</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet controllerUsuario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
+        daoUsuario daoUsuario = new daoUsuario();
+        List<Usuario> lstUsuario = null;
+        daoRol daoRol = new daoRol();
+        List<Rol> lstRol = null;
+        lstRol = daoRol.listar();
+        lstUsuario = daoUsuario.listar();
+        request.setAttribute("rol", lstRol);
+        request.setAttribute("user", lstUsuario);
+        RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
+        vista.forward(request, response);
     }
 
     @Override

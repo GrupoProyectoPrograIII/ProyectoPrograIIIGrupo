@@ -34,6 +34,15 @@ public class controllerModulo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
+        vista.forward(request, response);
+        
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String acceso = "";
         String action = request.getParameter("accion");
 
@@ -58,20 +67,16 @@ public class controllerModulo extends HttpServlet {
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        
         //processRequest(request, response);
-        String accion = request.getParameter("accionL");
+        /*String accion = request.getParameter("accionL");
         switch (accion) {
             case "Principal":
                 request.getRequestDispatcher("../plantilla.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();
-        }
+        }*/
     }
 
     @Override

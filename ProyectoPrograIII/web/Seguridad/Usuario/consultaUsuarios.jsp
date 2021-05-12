@@ -202,6 +202,7 @@
 
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
+                form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
 

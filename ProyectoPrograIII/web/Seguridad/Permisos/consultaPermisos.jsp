@@ -274,16 +274,14 @@
     </head>
     <body>
         <div class="container">            
-            <table border="1" width="1" cellspacing="1" class="table table-bordered">
+                       
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Permiso</button>
+            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Permiso</th>
                         <th class="text-center">Modulo</th>
                         <th class="text-center">Rol</th>
-                        <th class="text-center">Fecha Creacion</th>
-                        <th class="text-center">Fecha Modificacion</th>
-                        <th class="text-center">Usuario Creacion</th>
-                        <th class="text-center">Usuario Modificacion</th>
                         <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -297,17 +295,14 @@
                             <td class="text-center"><%=permiso.getIdPermiso()%></td>
                             <td class="text-center"><%=permiso.getIdModulo()%></td>
                             <td class="text-center"><%=permiso.getIdRol()%></td>
-                            <td class="text-center"><%=permiso.getFechaCrear()%></td>
-                            <td class="text-center"><%=permiso.getFechaMod()%></td>
-                            <td class="text-center"><%=permiso.getUserCrear()%></td>
-                            <td class="text-center"><%=permiso.getUserMod()%></td>
                             <td class="text-center"><%=permiso.getIsActivo()%></td>
-                        <%}%>
+                        
                         <td class="text-center">                                
-                            <a class="btn btn-warning" href="ControllerClientes?accion=editar&id">Editar</a>
-                            <a class="btn btn-danger" href="ControllerClientes?accion=delete&id=">Eliminar</a>
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=permiso.getIdPermiso() %>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=permiso.getIdPermiso()%>)">Eliminar</button>
                         </td>
                     </tr>
+                    <%}%>
                 </tbody>
             </table>
         </div>

@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
         <title>Modulos</title>
         <%
             List<Modulo> lstModulo = null;
@@ -16,7 +16,7 @@
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container")
-                form.setAttribute("method", "get");
+                form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
 
 
@@ -291,10 +291,6 @@
                         <th class="text-center">Nivel</th>
                         <th class="text-center">Orden</th>
                         <th class="text-center">Modulo Padre</th>
-                        <th class="text-center">Fecha Creacion</th>
-                        <th class="text-center">Fecha Modificacion</th>
-                        <th class="text-center">Usuario Creacion</th>
-                        <th class="text-center">Usuario Modificacion</th>
                         <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -312,10 +308,6 @@
                         <td class="text-center"><%=modulo.getNivel()%></td>
                         <td class="text-center"><%=modulo.getOrden()%></td>
                         <td class="text-center"><%=modulo.getIdModuloPadre()%></td>
-                        <td class="text-center"><%=modulo.getFechaCrear()%></td>
-                        <td class="text-center"><%=modulo.getFechaMod()%></td>
-                        <td class="text-center"><%=modulo.getUserCrear()%></td>
-                        <td class="text-center"><%=modulo.getUserMod()%></td>
                         <td class="text-center"><%=modulo.getIsActivo()%></td>
 
                         <td class="text-center">                                
