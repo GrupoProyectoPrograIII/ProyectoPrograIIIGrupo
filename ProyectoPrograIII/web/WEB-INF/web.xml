@@ -4,9 +4,17 @@
         <servlet-name>controllerValidar</servlet-name>
         <servlet-class>controladores.controllerValidar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewControlador</servlet-name>
+        <servlet-class>controladores.NewControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerValidar</servlet-name>
         <url-pattern>/controllerValidar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewControlador</servlet-name>
+        <url-pattern>/NewControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

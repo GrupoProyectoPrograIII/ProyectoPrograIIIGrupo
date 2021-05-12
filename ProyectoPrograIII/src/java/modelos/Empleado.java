@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelos;
 
-/**
- *
- * @author family.user
- */
+
 public class Empleado {
     int idEmpleado;
-    int idRol;
-    //String dpi;
+    int idRol;    
     String nombre;
-    String username;
-    //String telefono;
+    String username;    
     String clave;
     int estado;
 

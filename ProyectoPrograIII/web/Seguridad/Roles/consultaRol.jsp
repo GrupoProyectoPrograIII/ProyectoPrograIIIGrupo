@@ -5,9 +5,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Roles</title>
         <script>
-
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container")
@@ -271,21 +270,24 @@
                 }
             }*/
         </script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     </head>
     <body>
         <div class="container"> 
             <h1>Roles</h1>           
-            <table border="1" width="1" cellspacing="1" class="table table-bordered">
+            <table border="1" width="1" cellspacing="1" class="table table-hover">
                     <thead>
                         <tr>
                             <th class="text-center">Id Rol</th>
                             <th class="text-center">Nombre</th>
                             <th class="text-center">Descripcion</th>
                             <th class="text-center">Activo</th>
+                            <%--
                             <th class="text-center">Usuario Creacion</th>
                             <th class="text-center">Usuario Modificacion</th>
                             <th class="text-center">Fecha Creacion</th>
                             <th class="text-center">Fecha Modificacion</th>
+                            --%>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
@@ -299,10 +301,11 @@
                             <td class="text-center"><%=rol.getNombre()%></td>
                             <td class="text-center"><%=rol.getDescripcion()%></td>
                             <td class="text-center"><%=rol.getIsActivo()%></td>
-                            <td class="text-center"><%=rol.getUserCrear()%></td>
+                            <%--<td class="text-center"><%=rol.getUserCrear()%></td>
                             <td class="text-center"><%=rol.getUserMod()%></td>
                             <td class="text-center"><%=rol.getFechaCrear()%></td>
                             <td class="text-center"><%=rol.getFechaMod()%></td>
+                            --%>
                             <%}%>
                             <td class="text-center">                                
                                 <a class="btn btn-warning" href="ControllerClientes?accion=editar&id=">Editar</a>
@@ -312,5 +315,6 @@
                     </tbody>
                 </table>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </body>
 </html>

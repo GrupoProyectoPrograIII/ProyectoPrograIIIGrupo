@@ -2,7 +2,7 @@ package dao;
 
 import configuracion.conexion;
 import interfaces.crudRol;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,12 +14,15 @@ public class daoRol implements crudRol {
     Rol rol = new Rol();
     String sql = "";
     conexion con = new conexion();
+    Connection cnn;
+    PreparedStatement ps;
     ResultSet rs = null;
     boolean resp = false;
+    int r;
 
     @Override
     public List listar() {
-        ArrayList<Rol> lstRol = new ArrayList<>();
+        List<Rol> lstRol = new ArrayList<>();
         try {
             sql = "SELECT * FROM ROL";
             con.open();
@@ -71,10 +74,17 @@ public class daoRol implements crudRol {
 
     @Override
     public boolean insertar(Rol rol) {
-        sql = "INSERT INTO CLIENTE (ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) VALUES((SELECT ISNULL(MAX(ID_CLIENTE),0) + 1 FROM CLIENTE)";
+        sql = "INSERT INTO ROL (ID_ROL, NOMBRE, DESCRIPCION, ACTIVO) "
+                +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),?,?,?)";
         try {
-            con.open();            
-            resp = con.executeSql(sql);            
+            cnn = con.Conexion();
+            ps = cnn.prepareStatement(sql);            
+            //ps.setInt(1, rol.getIdRol());
+            ps.setString(1, rol.getNombre());
+            ps.setString(2, rol.getDescripcion());
+            ps.setInt(3, rol.getIsActivo());
+            ps.executeUpdate();
+            ps.close();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -84,12 +94,36 @@ public class daoRol implements crudRol {
 
     @Override
     public boolean modificar(Rol rol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "UPDATE ROL SET ID_ROL=?, NOMBRE=?, DESCRIPCION=?, ACTIVO=? "
+                +"WHERE ID_ROL="+rol;
+        try {
+            cnn = con.Conexion();
+            ps = cnn.prepareStatement(sql);            
+            ps.setInt(1, rol.getIdRol());
+            ps.setString(2, rol.getNombre());
+            ps.setString(3, rol.getDescripcion());
+            ps.setInt(4, rol.getIsActivo());
+            ps.executeUpdate();
+            ps.close();
+            cnn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return resp;
     }
 
     @Override
-    public boolean eliminar(Rol rol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminar(Rol rol) {
+        sql = "DELETE FROM ROL WHERE ID_ROL="+rol;
+        try {
+            cnn = con.Conexion();
+            ps = cnn.prepareStatement(sql);
+            ps.executeUpdate();
+            ps.close();
+            cnn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     @Override

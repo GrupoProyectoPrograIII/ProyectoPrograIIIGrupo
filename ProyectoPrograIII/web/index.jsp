@@ -14,7 +14,7 @@
                         <div class="form-group text-center">
                             <h3>Login</h3>
                             <img src="img/diner-restaurant-logo.jpg" alt="70" width="170"/>
-                            <br><label>Bienvenidos al sistema</label>
+                            <br><label>Bienvenido al sistema</label>
                         </div>
                         <div class="form-group">
                             <label>Usuario: </label>

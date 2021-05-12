@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
 import configuracion.conexion;
 import java.sql.*;
 import modelos.Empleado;
 
-/**
- *
- * @author family.user
- */
+
 public class daoEmpleado {
     conexion cnn=new conexion();
     Connection con;
@@ -36,7 +29,7 @@ public class daoEmpleado {
             }
             con.close();
             rs.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.err.println(e.toString());
         }
         return em;

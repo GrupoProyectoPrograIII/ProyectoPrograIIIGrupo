@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controladores;
 
 import dao.daoEmpleado;
@@ -15,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.daoUsuario;
 import modelos.Empleado;
 import modelos.Usuario;
-/**
- *
- * @author Marvin.Alonso
- */
+
 public class controllerValidar extends HttpServlet {
     
     daoEmpleado edao = new daoEmpleado();
@@ -27,15 +20,6 @@ public class controllerValidar extends HttpServlet {
     daoUsuario duser = new daoUsuario();
     Usuario usr = new Usuario();
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -53,29 +37,14 @@ public class controllerValidar extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -85,12 +54,14 @@ public class controllerValidar extends HttpServlet {
             String pass = request.getParameter("txtpass");
             //usr = duser.validar(user, pass);
             em = edao.validar(user, pass);
-            if(em.getUsername().equals("Admin")){
-                request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+            if(em.getUsername()!=null){
+                request.setAttribute("usuario", em);
+                request.getRequestDispatcher("NewControlador?menu=Principal").forward(request, response);
             }
+            /*
             if(em.getUsername().equals("gere")){
                 request.getRequestDispatcher("plantilla2.jsp").forward(request, response);
-            }
+            }*/
             else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
