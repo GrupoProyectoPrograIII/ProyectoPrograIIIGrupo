@@ -29,10 +29,10 @@ public class daoPermiso implements crudPermiso {
                 permiso.setIdRol(rs.getInt("ID_ROL"));
                 //permiso.setModulo(rs.getString("MODULO"));
                 //permiso.setRol(rs.getString("ROL"));
-                permiso.setFechaCrear(rs.getString("FECHA_CREA"));
-                permiso.setFechaMod(rs.getString("FECHA_MOD"));
-                permiso.setUserCrear(rs.getString("USUARIO_CREA"));
-                permiso.setUserMod(rs.getString("USUARIO_MOD"));
+//                permiso.setFechaCrear(rs.getString("FECHA_CREA"));
+//                permiso.setFechaMod(rs.getString("FECHA_MOD"));
+//                permiso.setUserCrear(rs.getString("USUARIO_CREA"));
+//                permiso.setUserMod(rs.getString("USUARIO_MOD"));
                 permiso.setIsActivo(rs.getInt("ACTIVO"));
                 lstPermiso.add(permiso);
             }
@@ -58,10 +58,10 @@ public class daoPermiso implements crudPermiso {
                 permiso.setIdRol(rs.getInt("ID_ROL"));
                 permiso.setModulo(rs.getString("MODULO"));
                 //permiso.setRol(rs.getString("ROL"));
-                permiso.setFechaCrear(rs.getString("FECHA_CREA"));
-                permiso.setFechaMod(rs.getString("FECHA_MOD"));
-                permiso.setUserCrear(rs.getString("USUARIO_CREA"));
-                permiso.setUserMod(rs.getString("USUARIO_MOD"));
+//                permiso.setFechaCrear(rs.getString("FECHA_CREA"));
+//                permiso.setFechaMod(rs.getString("FECHA_MOD"));
+//                permiso.setUserCrear(rs.getString("USUARIO_CREA"));
+//                permiso.setUserMod(rs.getString("USUARIO_MOD"));
                 permiso.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
