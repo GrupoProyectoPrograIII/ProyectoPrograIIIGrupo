@@ -6,13 +6,16 @@ public class Modulo {
     private String descripcion;
     private String path;
     private int nivel;
-    private String orden;
+    private int orden;
     private int idModuloPadre;
-    private String fechaCrear;
-    private String fechaMod;
-    private String userCrear; //esto fue marcado como int en DB
-    private String userMod; //esto fue marcado como int en DB
+    //private String fechaCrear;
+    //private String fechaMod;
+    //private String userCrear; //esto fue marcado como int en DB
+    //private String userMod; //esto fue marcado como int en DB
     private int isActivo;
+
+    public Modulo() {
+    }
 
     public int getIdModulo() {
         return idModulo;
@@ -54,11 +57,11 @@ public class Modulo {
         this.nivel = nivel;
     }
 
-    public String getOrden() {
+    public int getOrden() {
         return orden;
     }
 
-    public void setOrden(String orden) {
+    public void setOrden(int orden) {
         this.orden = orden;
     }
 
@@ -70,38 +73,6 @@ public class Modulo {
         this.idModuloPadre = idModuloPadre;
     }
 
-    public String getFechaCrear() {
-        return fechaCrear;
-    }
-
-    public void setFechaCrear(String fechaCrear) {
-        this.fechaCrear = fechaCrear;
-    }
-
-    public String getFechaMod() {
-        return fechaMod;
-    }
-
-    public void setFechaMod(String fechaMod) {
-        this.fechaMod = fechaMod;
-    }
-
-    public String getUserCrear() {
-        return userCrear;
-    }
-
-    public void setUserCrear(String userCrear) {
-        this.userCrear = userCrear;
-    }
-
-    public String getUserMod() {
-        return userMod;
-    }
-
-    public void setUserMod(String userMod) {
-        this.userMod = userMod;
-    }
-
     public int getIsActivo() {
         return isActivo;
     }
@@ -109,7 +80,6 @@ public class Modulo {
     public void setIsActivo(int isActivo) {
         this.isActivo = isActivo;
     }
-    
-    
+
     
 }

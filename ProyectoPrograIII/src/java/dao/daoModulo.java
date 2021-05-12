@@ -31,12 +31,12 @@ public class daoModulo implements crudModulo {
                 modulo.setDescripcion(rs.getString("DESCRIPCION"));
                 modulo.setPath(rs.getString("PATH"));
                 modulo.setNivel(rs.getInt("NIVEL"));
-                modulo.setOrden(rs.getString("ORDEN"));
+                modulo.setOrden(rs.getInt("ORDEN"));
                 modulo.setIdModuloPadre(rs.getInt("ID_MODULO_PADRE"));
-                modulo.setFechaCrear(rs.getString("FECHA_CREA"));
-                modulo.setFechaMod(rs.getString("FECHA_MOD"));
-                modulo.setUserCrear(rs.getString("USUARIO_CREA"));
-                modulo.setUserMod(rs.getString("USUARIO_MOD"));
+               // modulo.setFechaCrear(rs.getString("FECHA_CREA"));
+               // modulo.setFechaMod(rs.getString("FECHA_MOD"));
+               // modulo.setUserCrear(rs.getString("USUARIO_CREA"));
+               // modulo.setUserMod(rs.getString("USUARIO_MOD"));
                 modulo.setIsActivo(rs.getInt("ACTIVO"));
                 lstModulo.add(modulo);
             }
@@ -62,12 +62,12 @@ public class daoModulo implements crudModulo {
                 modulo.setDescripcion(rs.getString("DESCRIPCION"));
                 modulo.setPath(rs.getString("PATH"));
                 modulo.setNivel(rs.getInt("NIVEL"));
-                modulo.setOrden(rs.getString("ORDEN"));
+                modulo.setOrden(rs.getInt("ORDEN"));
                 modulo.setIdModuloPadre(rs.getInt("ID_MODULO_PADRE"));
-                modulo.setFechaCrear(rs.getString("FECHA_CREA"));
-                modulo.setFechaMod(rs.getString("FECHA_MOD"));
-                modulo.setUserCrear(rs.getString("USUARIO_CREA"));
-                modulo.setUserMod(rs.getString("USUARIO_MOD"));
+//                modulo.setFechaCrear(rs.getString("FECHA_CREA"));
+//                modulo.setFechaMod(rs.getString("FECHA_MOD"));
+//                modulo.setUserCrear(rs.getString("USUARIO_CREA"));
+//                modulo.setUserMod(rs.getString("USUARIO_MOD"));
                 modulo.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
