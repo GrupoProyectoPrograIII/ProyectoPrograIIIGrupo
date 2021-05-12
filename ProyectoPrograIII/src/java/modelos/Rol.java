@@ -5,10 +5,10 @@ public class Rol {
     private String nombre;
     private String descripcion;
     private int isActivo;
-    private String userCrear; //aparece en BD como int
-    private String userMod; //aparece en BD como int
-    private String fechaCrear;
-    private String fechaMod;
+//    private String userCrear; //aparece en BD como int
+//    private String userMod; //aparece en BD como int
+//    private String fechaCrear;
+//    private String fechaMod;
 
     public int getIdRol() {
         return idRol;
@@ -42,36 +42,5 @@ public class Rol {
         this.isActivo = isActivo;
     }
 
-    public String getUserCrear() {
-        return userCrear;
-    }
-
-    public void setUserCrear(String userCrear) {
-        this.userCrear = userCrear;
-    }
-
-    public String getUserMod() {
-        return userMod;
-    }
-
-    public void setUserMod(String userMod) {
-        this.userMod = userMod;
-    }
-
-    public String getFechaCrear() {
-        return fechaCrear;
-    }
-
-    public void setFechaCrear(String fechaCrear) {
-        this.fechaCrear = fechaCrear;
-    }
-
-    public String getFechaMod() {
-        return fechaMod;
-    }
-
-    public void setFechaMod(String fechaMod) {
-        this.fechaMod = fechaMod;
-    }
-    
+       
 }

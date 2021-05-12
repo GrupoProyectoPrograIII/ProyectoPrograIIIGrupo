@@ -29,10 +29,10 @@ public class daoRol implements crudRol {
                 rol.setNombre(rs.getString("NOMBRE"));
                 rol.setDescripcion(rs.getString("DESCRIPCION"));
                 rol.setIsActivo(rs.getInt("ACTIVO"));
-                rol.setUserCrear(rs.getString("USUARIO_CREA"));
-                rol.setUserMod(rs.getString("USUARIO_MOD"));
-                rol.setFechaCrear(rs.getString("FECHA_CREA"));
-                rol.setFechaMod(rs.getString("FECHA_MOD"));
+//                rol.setUserCrear(rs.getString("USUARIO_CREA"));
+//                rol.setUserMod(rs.getString("USUARIO_MOD"));
+//                rol.setFechaCrear(rs.getString("FECHA_CREA"));
+//                rol.setFechaMod(rs.getString("FECHA_MOD"));
                 lstRol.add(rol);
             }
             rs.close();
@@ -56,10 +56,10 @@ public class daoRol implements crudRol {
                 rol.setNombre(rs.getString("NOMBRE"));
                 rol.setDescripcion(rs.getString("DESCRIPCION"));
                 rol.setIsActivo(rs.getInt("ACTIVO"));
-                rol.setUserCrear(rs.getString("USUARIO_CREA"));
-                rol.setUserMod(rs.getString("USUARIO_MOD"));
-                rol.setFechaCrear(rs.getString("FECHA_CREA"));
-                rol.setFechaMod(rs.getString("FECHA_MOD"));
+//                rol.setUserCrear(rs.getString("USUARIO_CREA"));
+//                rol.setUserMod(rs.getString("USUARIO_MOD"));
+//                rol.setFechaCrear(rs.getString("FECHA_CREA"));
+//                rol.setFechaMod(rs.getString("FECHA_MOD"));
             }
             rs.close();
             con.close();
