@@ -1,15 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<%@page session = "true" %>
+<!--%@page session = "true" %-->
 <meta http-equiv='cache-control' content='no-cache'>
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-store">
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
 <%
+   /* session = request.getSession();
+    
     if (request.getParameter("cerrar") != null) {
         session.invalidate();
-    }
+    }*/
 %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +40,7 @@
                             <input type="password" name="txtpass" class="form-control">
                         </div>
                         <div>
-                            <br><input type="submit" name="accionL" value="ingresar" class="btn btn-primary btn-block">
+                            <br><input type="submit" name="accion" value="ingresar" class="btn btn-primary btn-block">
                         </div>                        
                     </form>                
                 </div>

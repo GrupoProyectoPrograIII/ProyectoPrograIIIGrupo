@@ -39,14 +39,15 @@ public class controllerValidar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accionL");
-        if (accion.equalsIgnoreCase("ingresar")) {
+        String action = request.getParameter("accion");
+
+        if (action.equalsIgnoreCase("ingresar")) {
             String user = request.getParameter("txtuser");
             String pass = request.getParameter("txtpass");
             if ("".equals(user) || "".equals(pass)) {
@@ -56,7 +57,7 @@ public class controllerValidar extends HttpServlet {
                 //usr = duser.validar(user, pass);
                 em = edao.validar(user, pass);
                 if (em.getUsername() != null) {
-                    request.setAttribute("usuario", em);
+                    request.getSession().setAttribute("usuario", em.getUsername());
                     request.getRequestDispatcher("plantilla.jsp").forward(request, response);
                 } else if (em.getUsername() == null) {
                     request.setAttribute("success", 0);
@@ -69,9 +70,14 @@ public class controllerValidar extends HttpServlet {
                 }
             }
 
-        } else {
+        }else if (action.equalsIgnoreCase("cerrar")) {
+            request.getSession().removeAttribute("usuario");
+            
+            request.getSession().invalidate();
+            response.sendRedirect("index.jsp");
+        } /*else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
+        }*/
     }
 
     /**
