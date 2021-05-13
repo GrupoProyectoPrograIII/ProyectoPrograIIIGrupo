@@ -65,8 +65,7 @@ public class controllerUsuario extends HttpServlet {
                 password = request.getParameter("Apassword");
                 rol = request.getParameter("Arol");
                 activo = request.getParameter("Aactivo");
-                codigo = request.getParameter("Acodigo");
-                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
+                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo);
 
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();

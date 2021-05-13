@@ -281,7 +281,7 @@
         <div class="container"> 
             <h1>Modulos</h1>           
             
-            <table border="1" width="1" cellspacing="1" class="table table-bordered" id="myTable">
+            <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
                         <th class="text-center">Id Modulo</th>
