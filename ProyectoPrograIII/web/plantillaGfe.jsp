@@ -1,5 +1,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    String ver = (String) session.getAttribute("verificar");
+    if (ver == null) {
+        response.sendRedirect("index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,7 +80,7 @@
                         <li><a class="dropdown-item" href="#">usuario@gmail.com</a></li>
                         <div class="dropdown-divider"></div>
                         <form action="controllerValidar" method="POST">
-                            <li><button name="accionL" value="Salir" class="dropdown-item" href="#">Salir</button></li>
+                            <li><button name="accion" value="salir" class="dropdown-item" href="#">Salir</button></li>
                         </form>                        
                     </ul>
                 </div>

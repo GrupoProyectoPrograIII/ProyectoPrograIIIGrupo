@@ -6,13 +6,6 @@
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<%
-   /* session = request.getSession();
-    
-    if (request.getParameter("cerrar") != null) {
-        session.invalidate();
-    }*/
-%>
 <!DOCTYPE html>
 <html>
     <head>

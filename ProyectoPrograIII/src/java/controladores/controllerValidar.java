@@ -54,30 +54,33 @@ public class controllerValidar extends HttpServlet {
                 request.setAttribute("success", 1);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
-                //usr = duser.validar(user, pass);
                 em = edao.validar(user, pass);
-                if (em.getUsername() != null) {
-                    request.getSession().setAttribute("usuario", em.getUsername());
-                    request.getRequestDispatcher("plantilla.jsp").forward(request, response);
-                } else if (em.getUsername() == null) {
+                if (em.getUsername() == null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                } /*
-            if(em.getUsername().equals("gere")){
-                request.getRequestDispatcher("plantilla2.jsp").forward(request, response);
-            }*/ else {
+                } else if ("Admin".equals(em.getUsername())) {
+                    request.getSession().setAttribute("verificar", em.getUsername());
+                    request.setAttribute("usuario", em);
+                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
+                } else if ("gere".equals(em.getUsername())) {
+                    request.getSession().setAttribute("verificar", em.getUsername());
+                    request.setAttribute("usuario", em);
+                    request.getRequestDispatcher("plantillaGfe.jsp").forward(request, response);
+                } else if ("empleado".equals(em.getUsername())) {
+                    request.getSession().setAttribute("verificar", em.getUsername());
+                    request.setAttribute("usuario", em);
+                    request.getRequestDispatcher("plantillaEmp.jsp").forward(request, response);
+                } else {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
             }
 
-        }else if (action.equalsIgnoreCase("cerrar")) {
-            request.getSession().removeAttribute("usuario");
-            
+        } else if (action.equalsIgnoreCase("salir")) {
+            request.removeAttribute("usuario");
+            request.getSession().removeAttribute("verificar");
             request.getSession().invalidate();
             response.sendRedirect("index.jsp");
-        } /*else {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }*/
+        }
     }
 
     /**
