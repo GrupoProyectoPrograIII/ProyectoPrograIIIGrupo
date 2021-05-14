@@ -13,14 +13,14 @@ public class daoUsuario implements crudUsuario{
 
     Usuario user = new Usuario();
     String sql = "";
-    conexion con = new conexion();
-    
+    conexion con = new conexion();    
     ResultSet rs = null;
     boolean resp = false;
     
     public Usuario validar(String usr,String pass){
        
-        sql = "SELECT * FROM USUARIO WHERE USUARIO="+ usr +" AND PASSW="+ pass +"";
+        sql = "SELECT * FROM USUARIO WHERE USUARIO="+ usr 
+                +" AND PASSW="+ pass +"";
         try {
             con.open();
             rs = con.executeQuery(sql);            
@@ -30,7 +30,12 @@ public class daoUsuario implements crudUsuario{
                 user.setPass(rs.getString("PASSW"));
                 user.setNombre(rs.getString("NOMBRE"));
             }
-        } catch (Exception e) {
+            rs.close();
+            con.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
+        } catch(Exception ex){
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
         }
         return user;
     }
@@ -39,7 +44,10 @@ public class daoUsuario implements crudUsuario{
     public List listar() {
         ArrayList<Usuario> lstUsuario = new ArrayList<>();
         try {
-            sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE, dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO,dbo.USUARIO.PASSW,dbo.USUARIO.ID_ROL,dbo.ROL.NOMBRE as 'ROL',dbo.USUARIO.ACTIVO from dbo.USUARIO join dbo.ROL on dbo.USUARIO.ID_ROL=dbo.ROL.ID_ROL";
+            sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE, "
+                    +" dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO,dbo.USUARIO.PASSW,"
+                    +"dbo.USUARIO.ID_ROL,dbo.ROL.NOMBRE as 'ROL',dbo.USUARIO.ACTIVO"
+                    +" from dbo.USUARIO join dbo.ROL on dbo.USUARIO.ID_ROL=dbo.ROL.ID_ROL";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
@@ -51,11 +59,6 @@ public class daoUsuario implements crudUsuario{
                 user.setPass(rs.getString("PASSW"));
                 user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
-//                user.setFechaCrear(rs.getString("FECHA_CREA"));
-//                user.setFechaMod(rs.getString("FECHA_MOD"));
-//                user.setUserCrear(rs.getString("USUARIO_CREA"));
-//                user.setUserMod(rs.getString("USUARIO_MOD"));
-//                user.setCodigo(rs.getString("CODIGO"));
                 lstUsuario.add(user);
             }
             rs.close();
@@ -83,16 +86,13 @@ public class daoUsuario implements crudUsuario{
                 user.setPass(rs.getString("PASSW"));
                 user.setRol(rs.getString("ROL"));
                 user.setIsActivo(rs.getInt("ACTIVO"));
-//                user.setFechaCrear(rs.getString("FECHA_CREA"));
-//                user.setFechaMod(rs.getString("FECHA_MOD"));
-//                user.setUserCrear(rs.getString("USUARIO_CREA"));
-//                user.setUserMod(rs.getString("USUARIO_MOD"));
-//                user.setCodigo(rs.getString("CODIGO"));
             }
             rs.close();
             con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return user;
     }
@@ -107,8 +107,10 @@ public class daoUsuario implements crudUsuario{
             con.open();            
             resp = con.executeSql(sql);            
             con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resp;
     }
@@ -116,9 +118,14 @@ public class daoUsuario implements crudUsuario{
     @Override
     public boolean modificar(Usuario user) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        /*sql = "UPDATE USUARIO SET ID_USUARIO="++", "
-                +"DESCRIPCION='"++"' "
-                +"WHERE ID_USUARIO="+;*/
+        sql = "UPDATE USUARIO SET ID_USUARIO="+user.getIdUser()+", "
+                +"NOMBRE='"+user.getNombre()+"', "
+                +"APELLIDO='"+user.getApellido()+"', "
+                +"USUARIO='"+user.getUser()+"', "
+                +"PASSW='"+user.getPass()+"', "
+                +"ID_ROL="+user.getIdRol()+", "
+                +"ACTIVO="+user.getIsActivo()+" "
+                +"WHERE ID_USUARIO="+user.getIdUser();
         try {           
             con.open();            
             resp = con.executeSql(sql);            
@@ -134,7 +141,19 @@ public class daoUsuario implements crudUsuario{
 
     @Override
     public boolean eliminar(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try { 
+            sql = "DELETE FROM USUARIO WHERE ID_USUARIO=" + user.getIdUser();
+            con.open();            
+            resp = con.executeSql(sql);            
+            con.close();             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     
+            return false;
+        } catch(Exception ex){
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        return resp;
     }
 
     @Override
