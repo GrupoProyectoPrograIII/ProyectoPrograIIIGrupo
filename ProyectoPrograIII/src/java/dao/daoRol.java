@@ -11,7 +11,7 @@ import modelos.Rol;
 
 public class daoRol implements crudRol {
 
-    Rol rol = new Rol();
+    Rol rol = null;
     String sql = "";
     conexion con = new conexion();
     Connection cnn;
@@ -28,6 +28,7 @@ public class daoRol implements crudRol {
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
+                rol = new Rol();
                 rol.setIdRol(rs.getInt("ID_ROL"));
                 rol.setNombre(rs.getString("NOMBRE"));
                 rol.setDescripcion(rs.getString("DESCRIPCION"));
@@ -40,6 +41,9 @@ public class daoRol implements crudRol {
             Logger.getLogger(daoRol.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(daoRol.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(Rol rol:lstRol){
+            System.out.println("nombre:"+rol.getNombre()+" descripcion:"+rol.getDescripcion()+" activo:"+rol.getIsActivo());
         }
         return lstRol;
     }

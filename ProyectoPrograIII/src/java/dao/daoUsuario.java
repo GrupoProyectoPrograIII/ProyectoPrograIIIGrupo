@@ -11,7 +11,7 @@ import modelos.Usuario;
 
 public class daoUsuario implements crudUsuario{
 
-    Usuario user = new Usuario();
+    Usuario user = null;
     String sql = "";
     conexion con = new conexion();    
     ResultSet rs = null;
@@ -56,6 +56,7 @@ public class daoUsuario implements crudUsuario{
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
+                user = new Usuario();
                 user.setIdUser(rs.getInt("ID_USUARIO"));
                 user.setIdRol(rs.getInt("ID_ROL"));
                 user.setNombre(rs.getString("NOMBRE"));

@@ -43,13 +43,6 @@ public class controllerRol extends HttpServlet {
             case "read":
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);
-                /* MODIFICADO 14-05-2021
-                Rol rol = new Rol();
-                Iterator<Rol> iteratorRol= lstRol.iterator();
-                while(iteratorRol.hasNext()){
-                    rol=iteratorRol.next();
-                    request.setAttribute("rol", rol);
-                }*/
                 acceso = listar;
                 break;
             //case "nuevo":                

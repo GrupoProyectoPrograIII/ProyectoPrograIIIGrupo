@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="modelos.Rol"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../../plantillaAdm.jsp"/>
@@ -233,8 +234,8 @@
                 <tbody>
                     <tr>
                         <%
-                            if (request.getAttribute("rol") != null) {
-                                Rol rol = (Rol) request.getAttribute("rol");
+                            List<Rol> lstRol = (List<Rol>)request.getAttribute("rol");
+                                for(Rol rol : lstRol){
                         %>
                         <td class="text-center"><%=rol.getIdRol()%></td>
                         <td class="text-center"><%=rol.getNombre()%></td>

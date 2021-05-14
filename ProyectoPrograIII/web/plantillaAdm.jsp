@@ -169,7 +169,7 @@
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
                                         <img src="img/user.png" alt="40" width="60"/>
                                     </a></li>
-                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">${usuario.getUsername()}</a></li>
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">${usuario.getUser()}</a></li>
                                 <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
                                 <form action="controllerValidar" method="POST">
                                     <li><button name="accionL" value="Salir" class="dropdown-item" href="#">Salir</button></li>
