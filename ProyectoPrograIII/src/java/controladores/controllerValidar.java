@@ -54,20 +54,20 @@ public class controllerValidar extends HttpServlet {
                 request.setAttribute("success", 1);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
-                em = edao.validar(user, pass);
+                usr = duser.validar(user, pass);
                 if (em.getUsername() == null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else if ("Admin".equals(em.getUsername())) {
-                    request.getSession().setAttribute("verificar", em.getUsername());
+                } else if ("1".equals(usr.getIdRol())) {
+                    request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", em);
                     request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
-                } else if ("gere".equals(em.getUsername())) {
-                    request.getSession().setAttribute("verificar", em.getUsername());
+                } else if ("2".equals(usr.getIdRol())) {
+                    request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", em);
                     request.getRequestDispatcher("plantillaGfe.jsp").forward(request, response);
-                } else if ("empleado".equals(em.getUsername())) {
-                    request.getSession().setAttribute("verificar", em.getUsername());
+                } else if ("3".equals(usr.getIdRol())) {
+                    request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", em);
                     request.getRequestDispatcher("plantillaEmp.jsp").forward(request, response);
                 } else {
