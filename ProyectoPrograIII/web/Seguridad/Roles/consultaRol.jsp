@@ -222,12 +222,6 @@
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Activo</th>
-                            <%--
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Fecha Creacion</th>
-                            <th class="text-center">Fecha Modificacion</th>
-                            --%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -245,11 +239,6 @@
                             <%}else{%>
                             <td class="text-center">Inactivo</td>
                             <%}%>
-                        <%--<td class="text-center"><%=rol.getUserCrear()%></td>
-                        <td class="text-center"><%=rol.getUserMod()%></td>
-                        <td class="text-center"><%=rol.getFechaCrear()%></td>
-                        <td class="text-center"><%=rol.getFechaMod()%></td>
-                        --%>
                         <td class="text-center">    
                             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=rol.getIdRol()%>)">Editar</button>

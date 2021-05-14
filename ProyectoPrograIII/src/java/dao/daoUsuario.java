@@ -11,7 +11,7 @@ import modelos.Usuario;
 
 public class daoUsuario implements crudUsuario{
 
-    Usuario user = null;
+    Usuario user = new Usuario();
     String sql = "";
     conexion con = new conexion();    
     ResultSet rs = null;

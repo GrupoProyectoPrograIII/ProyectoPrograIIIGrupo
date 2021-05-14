@@ -52,7 +52,7 @@ public class controllerValidar extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 usr = duser.validar(user, pass);
-                if (usr.getUser() == null) {
+                if (usr.getUser()== null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } else if (usr.getIdRol()== 1) {
