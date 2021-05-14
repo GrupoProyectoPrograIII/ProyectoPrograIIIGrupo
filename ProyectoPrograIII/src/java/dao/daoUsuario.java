@@ -99,7 +99,10 @@ public class daoUsuario implements crudUsuario{
 
     @Override
     public boolean insertar(Usuario user) {
-        sql = "INSERT INTO CLIENTE (ID_CLIENTE, NOMBRE, APELLIDO, NIT, TELEFONO, DIRECCION) VALUES((SELECT ISNULL(MAX(ID_CLIENTE),0) + 1 FROM CLIENTE)";
+        sql = "INSERT INTO USUARIO (ID_USUARIO, NOMBRE, APELLIDO, USUARIO, "
+                +"PASSW, ID_ROL) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
+                +" 1 FROM USUARIO),"+ user.getNombre() +","+user.getApellido()+","
+                +user.getUser()+","+user.getPass()+","+user.getRol()+")";
         try {
             con.open();            
             resp = con.executeSql(sql);            
@@ -112,7 +115,21 @@ public class daoUsuario implements crudUsuario{
 
     @Override
     public boolean modificar(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /*sql = "UPDATE USUARIO SET ID_USUARIO="++", "
+                +"DESCRIPCION='"++"' "
+                +"WHERE ID_USUARIO="+;*/
+        try {           
+            con.open();            
+            resp = con.executeSql(sql);            
+            con.close();             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     
+            return false;
+        } catch(Exception ex){
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        return resp; 
     }
 
     @Override
