@@ -49,17 +49,17 @@
                 </ul>
                 <div class="dropdown">
                     <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Usuario logeado: ${usuario.getNombre()}
+                        Usuario logeado: ${usuario.getNombre()} ${usuario.getApellido()}
                     </button>
                     <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">
                                 <img src="img/user.png" alt="40" width="60"/>
                             </a></li>
-                        <li><a class="dropdown-item" href="#">${usuario.getUsername()}</a></li>
+                        <li><a class="dropdown-item" href="#">${usuario.getUser}</a></li>
                         <li><a class="dropdown-item" href="#">usuario@gmail.com</a></li>
                         <div class="dropdown-divider"></div>
                         <form action="controllerValidar" method="POST">
-                            <li><button name="accion" value="salir" class="dropdown-item" href="#">Salir</button></li>
+                            <li><button name="accionL" value="salir" class="dropdown-item" href="#">Salir</button></li>
                         </form>                        
                     </ul>
                 </div>

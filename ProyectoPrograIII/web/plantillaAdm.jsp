@@ -163,7 +163,7 @@
                     <!-----Esto es solo para los datos del usuario----->
                     <ul class="nav navbar-nav navbar-right">
                         <li id="Li2" class="dropdown" >
-                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()}
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()} ${usuario.getApellido()}
                                 <b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
