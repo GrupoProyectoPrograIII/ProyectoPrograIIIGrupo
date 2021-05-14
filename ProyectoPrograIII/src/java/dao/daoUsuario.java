@@ -101,8 +101,8 @@ public class daoUsuario implements crudUsuario{
     public boolean insertar(Usuario user) {
         sql = "INSERT INTO USUARIO (ID_USUARIO, NOMBRE, APELLIDO, USUARIO, "
                 +"PASSW, ID_ROL) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
-                +" 1 FROM USUARIO),"+ user.getNombre() +","+user.getApellido()+","
-                +user.getUser()+","+user.getPass()+","+user.getRol()+")";
+                +" 1 FROM USUARIO),'"+ user.getNombre() +"','"+user.getApellido()+"','"
+                +user.getUser()+"','"+user.getPass()+"',"+user.getRol()+")";
         try {
             con.open();            
             resp = con.executeSql(sql);            
