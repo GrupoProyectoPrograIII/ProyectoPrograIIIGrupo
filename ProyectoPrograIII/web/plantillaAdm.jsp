@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    //response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
     String ver = (String) session.getAttribute("verificar");
     if (ver == null) {
@@ -12,95 +12,170 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">-->
+        <link href="Styles/Site.css" rel="stylesheet" type="text/css"/>
+        <link href="Content/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="Scripts/Retroceso.js" type="text/javascript"></script>
         <title>Administracion</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mantenimientos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Areas</a></li>
-                            <li><a class="dropdown-item" href="#">Mesas</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Clientes</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Reportes
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Inventario General</a></li>
-                            <li><a class="dropdown-item" href="#">Inventario Parcial</a></li>
-                                <%--<li><hr class="dropdown-divider"></li>--%>
-                            <li><a class="dropdown-item" href="#">Cierre</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Procesos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Descarga Inventario</a></li>
-                            <li><a class="dropdown-item" href="#">Facturas al credito</a></li>
-                                <%--<li><hr class="dropdown-divider"></li>--%>
-                            <li><a class="dropdown-item" href="#">Pago de pedido</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pedidos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Seleccionar mesa</a></li>
-                            <li><a class="dropdown-item" href="#">Anular Pedido</a></li>
-                                <%--<li><hr class="dropdown-divider"></li>--%>
-                            <li><a class="dropdown-item" href="#">Elegir Monitor</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Seguridad
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="">Modulos</a></li>
-                            <li><a class="dropdown-item" href="">Permisos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="" target="myFrame">Roles</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="">Usuarios</a></li>
-                        </ul>
-                    </li>                    
-                </ul>
-                <div class="dropdown">
-                    <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Usuario logeado: ${usuario.getNombre()}
-                    </button>
-                    <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">
-                                <img src="img/user.png" alt="40" width="60"/>
-                            </a></li>
-                        <li><a class="dropdown-item" href="#">${usuario.getUsername()}</a></li>
-                        <li><a class="dropdown-item" href="#">usuario@gmail.com</a></li>
-                        <div class="dropdown-divider"></div>
-                        <form action="controllerValidar" method="POST">
-                            <li><button name="accion" value="salir" class="dropdown-item" href="#">Salir</button></li>
-                        </form>                        
+        <nav class="navbar navbar-default" role="navigation" >
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                    
+                </div>
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="Li2" class="dropdown" >
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
+                            <ul id="Ul2" class="dropdown-menu" >
+                                <li id="Li2" class="dropdown" >
+                                    <form id="Form1" method="post"><a href="controllerModulo?accion=read" id="A2">Area</a></form>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Clientes</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Mesa</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Monitor</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Producto Combinado</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Productos</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Proveedores</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Tipo Producto</a>
+                                </li>   
+                            </ul>
+                        </li>
+                        <li id="Li2" class="dropdown" >
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a>
+                            <ul id="Ul2" class="dropdown-menu" >
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Descarga Inventario</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Facturas al Credito</a>
+                                </li>   
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Pago de Pedido</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Carga Inventario</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Corte de Caja</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="Li2" class="dropdown" >
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a>
+                            <ul id="Ul2" class="dropdown-menu" >
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Seleccionar Mesa</a>
+                                </li> 
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Anular Pedido</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Elegir Monitor</a>
+                                </li>  
+                            </ul>
+                        </li>
+                        <li id="Li2" class="dropdown" >
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
+                            <ul id="Ul2" class="dropdown-menu" >
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Inventario General</a>
+                                </li>   
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Inventario Parcial</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Cierre</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Monitor de Caja</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="Li2" class="dropdown" >
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
+                            <div class="formularios">
+                                <form style="display: none" action="controllerModulo?accion=read" method="post">
+                                    <button type="submit" id="Modulos"> </button>
+                                </form>
+                                <form style="display: none" action="controllerPermiso?accion=read" method="post">
+                                    <button type="submit" id="Permisos"> </button>
+                                </form>
+                                <form style="display: none" action="controllerRol?accion=read" method="post">
+                                    <button type="submit" id="Roles"> </button>
+                                </form>
+                                <form style="display: none" action="controllerUsuario?accion=read" method="post">
+                                    <button type="submit" id="Usuarios"> </button>
+                                </form>
+                            </div>
+                            <ul id="Ul2" class="dropdown-menu" >
+                                <li id="Li2" class="dropdown" >
+                                    <a id="A2"><label for="Modulos">Modulos</label></a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a id="A2"><label for="Permisos">Permisos</label></a>
+                                </li> 
+                                <li id="Li2" class="dropdown" >
+                                    <a id="A2"><label for="Roles">Roles</label></a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a id="A2"><label for="Usuarios">Usuarios</label></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="controllerValidar?accion=cerrar">Cerrar Sesion</a></li>
+                    </ul>
+                    <!---------->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="Li2" class="dropdown" >
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()}
+                                <b class="caret"></b></a>
+                            <ul id="Ul2" class="dropdown-menu">
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
+                                        <img src="img/user.png" alt="40" width="60"/>
+                                    </a></li>
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">${usuario.getUsername()}</a></li>
+                                <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
+                                <form action="controllerValidar" method="POST">
+                                    <li><button name="accionL" value="Salir" class="dropdown-item" href="#">Salir</button></li>
+                                </form>                        
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-            </div>            
+
+            </div>
         </nav>
-        <div class="m-4" style="height: 550px">
+        <!--<div class="m-4" style="height: 550px">
             <iframe name="myFrame" style="height: 100%; width: 100%; border: none"></iframe>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        </div>-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>-->   
     </body>
 </html>

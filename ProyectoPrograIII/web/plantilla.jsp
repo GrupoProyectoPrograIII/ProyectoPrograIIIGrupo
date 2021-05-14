@@ -34,12 +34,11 @@
                 </div>
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="plantilla.jsp">Inicio</a>
+                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
                 </div>
 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
@@ -68,7 +67,8 @@
                                     <a href="controllerModulo?accion=read" id="A2">Tipo Producto</a>
                                 </li>   
                             </ul>
-                        </li><li id="Li2" class="dropdown" >
+                        </li>
+                        <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li id="Li2" class="dropdown" >
@@ -148,7 +148,6 @@
                                 <li id="Li2" class="dropdown" >
                                     <a id="A2"><label for="Usuarios">Usuarios</label></a>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>

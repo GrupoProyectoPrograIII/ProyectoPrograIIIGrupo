@@ -110,10 +110,10 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Editar Fila";
-                /*var id = document.createElement("input");
+                var id = document.createElement("input");
                  id.setAttribute("type", "hidden");
                  id.setAttribute("name", "valorEditar");
-                 id.setAttribute("Value", a);*/
+                 id.setAttribute("Value", a);
 
                 // Create an input element for Nombre
                 var name = document.createElement("input");
