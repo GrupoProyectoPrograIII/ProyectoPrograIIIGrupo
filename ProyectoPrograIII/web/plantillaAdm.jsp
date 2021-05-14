@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!----Mejor no usemos este tipo de bootstrap, no es compatible con codigo que tenemos------>
         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">-->
         <link href="Styles/Site.css" rel="stylesheet" type="text/css"/>
         <link href="Content/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -30,13 +31,14 @@
                         <span class="icon-bar"></span>
                     </button>                    
                 </div>
-
+                <!---------->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
                 </div>
-
+                <!---------->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+                        <!-----Lista de Mantenimientos(Inactivo)----->
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
@@ -66,6 +68,7 @@
                                 </li>   
                             </ul>
                         </li>
+                        <!-----Procesos (Inactivo)----->
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
@@ -86,6 +89,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!------Pedidos (Inactivo)---->
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
@@ -100,6 +104,7 @@
                                 </li>  
                             </ul>
                         </li>
+                        <!-----Reportes (Inactivo)----->
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
@@ -117,6 +122,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <!-----Seguridad  (Usar este metodo de dropdown en los demas)----->
+                        
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
                             <div class="formularios">
@@ -148,11 +155,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <!---------->
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <!--<ul class="nav navbar-nav navbar-right">
                         <li><a href="controllerValidar?accion=cerrar">Cerrar Sesion</a></li>
-                    </ul>
-                    <!---------->
+                    </ul>-->
+                    <!-----Esto es solo para los datos del usuario----->
                     <ul class="nav navbar-nav navbar-right">
                         <li id="Li2" class="dropdown" >
                             <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()}
@@ -169,8 +177,8 @@
                             </ul>
                         </li>
                     </ul>
+                    <!---------->       
                 </div>
-
             </div>
         </nav>
         <!--<div class="m-4" style="height: 550px">
