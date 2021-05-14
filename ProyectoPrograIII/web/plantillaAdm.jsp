@@ -2,12 +2,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
 
     String nom = (String) session.getAttribute("nombre");
     String ape = (String) session.getAttribute("apellido");
     String usuario = (String) session.getAttribute("usuario");
+    
     if (usuario == null) {
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        //response.setHeader("Cache-Control", "no-cache");
+        //response.setHeader("Cache-Control", "no-store");
+        //response.setHeader("Pragma", "no-cache");
+        //response.setDateHeader("Expires", 0);
         response.sendRedirect("index.jsp");
     }
 %>
@@ -126,7 +132,7 @@
                             </ul>
                         </li>
                         <!-----Seguridad  (Usar este metodo de dropdown en los demas)----->
-                        
+
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
                             <div class="formularios">
@@ -166,7 +172,7 @@
                     <!-----Esto es solo para los datos del usuario----->
                     <ul class="nav navbar-nav navbar-right">
                         <li id="Li2" class="dropdown" >
-                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: <%= nom %> <%= ape %>
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: <%= nom%> <%= ape%>
                                 <b class="caret"></b></a>
                             <!--a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<><b class="caret"></b></a-->
                             <ul id="Ul2" class="dropdown-menu">

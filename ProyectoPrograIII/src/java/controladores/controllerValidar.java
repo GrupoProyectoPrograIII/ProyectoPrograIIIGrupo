@@ -78,7 +78,12 @@ public class controllerValidar extends HttpServlet {
             request.getSession().removeAttribute("apellido");
             request.getSession().removeAttribute("usuario");
             request.getSession().invalidate();
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
+            
             response.sendRedirect("index.jsp");
         }
     }
