@@ -9,7 +9,7 @@
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
+                form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerRol");
 
@@ -83,7 +83,7 @@
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
+                form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerRol");
 
@@ -162,7 +162,7 @@
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container")
+                form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerRol");
 
@@ -172,7 +172,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Didmodulo");
+                id.setAttribute("name", "Didrol");
                 id.setAttribute("Value", b);
                 
                 // Create an input element for Nombre

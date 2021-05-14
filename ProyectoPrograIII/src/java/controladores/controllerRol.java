@@ -33,29 +33,50 @@ public class controllerRol extends HttpServlet {
         
         String acceso = "";
         String action = request.getParameter("accion");
+        String id, nombre, descrip, activo;
+        
+        daoRol daor = new daoRol();
+        List<Rol> lstRol = null;
+        
 
         switch (action) {
             case "read":
-                daoRol daoRol = new daoRol();
-                List<Rol> lstRol= daoRol.listar();
-                Iterator<Rol> iteratorRol= lstRol.iterator();
+                lstRol = daor.listar();
+                request.setAttribute("rol", lstRol);
+                /* MODIFICADO 14-05-2021
                 Rol rol = new Rol();
+                Iterator<Rol> iteratorRol= lstRol.iterator();
                 while(iteratorRol.hasNext()){
                     rol=iteratorRol.next();
                     request.setAttribute("rol", rol);
-                }
+                }*/
                 acceso = listar;
                 break;
-            case "nuevo":
-                String nuevo = "";
-                acceso=nuevo;
-                break;
+            //case "nuevo":                
             case "agregar":
+                nombre = request.getParameter("Anombre");
+                descrip = request.getParameter("Adescripcion");                
+                activo = request.getParameter("Aactivo");
+                System.out.println("nombre:"+nombre+" descripcion:"+descrip+" activo:"+activo);
+                lstRol = daor.listar();
+                request.setAttribute("rol", lstRol);                
                 acceso=listar;
                 break;
             case "editar":
+                id = request.getParameter("Eidrol");
+                nombre = request.getParameter("Enombre");
+                descrip = request.getParameter("Edescripcion");                
+                activo = request.getParameter("Eactivo");
+                System.out.println("nombre:"+nombre+" descripcion:"+descrip+" activo:"+activo);
+                lstRol = daor.listar();
+                request.setAttribute("rol", lstRol);                
+                acceso=listar;
                 break;
-            case "modificar":
+            case "eliminar":
+                request.getParameter("Didrol");
+                lstRol = daor.listar();
+                request.setAttribute("rol", lstRol);                
+                acceso=listar;
                 break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
