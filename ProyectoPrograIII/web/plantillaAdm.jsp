@@ -1,10 +1,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    //response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Cache-Control", "no-cache");
 
-    String ver = (String) session.getAttribute("verificar");
-    if (ver == null) {
+    String nom = (String) session.getAttribute("nombre");
+    String ape = (String) session.getAttribute("apellido");
+    String usuario = (String) session.getAttribute("usuario");
+    if (usuario == null) {
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.sendRedirect("index.jsp");
     }
 %>
@@ -163,24 +166,18 @@
                     <!-----Esto es solo para los datos del usuario----->
                     <ul class="nav navbar-nav navbar-right">
                         <li id="Li2" class="dropdown" >
-<<<<<<< Updated upstream
-                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()} ${usuario.getApellido()}
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: <%= nom %> <%= ape %>
                                 <b class="caret"></b></a>
-=======
-                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<%= ver %><b class="caret"></b></a>
->>>>>>> Stashed changes
+                            <!--a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<><b class="caret"></b></a-->
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
                                         <img src="img/user.png" alt="40" width="60"/>
                                     </a></li>
-                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%=ver%></a></li>
-                                <li id="Li2" class="dropdown"><a ><%=ver%>@gmail.com</a></li>
-                                <form style="display: none" action="controllerValidar" method="post">
-                                    <button type="submit" id="Salir" value="Salir"> </button>
-                                </form>
-                                <li id="Li2" class="dropdown">
-                                    <a id="A2"><label for="Salir">Salir</label></a>
-                                </li>                   
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%= usuario%></a></li>
+                                <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
+                                <form action="controllerValidar" method="POST">
+                                    <li><button name="accionL" value="Salir" class="dropdown-item" href="#">Salir</button></li>
+                                </form>                 
                             </ul>
                         </li>
                     </ul>

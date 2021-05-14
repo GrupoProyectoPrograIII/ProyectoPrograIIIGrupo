@@ -54,14 +54,16 @@ public class controllerValidar extends HttpServlet {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 1) {
-                    request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", usr);
+                    request.getSession().setAttribute("usuario", usr.getUser());
+                    request.getSession().setAttribute("nombre", usr.getNombre());
+                    request.getSession().setAttribute("apellido", usr.getApellido());
+                    //request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
-                } else if ("2".equals(usr.getIdRol())) {
+                } else if (usr.getIdRol() == 2) {
                     request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaGfe.jsp").forward(request, response);
-                } else if ("3".equals(usr.getIdRol())) {
+                } else if (usr.getIdRol() == 3) {
                     request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaEmp.jsp").forward(request, response);
@@ -71,9 +73,12 @@ public class controllerValidar extends HttpServlet {
             }
 
         } else if (action.equalsIgnoreCase("salir")) {
-            request.removeAttribute("usuario");
-            request.getSession().removeAttribute("verificar");
+            //request.removeAttribute("usuario");
+            request.getSession().removeAttribute("nombre");
+            request.getSession().removeAttribute("apellido");
+            request.getSession().removeAttribute("usuario");
             request.getSession().invalidate();
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             response.sendRedirect("index.jsp");
         }
     }

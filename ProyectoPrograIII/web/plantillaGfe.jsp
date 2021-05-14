@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    //response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
     String ver = (String) session.getAttribute("verificar");
     if (ver == null) {
