@@ -43,13 +43,13 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li id="Li2" class="dropdown" >
-                                    <form id="Form1" method="post"><a href="controllerModulo?accion=read" id="A2">Area</a></form>
+                                    <a href="controllerModulo?accion=read" id="A2">Area</a>
                                 </li>
-                                <li id="Li2" class="dropdown" >
+                                <li id="Li2">
                                     <a href="controllerModulo?accion=read" id="A2">Clientes</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Mesa</a>
+                                    <a disabled="disabled"href="controllerModulo?accion=read" id="A2">Mesa</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
                                     <a href="controllerModulo?accion=read" id="A2">Monitor</a>

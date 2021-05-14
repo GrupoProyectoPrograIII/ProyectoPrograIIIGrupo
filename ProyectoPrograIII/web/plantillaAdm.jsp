@@ -43,7 +43,7 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li id="Li2" class="dropdown" >
-                                    <form id="Form1" method="post"><a href="controllerModulo?accion=read" id="A2">Area</a></form>
+                                    <a href="controllerModulo?accion=read" id="A2">Areas</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
                                     <a href="controllerModulo?accion=read" id="A2">Clientes</a>
@@ -163,17 +163,24 @@
                     <!-----Esto es solo para los datos del usuario----->
                     <ul class="nav navbar-nav navbar-right">
                         <li id="Li2" class="dropdown" >
+<<<<<<< Updated upstream
                             <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado: ${usuario.getNombre()} ${usuario.getApellido()}
                                 <b class="caret"></b></a>
+=======
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<%= ver %><b class="caret"></b></a>
+>>>>>>> Stashed changes
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
                                         <img src="img/user.png" alt="40" width="60"/>
                                     </a></li>
-                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">${usuario.getUser()}</a></li>
-                                <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
-                                <form action="controllerValidar" method="POST">
-                                    <li><button name="accionL" value="Salir" class="dropdown-item" href="#">Salir</button></li>
-                                </form>                        
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%=ver%></a></li>
+                                <li id="Li2" class="dropdown"><a ><%=ver%>@gmail.com</a></li>
+                                <form style="display: none" action="controllerValidar" method="post">
+                                    <button type="submit" id="Salir" value="Salir"> </button>
+                                </form>
+                                <li id="Li2" class="dropdown">
+                                    <a id="A2"><label for="Salir">Salir</label></a>
+                                </li>                   
                             </ul>
                         </li>
                     </ul>

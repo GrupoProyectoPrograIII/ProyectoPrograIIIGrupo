@@ -1,6 +1,5 @@
 package controladores;
 
-import dao.daoEmpleado;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.daoUsuario;
-import modelos.Empleado;
 import modelos.Usuario;
 
 public class controllerValidar extends HttpServlet {
@@ -52,10 +50,10 @@ public class controllerValidar extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 usr = duser.validar(user, pass);
-                if (usr.getUser()== null) {
+                if (usr.getUser() == null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else if (usr.getIdRol()== 1) {
+                } else if (usr.getIdRol() == 1) {
                     request.getSession().setAttribute("verificar", usr.getUser());
                     request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
@@ -70,8 +68,6 @@ public class controllerValidar extends HttpServlet {
                 } else {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
-                System.out.println(usr.getIdRol());
-                System.out.println("User:" + usr.getUser() + "nombre:" + usr.getNombre() + "Apellido:" + usr.getApellido() + " Password:" + usr.getPass() + " Rol:" + usr.getIdRol() + " Activo:" + usr.getIsActivo());
             }
 
         } else if (action.equalsIgnoreCase("salir")) {
