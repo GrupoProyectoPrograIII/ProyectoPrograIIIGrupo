@@ -33,17 +33,12 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
                 active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
                 var option2 = document.createElement("option");
                 option2.setAttribute("value", "0");
                 option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
 
@@ -73,7 +68,7 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = a; i <= a; i++) {
+                for (i = 1; i <= a; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
@@ -81,10 +76,10 @@
                     //loops through each cell in current row
                     for (var j = 1; j < cellLength - 1; j++) {
                         //get your cell info here
-                        console.log(cellVal);// check values added
+                        //console.log(cellVal); check values added
                         var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
-                    datos = cellVal.split(',');
                     }
+                    datos = cellVal.split(',');
                     // console.log(datos[3]);
                 }
 
@@ -116,17 +111,12 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
                 active.setAttribute("value", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
                 var option2 = document.createElement("option");
                 option2.setAttribute("value", "0");
                 option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
 
@@ -157,7 +147,7 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = b; i <= b; i++) {
+                for (i = 1; i <= b; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
@@ -165,11 +155,11 @@
                     //loops through each cell in current row
                     for (var j = 1; j < cellLength - 1; j++) {
                         //get your cell info here
-                        console.log(cellVal);// check values added
+                        //console.log(cellVal); check values added
                         var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
-                    datos = cellVal.split(',');
                     }
-                    // console.log(datos[3]);
+                    datos = cellVal.split(',');
+                    //console.log(datos[3]);
                 }
 
                 var form = document.createElement("form");
