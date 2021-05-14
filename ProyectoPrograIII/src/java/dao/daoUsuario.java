@@ -118,7 +118,7 @@ public class daoUsuario implements crudUsuario{
     @Override
     public boolean modificar(Usuario user) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "UPDATE USUARIO SET ID_USUARIO="+user.getIdUser()+", "
+        sql = "UPDATE USUARIO SET "
                 +"NOMBRE='"+user.getNombre()+"', "
                 +"APELLIDO='"+user.getApellido()+"', "
                 +"USUARIO='"+user.getUser()+"', "

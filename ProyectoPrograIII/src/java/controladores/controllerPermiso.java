@@ -66,6 +66,7 @@ public class controllerPermiso extends HttpServlet {
                 acceso = nuevo;
                 break;
             case "agregar":
+                
                 acceso = listar;
                 break;
             case "editar":
