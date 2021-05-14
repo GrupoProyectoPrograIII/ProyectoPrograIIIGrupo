@@ -60,7 +60,7 @@ public class controllerUsuario extends HttpServlet {
                 break;
             case "agregar":
                 usuario = request.getParameter("Auser");
-                nombre = request.getParameter("Aname");
+                nombre = request.getParameter("Anombre");
                 apellido = request.getParameter("Aapellido");
                 password = request.getParameter("Apassword");
                 rol = request.getParameter("Arol");
@@ -83,7 +83,7 @@ public class controllerUsuario extends HttpServlet {
                 activo = request.getParameter("Aactivo");
                 codigo = request.getParameter("Acodigo");
                 System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
-
+                
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);

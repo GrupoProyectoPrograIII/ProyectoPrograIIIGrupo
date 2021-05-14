@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="modelos.Modulo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../../plantilla.jsp"/>
+<jsp:include page="../../plantillaAdm.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>

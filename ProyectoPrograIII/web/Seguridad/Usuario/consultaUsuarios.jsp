@@ -3,7 +3,7 @@
 <%@page import="modelos.Usuario"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../../plantilla.jsp"/>
+<jsp:include page="../../plantillaAdm.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>

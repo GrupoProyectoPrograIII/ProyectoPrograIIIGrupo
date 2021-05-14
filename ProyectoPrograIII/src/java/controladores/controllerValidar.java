@@ -13,9 +13,6 @@ import modelos.Usuario;
 
 public class controllerValidar extends HttpServlet {
 
-    daoEmpleado edao = new daoEmpleado();
-    Empleado em = new Empleado();
-
     daoUsuario duser = new daoUsuario();
     Usuario usr = new Usuario();
 
@@ -55,24 +52,26 @@ public class controllerValidar extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 usr = duser.validar(user, pass);
-                if (em.getUsername() == null) {
+                if (usr.getUser() == null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else if ("1".equals(usr.getIdRol())) {
+                } else if (usr.getIdRol()== 1) {
                     request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", em);
+                    request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
                 } else if ("2".equals(usr.getIdRol())) {
                     request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", em);
+                    request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaGfe.jsp").forward(request, response);
                 } else if ("3".equals(usr.getIdRol())) {
                     request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", em);
+                    request.setAttribute("usuario", usr);
                     request.getRequestDispatcher("plantillaEmp.jsp").forward(request, response);
                 } else {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
+                System.out.println(usr.getIdRol());
+                System.out.println("User:" + usr.getUser() + "nombre:" + usr.getNombre() + "Apellido:" + usr.getApellido() + " Password:" + usr.getPass() + " Rol:" + usr.getIdRol() + " Activo:" + usr.getIsActivo());
             }
 
         } else if (action.equalsIgnoreCase("salir")) {

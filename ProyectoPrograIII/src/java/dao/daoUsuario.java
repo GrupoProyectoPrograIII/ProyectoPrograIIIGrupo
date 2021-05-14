@@ -19,22 +19,27 @@ public class daoUsuario implements crudUsuario{
     
     public Usuario validar(String usr,String pass){
        
-        sql = "SELECT * FROM USUARIO WHERE USUARIO="+ usr 
-                +" AND PASSW="+ pass +"";
+        sql = "SELECT * FROM USUARIO WHERE USUARIO='"+ usr 
+                +"' AND PASSW='"+ pass +"'";
         try {
             con.open();
             rs = con.executeQuery(sql);            
             while(rs.next()){
                 user.setIdUser(rs.getInt("ID_USUARIO"));
+                user.setIdRol(rs.getInt("ID_ROL"));
+                user.setNombre(rs.getString("NOMBRE"));
+                user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
-                user.setNombre(rs.getString("NOMBRE"));
+                user.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
             con.close();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
+            Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex); 
+            System.out.println(ex);
         } catch(Exception ex){
+            System.out.println(ex);
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);            
         }
         return user;
@@ -52,7 +57,7 @@ public class daoUsuario implements crudUsuario{
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 user.setIdUser(rs.getInt("ID_USUARIO"));
-                user.setIdUser(rs.getInt("ID_ROL"));
+                user.setIdRol(rs.getInt("ID_ROL"));
                 user.setNombre(rs.getString("NOMBRE"));
                 user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
@@ -79,7 +84,7 @@ public class daoUsuario implements crudUsuario{
             rs = con.executeQuery(sql);
             while(rs.next()){
                 user.setIdUser(rs.getInt("ID_USUARIO"));
-                user.setIdUser(rs.getInt("ID_ROL"));
+                user.setIdRol(rs.getInt("ID_ROL"));
                 user.setNombre(rs.getString("NOMBRE"));
                 user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
