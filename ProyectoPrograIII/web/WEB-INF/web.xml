@@ -4,14 +4,7 @@
         <servlet-name>controllerValidar</servlet-name>
         <servlet-class>controladores.controllerValidar</servlet-class>
     </servlet>
-    <filter>
-        <filter-name>FiltrarPrueba</filter-name>
-        <filter-class>Filtros.FiltrarPrueba</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>FiltrarPrueba</filter-name>
-        <url-pattern>/plantilla.jsp</url-pattern>
-    </filter-mapping>
+    
     <servlet>
         <servlet-name>NewControlador</servlet-name>
         <servlet-class>controladores.NewControlador</servlet-class>
