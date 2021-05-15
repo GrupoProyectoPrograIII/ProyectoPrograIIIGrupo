@@ -44,7 +44,7 @@
                 </div>
                 <!---------->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
+                    <a class="navbar-brand" href="#">Inicio</a>
                 </div>
                 <!---------->
                 <div class="collapse navbar-collapse">
@@ -227,42 +227,32 @@
                 </div>
                 <!---------->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
+                    <a class="navbar-brand" href="#">Inicio</a>
                 </div>
                 <!---------->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <!-----Lista de Mantenimientos(Inactivo)----->
+                        <!-----Procesos (Inactivo)----->
                         <li id="Li2" class="dropdown" >
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Areas</a>
+                                    <a href="controllerModulo?accion=read" id="A2">Descarga Inventario</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Clientes</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Mesa</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Monitor</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Producto Combinado</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Productos</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Proveedores</a>
-                                </li>
-                                <li id="Li2" class="dropdown" >
-                                    <a href="controllerModulo?accion=read" id="A2">Tipo Producto</a>
+                                    <a href="controllerModulo?accion=read" id="A2">Facturas al Credito</a>
                                 </li>   
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Pago de Pedido</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Carga Inventario</a>
+                                </li>
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Corte de Caja</a>
+                                </li>
                             </ul>
                         </li>
-                        
                         <!------Pedidos (Inactivo)---->
                         <li id="Li2" class="dropdown" >
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a>
@@ -278,40 +268,25 @@
                                 </li>  
                             </ul>
                         </li>
-                        
-                        <!-----Seguridad  (Usar este metodo de dropdown en los demas)----->
-
+                        <!-----Reportes (Inactivo)----->
                         <li id="Li2" class="dropdown" >
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
-                            <div class="formularios">
-                                <form style="display: none" action="controllerModulo?accion=read" method="post">
-                                    <button type="submit" id="Modulos"> </button>
-                                </form>
-                                <form style="display: none" action="controllerPermiso?accion=read" method="post">
-                                    <button type="submit" id="Permisos"> </button>
-                                </form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post">
-                                    <button type="submit" id="Roles"> </button>
-                                </form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post">
-                                    <button type="submit" id="Usuarios"> </button>
-                                </form>
-                            </div>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <li id="Li2" class="dropdown" >
-                                    <a id="A2"><label for="Modulos">Modulos</label></a>
+                                    <a href="controllerModulo?accion=read" id="A2">Inventario General</a>
+                                </li>   
+                                <li id="Li2" class="dropdown" >
+                                    <a href="controllerModulo?accion=read" id="A2">Inventario Parcial</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
-                                    <a id="A2"><label for="Permisos">Permisos</label></a>
-                                </li> 
-                                <li id="Li2" class="dropdown" >
-                                    <a id="A2"><label for="Roles">Roles</label></a>
+                                    <a href="controllerModulo?accion=read" id="A2">Cierre</a>
                                 </li>
                                 <li id="Li2" class="dropdown" >
-                                    <a id="A2"><label for="Usuarios">Usuarios</label></a>
+                                    <a href="controllerModulo?accion=read" id="A2">Monitor de Caja</a>
                                 </li>
                             </ul>
                         </li>
+                       
                         <!---------->
                     </ul>
                     <!--<ul class="nav navbar-nav navbar-right">
@@ -373,7 +348,7 @@
                 </div>
                 <!---------->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
+                    <a class="navbar-brand" href="#">Inicio</a>
                 </div>
                 <!---------->
                 <div class="collapse navbar-collapse">
