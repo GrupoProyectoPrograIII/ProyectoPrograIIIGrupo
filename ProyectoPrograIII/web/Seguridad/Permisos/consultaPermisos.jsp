@@ -3,7 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="modelos.Permiso"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../../plantillaAdm.jsp"/>
+<!--jsp:include page="../../plantillaAdm.jsp"/-->
+<jsp:include page="../../newPlantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
