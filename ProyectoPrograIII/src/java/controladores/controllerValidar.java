@@ -60,16 +60,21 @@ public class controllerValidar extends HttpServlet {
                     int idrol = usr.getIdRol();
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
+                    request.getSession().setAttribute("roles", usr.getRol());
+                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
+                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
                     //request.setAttribute("usuario", usr);
-                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 2) {
                    request.getSession().setAttribute("usuario", usr.getUser());
+                    request.getSession().setAttribute("roles", usr.getRol());
                     //request.getSession().setAttribute("nombre", usr.getNombre());
                     //request.getSession().setAttribute("apellido", usr.getApellido());
                     int idrol = usr.getIdRol();
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
-                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
+                    request.getSession().setAttribute("roles", usr.getRol());
+                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
+                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 3) {
                     request.getSession().setAttribute("usuario", usr.getUser());
                     //request.getSession().setAttribute("nombre", usr.getNombre());
@@ -77,7 +82,9 @@ public class controllerValidar extends HttpServlet {
                     int idrol = usr.getIdRol();
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
-                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
+                    request.getSession().setAttribute("roles", usr.getRol());
+                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
+                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
                 } else {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
