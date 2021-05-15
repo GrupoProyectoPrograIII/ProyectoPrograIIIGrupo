@@ -62,6 +62,21 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <% for (Permiso permiso : lstPermiso) { %>
+                        <li id="Li2" class="dropdown" >
+                            <%
+                                if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Reportes")) {
+                            %>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
+                            <%}%><ul id="Li2" class="dropdown-menu">
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario General")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Inventario General"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Inventario General">Inventario General</label></a></li>
+                                <%}%></ul>
+                        </li>
                         <!-----Seguridad  (Usar este metodo de dropdown en los demas)----->
                         <li id="Li2" class="dropdown" >
                             <%
@@ -79,28 +94,28 @@
                                     <a id="A2"><label for="Modulos">Modulos</label></a></li>
                                     <%}%>
                                     <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Permisos")) {
-                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
-                                    } else {%><li>
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
                                     <form style="display: none" action="controllerPermiso?accion=read" method="post">
                                         <button type="submit" id="Permisos"> </button>
                                     </form>
                                     <a id="A2"><label for="Permisos">Permisos</label></a></li>
                                     <%}%>
                                     <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Rol")) {
-                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
-                                    } else {%><li>
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
                                     <form style="display: none" action="controllerRol?accion=read" method="post">
                                         <button type="submit" id="Rol"> </button>
                                     </form>
                                     <a id="A2"><label for="Rol">Rol</label></a></li>
                                     <%}%>
                                     <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Usuario")) {
-                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
-                                    } else {%><li>
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
                                     <form style="display: none" action="controllerUsuario?accion=read" method="post">
                                         <button type="submit" id="Usuario"> </button>
                                     </form>
-                                    <a id="A2"><label for="Usuario">Usuario</label></a></li>
+                                    <a id="A2"><label for="Usuario">Usuarios</label></a></li>
                                     <%}%>
                             </ul>
                         </li>
