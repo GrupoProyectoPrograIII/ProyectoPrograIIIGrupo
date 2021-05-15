@@ -19,6 +19,8 @@ import modelos.Rol;
 public class controllerPermiso extends HttpServlet {
 
     String listar = "Seguridad/Permisos/consultaPermisos.jsp";
+    String eliminar = "";
+    String modificar = "";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
