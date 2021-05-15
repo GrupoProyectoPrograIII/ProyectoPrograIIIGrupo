@@ -3,8 +3,7 @@
 <%@page import="modelos.Usuario"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--jsp:include page="../../plantillaAdm.jsp"/-->
-<jsp:include page="../../newPlantilla.jsp"/>
+<jsp:include page="../../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>

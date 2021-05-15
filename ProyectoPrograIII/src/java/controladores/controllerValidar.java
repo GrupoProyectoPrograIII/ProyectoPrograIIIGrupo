@@ -53,41 +53,18 @@ public class controllerValidar extends HttpServlet {
                 if (usr.getUser() == null) {
                     request.setAttribute("success", 0);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else if (usr.getIdRol() == 1) {
+                } else if (usr.getUser() != null) {
                     request.getSession().setAttribute("usuario", usr.getUser());
-                    //request.getSession().setAttribute("nombre", usr.getNombre());
-                    //request.getSession().setAttribute("apellido", usr.getApellido());
+                    request.getSession().setAttribute("nombre", usr.getNombre());
+                    request.getSession().setAttribute("apellido", usr.getApellido());
                     int idrol = usr.getIdRol();
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
                     request.getSession().setAttribute("roles", usr.getRol());
                     //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
-                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
+                    request.getRequestDispatcher("plantilla.jsp").forward(request, response);
                     //request.setAttribute("usuario", usr);
-                } else if (usr.getIdRol() == 2) {
-                   request.getSession().setAttribute("usuario", usr.getUser());
-                    request.getSession().setAttribute("roles", usr.getRol());
-                    //request.getSession().setAttribute("nombre", usr.getNombre());
-                    //request.getSession().setAttribute("apellido", usr.getApellido());
-                    int idrol = usr.getIdRol();
-                    String ver = String.valueOf(idrol);
-                    request.getSession().setAttribute("rol", ver);
-                    request.getSession().setAttribute("roles", usr.getRol());
-                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
-                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
-                } else if (usr.getIdRol() == 3) {
-                    request.getSession().setAttribute("usuario", usr.getUser());
-                    //request.getSession().setAttribute("nombre", usr.getNombre());
-                    //request.getSession().setAttribute("apellido", usr.getApellido());
-                    int idrol = usr.getIdRol();
-                    String ver = String.valueOf(idrol);
-                    request.getSession().setAttribute("rol", ver);
-                    request.getSession().setAttribute("roles", usr.getRol());
-                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
-                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
-                } else {
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                }
+                }   
             }
 
         } else if (action.equalsIgnoreCase("salir")) {

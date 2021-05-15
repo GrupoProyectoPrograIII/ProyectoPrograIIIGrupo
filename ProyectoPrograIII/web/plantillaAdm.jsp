@@ -1,4 +1,3 @@
-
 <%@page import="modelos.Permiso"%>
 <%@page import="modelos.Rol"%>
 <%@page import="modelos.Usuario"%>
@@ -54,7 +53,7 @@
             <div class="container">
                 <!---------->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="plantillaAdm.jsp">Inicio</a>
+                    <a class="navbar-brand" href="plantilla.jsp">Inicio</a>
                 </div>
                 <!---------->
 

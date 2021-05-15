@@ -19,9 +19,9 @@ public class daoUsuario implements crudUsuario {
 
     public Usuario validar(String usr, String pass) {
 
-        sql = "SELECT        dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE AS 'NOMBRE', dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO, dbo.USUARIO.PASSW, dbo.USUARIO.ID_ROL, dbo.USUARIO.ACTIVO AS 'ACTIVO', dbo.ROL.NOMBRE AS 'ROL'\n"
-                + "FROM            dbo.USUARIO INNER JOIN\n"
-                + "                         dbo.ROL ON dbo.USUARIO.ID_ROL = dbo.ROL.ID_ROL WHERE USUARIO = '" + usr + "' AND PASSW = '" + pass + "'";
+        sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE AS 'NOMBRE', dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO, dbo.USUARIO.PASSW, dbo.USUARIO.ID_ROL, dbo.USUARIO.ACTIVO AS 'ACTIVO', dbo.ROL.NOMBRE AS 'ROL'\n"
+                + "FROM dbo.USUARIO INNER JOIN\n"
+                + "dbo.ROL ON dbo.USUARIO.ID_ROL = dbo.ROL.ID_ROL WHERE USUARIO = '" + usr + "' AND PASSW = '" + pass + "'";
         try {
             con.open();
             rs = con.executeQuery(sql);
