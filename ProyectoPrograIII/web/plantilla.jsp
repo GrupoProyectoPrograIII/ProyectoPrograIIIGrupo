@@ -61,7 +61,6 @@
 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <%// for (Permiso permiso : lstPermiso) { %>
                         <!-----Mantenimientos (Usar este metodo de dropdown en los demas)----->
                         <li id="Li2" class="dropdown" >
                             <% for (Permiso permiso : lstPermiso) { %>
@@ -144,7 +143,6 @@
                             %>
 
                         </li>
-
                         <!-----Procesos (Usar este metodo de dropdown en los demas)----->
                         <li id="Li2" class="dropdown" >
                             <%
@@ -235,12 +233,16 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
                             <%}%><ul id="Li2" class="dropdown-menu">
                                 <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario General")) {
+                                    
                                         System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
                                 %>
-                                <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                
+                                <li><form style="display: none" action="controllerModulo?accion=read" method="post">
                                         <button type="submit" id="Inventario General"> </button>
                                     </form>
                                     <a id="A2"><label for="Inventario General">Inventario General</label></a></li>
+                                
+                                <%} else {%>
                                     <%}%>
 
                                 <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario Parcial")) {
