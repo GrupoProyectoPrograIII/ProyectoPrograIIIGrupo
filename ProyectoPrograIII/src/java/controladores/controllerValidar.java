@@ -55,18 +55,29 @@ public class controllerValidar extends HttpServlet {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 1) {
                     request.getSession().setAttribute("usuario", usr.getUser());
-                    request.getSession().setAttribute("nombre", usr.getNombre());
-                    request.getSession().setAttribute("apellido", usr.getApellido());
+                    //request.getSession().setAttribute("nombre", usr.getNombre());
+                    //request.getSession().setAttribute("apellido", usr.getApellido());
+                    int idrol = usr.getIdRol();
+                    String ver = String.valueOf(idrol);
+                    request.getSession().setAttribute("rol", ver);
                     //request.setAttribute("usuario", usr);
-                    request.getRequestDispatcher("plantillaAdm.jsp").forward(request, response);
+                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 2) {
-                    request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", usr);
-                    request.getRequestDispatcher("plantillaGfe.jsp").forward(request, response);
+                   request.getSession().setAttribute("usuario", usr.getUser());
+                    //request.getSession().setAttribute("nombre", usr.getNombre());
+                    //request.getSession().setAttribute("apellido", usr.getApellido());
+                    int idrol = usr.getIdRol();
+                    String ver = String.valueOf(idrol);
+                    request.getSession().setAttribute("rol", ver);
+                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
                 } else if (usr.getIdRol() == 3) {
-                    request.getSession().setAttribute("verificar", usr.getUser());
-                    request.setAttribute("usuario", usr);
-                    request.getRequestDispatcher("plantillaEmp.jsp").forward(request, response);
+                    request.getSession().setAttribute("usuario", usr.getUser());
+                    //request.getSession().setAttribute("nombre", usr.getNombre());
+                    //request.getSession().setAttribute("apellido", usr.getApellido());
+                    int idrol = usr.getIdRol();
+                    String ver = String.valueOf(idrol);
+                    request.getSession().setAttribute("rol", ver);
+                    request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
                 } else {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
