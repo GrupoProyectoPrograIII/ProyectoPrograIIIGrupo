@@ -22,8 +22,8 @@ public class controllerRol extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
-        RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
+        RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
+        //RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
         vista.forward(request, response);
     }
 
@@ -33,40 +33,44 @@ public class controllerRol extends HttpServlet {
         
         String acceso = "";
         String action = request.getParameter("accion");
-        String id, nombre, descrip, activo;
         
         daoRol daor = new daoRol();
         List<Rol> lstRol = null;
-        
+        Rol rol = new Rol();
 
         switch (action) {
             case "read":
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);
                 acceso = listar;
-                break;
-            //case "nuevo":                
+                break;             
             case "agregar":
-                nombre = request.getParameter("Anombre");
-                descrip = request.getParameter("Adescripcion");                
-                activo = request.getParameter("Aactivo");
-                System.out.println("nombre:"+nombre+" descripcion:"+descrip+" activo:"+activo);
+                rol = new Rol();
+                rol.setNombre(request.getParameter("Anombre"));
+                rol.setDescripcion(request.getParameter("Adescripcion"));
+                rol.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
+                daor.insertar(rol);
+                
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                
                 acceso=listar;
                 break;
             case "editar":
-                id = request.getParameter("Eidrol");
-                nombre = request.getParameter("Enombre");
-                descrip = request.getParameter("Edescripcion");                
-                activo = request.getParameter("Eactivo");
-                System.out.println("nombre:"+nombre+" descripcion:"+descrip+" activo:"+activo);
+                rol = new Rol();
+                rol.setIdRol(Integer.parseInt(request.getParameter("Eidrol")));
+                rol.setNombre(request.getParameter("Enombre"));
+                rol.setDescripcion(request.getParameter("Edescripcion"));
+                rol.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
+                daor.modificar(rol);
+                
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                
                 acceso=listar;
                 break;
             case "eliminar":
-                request.getParameter("Didrol");
+                rol.setIdRol(Integer.parseInt(request.getParameter("Didrol")));
+                daor.eliminar(rol);
+                
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                
                 acceso=listar;

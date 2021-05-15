@@ -21,9 +21,9 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
-                
+
             <%
-                List<Permiso> lstPermiso = (List<Permiso>)request.getAttribute("permiso");
+                List<Permiso> lstPermiso = (List<Permiso>) request.getAttribute("permiso");
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 List<Modulo> lstModulo = (List<Modulo>) request.getAttribute("modulo");
             %>
@@ -31,6 +31,11 @@
                 var modulo = document.createElement("select");
                 modulo.setAttribute("name", "Amodulo");
                 modulo.setAttribute("placeholder", "Modulo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                modulo.appendChild(option);
             <%
                 for (Modulo modulo : lstModulo) {
             %>
@@ -43,6 +48,11 @@
                 var role = document.createElement("select");
                 role.setAttribute("name", "Arol");
                 role.setAttribute("placeholder", "Rol");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                role.appendChild(option);
             <%
                 for (Rol rol : lstRol) {
             %>
@@ -55,6 +65,11 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
                 active.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                active.appendChild(option);
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
@@ -90,19 +105,19 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= a; i++) {
+                for (var i = a; i <= a; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log(cellVal);
                     }
                     datos = cellVal.split(',');
-                    // console.log(datos[3]);
+
                 }
 
                 var form = document.createElement("form");
@@ -113,20 +128,26 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Editar Fila";
+                
                 var id = document.createElement("input");
-                 id.setAttribute("type", "hidden");
-                 id.setAttribute("name", "Eidpermiso");
-                 id.setAttribute("Value", a);
-                 
-                <%
-                lstPermiso = (List<Permiso>)request.getAttribute("permiso");
-                lstRol = (List<Rol>) request.getAttribute("rol");
-                lstModulo = (List<Modulo>) request.getAttribute("modulo");
+                id.setAttribute("type", "hidden");
+                id.setAttribute("name", "Didpermiso");
+                id.setAttribute("Value", datos[1]);
+                
+            <%
+                    lstPermiso = (List<Permiso>) request.getAttribute("permiso");
+                    lstRol = (List<Rol>) request.getAttribute("rol");
+                    lstModulo = (List<Modulo>) request.getAttribute("modulo");
             %>
                 // Create an input element for Modulo
                 var modulo = document.createElement("select");
                 modulo.setAttribute("name", "Emodulo");
                 modulo.setAttribute("placeholder", "Modulo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                modulo.appendChild(option);
             <%
                 for (Modulo modulo : lstModulo) {
             %>
@@ -139,6 +160,11 @@
                 var role = document.createElement("select");
                 role.setAttribute("name", "Erol");
                 role.setAttribute("placeholder", "Rol");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                role.appendChild(option);
             <%
                 for (Rol rol : lstRol) {
             %>
@@ -151,6 +177,11 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
                 active.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                active.appendChild(option);
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
@@ -159,7 +190,7 @@
                 option2.innerHTML = ("Inactivo");
                 active.appendChild(option1);
                 active.appendChild(option2);
-                
+
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -167,7 +198,7 @@
                 s.setAttribute("value", "editar");
 
                 // Append the inputs to the form
-                form.append(newlabel, id,modulo, role, active);
+                form.append(newlabel, id, modulo, role, active);
 
                 // Append the button to the form
                 form.append(s);
@@ -187,19 +218,19 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= b; i++) {
+                for (var i = b; i <= b; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log(cellVal);
                     }
                     datos = cellVal.split(',');
-                    //console.log(datos[3]);
+
                 }
 
                 var form = document.createElement("form");
@@ -211,30 +242,29 @@
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Eliminar Fila";
                 var id = document.createElement("input");
-                
-                 id.setAttribute("type", "hidden");
-                 id.setAttribute("name", "Didpermiso");
-                 id.setAttribute("Value", b);
-                 
+                id.setAttribute("type", "hidden");
+                id.setAttribute("name", "Didpermiso");
+                id.setAttribute("Value", datos[1]);
+
                 // Create an input element for Nombre
                 var modulo = document.createElement("input");
                 modulo.setAttribute("type", "text");
                 modulo.setAttribute("name", "DModulo");
                 modulo.setAttribute("disabled", "disabled");
-                modulo.setAttribute("Value", datos[1]);
+                modulo.setAttribute("Value", datos[2]);
                 // Create an input element for Rol
                 var role = document.createElement("input");
                 role.setAttribute("name", "Drol");
                 role.setAttribute("type", "text");
                 role.setAttribute("disabled", "disabled");
-                role.setAttribute("Value", datos[2]);
+                role.setAttribute("Value", datos[3]);
                 // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
                 active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[3]);
-                
+                active.setAttribute("Value", datos[4]);
+
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -242,7 +272,7 @@
                 s.setAttribute("value", "eliminar");
 
                 // Append the inputs to the form
-                form.append(newlabel,id, modulo, role, active);
+                form.append(newlabel, id, modulo, role, active);
                 // Append the button to the form
                 form.append(s);
 
@@ -253,7 +283,8 @@
     </head>
     <body>
         <div class="container">   
-            <h1>Permisos</h1> 
+            <h1>Permisos</h1>        
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button> 
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
@@ -266,7 +297,9 @@
                 </thead>
                 <tbody>
                     <%
-                        for(Permiso permiso : lstPermiso){
+                        int iter=0;
+                        for (Permiso permiso : lstPermiso) {
+                            iter++;
                     %>
                     <tr>
                         <td class="text-center"><%=permiso.getIdPermiso()%></td>
@@ -277,10 +310,9 @@
                         <%} else {%>
                         <td class="text-center">Inactivo</td>
                         <%}%>
-                        <td class="text-center">    
-                            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>                            
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=permiso.getIdPermiso()%>)">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=permiso.getIdPermiso()%>)">Eliminar</button>
+                        <td class="text-center">                           
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
                         </td>
                     </tr>
                     <%}%>

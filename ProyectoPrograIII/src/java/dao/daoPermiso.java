@@ -97,9 +97,10 @@ public class daoPermiso implements crudPermiso {
                 + "ID_ROL= '"+ permiso.getIdRol() +"', "
                 + "ACTIVO= '"+ permiso.getIsActivo() +"'"
                 + "WHERE ID_PERMISO= '"+ permiso.getIdPermiso() +"'";
+        System.out.println(sql);
         try {
             con.open();
-            resp = con.executeSql(sql);
+            resp = con.executeSql("");
             con.close();
         } catch (Exception e) {
             System.out.println(e);

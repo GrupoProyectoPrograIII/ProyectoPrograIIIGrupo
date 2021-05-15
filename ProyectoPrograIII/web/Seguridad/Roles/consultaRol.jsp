@@ -33,6 +33,11 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
                 active.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                active.appendChild(option);
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
@@ -68,19 +73,18 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= a; i++) {
+                for (var i = a; i <= a; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log("CellVal:" + cellVal);
                     }
                     datos = cellVal.split(',');
-                    // console.log(datos[3]);
                 }
 
                 var form = document.createElement("form");
@@ -93,24 +97,29 @@
                 newlabel.innerHTML = "Editar Fila";
 
                 var id = document.createElement("input");
-                 id.setAttribute("type", "hidden");
-                 id.setAttribute("name", "Eidrol");
-                 id.setAttribute("Value", a);
+                id.setAttribute("type", "hidden");
+                id.setAttribute("name", "Eidrol");
+                id.setAttribute("Value", datos[1]);
 
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[1]);
+                name.setAttribute("Value", datos[2]);
                 // Create an input element for Descripcion
                 var des = document.createElement("input");
                 des.setAttribute("type", "text");
                 des.setAttribute("name", "Edescripcion");
-                des.setAttribute("value", datos[2]);
+                des.setAttribute("value", datos[3]);
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
                 active.setAttribute("value", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                active.appendChild(option);
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
@@ -174,26 +183,26 @@
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
                 id.setAttribute("name", "Didrol");
-                id.setAttribute("Value", b);
-                
+                id.setAttribute("Value", datos[1]);
+
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Dnombre");
-                name.setAttribute("Value", datos[1]);
+                name.setAttribute("Value", datos[2]);
                 name.setAttribute("disabled", "disabled");
                 // Create an input element for Descripcion
                 var des = document.createElement("input");
                 des.setAttribute("type", "text");
                 des.setAttribute("name", "Ddescripcion");
-                des.setAttribute("value", datos[2]);
+                des.setAttribute("value", datos[3]);
                 des.setAttribute("disabled", "disabled");
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
-                active.setAttribute("Value", datos[3]);
+                active.setAttribute("Value", datos[4]);
                 active.setAttribute("disabled", "disabled");
-                
+
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -214,7 +223,8 @@
     </head>
     <body>
         <div class="container"> 
-            <h1>Roles</h1>           
+            <h1>Roles</h1>        
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>           
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
@@ -228,25 +238,26 @@
                 <tbody>
                     <tr>
                         <%
-                            List<Rol> lstRol = (List<Rol>)request.getAttribute("rol");
-                                for(Rol rol : lstRol){
+                            List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
+                            int iter=0;
+                            for (Rol rol : lstRol) {
+                                iter++;
                         %>
                         <td class="text-center"><%=rol.getIdRol()%></td>
                         <td class="text-center"><%=rol.getNombre()%></td>
                         <td class="text-center"><%=rol.getDescripcion()%></td>
-                        <% if(rol.getIsActivo()==1){ %>
-                            <td class="text-center">Activo</td>
-                            <%}else{%>
-                            <td class="text-center">Inactivo</td>
-                            <%}%>
-                        <td class="text-center">    
-                            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=rol.getIdRol()%>)">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=rol.getIdRol()%>)">Eliminar</button>
+                        <% if (rol.getIsActivo() == 1) { %>
+                        <td class="text-center">Activo</td>
+                        <%} else {%>
+                        <td class="text-center">Inactivo</td>
+                        <%}%>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
 
                         </td>
                     </tr>
-                        <%}%>
+                    <%}%>
                 </tbody>
             </table>
         </div>

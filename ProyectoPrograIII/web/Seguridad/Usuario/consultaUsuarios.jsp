@@ -42,12 +42,17 @@
                 var role = document.createElement("select");
                 role.setAttribute("name", "Arole");
                 role.setAttribute("placeholder", "Rol");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                role.appendChild(option);
             <%
                 List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
-                var option = document.createElement("option");
+                option = document.createElement("option");
                 option.setAttribute("value", "<%=rol.getIdRol()%>");
                 option.innerHTML = ("<%=rol.getNombre()%>");
                 role.appendChild(option);
@@ -56,12 +61,17 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
                 active.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
                 var option2 = document.createElement("option");
                 option2.setAttribute("value", "0");
                 option2.innerHTML = ("Inactivo");
+                active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
                 // Create a submit button
@@ -88,63 +98,70 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= a; i++) {
+                for (var i = a; i <= a; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log(cellVal);
                     }
                     datos = cellVal.split(',');
-                    // console.log(datos[3]);
+
                 }
 
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
+                
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Editar Fila";
+                
                 var id = document.createElement("input");
-                 id.setAttribute("type", "hidden");
-                 id.setAttribute("name", "valorEditar");
-                 id.setAttribute("Value", a);
+                id.setAttribute("type", "hidden");
+                id.setAttribute("name", "Eiduser");
+                id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[1]);
+                name.setAttribute("Value", datos[2]);
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
-                apellido.setAttribute("name", "EApellido");
+                apellido.setAttribute("name", "Eapellido");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("Value", datos[2]);
+                apellido.setAttribute("Value", datos[3]);
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
                 users.setAttribute("name", "Euser");
-                users.setAttribute("Value", datos[3]);
+                users.setAttribute("Value", datos[4]);
                 // Create an input element for Password
                 var password = document.createElement("input");
                 password.setAttribute("type", "password");
                 password.setAttribute("name", "Epassword");
-                password.setAttribute("Value", datos[4]);
+                password.setAttribute("Value", datos[5]);
                 // Create an input element for Rol
                 var role = document.createElement("select");
-                role.setAttribute("name", "Arole");
+                role.setAttribute("name", "Erole");
                 role.setAttribute("placeholder", "Rol");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
+                role.appendChild(option);
             <%
                 lstUsuario = (List<Usuario>) request.getAttribute("user");
                 lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
-                var option = document.createElement("option");
+                option = document.createElement("option");
                 option.setAttribute("value", "<%=rol.getIdRol()%>");
                 option.innerHTML = ("<%=rol.getNombre()%>");
                 role.appendChild(option);
@@ -153,22 +170,27 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
                 active.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
                 var option2 = document.createElement("option");
                 option2.setAttribute("value", "0");
                 option2.innerHTML = ("Inactivo");
+                active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
-                
+
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, id, name, apellido, users, password, role, active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -186,70 +208,77 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= b; i++) {
+                for (var i = b; i <= b; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log("CellVal:" + cellVal);
                     }
                     datos = cellVal.split(',');
-                    //console.log(datos[3]);
+
                 }
 
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
+
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Eliminar Fila";
+
+                var id = document.createElement("input");
+                id.setAttribute("type", "hidden");
+                id.setAttribute("name", "Diduser");
+                id.setAttribute("value", datos[1]);
+
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Dnombre");
                 name.setAttribute("disabled", "disabled");
-                name.setAttribute("Value", datos[1]);
+                name.setAttribute("Value", datos[2]);
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
                 apellido.setAttribute("name", "DApellido");
                 apellido.setAttribute("type", "text");
                 apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("Value", datos[2]);
+                apellido.setAttribute("Value", datos[3]);
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
                 users.setAttribute("name", "Duser");
                 users.setAttribute("disabled", "disabled");
-                users.setAttribute("Value", datos[3]);
+                users.setAttribute("Value", datos[4]);
                 // Create an input element for Password
                 var password = document.createElement("input");
                 password.setAttribute("type", "password");
                 password.setAttribute("name", "Dpassword");
                 password.setAttribute("disabled", "disabled");
-                password.setAttribute("Value", datos[4]);
+                password.setAttribute("Value", datos[5]);
                 // Create an input element for Rol
                 var role = document.createElement("input");
                 role.setAttribute("name", "Drole");
                 role.setAttribute("disabled", "disabled");
-                role.setAttribute("placeholder", datos[5]);
+                role.setAttribute("value", datos[6]);
                 // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
                 active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[6]);
+                active.setAttribute("Value", datos[7]);
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, id, name, apellido, users, password, role, active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -259,7 +288,8 @@
     </head>
     <body>
         <div class="container"> 
-            <h1>Usuarios</h1>
+            <h1>Usuarios</h1>        
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
@@ -280,7 +310,9 @@
                 </thead>
                 <tbody>
                     <%
+                        int iter = 0;
                         for (Usuario user : lstUsuario) {
+                            iter++;
                     %>
                     <tr>
                         <td class="text-center"><%=user.getIdUser()%></td>
@@ -300,10 +332,9 @@
                         <td class="text-center"><%=user.getUserMod()%></td>
                         <td class="text-center"><%=user.getCodigo()%></td>--%>
 
-                        <td class="text-center">   
-                            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>                             
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=user.getIdUser()%>)">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=user.getIdUser()%>)">Eliminar</button>
+                        <td class="text-center">                            
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
                         </td>
                     </tr>
                     <%}%>

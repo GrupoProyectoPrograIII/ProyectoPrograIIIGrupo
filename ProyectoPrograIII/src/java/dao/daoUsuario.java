@@ -106,12 +106,13 @@ public class daoUsuario implements crudUsuario{
     @Override
     public boolean insertar(Usuario user) {
         sql = "INSERT INTO USUARIO (ID_USUARIO, NOMBRE, APELLIDO, USUARIO, "
-                +"PASSW, ID_ROL) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
+                +"PASSW, ID_ROL,ACTIVO) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
                 +" 1 FROM USUARIO),'"+ user.getNombre() +"','"+user.getApellido()+"','"
-                +user.getUser()+"','"+user.getPass()+"',"+user.getRol()+")";
+                +user.getUser()+"','"+user.getPass()+"',"+user.getIdRol()+","+user.getIsActivo()+")";
+        System.out.println(sql);
         try {
             con.open();            
-            resp = con.executeSql(sql);            
+            resp = con.executeSql("");            
             con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,9 +133,10 @@ public class daoUsuario implements crudUsuario{
                 +"ID_ROL="+user.getIdRol()+", "
                 +"ACTIVO="+user.getIsActivo()+" "
                 +"WHERE ID_USUARIO="+user.getIdUser();
+        System.out.println(sql);
         try {           
             con.open();            
-            resp = con.executeSql(sql);            
+            resp = con.executeSql("");            
             con.close();             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     
@@ -150,8 +152,9 @@ public class daoUsuario implements crudUsuario{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         try { 
             sql = "DELETE FROM USUARIO WHERE ID_USUARIO=" + user.getIdUser();
+            System.out.println(sql);
             con.open();            
-            resp = con.executeSql(sql);            
+            resp = con.executeSql("");            
             con.close();             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     

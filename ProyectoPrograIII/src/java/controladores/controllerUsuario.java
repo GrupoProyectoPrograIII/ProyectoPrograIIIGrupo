@@ -22,9 +22,9 @@ public class controllerUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); al quitar el comentario, si el usuario pone el link, lo va a sacar y devolver al login, ya que no esta autorizado
+        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //al quitar el comentario, si el usuario pone el link, lo va a sacar y devolver al login, ya que no esta autorizado
         
-        daoUsuario daoUsuario = new daoUsuario();
+        /*daoUsuario daoUsuario = new daoUsuario();
         List<Usuario> lstUsuario = null;
         daoRol daoRol = new daoRol();
         List<Rol> lstRol = null;
@@ -32,8 +32,8 @@ public class controllerUsuario extends HttpServlet {
         lstUsuario = daoUsuario.listar();
         request.setAttribute("rol", lstRol);
         request.setAttribute("user", lstUsuario);
-        
-        RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
+        */
+        //RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
         vista.forward(request, response);
     }
 
@@ -43,11 +43,11 @@ public class controllerUsuario extends HttpServlet {
         //processRequest(request, response);
         String acceso = "";
         String action = request.getParameter("accion");
-        String usuario, nombre, apellido, codigo, password, activo, rol;
         daoUsuario daoUsuario = new daoUsuario();
         List<Usuario> lstUsuario = null;
         daoRol daoRol = new daoRol();
         List<Rol> lstRol = null;
+        Usuario user = new Usuario();
 
         switch (action) {
             case "read":
@@ -58,31 +58,32 @@ public class controllerUsuario extends HttpServlet {
                 acceso = listar;
                 break;
             case "agregar":
-                usuario = request.getParameter("Auser");
-                nombre = request.getParameter("Anombre");
-                apellido = request.getParameter("Aapellido");
-                password = request.getParameter("Apassword");
-                rol = request.getParameter("Arol");
-                activo = request.getParameter("Aactivo");
-                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo);
-
+                user = new Usuario();
+                user.setUser(request.getParameter("Auser"));
+                user.setNombre(request.getParameter("Anombre"));
+                user.setApellido(request.getParameter("Aapellido"));
+                user.setPass(request.getParameter("Apassword"));
+                user.setIdRol(Integer.parseInt(request.getParameter("Arole")));
+                user.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
+                
+                daoUsuario.insertar(user);
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar;
-
                 break;
             case "editar":
-                usuario = request.getParameter("Auser");
-                nombre = request.getParameter("Aname");
-                apellido = request.getParameter("Aapellido");
-                password = request.getParameter("Apassword");
-                rol = request.getParameter("Arol");
-                activo = request.getParameter("Aactivo");
-                codigo = request.getParameter("Acodigo");
-                System.out.println("User:" + usuario + "nombre:" + nombre + "Apellido:" + apellido + " Password:" + password + " Rol:" + rol + " Activo:" + activo + " Codigo:" + codigo);
+                user = new Usuario();
+                user.setIdUser(Integer.parseInt(request.getParameter("Eiduser")));
+                user.setUser(request.getParameter("Euser"));
+                user.setNombre(request.getParameter("Enombre"));
+                user.setApellido(request.getParameter("Eapellido"));
+                user.setPass(request.getParameter("Epassword"));
+                user.setIdRol(Integer.parseInt(request.getParameter("Erole")));
+                user.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
                 
+                daoUsuario.modificar(user);
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
@@ -90,8 +91,10 @@ public class controllerUsuario extends HttpServlet {
                 acceso = listar;
                 break;
             case "eliminar":
-                request.getParameter("DuserId");
-                //Delete comand dao.eliminar
+                user = new Usuario();
+                user.setIdUser(Integer.parseInt(request.getParameter("Diduser")));
+                
+                daoUsuario.eliminar(user);
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);

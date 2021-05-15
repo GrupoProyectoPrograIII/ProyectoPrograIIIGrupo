@@ -42,9 +42,6 @@ public class daoRol implements crudRol {
         } catch (Exception ex) {
             Logger.getLogger(daoRol.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(Rol rol:lstRol){
-            System.out.println("nombre:"+rol.getNombre()+" descripcion:"+rol.getDescripcion()+" activo:"+rol.getIsActivo());
-        }
         return lstRol;
     }
 
