@@ -127,12 +127,15 @@
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
-                newlabel.innerHTML = "Editar Fila";
+                newlabel.innerHTML = "Editar Fila "+ datos[1];
                 
                 var id = document.createElement("input");
+                
+                var id = document.createElement("input");
+                id.setAttribute("name", "Eidpermiso");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Didpermiso");
                 id.setAttribute("Value", datos[1]);
+                
                 
             <%
                     lstPermiso = (List<Permiso>) request.getAttribute("permiso");
@@ -240,7 +243,8 @@
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
-                newlabel.innerHTML = "Eliminar Fila";
+                newlabel.innerHTML = "Eliminar Fila "+datos[1];
+                
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
                 id.setAttribute("name", "Didpermiso");

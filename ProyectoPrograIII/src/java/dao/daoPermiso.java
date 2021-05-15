@@ -31,10 +31,6 @@ public class daoPermiso implements crudPermiso {
                 permisos.setIdRol(rs.getInt("ID_ROL"));
                 permisos.setModulo(rs.getString("MODULO"));
                 permisos.setRol(rs.getString("ROL"));
-//                permisos.setFechaCrear(rs.getString("FECHA_CREA"));
-//                permisos.setFechaMod(rs.getString("FECHA_MOD"));
-//                permisos.setUserCrear(rs.getString("USUARIO_CREA"));
-//                permisos.setUserMod(rs.getString("USUARIO_MOD"));
                 permisos.setIsActivo(rs.getInt("ACTIVO"));
                 lstPermiso.add(permisos);
             }
@@ -78,8 +74,8 @@ public class daoPermiso implements crudPermiso {
     public boolean insertar(Permiso permiso) {
         sql = "INSERT INTO PERMISO(ID_PERMISO,ID_MODULO,ID_ROL,ACTIVO) \n"
                 + "  VALUES((SELECT ISNULL(MAX(ID_PERMISO),0)+ 1 FROM PERMISO),"
-                + "'"+ permiso.getModulo() +"',"
-                + "'"+ permiso.getRol() +"',"
+                + "'"+ permiso.getIdModulo() +"',"
+                + "'"+ permiso.getIdRol() +"',"
                 + "'"+ permiso.getIsActivo() +"')";
         try {
             con.open();
@@ -100,7 +96,7 @@ public class daoPermiso implements crudPermiso {
         System.out.println(sql);
         try {
             con.open();
-            resp = con.executeSql("");
+            resp = con.executeSql(sql);
             con.close();
         } catch (Exception e) {
             System.out.println(e);

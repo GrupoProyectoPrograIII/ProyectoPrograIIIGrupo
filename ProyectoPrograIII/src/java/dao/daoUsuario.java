@@ -112,7 +112,7 @@ public class daoUsuario implements crudUsuario{
         System.out.println(sql);
         try {
             con.open();            
-            resp = con.executeSql("");            
+            resp = con.executeSql(sql);            
             con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,7 +136,7 @@ public class daoUsuario implements crudUsuario{
         System.out.println(sql);
         try {           
             con.open();            
-            resp = con.executeSql("");            
+            resp = con.executeSql(sql);            
             con.close();             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     
@@ -154,7 +154,7 @@ public class daoUsuario implements crudUsuario{
             sql = "DELETE FROM USUARIO WHERE ID_USUARIO=" + user.getIdUser();
             System.out.println(sql);
             con.open();            
-            resp = con.executeSql("");            
+            resp = con.executeSql(sql);            
             con.close();             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(daoUsuario.class.getName()).log(Level.SEVERE, null, ex);     

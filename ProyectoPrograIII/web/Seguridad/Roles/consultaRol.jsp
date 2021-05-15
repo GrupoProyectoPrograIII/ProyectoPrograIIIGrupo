@@ -156,19 +156,18 @@
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (i = 1; i <= b; i++) {
+                for (var i = b; i <= b; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
                     var cellLength = oCells.length;
                     //loops through each cell in current row
-                    for (var j = 1; j < cellLength - 1; j++) {
-                        //get your cell info here
-                        //console.log(cellVal); check values added
-                        var cellVal = cellVal + " , " + oCells.item(j).innerHTML;
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log("CellVal:" + cellVal);
                     }
                     datos = cellVal.split(',');
-                    //console.log(datos[3]);
                 }
 
                 var form = document.createElement("form");

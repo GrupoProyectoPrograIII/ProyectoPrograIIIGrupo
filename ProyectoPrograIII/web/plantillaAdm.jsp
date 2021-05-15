@@ -1,9 +1,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    response.setHeader("Cache-Control", "no-cache");
+    /*response.setHeader("Cache-Control", "no-cache");
     response.setHeader("Pragma", "no-cache");
-    response.setDateHeader("Expires", 0);
+    response.setDateHeader("Expires", 0);*/
 
     String nom = (String) session.getAttribute("nombre");
     String ape = (String) session.getAttribute("apellido");

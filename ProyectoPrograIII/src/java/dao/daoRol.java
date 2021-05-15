@@ -68,16 +68,10 @@ public class daoRol implements crudRol {
     @Override
     public boolean insertar(Rol rol) {
         sql = "INSERT INTO ROL (ID_ROL, NOMBRE, DESCRIPCION, ACTIVO) "
-                +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),?,?,?)";
+                +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),'"+rol.getNombre()+"','"+rol.getDescripcion()+"','"+rol.getIsActivo()+"')";
         try {
-            cnn = con.Conexion();
-            ps = cnn.prepareStatement(sql);            
-            //ps.setInt(1, rol.getIdRol());
-            ps.setString(1, rol.getNombre());
-            ps.setString(2, rol.getDescripcion());
-            ps.setInt(3, rol.getIsActivo());
-            ps.executeUpdate();
-            ps.close();
+            con.open();
+            resp = con.executeSql(sql);
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -87,19 +81,13 @@ public class daoRol implements crudRol {
 
     @Override
     public boolean modificar(Rol rol) {
-        sql = "UPDATE ROL SET ID_ROL=?, NOMBRE=?, DESCRIPCION=?, ACTIVO=? "
-                +"WHERE ID_ROL="+rol;
+        sql = "UPDATE ROL SET ID_ROL="+rol.getIdRol()+", NOMBRE= '"+rol.getNombre()+"', DESCRIPCION='"+rol.getDescripcion()+"', ACTIVO="+rol.getIsActivo()+" WHERE ID_ROL="+rol.getIdRol();
+        System.out.println(sql);
         try {
-            cnn = con.Conexion();
-            ps = cnn.prepareStatement(sql);            
-            ps.setInt(1, rol.getIdRol());
-            ps.setString(2, rol.getNombre());
-            ps.setString(3, rol.getDescripcion());
-            ps.setInt(4, rol.getIsActivo());
-            ps.executeUpdate();
-            ps.close();
-            cnn.close();
-        } catch (SQLException e) {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
             System.out.println(e);
         }
         return resp;
@@ -107,14 +95,13 @@ public class daoRol implements crudRol {
 
     @Override
     public void eliminar(Rol rol) {
-        sql = "DELETE FROM ROL WHERE ID_ROL="+rol;
+        sql = "DELETE FROM ROL WHERE ID_ROL= "+rol.getIdRol();
+        System.out.println(sql);
         try {
-            cnn = con.Conexion();
-            ps = cnn.prepareStatement(sql);
-            ps.executeUpdate();
-            ps.close();
-            cnn.close();
-        } catch (SQLException e) {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
             System.out.println(e);
         }
     }

@@ -82,7 +82,7 @@ public class controllerPermiso extends HttpServlet {
                 break;
             case "editar":
                 permiso = new Permiso();
-                permiso.setIdPermiso(Integer.parseInt(request.getParameter("Didpermiso")));
+                permiso.setIdPermiso(Integer.parseInt(request.getParameter("Eidpermiso")));
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Emodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Erol")));
                 permiso.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
