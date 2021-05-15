@@ -66,7 +66,7 @@
                         <li id="Li2" class="dropdown" >
                             <% for (Permiso permiso : lstPermiso) { %>
                             <%
-                                if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Mantenimientos")) {
+                                if ( permiso.getRol().equals(roles) && permiso.getModulo().equals("Mantenimientos")) {
                             %>
 
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a>
@@ -127,7 +127,7 @@
                                     </form>
                                     <a id="A2"><label for="Proveedores">Proveedores</label></a></li>
                                     <%}%>
-                                    <%if (permiso.getRol().equals(roles) || permiso.getModulo().equals("Tipo Producto")) {
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Tipo Producto")) {
                                             System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
                                     %>
                                 <li>
@@ -140,12 +140,178 @@
                             </ul>
                             <%} else {
                                     }
-                                }
+                                
                             %>
 
                         </li>
 
-//                        
+                        <!-----Procesos (Usar este metodo de dropdown en los demas)----->
+                        <li id="Li2" class="dropdown" >
+                            <%
+                            if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Procesos")) {
+                            %>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a>
+                            <%}%><ul id="Li2" class="dropdown-menu">
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Descarga Inventario")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                %>
+                                <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Descarga Inventario"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Descarga Inventario">Descarga Inventario</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Facturas al Credito")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Descarga Inventario"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Descarga Inventario">Facturas al Credito</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Pagos de Pedido")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Pagos de Pedido"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Pagos de Pedido">Pagos de Pedido</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Caja Inventario")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Caja Inventario"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Caja Inventario">Caja Inventario</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Corte de Caja")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Corte de Caja"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Corte de Caja">Corte de Caja</label></a></li>
+                                    <%}%>
+                            </ul> 
+                        </li>
+                        <!-----Pedidos  (Usar este metodo de dropdown en los demas)----->
+                        <li id="Li2" class="dropdown" >
+                            <%
+                                if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Pedidos")) {
+                            %>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a>
+                            <%}%><ul id="Li2" class="dropdown-menu">
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Seleccionar Mesa")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                %>
+                                <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Seleccionar Mesa"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Seleccionar Mesa">Seleccionar Mesa</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Anular Pedido")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Anular Pedido"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Anular Pedido">Anular Pedido</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Elegir Monitor")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Elegir Monitor"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Elegir Monitor">Elegir Monitor</label></a></li>
+                                    <%}%>
+                            </ul> 
+                        </li>
+                        <!-----Reportes (Usar este metodo de dropdown en los demas)----->
+                        <li id="Li2" class="dropdown" >
+                            <%
+                                if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Reportes")) {
+                            %>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a>
+                            <%}%><ul id="Li2" class="dropdown-menu">
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario General")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                %>
+                                <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Inventario General"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Inventario General">Inventario General</label></a></li>
+                                    <%}%>
+
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario Parcial")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                %>
+                                <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Inventario Parcial"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Inventario Parcial">Inventario Parcial</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Cierre")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Cierre"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Cierre">Cierre</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Monitor de Caja")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    %>
+                                    <%} else {%><li><form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Monitor de Caja"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Monitor de Caja">Monitor de Caja</label></a></li>
+                                    <%}%>
+                            </ul>
+                        </li>
+                        <!-----Seguridad  (Usar este metodo de dropdown en los demas)----->
+                        <li id="Li2" class="dropdown" >
+                            <%
+                                if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Seguridad")) {
+                            %>
+
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a>
+                            <%}%><ul id="Li2" class="dropdown-menu">
+                                <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Modulos")) {
+                                        System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                    } else {%><li>
+                                    <form style="display: none" action="controllerModulo?accion=read" method="post">
+                                        <button type="submit" id="Modulos"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Modulos">Modulos</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Permisos")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
+                                    <form style="display: none" action="controllerPermiso?accion=read" method="post">
+                                        <button type="submit" id="Permisos"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Permisos">Permisos</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Rol")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
+                                    <form style="display: none" action="controllerRol?accion=read" method="post">
+                                        <button type="submit" id="Rol"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Rol">Rol</label></a></li>
+                                    <%}%>
+                                    <%if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Usuario")) {
+                                            System.out.println(roles + ":" + permiso.getRol() + "/" + permiso.getModulo());
+                                        } else {%><li>
+                                    <form style="display: none" action="controllerUsuario?accion=read" method="post">
+                                        <button type="submit" id="Usuario"> </button>
+                                    </form>
+                                    <a id="A2"><label for="Usuario">Usuarios</label></a></li>
+                                    <%}%>
+                            </ul>
+                        </li>
+                        <% }%>
                         <!---------->
                     </ul>
 
