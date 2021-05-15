@@ -1,0 +1,22 @@
+USE [DB_PROYECTO_1]
+GO
+
+SELECT *
+  FROM [dbo].[MODULO]
+
+
+SELECT *
+  FROM [dbo].[PERMISO]
+
+SELECT *
+  FROM [dbo].[ROL]
+
+SELECT *
+  FROM [dbo].[USUARIO]
+
+
+  SELECT DBO.ROL.ID_ROL FROM DBO.ROL WHERE NOMBRE='Gerencia';
+
+
+
+
