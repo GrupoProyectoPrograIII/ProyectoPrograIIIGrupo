@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
-/**
- *
- * @author javie
- */
+import java.util.List;
+import modelos.Rol;
+
 public interface crudRol {
-    
+    public List listar();
+    public Rol list (int id);
+    public boolean insertar(Rol rol);
+    public boolean modificar(Rol rol);
+    public void eliminar(Rol rol);
+    public List busqueda(String parametro, String opcion);
 }

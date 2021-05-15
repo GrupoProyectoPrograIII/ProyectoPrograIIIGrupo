@@ -9,12 +9,6 @@ public class Usuario {
     private String pass;
     private String rol;
     private int isActivo;
-//    private String fechaCrear;
-//    private String fechaMod;
-//    private String userCrear; //aparece en BD como int
-//    private String userMod;   //aparece en BD como int
-//    private String codigo;
-
     public Usuario() {
     }
 

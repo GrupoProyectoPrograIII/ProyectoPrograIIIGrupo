@@ -7,10 +7,6 @@ public class Permiso {
     private int idRol;
     private String modulo;
     private String rol;
-//    private String fechaCrear;
-//    private String fechaMod;
-//    private String userCrear; //aparece en BD como int
-//    private String userMod; //aparece en BD como int
     private int isActivo;
 
     public int getIdPermiso() {

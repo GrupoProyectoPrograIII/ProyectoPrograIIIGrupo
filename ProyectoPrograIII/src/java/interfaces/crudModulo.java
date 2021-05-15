@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
-/**
- *
- * @author javie
- */
+import java.util.List;
+import modelos.Modulo;
+
 public interface crudModulo {
-    
+    public List listar();
+    public Modulo list (int id);
+    public boolean insertar(Modulo modulo);
+    public boolean modificar(Modulo modulo);
+    public boolean eliminar(Modulo modulo);
+    public List busqueda(String parametro, String opcion);
 }

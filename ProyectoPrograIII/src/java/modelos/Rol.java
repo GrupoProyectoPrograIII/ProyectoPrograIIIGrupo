@@ -5,11 +5,7 @@ public class Rol {
     private String nombre;
     private String descripcion;
     private int isActivo;
-//    private String userCrear; //aparece en BD como int
-//    private String userMod; //aparece en BD como int
-//    private String fechaCrear;
-//    private String fechaMod;
-
+    
     public int getIdRol() {
         return idRol;
     }
@@ -40,7 +36,5 @@ public class Rol {
 
     public void setIsActivo(int isActivo) {
         this.isActivo = isActivo;
-    }
-
-       
+    }  
 }

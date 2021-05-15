@@ -11,7 +11,7 @@
         <div class="container mt-4 col-lg-4">
             <div class="card col-sm-10">
                 <div class="card-body">
-                    <form class="form-sign" action="controllerValidar" method="POST" autocomplete="off">
+                    <form class="form-sign" action="controllerValidar" method="get" autocomplete="off">
                         <div class="form-group text-center">
                             <img src="img/diner-restaurant-logo.jpg" alt="70" width="170"/>
                             <br><label>Bienvenido al sistema</label>
@@ -26,9 +26,10 @@
                             <input type="password" name="txtpass" class="form-control">
                         </div>
                         <div>
-                            <br><input type="submit" name="accionL" value="Ingresar" class="btn btn-primary btn-block">
+                            <br><input type="submit" name="accionL" value="Ingresar" class="btn btn-primary btn-block">-->
                         </div>  
                     </form>
+                    <a id="A2" href="plantilla.jsp">Ingresar</a>
                 </div>
             </div>
         </div>

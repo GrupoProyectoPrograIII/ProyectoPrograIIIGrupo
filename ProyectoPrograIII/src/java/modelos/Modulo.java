@@ -8,10 +8,6 @@ public class Modulo {
     private int nivel;
     private int orden;
     private int idModuloPadre;
-    //private String fechaCrear;
-    //private String fechaMod;
-    //private String userCrear; //esto fue marcado como int en DB
-    //private String userMod; //esto fue marcado como int en DB
     private int isActivo;
 
     public Modulo() {
