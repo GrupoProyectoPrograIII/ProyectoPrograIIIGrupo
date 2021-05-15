@@ -179,7 +179,7 @@
                             <!--a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<><b class="caret"></b></a-->
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
-                                        <img src="img/user.png" alt="40" width="60"/>
+                                        <img src="img/admin.png" alt="40" width="60"/>
                                     </a></li>
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%= usuario%></a></li>
                                 <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
@@ -325,7 +325,7 @@
                             <!--a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<><b class="caret"></b></a-->
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
-                                        <img src="img/user.png" alt="40" width="60"/>
+                                        <img src="img/gerente.png" alt="40" width="60"/>
                                     </a></li>
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%= usuario%></a></li>
                                 <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
@@ -406,7 +406,7 @@
                             <!--a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario logeado:<><b class="caret"></b></a-->
                             <ul id="Ul2" class="dropdown-menu">
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
-                                        <img src="img/user.png" alt="40" width="60"/>
+                                        <img src="img/empleado.png" alt="40" width="60"/>
                                     </a></li>
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%= usuario%></a></li>
                                 <li id="Li2" class="dropdown"><a >usuario@gmail.com</a></li>
