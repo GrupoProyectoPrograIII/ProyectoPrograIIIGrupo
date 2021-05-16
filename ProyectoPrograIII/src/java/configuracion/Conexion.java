@@ -14,25 +14,22 @@ public class Conexion {
     private ResultSet resultado = null;
     Connection con;
     
-    //Cadena de Conexion   
-    //Cambio de la cadena conexion pc escritorio: DESKTOP-O84DBVU\\SQLEXPRESS--> ANTONIO
-    //Nombre de mi maquina JAVIER-DIAZ\\SQLEXPRESS:1433 --> Javier Diaz
-    //Mi maquina: DESKTOP-G20CI13\\SQLEXPRESS:1433; --> Javier Osorio
-    
-    
+    //Cadena de Conexion    
     //AQUI debe ir el nombre de su servidor SQL***
     String stringConnectionUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;"
             + "databaseName=DB_PROYECTO_1;";
     //Driver o controlador JDBC
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //
+    private final String user = "sa";
+    private final String pass= "1234";
     private boolean respuesta = false;
 
     public Connection open() throws ClassNotFoundException {
         try {
             Class.forName(driver);
 
-            coneccion = DriverManager.getConnection(stringConnectionUrl, "sa", "1234");
+            coneccion = DriverManager.getConnection(stringConnectionUrl, user, pass);
         } catch (SQLException e) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
             System.out.println("Excepción: " + e.getMessage());
@@ -41,11 +38,10 @@ public class Conexion {
     }
     
     public Connection Conexion(){
-        String user = "sa";
-        String pass4= "1234";
+        
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection(stringConnectionUrl,user, pass4);
+            con = DriverManager.getConnection(stringConnectionUrl,user, pass);
         } catch (Exception e) {
             System.out.println("Excepción: " + e.getMessage());
         }
