@@ -26,7 +26,7 @@
                             <input type="password" name="txtpass" class="form-control">
                         </div>
                         <div>
-                            <br><input type="submit" name="accionL" value="Ingresar" class="btn btn-primary btn-block">
+                            <br><input type="submit" name="accionL" value="ingresar" class="btn btn-primary btn-block">
                         </div>  
                     </form>
                 </div>
