@@ -9,6 +9,7 @@ public class Usuario {
     private String pass;
     private String rol;
     private int isActivo;
+    
     public Usuario() {
     }
 
