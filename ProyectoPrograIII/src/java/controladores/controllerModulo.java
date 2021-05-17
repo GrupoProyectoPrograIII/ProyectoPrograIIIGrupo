@@ -14,13 +14,21 @@ import modelos.Modulo;
 
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
-    
+
     String listar = "Seguridad/Modulos/consultaModulos.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        DaoModulo daoModulo = new DaoModulo();
+        List<Modulo> lstModulo = daoModulo.listar();
+        lstModulo = daoModulo.listar();
+        request.setAttribute("modulo", lstModulo);
+        RequestDispatcher vista = request.getRequestDispatcher(listar); //invoca de modo directo un recurso web
+        vista.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,7 +37,7 @@ public class controllerModulo extends HttpServlet {
         DaoModulo daoModulo = new DaoModulo();
         List<Modulo> lstModulo = daoModulo.listar();
         Modulo modulo = new Modulo();
-        
+
         switch (action) {
             case "read":
                 lstModulo = daoModulo.listar();
@@ -73,11 +81,12 @@ public class controllerModulo extends HttpServlet {
                 request.setAttribute("modulo", lstModulo);
                 acceso = listar;
                 break;
-        
+
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";

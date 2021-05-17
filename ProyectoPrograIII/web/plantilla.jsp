@@ -24,39 +24,40 @@
     int i = 0, j = 0;
     Boolean seguridad = false, mantenimientos = false, procesos = false, pedidos = false, Reportes = false;//Nivel 1
     Boolean modulos = false, permisos = false, users = false, rols = false, SelectMesa = false, AnularPedido = false, Area=false,Clientes=false,Mesa=false;
-    Boolean Monitor=false,ProductoCombinado=false,Productos=false,Proveedores=false,TipoProducto=false,SeleccionarMesa=false,DescargaInventario=false,FacturasCredito=false;
+    Boolean Monitor=false,ProductoCombinado=false,Productos=false,Proveedores=false,TipoProducto=false, DescargaInventario=false,FacturasCredito=false;
     Boolean PagoPedido=false,CargaInventario=false,CorteCaja=false,ElegirMonitor=false,InventarioGeneral=false,InventarioParcial=false,Cierre=false,MonitorCaja=false;//nivel 2
     while (iterPermiso.hasNext()) {
         permiso = iterPermiso.next();
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Seguridad")) { System.out.println(i + " " + permiso.getModulo() + " se consiguio!");seguridad = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Modulos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");modulos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Permisos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");permisos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Usuarios")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");users = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Roles")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");rols = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Mantenimientos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Area")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Area= true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Clientes")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Clientes = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Mesa = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Monitor = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Producto Combinado")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");ProductoCombinado = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Productos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Productos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Proveedores")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Proveedores = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Tipo Producto")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");TipoProducto = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Procesos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");procesos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Descarga Inventario")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");DescargaInventario = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Facturas al Credito")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");FacturasCredito = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Pago de Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");PagoPedido = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Carga Inventario")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CargaInventario = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Corte de Caja")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CorteCaja = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Pedidos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Seleccionar Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");SelectMesa = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Anular Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");AnularPedido = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Elegir Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");ElegirMonitor = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Reportes")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Reportes = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario General")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");InventarioGeneral = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Inventario Parcial")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");InventarioParcial = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Cierre")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Cierre = true;}
-        if (permiso.getRol().equals(roles) && permiso.getModulo().equals("Monitor de Caja")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");MonitorCaja = true;}
+        System.out.println(permiso.getRol() +":"+ permiso.getModulo());
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("SEGURIDAD")) { System.out.println(i + " " + permiso.getModulo() + " se consiguio!");seguridad = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Modulos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");modulos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Permisos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");permisos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Usuarios")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");users = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Roles")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");rols = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mantenimientos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Area")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Area= true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Clientes")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Clientes = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Mesa = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Monitor = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Producto Combinado")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");ProductoCombinado = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Productos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Productos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Proveedores")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Proveedores = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Tipo Producto")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");TipoProducto = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Procesos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");procesos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Descarga Inventario")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");DescargaInventario = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Facturas al Credito")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");FacturasCredito = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pago de Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");PagoPedido = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Carga Inventario")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CargaInventario = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Corte de Caja")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CorteCaja = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pedidos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Seleccionar Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");SelectMesa = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Anular Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");AnularPedido = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Elegir Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");ElegirMonitor = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Reportes")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Reportes = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario General")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");InventarioGeneral = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario Parcial")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");InventarioParcial = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Cierre")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Cierre = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor de Caja")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");MonitorCaja = true;}
         i++;
     }
 %>
@@ -94,7 +95,6 @@
                                 <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Productos"> </button></form>
                                 <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Proveedores"> </button></form>
                                 <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="TipoProducto"> </button></form>
-                                
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (Area){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Area">Area</label></a></li><%}%>
