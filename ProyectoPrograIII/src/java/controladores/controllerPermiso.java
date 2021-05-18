@@ -40,18 +40,8 @@ public class controllerPermiso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DaoPermiso daoPermiso = new DaoPermiso();
-        List<Permiso> lstPermiso = daoPermiso.listar();
-        DaoRol daoRol = new DaoRol();
-        List<Rol> lstRol = daoRol.listar();
-        DaoModulo daoModulo = new DaoModulo();
-        List<Modulo> lstModulo = daoModulo.listar();
-
-        request.setAttribute("permiso", lstPermiso);
-        request.setAttribute("rol", lstRol);
-        request.setAttribute("modulo", lstModulo);
-        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
-        RequestDispatcher vista = request.getRequestDispatcher(listar);//Temporal accesso, favor comentar esta linea y dejar "index.jsp"
+        
+        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
     @Override

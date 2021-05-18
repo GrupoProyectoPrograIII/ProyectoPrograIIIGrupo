@@ -21,11 +21,7 @@ public class controllerModulo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        DaoModulo daoModulo = new DaoModulo();
-        List<Modulo> lstModulo = daoModulo.listar();
-        lstModulo = daoModulo.listar();
-        request.setAttribute("modulo", lstModulo);
-        RequestDispatcher vista = request.getRequestDispatcher(listar); //invoca de modo directo un recurso web
+        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
 

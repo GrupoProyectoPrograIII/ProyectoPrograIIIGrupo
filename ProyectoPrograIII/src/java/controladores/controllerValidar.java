@@ -2,6 +2,7 @@ package controladores;
 
 import dao.DaoUsuario;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,9 @@ public class controllerValidar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("plantilla.jsp").forward(request, response);
+        
+        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
+        vista.forward(request, response);
     }
 
     @Override
@@ -42,14 +45,10 @@ public class controllerValidar extends HttpServlet {
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
                     request.getSession().setAttribute("roles", usr.getRol());
-                    //request.getRequestDispatcher("newPlantilla.jsp").forward(request, response);
                     request.getRequestDispatcher("plantilla.jsp").forward(request, response);
-                    //request.setAttribute("usuario", usr);
                 }
             }
-
         } else if (action.equalsIgnoreCase("salir")) {
-            //request.removeAttribute("usuario");
             request.getSession().removeAttribute("nombre");
             request.getSession().removeAttribute("apellido");
             request.getSession().removeAttribute("usuario");

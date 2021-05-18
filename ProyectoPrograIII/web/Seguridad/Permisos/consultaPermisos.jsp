@@ -285,7 +285,7 @@
             }
         </script>
     </head>
-    <body>
+    <body style="padding-bottom: 50px">
         <div class="container">   
             <h1>Permisos</h1>        
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button> 

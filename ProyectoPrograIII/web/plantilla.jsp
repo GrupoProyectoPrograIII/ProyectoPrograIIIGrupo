@@ -28,14 +28,13 @@
     Boolean PagoPedido=false,CargaInventario=false,CorteCaja=false,ElegirMonitor=false,InventarioGeneral=false,InventarioParcial=false,Cierre=false,MonitorCaja=false;//nivel 2
     while (iterPermiso.hasNext()) {
         permiso = iterPermiso.next();
-        System.out.println(permiso.getRol() +":"+ permiso.getModulo());
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("SEGURIDAD")) { System.out.println(i + " " + permiso.getModulo() + " se consiguio!");seguridad = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Modulos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");modulos = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Permisos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");permisos = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Usuarios")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");users = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Roles")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");rols = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mantenimientos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Area")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Area= true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Areas")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Area= true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Clientes")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Clientes = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Mesa = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");Monitor = true;}
@@ -49,7 +48,7 @@
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pago de Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");PagoPedido = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Carga Inventario")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CargaInventario = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Corte de Caja")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");CorteCaja = true;}
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pedidos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");mantenimientos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pedidos")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");pedidos = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Seleccionar Mesa")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");SelectMesa = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Anular Pedido")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");AnularPedido = true;}
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Elegir Monitor")) {System.out.println(i + " " + permiso.getModulo() + " se consiguio!");ElegirMonitor = true;}
@@ -173,6 +172,29 @@
                         </li>
                         <!---------->
                     </ul>
+                            <!-----Esto es solo para los datos del usuario----->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="Li2" class="dropdown" >
+                            <a class="dropdown-toggle" data-toggle="dropdown"  id="A1">Usuario: <%= ape+ "," +nom%>
+                                <b class="caret"></b></a>
+                            
+                            <ul id="Ul2" class="dropdown-menu">
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
+                                        <img src="img/user.png" alt="40" width="60"/>
+                                    </a></li>
+                                <li id="a2" class="dropdown"><a id="a2" class="dropdown"><%=usuarios%></a></li>
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%=roles%></a></li>
+                                <li id="a2" class="dropdown"><a>usuario@gmail.com</a></li>
+                                <form style="display: none" action="controllerValidar" method="post">
+                                    <button type="submit" name="accionL" value="salir" id="salir"> </button>
+                                </form>
+                                <li id="Li2" class="dropdown">
+                                    <a id="A2"><label for="salir">Salir</label></a>
+                                </li>                   
+                            </ul>
+                        </li>
+                    </ul>
+                                <!---------->
                 </div>
             </div>
         </nav>
