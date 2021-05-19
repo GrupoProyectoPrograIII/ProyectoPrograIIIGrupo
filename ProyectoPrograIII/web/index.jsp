@@ -33,15 +33,26 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
     <c:if test="${success == 0}">
         <script type="text/javascript">
-            alert("Usuario o Contraseña incorrecto");
+            swal.fire({
+                title: "¡Error!",
+                text: "Los datos ingresados no existen o son incorrectos",
+                icon: 'error' //warning,info,question,error,success
+                //confirmButtonText: "Ok"
+            });
         </script>
     </c:if>
     <c:if test="${success == 1}">
         <script type="text/javascript">
-            alert("Ingrese un usuario y/o contraseña");
+            swal.fire({
+                title: "¡Advertencia!",
+                text: "Debe llenar los campos solicitados",
+                icon: 'warning' //warning,info,question,error,success
+                //confirmButtonText: "Ok"
+            });
         </script>
     </c:if>
 </html>
