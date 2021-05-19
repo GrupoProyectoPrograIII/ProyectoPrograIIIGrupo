@@ -288,7 +288,7 @@
     </head>
     <body style="padding-bottom: 50px">
         <div class="container"> 
-            <h1>Usuarios</h1>        
+            <h1>Productos</h1>        
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>

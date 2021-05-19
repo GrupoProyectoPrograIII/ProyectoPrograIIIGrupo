@@ -87,18 +87,18 @@
                             <%if (mantenimientos) {%><a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Mantenimientos<b class="caret"></b></a><%}%>
                             <div class="formularios">
                                 <form style="display: none" action="controllerMenu?accion=area" method="post"><button type="submit" id="Area"> </button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="Clientes"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Mesa"> </button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="Monitor"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="ProductoCombinado"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Productos"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Proveedores"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="TipoProducto"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=cliente" method="post"><button type="submit" id="Clientes"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=mesa" method="post"><button type="submit" id="Mesa"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=monitor" method="post"><button type="submit" id="Monitor"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=productCombo" method="post"><button type="submit" id="ProductoCombinado"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=producto" method="post"><button type="submit" id="Productos"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=proveedor" method="post"><button type="submit" id="Proveedores"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=tipoProduct" method="post"><button type="submit" id="TipoProducto"> </button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (Area){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Area">Area</label></a></li><%}%>
                                 <%if (Clientes){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Clientes">Clientes</label></a></li><%}%>
-                                <%if (Mesa){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Permisos">Mesa</label></a></li><%}%>
+                                <%if (Mesa){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Mesa">Mesa</label></a></li><%}%>
                                 <%if (Monitor){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Monitor">Monitor</label></a></li><%}%>
                                 <%if (ProductoCombinado){%><li id="Li2" class="dropdown" ><a id="A2"><label for="ProductoCombinado">Producto Combinado</label></a></li><%}%>
                                 <%if (Productos){%><li id="Li2" class="dropdown" ><a id="A2"><label for="Productos">Productos</label></a></li><%}%>

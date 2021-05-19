@@ -1,6 +1,8 @@
 package controladores;
 
 import dao.DaoModulo;
+import dao.DaoRol;
+import dao.DaoUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Modulo;
+import modelos.Rol;
+import modelos.Usuario;
 
 @WebServlet(name = "controllerMenu", urlPatterns = {"/controllerMenu"})
 public class controllerMenu extends HttpServlet {
@@ -32,51 +36,70 @@ public class controllerMenu extends HttpServlet {
         DaoModulo daoModulo = new DaoModulo();
         List<Modulo> lstModulo = daoModulo.listar();
         Modulo modulo = new Modulo();
+        DaoUsuario daoUsuario = new DaoUsuario();
+        List<Usuario> lstUsuario = null;
+        DaoRol daoRol = new DaoRol();
+        List<Rol> lstRol = null;
+        Usuario user = new Usuario();
 
         switch (action) {
-            case "read":
-                lstModulo = daoModulo.listar();
-                request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+            case "area":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Areas.jsp";
                 break;
-            case "agregar":
-                modulo = new Modulo();
-                modulo.setNombre(request.getParameter("Anombre"));
-                modulo.setDescripcion(request.getParameter("Adescripcion"));
-                modulo.setPath(request.getParameter("Apath"));
-                modulo.setNivel(Integer.parseInt(request.getParameter("Anivel")));
-                modulo.setOrden(Integer.parseInt(request.getParameter("Aorden")));
-                modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("AmoduloPadre")));
-                modulo.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                daoModulo.insertar(modulo);
-                lstModulo = daoModulo.listar();
-                request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+            case "cliente":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Clientes.jsp";
                 break;
-            case "editar":
-                modulo = new Modulo();
-                modulo.setIdModulo(Integer.parseInt(request.getParameter("Eidmodulo")));
-                modulo.setNombre(request.getParameter("Enombre"));
-                modulo.setDescripcion(request.getParameter("Edescripcion"));
-                modulo.setPath(request.getParameter("Epath"));
-                modulo.setNivel(Integer.parseInt(request.getParameter("Enivel")));
-                modulo.setOrden(Integer.parseInt(request.getParameter("Eorden")));
-                modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("EmoduloPadre")));
-                modulo.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                daoModulo.modificar(modulo);
-                lstModulo = daoModulo.listar();
-                request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+            case "mesa":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Mesas.jsp";
                 break;
-            case "eliminar":
-                modulo = new Modulo();
-                modulo.setIdModulo(Integer.parseInt(request.getParameter("Didmodulo")));
-                daoModulo.eliminar(modulo);
-                lstModulo = daoModulo.listar();
-                request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+            case "monitor":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Monitor.jsp";
                 break;
-
+            case "productCombo":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/ProductoCombinado.jsp";
+                break;
+            case "producto":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Productos.jsp";
+                break;
+            case "proveedor":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/Proveedores.jsp";
+                break;
+            case "tipoProduct":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = "Mantenimientos/TipoProductos.jsp";
+                break;
+            
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
