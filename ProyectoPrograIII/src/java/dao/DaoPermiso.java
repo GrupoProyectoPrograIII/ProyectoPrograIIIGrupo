@@ -48,7 +48,7 @@ public class DaoPermiso implements crudPermiso{
     @Override
     public Permiso list(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.MODULO.NOMBRE as 'MODULO', dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL WHERE ID_PERMISO=" + id;
+        sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.MODULO.NOMBRE as 'MODULO', dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL WHERE ID_ROL=" + id;
         try {
             con.open();
             rs = con.executeQuery(sql);

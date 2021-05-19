@@ -289,7 +289,6 @@
     <body style="padding-bottom: 50px">
         <div class="container"> 
             <h1>Usuarios</h1>        
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
@@ -340,6 +339,7 @@
                     <%}%>
                 </tbody>
             </table>
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
         </div>
     </body>
 </html>

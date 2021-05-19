@@ -288,11 +288,10 @@
     <body style="padding-bottom: 50px">
         <div class="container">   
             <h1>Permisos</h1>        
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button> 
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Permiso</th>
+                        <th class="text-center">No Permiso</th>
                         <th class="text-center">Modulo</th>
                         <th class="text-center">Rol</th>
                         <th class="text-center">Activo</th>
@@ -322,6 +321,7 @@
                     <%}%>
                 </tbody>
             </table>
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button> 
         </div>
     </body>
 </html>
