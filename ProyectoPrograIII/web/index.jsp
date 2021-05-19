@@ -39,7 +39,7 @@
         <script type="text/javascript">
             swal.fire({
                 title: "¡Error!",
-                text: "Los datos ingresados no están o son incorrectos",
+                text: "Los datos ingresados no existen o son incorrectos",
                 icon: 'error' //warning,info,question,error,success
                 //confirmButtonText: "Ok"
             });
