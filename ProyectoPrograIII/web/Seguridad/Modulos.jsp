@@ -1,18 +1,22 @@
 <%@page import="java.util.List"%>
-<%@page import="modelos.Rol"%>
+<%@page import="modelos.Modulo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../../plantilla.jsp"/>
+<jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Roles</title>
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+        <title>Modulos</title>
+        <%
+            List<Modulo> lstModulo = null;
+        %>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
-                form.setAttribute("class", "container");
+                form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerRol");
+                form.setAttribute("action", "controllerModulo");
 
 
                 var newlabel = document.createElement("h1");
@@ -29,6 +33,26 @@
                 des.setAttribute("type", "text");
                 des.setAttribute("name", "Adescripcion");
                 des.setAttribute("placeholder", "Descripcion");
+                // Create an input element for Path
+                var path = document.createElement("input");
+                path.setAttribute("type", "text");
+                path.setAttribute("name", "Apath");
+                path.setAttribute("placeholder", "Path");
+                // Create an input element for Nivel
+                var nivel = document.createElement("input");
+                nivel.setAttribute("type", "text");
+                nivel.setAttribute("name", "Anivel");
+                nivel.setAttribute("placeholder", "Nivel");
+                // Create an input element for Orden
+                var orden = document.createElement("input");
+                orden.setAttribute("type", "text");
+                orden.setAttribute("name", "Aorden");
+                orden.setAttribute("placeholder", "Orden");
+                // Create an input element for Modulo Padre
+                var mp = document.createElement("input");
+                mp.setAttribute("type", "text");
+                mp.setAttribute("name", "AmoduloPadre");
+                mp.setAttribute("placeholder", "Modulo Padre");
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
@@ -54,7 +78,7 @@
                 s.setAttribute("value", "agregar");
 
                 // Append the inputs to the form
-                form.append(newlabel, name, des, active);
+                form.append(newlabel, name, des, path, nivel, orden, mp, active);
                 // Append the button to the form
                 form.append(s);
 
@@ -82,15 +106,16 @@
                     for (var j = 0; j < cellLength - 1; j++) {
                         var cellVal = cellVal + "," + oCells.item(j).innerHTML;
 
-                        console.log("CellVal:" + cellVal);
+                        console.log(cellVal);
                     }
                     datos = cellVal.split(',');
+
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container");
+                form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerRol");
+                form.setAttribute("action", "controllerModulo");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -98,7 +123,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eidrol");
+                id.setAttribute("name", "Eidmodulo");
                 id.setAttribute("Value", datos[1]);
 
                 // Create an input element for Nombre
@@ -111,10 +136,30 @@
                 des.setAttribute("type", "text");
                 des.setAttribute("name", "Edescripcion");
                 des.setAttribute("value", datos[3]);
+                // Create an input element for Path
+                var path = document.createElement("input");
+                path.setAttribute("type", "text");
+                path.setAttribute("name", "Epath");
+                path.setAttribute("value", datos[4]);
+                // Create an input element for Nivel
+                var nivel = document.createElement("input");
+                nivel.setAttribute("type", "text");
+                nivel.setAttribute("name", "Enivel");
+                nivel.setAttribute("value", datos[5]);
+                // Create an input element for Orden
+                var orden = document.createElement("input");
+                orden.setAttribute("type", "text");
+                orden.setAttribute("name", "Eorden");
+                orden.setAttribute("value", datos[6]);
+                // Create an input element for Modulo Padre
+                var mp = document.createElement("input");
+                mp.setAttribute("type", "text");
+                mp.setAttribute("name", "EmoduloPadre");
+                mp.setAttribute("value", datos[7]);
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
-                active.setAttribute("value", "Activo");
+                active.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
@@ -136,7 +181,7 @@
                 s.setAttribute("value", "editar");
 
                 // Append the inputs to the form
-                form.append(newlabel, id, name, des, active);
+                form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
 
                 // Append the button to the form
                 form.append(s);
@@ -165,15 +210,16 @@
                     for (var j = 0; j < cellLength - 1; j++) {
                         var cellVal = cellVal + "," + oCells.item(j).innerHTML;
 
-                        console.log("CellVal:" + cellVal);
+                        console.log(cellVal);
                     }
                     datos = cellVal.split(',');
+
                 }
 
                 var form = document.createElement("form");
-                form.setAttribute("class", "container");
+                form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerRol");
+                form.setAttribute("action", "controllerModulo");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -181,7 +227,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Didrol");
+                id.setAttribute("name", "Didmodulo");
                 id.setAttribute("Value", datos[1]);
 
                 // Create an input element for Nombre
@@ -196,10 +242,35 @@
                 des.setAttribute("name", "Ddescripcion");
                 des.setAttribute("value", datos[3]);
                 des.setAttribute("disabled", "disabled");
+                // Create an input element for Path
+                var path = document.createElement("input");
+                path.setAttribute("type", "text");
+                path.setAttribute("name", "Dpath");
+                path.setAttribute("value", datos[4]);
+                path.setAttribute("disabled", "disabled");
+                // Create an input element for Nivel
+                var nivel = document.createElement("input");
+                nivel.setAttribute("type", "text");
+                nivel.setAttribute("name", "Dnivel");
+                nivel.setAttribute("value", datos[5]);
+                nivel.setAttribute("disabled", "disabled");
+                // Create an input element for Orden
+                var orden = document.createElement("input");
+                orden.setAttribute("type", "text");
+                orden.setAttribute("name", "Dorden");
+                orden.setAttribute("value", datos[6]);
+                orden.setAttribute("disabled", "disabled");
+                // Create an input element for Modulo Padre
+                var mp = document.createElement("input");
+                mp.setAttribute("type", "text");
+                mp.setAttribute("name", "DmoduloPadre");
+                mp.setAttribute("value", datos[7]);
+                mp.setAttribute("disabled", "disabled");
+                // Create an input element for Activo
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
                 active.setAttribute("name", "Dactivo");
-                active.setAttribute("Value", datos[4]);
+                active.setAttribute("value", datos[8]);
                 active.setAttribute("disabled", "disabled");
 
                 // Create a submit button
@@ -209,27 +280,29 @@
                 s.setAttribute("value", "eliminar");
 
                 // Append the inputs to the form
-                form.append(newlabel, id, name, des, active);
+                form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
                 // Append the button to the form
                 form.append(s);
 
                 document.getElementsByTagName("body")[0]
                         .appendChild(form);
             }
-
         </script>
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">-->
     </head>
     <body style="padding-bottom: 50px">
         <div class="container"> 
-            <h1>Roles</h1>        
-            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>           
+            <h1>Modulos</h1>        
+            <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Rol</th>
+                        <th class="text-center">Id Modulo</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Descripcion</th>
+                        <th class="text-center">Path</th>
+                        <th class="text-center">Nivel</th>
+                        <th class="text-center">Orden</th>
+                        <th class="text-center">Modulo Padre</th>
                         <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -237,29 +310,33 @@
                 <tbody>
                     <tr>
                         <%
-                            List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                             int iter=0;
-                            for (Rol rol : lstRol) {
+                            lstModulo = (List<Modulo>) request.getAttribute("modulo");
+                            for (Modulo modulo : lstModulo) {
                                 iter++;
                         %>
-                        <td class="text-center"><%=rol.getIdRol()%></td>
-                        <td class="text-center"><%=rol.getNombre()%></td>
-                        <td class="text-center"><%=rol.getDescripcion()%></td>
-                        <% if (rol.getIsActivo() == 1) { %>
+                        <td class="text-center"><%=modulo.getIdModulo()%></td>
+                        <td class="text-center"><%=modulo.getNombre()%></td>
+                        <td class="text-center"><%=modulo.getDescripcion()%></td>
+                        <td class="text-center"><%=modulo.getPath()%></td>
+                        <td class="text-center"><%=modulo.getNivel()%></td>
+                        <td class="text-center"><%=modulo.getOrden()%></td>
+                        <td class="text-center"><%=modulo.getIdModuloPadre()%></td>
+                        <% if (modulo.getIsActivo() == 1) { %>
                         <td class="text-center">Activo</td>
                         <%} else {%>
                         <td class="text-center">Inactivo</td>
                         <%}%>
+
                         <td class="text-center">
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
-
                         </td>
                     </tr>
                     <%}%>
                 </tbody>
             </table>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        
     </body>
 </html>

@@ -19,7 +19,7 @@ import modelos.Rol;
 @WebServlet(name = "controllerPermiso", urlPatterns = {"/controllerPermiso"})
 public class controllerPermiso extends HttpServlet {
 
-    String listar = "Seguridad/Permisos/consultaPermisos.jsp";
+    String listar = "Seguridad/Permisos.jsp";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

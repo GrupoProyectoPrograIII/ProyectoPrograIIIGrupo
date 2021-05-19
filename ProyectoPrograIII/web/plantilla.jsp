@@ -65,11 +65,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Styles/Site.css" rel="stylesheet" type="text/css"/>
+        <link href="Content/Styles/Site.css" rel="stylesheet" type="text/css"/>
         <link href="Content/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
-        <script src="Scripts/Retroceso.js" type="text/javascript"></script>
+        <script src="Content/Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="Content/Scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="Content/Scripts/Retroceso.js" type="text/javascript"></script>
         <title>Inicio</title>
     </head>
     <body>

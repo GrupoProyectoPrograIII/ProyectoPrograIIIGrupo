@@ -17,7 +17,7 @@ import modelos.Usuario;
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
     
-    String listar = "Seguridad/Usuario/consultaUsuarios.jsp";
+    String listar = "Seguridad/Usuarios.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -15,7 +15,7 @@ import modelos.Modulo;
 @WebServlet(name = "controllerModulo", urlPatterns = {"/controllerModulo"})
 public class controllerModulo extends HttpServlet {
 
-    String listar = "Seguridad/Modulos/consultaModulos.jsp";
+    String listar = "Seguridad/Modulos.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

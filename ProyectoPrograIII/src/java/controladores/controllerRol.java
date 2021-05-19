@@ -15,7 +15,7 @@ import modelos.Rol;
 @WebServlet(name = "controllerRol", urlPatterns = {"/controllerRol"})
 public class controllerRol extends HttpServlet {
     
-    String listar = "Seguridad/Roles/consultaRol.jsp";
+    String listar = "Seguridad/Roles.jsp";
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
