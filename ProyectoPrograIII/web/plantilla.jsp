@@ -185,7 +185,6 @@
                                     </a></li>
                                 <li id="a2" class="dropdown"><a id="a2" class="dropdown"><%=usuarios%></a></li>
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%=roles%></a></li>
-                                <li id="a2" class="dropdown"><a>usuario@gmail.com</a></li>
                                 <form style="display: none" action="controllerValidar" method="post">
                                     <button type="submit" name="accionL" value="salir" id="salir"> </button>
                                 </form>
