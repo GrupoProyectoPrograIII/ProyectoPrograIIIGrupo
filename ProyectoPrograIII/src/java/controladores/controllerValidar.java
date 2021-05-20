@@ -45,6 +45,7 @@ public class controllerValidar extends HttpServlet {
                     String ver = String.valueOf(idrol);
                     request.getSession().setAttribute("rol", ver);
                     request.getSession().setAttribute("roles", usr.getRol());
+                    request.getSession().setAttribute("mensaje", 1);
                     request.getRequestDispatcher("plantilla.jsp").forward(request, response);
                 }
             }

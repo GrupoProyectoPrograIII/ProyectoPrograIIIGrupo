@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.DaoPermiso"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%
     String nom = (String) session.getAttribute("nombre");
     String ape = (String) session.getAttribute("apellido");
@@ -258,12 +259,17 @@
         </nav>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
-    <script type="text/javascript">
+    <c:if test="${mensaje == 1}">
+        <script type="text/javascript">
             swal.fire({
-                title: "!Bienvenido: <%= usuarios %>!",
+                title: "!Bienvenid@: <%= usuarios %>!",
                 icon: 'success', //warning,info,question,error,success
-                timer: 3000,
+                time: 3000,
                 showConfirmButton: false
             });
         </script>
+        <%
+            request.getSession().removeAttribute("mensaje");
+        %>
+    </c:if>
 </html>
