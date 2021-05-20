@@ -81,11 +81,14 @@ public class DaoPedido implements crudPedido{
     @Override
     public boolean insertar(Pedido pedido) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "INSERT INTO PERMISO(ID_PERMISO,ID_MODULO,ID_ROL,ACTIVO) \n"
-                + "  VALUES((SELECT ISNULL(MAX(ID_PERMISO),0)+ 1 FROM PERMISO),"
-                + "'"+ pedido.getIdModulo() +"',"
-                + "'"+ pedido.getIdRol() +"',"
-                + "'"+ pedido.getIsActivo() +"')";
+        sql = "INSERT INTO PEDIDO(ID_PEDIDO,ID_MESA,ID_USUARIO,ID_CLIENTE,TOTAL,OBSERVACION,ESTADO)"
+                + "  VALUES((SELECT ISNULL(MAX(ID_PEDIDO),0)+ 1 FROM PEDIDO),"
+                + " "+ pedido.getIdMesa() +","
+                + " "+ pedido.getIdUsuario() +","
+                + " "+ pedido.getIdCliente() +","
+                + " "+ pedido.getTotal() +","
+                + " '"+ pedido.getObservacion() +"',"
+                + " "+ pedido.getEstado() +")";
         try {
             con.open();
             resp = con.executeSql(sql);
@@ -99,10 +102,14 @@ public class DaoPedido implements crudPedido{
     @Override
     public boolean modificar(Pedido pedido) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "UPDATE PERMISO SET ID_MODULO= '"+ pedido.getIdModulo() +"', "
-                + "ID_ROL= '"+ pedido.getIdRol() +"', "
-                + "ACTIVO= '"+ pedido.getIsActivo() +"'"
-                + "WHERE ID_PERMISO= '"+ pedido.getIdPedido() +"'";
+        sql = "UPDATE PEDIDO SET ID_PEDIDO="+ pedido.getIdPedido() +", "
+                + "ID_MESA="+ pedido.getIdMesa() +", "
+                + "ID_USUARIO="+ pedido.getIdUsuario() +", "
+                + "ID_CLIENTE="+ pedido.getIdCliente() +", "
+                + "TOTAL="+ pedido.getTotal() +", "
+                + "OBSERVACIONES="+ pedido.getObservacion() +", "
+                + "ESTADO="+ pedido.getEstado() +" "
+                + "WHERE ID_PEDIDO="+ pedido.getIdPedido() +"";
         System.out.println(sql);
         try {
             con.open();
