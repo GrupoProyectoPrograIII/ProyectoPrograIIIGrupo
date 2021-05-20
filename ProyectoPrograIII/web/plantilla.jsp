@@ -111,11 +111,11 @@
                         <li id="Li2" class="dropdown" >
                             <%if (procesos) {%><a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Procesos<b class="caret"></b></a><%}%>
                             <div class="formularios">
-                                <form style="display: none" action="controllerModulo?accion=read" method="post"><button type="submit" id="DescargaInventario"> </button></form>
-                                <form style="display: none" action="controllerPermiso?accion=read" method="post"><button type="submit" id="FacturasCredito"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="PagoPedido"></button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="CargaInventario"></button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="CorteCaja"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=DescargaI" method="post"><button type="submit" id="DescargaInventario"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=FacturaC" method="post"><button type="submit" id="FacturasCredito"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=PagoP" method="post"><button type="submit" id="PagoPedido"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=CargaI" method="post"><button type="submit" id="CargaInventario"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=CorteC" method="post"><button type="submit" id="CorteCaja"></button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (DescargaInventario) {%><li id="Li2" class="dropdown" ><a id="A2"><label for="DescargaInventario">Descarga Inventario</label></a></li><%}%>
@@ -129,9 +129,9 @@
                         <li id="Li2" class="dropdown" >
                             <%if (pedidos) {%><a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Pedidos<b class="caret"></b></a><%}%>
                             <div class="formularios">
-                                <form style="display: none" action="controllerModulo?accion=read" method="post"><button type="submit" id="SelectMesa"> </button></form>
-                                <form style="display: none" action="controllerPermiso?accion=read" method="post"><button type="submit" id="AnularPedido"> </button></form>
-                                <form style="display: none" value="Pedidos/ElegirMonitor.jsp" method="post"><button type="submit" id="ElegirMonitor"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=selectM" method="post"><button type="submit" id="SelectMesa"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=anularP" method="post"><button type="submit" id="AnularPedido"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=elegirM" method="post"><button type="submit" id="ElegirMonitor"></button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (SelectMesa) {%><li id="Li2" class="dropdown" ><a id="A2"><label for="SelectMesa">Seleccionar Mesa</label></a></li><%}%> 
@@ -143,10 +143,10 @@
                         <li id="Li2" class="dropdown" >
                             <%if (Reportes) {%><a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Reportes<b class="caret"></b></a><%}%>
                             <div class="formularios">
-                                <form style="display: none" action="controllerModulo?accion=read" method="post"><button type="submit" id="InventarioGeneral"> </button></form>
-                                <form style="display: none" action="controllerPermiso?accion=read" method="post"><button type="submit" id="InventarioParcial"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Cierre"></button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="MonitorCaja"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=IGeneral" method="post"><button type="submit" id="InventarioGeneral"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=IParcial" method="post"><button type="submit" id="InventarioParcial"> </button></form>
+                                <form style="display: none" action="controllerMenu?accion=Cierre" method="post"><button type="submit" id="Cierre"></button></form>
+                                <form style="display: none" action="controllerMenu?accion=MonitorCaja" method="post"><button type="submit" id="MonitorCaja"></button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (InventarioGeneral) {%><li id="Li2" class="dropdown" ><a id="A2"><label for="InventarioGeneral">Inventario General</label></a></li><%}%> 

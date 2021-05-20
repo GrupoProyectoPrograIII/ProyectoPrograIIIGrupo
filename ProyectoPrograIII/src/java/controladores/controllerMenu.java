@@ -20,11 +20,11 @@ import modelos.Usuario;
 public class controllerMenu extends HttpServlet {
 
     String listar = "Seguridad/Modulos.jsp";
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     @Override
@@ -42,6 +42,7 @@ public class controllerMenu extends HttpServlet {
         Usuario user = new Usuario();
 
         switch (action) {
+            /*Mantenimientos*/
             case "area":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -98,7 +99,45 @@ public class controllerMenu extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = "Mantenimientos/TipoProductos.jsp";
                 break;
-            
+            /*Pedidos*/
+            case "selectM":
+                acceso = "Pedidos/SeleccionarMesa.jsp";
+                break;
+            case "elegirM":
+                acceso = "Pedidos/ElegirMonitor.jsp";
+                break;
+            case "anularP":
+                acceso = "Pedidos/AnularPedido.jsp";
+                break;
+            /*Procesos*/
+            case "DescargaI":
+                acceso = "Pedidos/AnularPedido.jsp";
+                break;
+            case "FacturaC":
+                acceso = "Procesos/FacturasCredito.jsp";
+                break;
+            case "PagoP":
+                acceso = "Pedidos/AnularPedido.jsp";
+                break;
+            case "CargaI":
+                acceso = "Pedidos/AnularPedido.jsp";
+                break;
+            case "CorteC":
+                acceso = "Procesos/CorteCaja.jsp";
+                break;
+            /*Reportes*/
+            case "IGeneral":
+                acceso = "Reportes/InventarioGeneral.jsp";
+                break;
+            case "IParcial":
+                acceso = "Reportes/InventarioParcial.jsp";
+                break;
+            case "Cierre":
+                acceso = "Reportes/Cierre.jsp";
+                break;
+            case "MonitorCaja":
+                acceso = "Reportes/MonitorCaja.jsp";
+                break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
