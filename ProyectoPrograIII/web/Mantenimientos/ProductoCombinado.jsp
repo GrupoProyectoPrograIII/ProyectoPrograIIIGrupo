@@ -48,7 +48,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
+                
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -157,7 +157,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
+                
                 lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -292,24 +292,18 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
+                        <th class="text-center">Id Combo</th>
+                        <th class="text-center">Id Tipo Combo</th>
+                        <th class="text-center">Descripcion</th>
+                        <th class="text-center">Precio</th>
                         <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
+                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
                         for (Usuario user : lstUsuario) {
                             iter++;
                     %>
@@ -317,8 +311,6 @@
                         <td class="text-center"><%=user.getIdUser()%></td>
                         <td class="text-center"><%=user.getNombre()%></td>
                         <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
                         <td class="text-center"><%=user.getRol()%></td>
                         <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
                         <% if (user.getIsActivo() == 1) { %>
@@ -326,11 +318,6 @@
                         <%} else {%>
                         <td class="text-center">Inactivo</td>
                         <%}%>
-                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
-                        <td class="text-center"><%=user.getUserCrear()%></td>
-                        <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>--%>
-
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

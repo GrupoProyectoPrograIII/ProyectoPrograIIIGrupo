@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Elegir Monitor</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -292,51 +292,21 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
+                        <th class="text-center">Monitor</th>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
                         <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
                         <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        int iter = 0;
-                        for (Usuario user : lstUsuario) {
-                            iter++;
-                    %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
-                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
-                        <td class="text-center"><%=user.getUserCrear()%></td>
-                        <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>--%>
-
+                       
                         <td class="text-center">                            
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=%>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=%>)">Eliminar</button>
                         </td>
                     </tr>
-                    <%}%>
                 </tbody>
             </table>
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>

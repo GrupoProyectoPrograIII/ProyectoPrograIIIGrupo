@@ -29,93 +29,35 @@
     Boolean PagoPedido = false, CargaInventario = false, CorteCaja = false, ElegirMonitor = false, InventarioGeneral = false, InventarioParcial = false, Cierre = false, MonitorCaja = false;//nivel 2
     while (iterPermiso.hasNext()) {
         permiso = iterPermiso.next();
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("SEGURIDAD")) {
-            seguridad = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Modulos")) {
-            modulos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Permisos")) {
-            permisos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Usuarios")) {
-            users = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Roles")) {
-            rols = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mantenimientos")) {
-            mantenimientos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Areas")) {
-            Area = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Clientes")) {
-            Clientes = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mesa")) {
-            Mesa = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor")) {
-            Monitor = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Producto Combinado")) {
-            ProductoCombinado = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Productos")) {
-            Productos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Proveedores")) {
-            Proveedores = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Tipo Producto")) {
-            TipoProducto = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Procesos")) {
-            procesos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Descarga Inventario")) {
-            DescargaInventario = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Facturas al Credito")) {
-            FacturasCredito = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pago de Pedido")) {
-            PagoPedido = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Carga Inventario")) {
-            CargaInventario = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Corte de Caja")) {
-            CorteCaja = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pedidos")) {
-            pedidos = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Seleccionar Mesa")) {
-            SelectMesa = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Anular")) {
-            AnularPedido = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Elegir Monitor")) {
-            ElegirMonitor = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Reportes")) {
-            Reportes = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario General")) {
-            InventarioGeneral = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario Parcial")) {
-            InventarioParcial = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Cierre")) {
-            Cierre = true;
-        }
-        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor de Caja")) {
-            MonitorCaja = true;
-        }
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("SEGURIDAD")) {seguridad = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Modulos")) {modulos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Permisos")) {permisos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Usuarios")) {users = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Roles")) {rols = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mantenimientos")) {mantenimientos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Areas")) {Area = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Clientes")) {Clientes = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Mesa")) {Mesa = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor")) {Monitor = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Producto Combinado")) {ProductoCombinado = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Productos")) {Productos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Proveedores")) {Proveedores = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Tipo Producto")) {TipoProducto = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Procesos")) {procesos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Descarga Inventario")) {DescargaInventario = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Facturas al Credito")) {FacturasCredito = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pago de Pedido")) {PagoPedido = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Carga Inventario")) {CargaInventario = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Corte de Caja")) {CorteCaja = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Pedidos")) {pedidos = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Seleccionar Mesa")) {SelectMesa = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Anular")) {AnularPedido = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Elegir Monitor")) {ElegirMonitor = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Reportes")) {Reportes = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario General")) {InventarioGeneral = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Inventario Parcial")) {InventarioParcial = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Cierre")) {Cierre = true;}
+        if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("Monitor de Caja")) {MonitorCaja = true;}
         i++;
     }
 %>
@@ -189,7 +131,7 @@
                             <div class="formularios">
                                 <form style="display: none" action="controllerModulo?accion=read" method="post"><button type="submit" id="SelectMesa"> </button></form>
                                 <form style="display: none" action="controllerPermiso?accion=read" method="post"><button type="submit" id="AnularPedido"> </button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="ElegirMonitor"></button></form>
+                                <form style="display: none" value="Pedidos/ElegirMonitor.jsp" method="post"><button type="submit" id="ElegirMonitor"></button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (SelectMesa) {%><li id="Li2" class="dropdown" ><a id="A2"><label for="SelectMesa">Seleccionar Mesa</label></a></li><%}%> 

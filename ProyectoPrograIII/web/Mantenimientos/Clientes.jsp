@@ -23,64 +23,33 @@
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Anombre");
                 name.setAttribute("placeholder", "Nombre");
-                // Create an input element for Apellido
+                // Create an input element for NIT
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aapellido");
-                apellido.setAttribute("placeholder", "Apellido");
-                // Create an input element for Usuario
+                apellido.setAttribute("name", "Anit");
+                apellido.setAttribute("placeholder", "NIT");
+                // Create an input element for Nickname
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Auser");
-                users.setAttribute("placeholder", "Usuario");
-                // Create an input element for Password
+                users.setAttribute("name", "Anick");
+                users.setAttribute("placeholder", "Nickname");
+                // Create an input element for Direccion
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Apassword");
-                password.setAttribute("placeholder", "Password");
-                // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Arole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-            <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
-                List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Adireccion");
+                password.setAttribute("placeholder", "Direccion");
+                // Create an input element for Telefono
+                var telefono= document.createElement("input");
+                telefono.setAttribute("type", "text");
+                telefono.setAttribute("name", "Atelefono");
+                telefono.setAttribute("placeholder", "Telefono");
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -130,67 +99,35 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
+                name.setAttribute("name", "Anombre");
+                name.setAttribute("value", datos[2]);
+                // Create an input element for NIT
                 var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Eapellido");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
+                apellido.setAttribute("name", "Anit");
+                apellido.setAttribute("value", datos[3]);
+                // Create an input element for Nickname
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Euser");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
+                users.setAttribute("name", "Anick");
+                users.setAttribute("value", datos[4]);
+                // Create an input element for Direccion
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Epassword");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Erole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-            <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
-                lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
-
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Adireccion");
+                password.setAttribute("value", datos[5]);
+                // Create an input element for Telefono
+                var telefono= document.createElement("input");
+                telefono.setAttribute("type", "text");
+                telefono.setAttribute("name", "Atelefono");
+                telefono.setAttribute("value", datos[6]);
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "editar");
+                s.setAttribute("value", "agregar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -240,45 +177,40 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Dnombre");
+                name.setAttribute("name", "Anombre");
                 name.setAttribute("disabled", "disabled");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
+                name.setAttribute("value", datos[2]);
+                // Create an input element for NIT
                 var apellido = document.createElement("input");
-                apellido.setAttribute("name", "DApellido");
                 apellido.setAttribute("type", "text");
+                apellido.setAttribute("name", "Anit");
                 apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
+                apellido.setAttribute("value", datos[3]);
+                // Create an input element for Nickname
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Duser");
+                users.setAttribute("name", "Anick");
                 users.setAttribute("disabled", "disabled");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
+                users.setAttribute("value", datos[4]);
+                // Create an input element for Direccion
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Dpassword");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Adireccion");
                 password.setAttribute("disabled", "disabled");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("input");
-                role.setAttribute("name", "Drole");
-                role.setAttribute("disabled", "disabled");
-                role.setAttribute("value", datos[6]);
-                // Create an input element for Activo
-                var active = document.createElement("input");
-                active.setAttribute("type", "text");
-                active.setAttribute("name", "Dactivo");
-                active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[7]);
+                password.setAttribute("value", datos[5]);
+                // Create an input element for Telefono
+                var telefono= document.createElement("input");
+                telefono.setAttribute("type", "text");
+                telefono.setAttribute("name", "Atelefono");
+                telefono.setAttribute("disabled", "disabled");
+                telefono.setAttribute("value", datos[6]);
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -292,24 +224,19 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
+                        <th class="text-center">Id Cliente</th>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
+                        <th class="text-center">NIT</th>
+                        <th class="text-center">Nickname</th>
+                        <th class="text-center">Direccion</th>
+                        <th class="text-center">Telefono</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
+                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
                         for (Usuario user : lstUsuario) {
                             iter++;
                     %>
@@ -320,17 +247,6 @@
                         <td class="text-center"><%=user.getUser()%></td>
                         <td class="text-center"><%=user.getPass()%></td>
                         <td class="text-center"><%=user.getRol()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
-                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
-                        <td class="text-center"><%=user.getUserCrear()%></td>
-                        <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>--%>
-
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
