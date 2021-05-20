@@ -264,7 +264,7 @@
             swal.fire({
                 title: "!Bienvenid@: <%= usuarios %>!",
                 icon: 'success', //warning,info,question,error,success
-                time: 3000,
+                timer: 3000,
                 showConfirmButton: false
             });
         </script>
