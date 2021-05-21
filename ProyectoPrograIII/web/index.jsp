@@ -40,8 +40,9 @@
             swal.fire({
                 title: "¡Error!",
                 text: "Los datos ingresados no existen o son incorrectos",
-                icon: 'error' //warning,info,question,error,success
-                //confirmButtonText: "Ok"
+                icon: 'error', //warning,info,question,error,success
+                confirmButtonText: "Aceptar",
+                footer: "¡Intentelo nuevamente o contacte al administrador!"
             });
         </script>
     </c:if>
@@ -50,8 +51,8 @@
             swal.fire({
                 title: "¡Advertencia!",
                 text: "Debe llenar los campos solicitados",
-                icon: 'warning' //warning,info,question,error,success
-                //confirmButtonText: "Ok"
+                icon: 'warning', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
             });
         </script>
     </c:if>
