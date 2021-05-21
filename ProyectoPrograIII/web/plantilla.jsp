@@ -183,8 +183,8 @@
                                 <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">
                                         <img src="img/user.png" alt="40" width="60"/>
                                     </a></li>
-                                <li id="a2" class="dropdown"><a id="a2" class="dropdown"><%=usuarios%></a></li>
-                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown"><%=roles%></a></li>
+                                <li id="a2" class="dropdown"><a id="a2" class="dropdown">User: <%=usuarios%></a></li>
+                                <li id="Li2" class="dropdown"><a id="Li2" class="dropdown">Rol: <%=roles%></a></li>
                                 <form style="display: none" action="controllerValidar" method="post">
                                     <button type="submit" name="accionL" value="salir" id="salir"> </button>
                                 </form>
