@@ -149,7 +149,7 @@
         <script>
             function editarFila(a) {
                 Swal.fire({
-                    title: '¿Desea modificar el registro?',
+                    title: '¿Desea modificar el registro seleccionado?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',
@@ -266,7 +266,7 @@
             function eliminarFila(b)
             {
                 Swal.fire({
-                    title: '¿Desea eliminar el registro?',
+                    title: '¿Desea eliminar el registro seleccionado?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',
