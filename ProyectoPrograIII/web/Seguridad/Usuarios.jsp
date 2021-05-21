@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -221,9 +222,9 @@
                         option.innerHTML = ("seleccione");
                         role.appendChild(option);
             <%
-                        lstUsuario = (List<Usuario>) request.getAttribute("user");
-                        lstRol = (List<Rol>) request.getAttribute("rol");
-                        for (Rol rol : lstRol) {
+                lstUsuario = (List<Usuario>) request.getAttribute("user");
+                lstRol = (List<Rol>) request.getAttribute("rol");
+                for (Rol rol : lstRol) {
             %>
                         option = document.createElement("option");
                         option.setAttribute("value", "<%=rol.getIdRol()%>");
@@ -359,4 +360,64 @@
             }
         </script>
     </body>
+    <c:if test="${guardar == 0}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Error!",
+                text: "El registro no se pudo guardar",
+                icon: 'error', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
+    <c:if test="${guardar == 1}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Éxito!",
+                text: "El registro se guardo correctamente",
+                icon: 'success', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
+    <c:if test="${modificar == 0}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Error!",
+                text: "El registro no se pudo modificar",
+                icon: 'error', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
+    <c:if test="${modificar == 1}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Éxito!",
+                text: "El registro se modifico correctamente",
+                icon: 'success', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
+    <c:if test="${eliminar == 0}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Error!",
+                text: "El registro no se pudo eliminar",
+                icon: 'error', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
+    <c:if test="${eliminar == 1}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Éxito!",
+                text: "El registro se elimino correctamente",
+                icon: 'success', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>  
 </html>

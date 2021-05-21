@@ -16,16 +16,17 @@ import modelos.Usuario;
 
 @WebServlet(name = "controllerUsuario", urlPatterns = {"/controllerUsuario"})
 public class controllerUsuario extends HttpServlet {
-    
+
     String listar = "Seguridad/Usuarios.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,8 +54,12 @@ public class controllerUsuario extends HttpServlet {
                 user.setPass(request.getParameter("Apassword"));
                 user.setIdRol(Integer.parseInt(request.getParameter("Arole")));
                 user.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                
-                daoUsuario.insertar(user);
+
+                if (daoUsuario.insertar(user)) {
+                    request.setAttribute("guardar", 1);
+                } else {
+                    request.setAttribute("guardar", 0);
+                }
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
@@ -70,8 +75,13 @@ public class controllerUsuario extends HttpServlet {
                 user.setPass(request.getParameter("Epassword"));
                 user.setIdRol(Integer.parseInt(request.getParameter("Erole")));
                 user.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                
-                daoUsuario.modificar(user);
+
+                if (daoUsuario.modificar(user)) {
+                    request.setAttribute("modificar", 1);
+                } else {
+                    request.setAttribute("modificar", 0);
+                }
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
@@ -81,8 +91,13 @@ public class controllerUsuario extends HttpServlet {
             case "eliminar":
                 user = new Usuario();
                 user.setIdUser(Integer.parseInt(request.getParameter("Diduser")));
-                
-                daoUsuario.eliminar(user);
+
+                if (daoUsuario.eliminar(user)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
@@ -93,6 +108,7 @@ public class controllerUsuario extends HttpServlet {
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";
