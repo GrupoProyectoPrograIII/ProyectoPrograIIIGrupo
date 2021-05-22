@@ -1,10 +1,6 @@
 package configuracion;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,7 +28,7 @@ public class Conexion {
             coneccion = DriverManager.getConnection(stringConnectionUrl, user, pass);
         } catch (SQLException e) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
-            System.out.println("Excepción: " + e.getMessage());
+            System.err.println("Excepción: " + e.getMessage());
         }
         return coneccion;
     }
@@ -64,11 +60,14 @@ public class Conexion {
     public boolean executeSql(String cmd) throws Exception {
         if (cmd != null) {
             try {
+                this.coneccion.setAutoCommit(false);
                 this.preparar = this.coneccion.prepareStatement(cmd);
                 this.preparar.executeUpdate();
+                this.coneccion.commit();
                 respuesta = true;
             } catch (SQLException e) {
-                throw new Exception(e.getMessage());
+                System.err.println("Error al ejecutar executeSql en Clase: Conexion: " + e.toString());
+                this.coneccion.rollback();
             }
         } else {
             throw new Exception("El comando a ejecutar es nulo!");
@@ -81,7 +80,7 @@ public class Conexion {
                 preparar = coneccion.prepareStatement(strSQL);
                 resultado = preparar.executeQuery();
             } catch (SQLException e) {
-                System.out.println("Error al ejecutar el query en Clase: Conexion: " + e.toString());
+                System.err.println("Error al ejecutar el query en Clase: Conexion: " + e.toString());
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
             }
         }
