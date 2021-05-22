@@ -159,10 +159,10 @@
                         <li id="Li2" class="dropdown" >
                             <%if (seguridad) {%><a href="" class="dropdown-toggle" data-toggle="dropdown"  id="A1">Seguridad<b class="caret"></b></a><%}%>
                             <div class="formularios">
-                                <form style="display: none" action="controllerModulo?accion=read" method="post"><button type="submit" id="Modulos"> </button></form>
-                                <form style="display: none" action="controllerPermiso?accion=read" method="post"><button type="submit" id="Permisos"> </button></form>
-                                <form style="display: none" action="controllerRol?accion=read" method="post"><button type="submit" id="Roles"></button></form>
-                                <form style="display: none" action="controllerUsuario?accion=read" method="post"><button type="submit" id="Usuarios"></button></form>
+                                <form style="display: none" action="controllerSeguridad?accion=readM" method="post"><button type="submit" id="Modulos"> </button></form>
+                                <form style="display: none" action="controllerSeguridad?accion=readP" method="post"><button type="submit" id="Permisos"> </button></form>
+                                <form style="display: none" action="controllerSeguridad?accion=readR" method="post"><button type="submit" id="Roles"></button></form>
+                                <form style="display: none" action="controllerSeguridad?accion=readU" method="post"><button type="submit" id="Usuarios"></button></form>
                             </div>
                             <ul id="Ul2" class="dropdown-menu" >
                                 <%if (modulos) {%><li id="Li2" class="dropdown"><a id="A2"><label for="Modulos">Modulos</label></a></li><%}%>

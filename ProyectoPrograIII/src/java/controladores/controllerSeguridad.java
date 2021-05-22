@@ -19,7 +19,9 @@ import modelos.Usuario;
 
 @WebServlet(name = "controllerSeguridad", urlPatterns = {"/controllerSeguridad"})
 public class controllerSeguridad extends HttpServlet {
-    String listar="Mantenimientos/Seguridad.jsp";
+
+    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,38 +29,41 @@ public class controllerSeguridad extends HttpServlet {
         RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String listar = "Seguridad/";
         String acceso = "";
         String action = request.getParameter("accion");
-        
+
         DaoUsuario daoUsuario = new DaoUsuario();
         DaoRol daoRol = new DaoRol();
         DaoPermiso daoPermiso = new DaoPermiso();
         DaoModulo daoModulo = new DaoModulo();
-        
+
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
         Modulo modulo = new Modulo();
         Rol rol = new Rol();
-        
+
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
         List<Rol> lstRol = daoRol.listar();
         List<Permiso> lstPermiso = daoPermiso.listar();
-        
 
         switch (action) {
             case "readU":
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar;
+                acceso = listar+"Usuarios.jsp";
                 break;
+
             case "agregarU":
+
                 user = new Usuario();
                 user.setUser(request.getParameter("Auser"));
                 user.setNombre(request.getParameter("Anombre"));
@@ -72,9 +77,11 @@ public class controllerSeguridad extends HttpServlet {
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar;
+                acceso = listar+"Usuarios.jsp";
+
                 break;
             case "editarU":
+
                 user = new Usuario();
                 user.setIdUser(Integer.parseInt(request.getParameter("Eiduser")));
                 user.setUser(request.getParameter("Euser"));
@@ -89,9 +96,11 @@ public class controllerSeguridad extends HttpServlet {
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar;
+                acceso = listar+"Usuarios.jsp";
                 break;
+
             case "eliminarU":
+
                 user = new Usuario();
                 user.setIdUser(Integer.parseInt(request.getParameter("Diduser")));
 
@@ -100,13 +109,16 @@ public class controllerSeguridad extends HttpServlet {
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar;
+                acceso = listar+"Usuarios.jsp";
                 break;
+                
             case "readR":
+                
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar;
+                acceso = listar+"Roles.jsp";
                 break;
+
             case "agregarR":
                 rol = new Rol();
                 rol.setNombre(request.getParameter("Anombre"));
@@ -116,7 +128,7 @@ public class controllerSeguridad extends HttpServlet {
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar;
+                acceso = listar+"Roles.jsp";
                 break;
             case "editarR":
                 rol = new Rol();
@@ -128,7 +140,7 @@ public class controllerSeguridad extends HttpServlet {
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar;
+                acceso = listar+"Roles.jsp";
                 break;
             case "eliminarR":
                 rol.setIdRol(Integer.parseInt(request.getParameter("Didrol")));
@@ -136,18 +148,18 @@ public class controllerSeguridad extends HttpServlet {
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar;
+                acceso = listar+"Roles.jsp";
                 break;
-            case "read":
+            case "readP":
                 lstRol = daoRol.listar();
                 lstModulo = daoModulo.listar();
                 lstPermiso = daoPermiso.listar();
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Permisos.jsp";
                 break;
-            case "agregar":
+            case "agregarP":
                 permiso = new Permiso();
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Amodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Arol")));
@@ -165,9 +177,9 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Permisos.jsp";
                 break;
-            case "editar":
+            case "editarP":
                 permiso = new Permiso();
                 permiso.setIdPermiso(Integer.parseInt(request.getParameter("Eidpermiso")));
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Emodulo")));
@@ -186,9 +198,9 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Permisos.jsp";
                 break;
-            case "eliminar":
+            case "eliminarP":
                 permiso = new Permiso();
                 permiso.setIdPermiso(Integer.parseInt(request.getParameter("Didpermiso")));
 
@@ -204,14 +216,14 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Permisos.jsp";
                 break;
-                case "read":
+            case "readM":
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Modulos.jsp";
                 break;
-            case "agregar":
+            case "agregarM":
                 modulo = new Modulo();
                 modulo.setNombre(request.getParameter("Anombre"));
                 modulo.setDescripcion(request.getParameter("Adescripcion"));
@@ -227,9 +239,9 @@ public class controllerSeguridad extends HttpServlet {
                 }
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Modulos.jsp";
                 break;
-            case "editar":
+            case "editarM":
                 modulo = new Modulo();
                 modulo.setIdModulo(Integer.parseInt(request.getParameter("Eidmodulo")));
                 modulo.setNombre(request.getParameter("Enombre"));
@@ -247,9 +259,9 @@ public class controllerSeguridad extends HttpServlet {
                 }
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Modulos.jsp";
                 break;
-            case "eliminar":
+            case "eliminarM":
                 modulo = new Modulo();
                 modulo.setIdModulo(Integer.parseInt(request.getParameter("Didmodulo")));
                 if (daoModulo.eliminar(modulo)) {
@@ -260,10 +272,8 @@ public class controllerSeguridad extends HttpServlet {
 
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar;
+                acceso = listar+"Modulos.jsp";
                 break;
-
-        }
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
