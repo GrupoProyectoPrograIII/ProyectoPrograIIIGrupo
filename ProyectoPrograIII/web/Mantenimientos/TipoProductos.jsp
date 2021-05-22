@@ -295,9 +295,6 @@
                         <th class="text-center">Id Usuario</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
                             <%--<th class="text-center">Fecha Creacion</th>--%>
                         <th class="text-center">Activo</th>
                             <%--<th class="text-center">Fecha Modificacion</th>
@@ -317,9 +314,6 @@
                         <td class="text-center"><%=user.getIdUser()%></td>
                         <td class="text-center"><%=user.getNombre()%></td>
                         <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
                         <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
                         <% if (user.getIsActivo() == 1) { %>
                         <td class="text-center">Activo</td>
