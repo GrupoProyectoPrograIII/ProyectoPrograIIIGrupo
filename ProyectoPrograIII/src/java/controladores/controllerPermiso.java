@@ -20,7 +20,7 @@ import modelos.Rol;
 public class controllerPermiso extends HttpServlet {
 
     String listar = "Seguridad/Permisos.jsp";
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -29,7 +29,7 @@ public class controllerPermiso extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controllerPermiso</title>");            
+            out.println("<title>Servlet controllerPermiso</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controllerPermiso at " + request.getContextPath() + "</h1>");
@@ -37,13 +37,15 @@ public class controllerPermiso extends HttpServlet {
             out.println("</html>");
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -72,7 +74,12 @@ public class controllerPermiso extends HttpServlet {
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Amodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Arol")));
                 permiso.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                daoPermiso.insertar(permiso);
+
+                if (daoPermiso.insertar(permiso)) {
+                    request.setAttribute("guardar", 1);
+                } else {
+                    request.setAttribute("guardar", 0);
+                }
 
                 lstRol = daoRol.listar();
                 lstModulo = daoModulo.listar();
@@ -88,7 +95,12 @@ public class controllerPermiso extends HttpServlet {
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Emodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Erol")));
                 permiso.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                daoPermiso.modificar(permiso);
+
+                if (daoPermiso.modificar(permiso)) {
+                    request.setAttribute("modificar", 1);
+                } else {
+                    request.setAttribute("modificar", 0);
+                }
 
                 lstRol = daoRol.listar();
                 lstModulo = daoModulo.listar();
@@ -101,7 +113,12 @@ public class controllerPermiso extends HttpServlet {
             case "eliminar":
                 permiso = new Permiso();
                 permiso.setIdPermiso(Integer.parseInt(request.getParameter("Didpermiso")));
-                daoPermiso.eliminar(permiso);
+
+                if (daoPermiso.eliminar(permiso)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
 
                 lstRol = daoRol.listar();
                 lstModulo = daoModulo.listar();
@@ -115,6 +132,7 @@ public class controllerPermiso extends HttpServlet {
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";

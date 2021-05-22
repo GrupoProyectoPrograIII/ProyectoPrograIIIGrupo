@@ -45,7 +45,12 @@ public class controllerRol extends HttpServlet {
                 rol.setNombre(request.getParameter("Anombre"));
                 rol.setDescripcion(request.getParameter("Adescripcion"));
                 rol.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                daor.insertar(rol);
+                
+                if(daor.insertar(rol)){
+                    request.setAttribute("guardar", 1);
+                }else{
+                    request.setAttribute("guardar", 0);
+                }
                 
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                
@@ -57,7 +62,12 @@ public class controllerRol extends HttpServlet {
                 rol.setNombre(request.getParameter("Enombre"));
                 rol.setDescripcion(request.getParameter("Edescripcion"));
                 rol.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                daor.modificar(rol);
+                
+                if(daor.modificar(rol)){
+                    request.setAttribute("modificar", 1);
+                }else{
+                    request.setAttribute("modificar", 0);
+                }
                 
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                
@@ -65,7 +75,12 @@ public class controllerRol extends HttpServlet {
                 break;
             case "eliminar":
                 rol.setIdRol(Integer.parseInt(request.getParameter("Didrol")));
-                daor.eliminar(rol);
+                
+                if(daor.eliminar(rol)){
+                    request.setAttribute("eliminar", 1);
+                }else{
+                    request.setAttribute("eliminar", 0);
+                }
                 
                 lstRol = daor.listar();
                 request.setAttribute("rol", lstRol);                

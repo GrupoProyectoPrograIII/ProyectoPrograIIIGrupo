@@ -100,7 +100,7 @@ public class DaoRol implements crudRol{
     }
 
     @Override
-    public void eliminar(Rol rol) {
+    public boolean eliminar(Rol rol) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "DELETE FROM ROL WHERE ID_ROL= "+rol.getIdRol();
         System.out.println(sql);
@@ -111,6 +111,7 @@ public class DaoRol implements crudRol{
         } catch (Exception e) {
             System.out.println(e);
         }
+        return resp;
     }
 
     @Override

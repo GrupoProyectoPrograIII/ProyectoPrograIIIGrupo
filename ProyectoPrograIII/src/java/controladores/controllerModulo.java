@@ -20,7 +20,7 @@ public class controllerModulo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
@@ -49,7 +49,11 @@ public class controllerModulo extends HttpServlet {
                 modulo.setOrden(Integer.parseInt(request.getParameter("Aorden")));
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("AmoduloPadre")));
                 modulo.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                daoModulo.insertar(modulo);
+                if (daoModulo.insertar(modulo)) {
+                    request.setAttribute("guardar", 1);
+                } else {
+                    request.setAttribute("guardar", 0);
+                }
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
                 acceso = listar;
@@ -64,7 +68,12 @@ public class controllerModulo extends HttpServlet {
                 modulo.setOrden(Integer.parseInt(request.getParameter("Eorden")));
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("EmoduloPadre")));
                 modulo.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                daoModulo.modificar(modulo);
+
+                if (daoModulo.modificar(modulo)) {
+                    request.setAttribute("modificar", 1);
+                } else {
+                    request.setAttribute("modificar", 0);
+                }
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
                 acceso = listar;
@@ -72,7 +81,12 @@ public class controllerModulo extends HttpServlet {
             case "eliminar":
                 modulo = new Modulo();
                 modulo.setIdModulo(Integer.parseInt(request.getParameter("Didmodulo")));
-                daoModulo.eliminar(modulo);
+                if (daoModulo.eliminar(modulo)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
+
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
                 acceso = listar;

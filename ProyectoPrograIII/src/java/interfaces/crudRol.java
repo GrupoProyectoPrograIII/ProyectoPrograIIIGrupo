@@ -8,6 +8,6 @@ public interface crudRol {
     public Rol list (int id);
     public boolean insertar(Rol rol);
     public boolean modificar(Rol rol);
-    public void eliminar(Rol rol);
+    public boolean eliminar(Rol rol);
     public List busqueda(String parametro, String opcion);
 }

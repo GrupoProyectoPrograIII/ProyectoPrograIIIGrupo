@@ -64,6 +64,7 @@ public class Conexion {
                 this.preparar = this.coneccion.prepareStatement(cmd);
                 this.preparar.executeUpdate();
                 this.coneccion.commit();
+                this.coneccion.setAutoCommit(true);
                 respuesta = true;
             } catch (SQLException e) {
                 System.err.println("Error al ejecutar executeSql en Clase: Conexion: " + e.toString());
@@ -74,14 +75,18 @@ public class Conexion {
         }
         return respuesta;
     }
-    public ResultSet executeQuery(String strSQL) {
+    public ResultSet executeQuery(String strSQL) throws Exception {
         if (strSQL != null) {
             try {
+                this.coneccion.setAutoCommit(false);
                 preparar = coneccion.prepareStatement(strSQL);
                 resultado = preparar.executeQuery();
+                this.coneccion.commit();
+                this.coneccion.setAutoCommit(true);
             } catch (SQLException e) {
                 System.err.println("Error al ejecutar el query en Clase: Conexion: " + e.toString());
-                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
+                this.coneccion.rollback();
+                //Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
             }
         }
         //close();
