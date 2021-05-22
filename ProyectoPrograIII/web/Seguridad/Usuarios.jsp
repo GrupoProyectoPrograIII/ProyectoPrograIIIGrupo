@@ -17,6 +17,7 @@
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "controllerUsuario");
+                form.setAttribute("autocomplete","off");
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
@@ -148,8 +149,28 @@
         </div>
         <script>
             function editarFila(a) {
+                //getsTable
+                var oTable = document.getElementById('myTable');
+                //gets rows of table
+                var rowLength = oTable.rows.length;
+                //loops through rows    
+                for (var i = a; i <= a; i++) {
+                    //gets cells of current row  
+                    var oCells = oTable.rows.item(i).cells;
+                    //gets amount of cells of current row
+                    var cellLength = oCells.length;
+                    //loops through each cell in current row
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log(cellVal);
+                    }
+                    datos = cellVal.split(',');
+
+                }
+
                 Swal.fire({
-                    title: '¿Desea modificar el registro seleccionado?',
+                    title: '¿Desea modificar el registro del usuario: ' + datos[4] + '?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',
@@ -158,30 +179,12 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        //getsTable
-                        var oTable = document.getElementById('myTable');
-                        //gets rows of table
-                        var rowLength = oTable.rows.length;
-                        //loops through rows    
-                        for (var i = a; i <= a; i++) {
-                            //gets cells of current row  
-                            var oCells = oTable.rows.item(i).cells;
-                            //gets amount of cells of current row
-                            var cellLength = oCells.length;
-                            //loops through each cell in current row
-                            for (var j = 0; j < cellLength - 1; j++) {
-                                var cellVal = cellVal + "," + oCells.item(j).innerHTML;
-
-                                console.log(cellVal);
-                            }
-                            datos = cellVal.split(',');
-
-                        }
 
                         var form = document.createElement("form");
                         form.setAttribute("class", "container");
                         form.setAttribute("method", "post");
                         form.setAttribute("action", "controllerUsuario");
+                        form.setAttribute("autocomplete", "off");
 
                         var newlabel = document.createElement("h1");
                         newlabel.setAttribute("type", "text");
@@ -265,8 +268,28 @@
             }
             function eliminarFila(b)
             {
+                //getsTable
+                var oTable = document.getElementById('myTable');
+                //gets rows of table
+                var rowLength = oTable.rows.length;
+                //loops through rows    
+                for (var i = b; i <= b; i++) {
+                    //gets cells of current row  
+                    var oCells = oTable.rows.item(i).cells;
+                    //gets amount of cells of current row
+                    var cellLength = oCells.length;
+                    //loops through each cell in current row
+                    for (var j = 0; j < cellLength - 1; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log("CellVal:" + cellVal);
+                    }
+                    datos = cellVal.split(',');
+
+                }
+
                 Swal.fire({
-                    title: '¿Desea eliminar el registro seleccionado?',
+                    title: '¿Desea eliminar el registro del usuario: ' + datos[4] + '?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',
@@ -275,30 +298,12 @@
                     cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        //getsTable
-                        var oTable = document.getElementById('myTable');
-                        //gets rows of table
-                        var rowLength = oTable.rows.length;
-                        //loops through rows    
-                        for (var i = b; i <= b; i++) {
-                            //gets cells of current row  
-                            var oCells = oTable.rows.item(i).cells;
-                            //gets amount of cells of current row
-                            var cellLength = oCells.length;
-                            //loops through each cell in current row
-                            for (var j = 0; j < cellLength - 1; j++) {
-                                var cellVal = cellVal + "," + oCells.item(j).innerHTML;
-
-                                console.log("CellVal:" + cellVal);
-                            }
-                            datos = cellVal.split(',');
-
-                        }
 
                         var form = document.createElement("form");
                         form.setAttribute("class", "container");
                         form.setAttribute("method", "post");
                         form.setAttribute("action", "controllerUsuario");
+                        form.setAttribute("autocomplete", "off");
 
                         var newlabel = document.createElement("h1");
                         newlabel.setAttribute("type", "text");
