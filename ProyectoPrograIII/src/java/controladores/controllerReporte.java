@@ -64,6 +64,42 @@ public class controllerReporte extends HttpServlet {
             case "readMC":
                 acceso = listar + "MonitorCaja.jsp";
                 break;
+            case "agregarIG":
+                acceso = listar + "InventarioGeneral.jsp";
+                break;
+            case "agregarIP":
+                acceso = listar + "InventarioParcial.jsp";
+                break;
+            case "agregarC":
+                acceso = listar + "Cierre.jsp";
+                break;
+            case "agregarMC":
+                acceso = listar + "MonitorCaja.jsp";
+                break;
+            case "editarIG":
+                acceso = listar + "InventarioGeneral.jsp";
+                break;
+            case "editarIP":
+                acceso = listar + "InventarioParcial.jsp";
+                break;
+            case "editarC":
+                acceso = listar + "Cierre.jsp";
+                break;
+            case "editarMC":
+                acceso = listar + "MonitorCaja.jsp";
+                break;
+            case "eliminarIG":
+                acceso = listar + "InventarioGeneral.jsp";
+                break;
+            case "eliminarIP":
+                acceso = listar + "InventarioParcial.jsp";
+                break;
+            case "eliminarC":
+                acceso = listar + "Cierre.jsp";
+                break;
+            case "eliminarMC":
+                acceso = listar + "MonitorCaja.jsp";
+                break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);

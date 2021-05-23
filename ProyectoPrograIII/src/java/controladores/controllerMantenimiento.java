@@ -108,6 +108,174 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
                 break;
+            case "agregarA":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Areas.jsp";
+                break;
+            case "agregarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+            case "agregarM":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Mesas.jsp";
+                break;
+            case "agregarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+            case "agregarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+            case "agregarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+            case "agregarPro":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Proveedores.jsp";
+                break;
+            case "agregarTP":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "TipoProductos.jsp";
+                break;
+            case "editarA":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Areas.jsp";
+                break;
+            case "editarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+            case "editarM":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Mesas.jsp";
+                break;
+            case "editarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+            case "editarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+            case "editarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+            case "editarPro":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Proveedores.jsp";
+                break;
+            case "editarTP":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "TipoProductos.jsp";
+                break;
+            case "eliminarA":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Areas.jsp";
+                break;
+            case "eliminarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+            case "eliminarM":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Mesas.jsp";
+                break;
+            case "eliminarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+            case "eliminarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+            case "eliminarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+            case "eliminarPro":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Proveedores.jsp";
+                break;
+            case "eliminarTP":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "TipoProductos.jsp";
+                break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);

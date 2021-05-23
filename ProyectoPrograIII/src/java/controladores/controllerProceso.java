@@ -66,10 +66,43 @@ public class controllerProceso extends HttpServlet {
             case "readPP":
                 acceso = listar + "PagoPedido.jsp";
                 break;
-            case "readCI":
-                acceso = listar + "CargaInventario.jsp";
-                break;
             case "readCC":
+                acceso = listar + "CorteCaja.jsp";
+                break;
+            case "agregarDI":
+                acceso = listar + "DescargaInventario.jsp";
+                break;
+            case "agregarFC":
+                acceso = listar + "FacturasCredito.jsp";
+                break;
+            case "agregarPP":
+                acceso = listar + "PagoPedido.jsp";
+                break;
+            case "agregarCC":
+                acceso = listar + "CorteCaja.jsp";
+                break;
+            case "editarDI":
+                acceso = listar + "DescargaInventario.jsp";
+                break;
+            case "editarFC":
+                acceso = listar + "FacturasCredito.jsp";
+                break;
+            case "editarPP":
+                acceso = listar + "PagoPedido.jsp";
+                break;
+            case "editarCC":
+                acceso = listar + "CorteCaja.jsp";
+                break;
+            case "eliminarDI":
+                acceso = listar + "DescargaInventario.jsp";
+                break;
+            case "eliminarFC":
+                acceso = listar + "FacturasCredito.jsp";
+                break;
+            case "eliminarPP":
+                acceso = listar + "PagoPedido.jsp";
+                break;
+            case "eliminarCC":
                 acceso = listar + "CorteCaja.jsp";
                 break;
         }

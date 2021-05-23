@@ -14,7 +14,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerUsuario");
+                form.setAttribute("action", "contollerMantenimiento");
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
@@ -47,14 +47,15 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregar");
+                s.setAttribute("value", "agregarC");
+                s.innerHTML = ("Agregar");
                 // Append the inputs to the form
                 form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
                         .appendChild(form);
-                //document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><a class="btn btn-warning" href="ControllerUsuario?accion=editar&id=">Editar</a><button type="button" class="btn btn-danger" onclick="eliminarFila()">Eliminar Fila</button></td>';
+                
             }
             $(document).ready(function () {
                 $('#edit').on('change', function () {
@@ -85,7 +86,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerUsuario");
+                form.setAttribute("action", "contollerMantenimiento");
                 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -125,7 +126,8 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregar");
+                s.setAttribute("value", "editarC");
+                s.innerHTML = ("Editar");
                 // Append the inputs to the form
                 form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form
@@ -163,7 +165,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerUsuario");
+                form.setAttribute("action", "contollerMantenimiento");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -208,7 +210,8 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "eliminar");
+                s.setAttribute("value", "eliminarC");
+                s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
                 form.append(newlabel, name, apellido, users, password,telefono);
                 // Append the button to the form

@@ -16,7 +16,8 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerModulo");
+                form.setAttribute("action", "controllerSeguridad");
+                form.setAttribute("autocomplete", "off");
 
 
                 var newlabel = document.createElement("h1");
@@ -72,10 +73,11 @@
                 active.appendChild(option2);
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregar");
+                s.setAttribute("value", "agregarM");
+                s.innerHTML = ("Agregar");
 
                 // Append the inputs to the form
                 form.append(newlabel, name, des, path, nivel, orden, mp, active);
@@ -115,7 +117,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerModulo");
+                form.setAttribute("action", "controllerSeguridad");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -175,10 +177,11 @@
                 active.appendChild(option2);
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "editar");
+                s.setAttribute("value", "editarM");
+                s.innerHTML = ("Editar");
 
                 // Append the inputs to the form
                 form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
@@ -219,7 +222,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container")
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerModulo");
+                form.setAttribute("action", "controllerSeguridad");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -274,10 +277,11 @@
                 active.setAttribute("disabled", "disabled");
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "eliminar");
+                s.setAttribute("value", "eliminarM");
+                s.innerHTML = ("Eliminar");
 
                 // Append the inputs to the form
                 form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
@@ -309,7 +313,7 @@
                 <tbody>
                     <tr>
                         <%
-                            int iter=0;
+                            int iter = 0;
                             lstModulo = (List<Modulo>) request.getAttribute("modulo");
                             for (Modulo modulo : lstModulo) {
                                 iter++;

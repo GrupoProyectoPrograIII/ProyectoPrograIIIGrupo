@@ -17,7 +17,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerPermiso");
+                form.setAttribute("action", "controllerSeguridad");
                 form.setAttribute("autocomplete", "off");
 
                 var newlabel = document.createElement("h1");
@@ -82,10 +82,11 @@
                 active.appendChild(option2);
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregar");
+                s.setAttribute("value", "agregarP");
+                s.innerHTML = ("Agregar");
 
                 // Append the inputs to the form
                 form.append(newlabel, modulo, role, active);
@@ -131,14 +132,13 @@
                         var form = document.createElement("form");
                         form.setAttribute("class", "container");
                         form.setAttribute("method", "post");
-                        form.setAttribute("action", "controllerPermiso");
+                        form.setAttribute("action", "controllerSeguridad");
                         form.setAttribute("autocomplete", "off");
 
                         var newlabel = document.createElement("h1");
                         newlabel.setAttribute("type", "text");
                         newlabel.innerHTML = "Editar Fila " + datos[1];
 
-                        var id = document.createElement("input");
 
                         var id = document.createElement("input");
                         id.setAttribute("name", "Eidpermiso");
@@ -204,10 +204,12 @@
                         active.appendChild(option2);
 
                         // Create a submit button
-                        var s = document.createElement("input");
+                        var s = document.createElement("button");
                         s.setAttribute("type", "submit");
                         s.setAttribute("name", "accion");
-                        s.setAttribute("value", "editar");
+                        s.setAttribute("value", "editarP");
+                        s.innerHTML = "Editar";
+
 
                         // Append the inputs to the form
                         form.append(newlabel, id, modulo, role, active);
@@ -256,7 +258,7 @@
                         var form = document.createElement("form");
                         form.setAttribute("class", "container");
                         form.setAttribute("method", "post");
-                        form.setAttribute("action", "controllerPermiso");
+                        form.setAttribute("action", "controllerSeguridad");
 
                         var newlabel = document.createElement("h1");
                         newlabel.setAttribute("type", "text");
@@ -287,10 +289,11 @@
                         active.setAttribute("Value", datos[4]);
 
                         // Create a submit button
-                        var s = document.createElement("input");
+                        var s = document.createElement("button");
                         s.setAttribute("type", "submit");
                         s.setAttribute("name", "accion");
-                        s.setAttribute("value", "eliminar");
+                        s.setAttribute("value", "eliminarP");
+                        s.innerHTML = ("Eliminar");
 
                         // Append the inputs to the form
                         form.append(newlabel, id, modulo, role, active);

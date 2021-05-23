@@ -52,13 +52,40 @@ public class controllerPedido extends HttpServlet {
         List<Permiso> lstPermiso = daoPermiso.listar();
         
         switch(action){
-        case "readSM":
+            case "readSM":
                 acceso = listar + "SeleccionarMesa.jsp";
                 break;
             case "readEM":
                 acceso = listar + "ElegirMonitor.jsp";
                 break;
             case "readAP":
+                acceso = listar + "AnularPedido.jsp";
+                break;
+            case "agregarSM":
+                acceso = listar + "SeleccionarMesa.jsp";
+                break;
+            case "agregarEM":
+                acceso = listar + "ElegirMonitor.jsp";
+                break;
+            case "agregarAP":
+                acceso = listar + "AnularPedido.jsp";
+                break;
+            case "editarSM":
+                acceso = listar + "SeleccionarMesa.jsp";
+                break;
+            case "editarEM":
+                acceso = listar + "ElegirMonitor.jsp";
+                break;
+            case "editarAP":
+                acceso = listar + "AnularPedido.jsp";
+                break;
+            case "eliminarSM":
+                acceso = listar + "SeleccionarMesa.jsp";
+                break;
+            case "eliminarEM":
+                acceso = listar + "ElegirMonitor.jsp";
+                break;
+            case "eliminarAP":
                 acceso = listar + "AnularPedido.jsp";
                 break;
         }
