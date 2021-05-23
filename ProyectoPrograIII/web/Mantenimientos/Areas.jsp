@@ -8,16 +8,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Areas</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "contollerMantenimiento");
+                
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
+                
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
@@ -47,12 +49,12 @@
                 s.setAttribute("value", "agregarA");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name,active);
+                form.append(newlabel, name, active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
                         .appendChild(form);
-                
+
             }
             $(document).ready(function () {
                 $('#edit').on('change', function () {
@@ -84,11 +86,11 @@
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "contollerMantenimiento");
-                
+
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Editar Fila";
-                
+
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
                 id.setAttribute("name", "Eiduser");
@@ -118,7 +120,7 @@
                 active.appendChild(option2);
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarA");
@@ -184,7 +186,7 @@
                 active.setAttribute("disabled", "disabled");
                 active.setAttribute("Value", datos[3]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarA");
@@ -220,7 +222,7 @@
                     <tr>
                         <td class="text-center"><%=user.getIdUser()%></td>
                         <td class="text-center"><%=user.getNombre()%></td>
-                        
+
                         <% if (user.getIsActivo() == 1) { %>
                         <td class="text-center">Activo</td>
                         <%} else {%>

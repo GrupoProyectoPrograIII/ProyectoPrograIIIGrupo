@@ -1,3 +1,4 @@
+<%@page import="modelos.Area"%>
 <%@page import="java.util.Random"%>
 <%@page import="java.awt.Polygon"%>
 <%@page import="java.awt.Color"%>
@@ -15,18 +16,98 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Seleccionar una Mesa</title>
 
-
     </head>
-    <body style="padding-bottom: 50px">
-        <div class="container"> 
-            <h1>Seleccionar una Mesa</h1>
-            <table class="container">
-                <%for(int i=0; i<=5;i++){%>
-                <tr>
-                    <td>Mesa 1</td>
-                </tr>
-                <%}%>
-            </table>
+    <%
+        List<Area> lstArea = (List) (request.getAttribute("lstArea"));
+        List<Area> lstMesa = (List) (request.getAttribute("lstMesa"));
+    %>
+    <style>
+        body {font-family: Arial;}
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')">Area1</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Area2</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Balcon</button>
+            </div>
+
+            <div id="London" class="tabcontent">
+                
+                <ul>
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido" method="post"><button type="submit" id="Mesa1"> </button></form>
+                    <li id="Li2" class="dropdown" ><a id="A2"><label for="Mesa1">Mesa1</label></a></li>
+                </ul>
+            </div>
+
+            <div id="Paris" class="tabcontent">
+                <ul>
+                    <li>Mesa56</li>
+                    <li>Mesa5</li>
+                    <li>Mesa12</li>
+                </ul>
+            </div>
+
+            <div id="Tokyo" class="tabcontent">
+                <ul>
+                    <li>Mesa3</li>
+                    <li>Mesa56</li>
+                    <li>Mesa132</li>
+                </ul>
+            </div>
+
+            <script>
+                function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+            </script>
         </div>
     </body>
 </html>

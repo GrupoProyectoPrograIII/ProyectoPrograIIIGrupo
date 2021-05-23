@@ -8,49 +8,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Clientes</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
                 form.setAttribute("action", "contollerMantenimiento");
+                
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
+                
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Anombre");
                 name.setAttribute("placeholder", "Nombre");
                 // Create an input element for NIT
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Anit");
-                apellido.setAttribute("placeholder", "NIT");
+                var nit = document.createElement("input");
+                nit.setAttribute("type", "text");
+                nit.setAttribute("name", "Anit");
+                nit.setAttribute("placeholder", "NIT");
                 // Create an input element for Nickname
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Anick");
-                users.setAttribute("placeholder", "Nickname");
+                var nick = document.createElement("input");
+                nick.setAttribute("type", "text");
+                nick.setAttribute("name", "Anick");
+                nick.setAttribute("placeholder", "Nickname");
                 // Create an input element for Direccion
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Adireccion");
-                password.setAttribute("placeholder", "Direccion");
+                var direccion = document.createElement("input");
+                direccion.setAttribute("type", "text");
+                direccion.setAttribute("name", "Adireccion");
+                direccion.setAttribute("placeholder", "Direccion");
                 // Create an input element for Telefono
                 var telefono= document.createElement("input");
                 telefono.setAttribute("type", "text");
                 telefono.setAttribute("name", "Atelefono");
                 telefono.setAttribute("placeholder", "Telefono");
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarC");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password,telefono);
+                form.append(newlabel, nit, apellido, users, password,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -100,30 +102,30 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Anombre");
+                name.setAttribute("name", "Enombre");
                 name.setAttribute("value", datos[2]);
                 // Create an input element for NIT
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Anit");
+                apellido.setAttribute("name", "Enit");
                 apellido.setAttribute("value", datos[3]);
                 // Create an input element for Nickname
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Anick");
+                users.setAttribute("name", "Enick");
                 users.setAttribute("value", datos[4]);
                 // Create an input element for Direccion
                 var password = document.createElement("input");
                 password.setAttribute("type", "text");
-                password.setAttribute("name", "Adireccion");
+                password.setAttribute("name", "Edireccion");
                 password.setAttribute("value", datos[5]);
                 // Create an input element for Telefono
                 var telefono= document.createElement("input");
                 telefono.setAttribute("type", "text");
-                telefono.setAttribute("name", "Atelefono");
+                telefono.setAttribute("name", "Etelefono");
                 telefono.setAttribute("value", datos[6]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarC");
@@ -179,35 +181,35 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Anombre");
+                name.setAttribute("name", "Dnombre");
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("value", datos[2]);
                 // Create an input element for NIT
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Anit");
+                apellido.setAttribute("name", "Dnit");
                 apellido.setAttribute("disabled", "disabled");
                 apellido.setAttribute("value", datos[3]);
                 // Create an input element for Nickname
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Anick");
+                users.setAttribute("name", "Dnick");
                 users.setAttribute("disabled", "disabled");
                 users.setAttribute("value", datos[4]);
                 // Create an input element for Direccion
                 var password = document.createElement("input");
                 password.setAttribute("type", "text");
-                password.setAttribute("name", "Adireccion");
+                password.setAttribute("name", "Ddireccion");
                 password.setAttribute("disabled", "disabled");
                 password.setAttribute("value", datos[5]);
                 // Create an input element for Telefono
                 var telefono= document.createElement("input");
                 telefono.setAttribute("type", "text");
-                telefono.setAttribute("name", "Atelefono");
+                telefono.setAttribute("name", "Dtelefono");
                 telefono.setAttribute("disabled", "disabled");
                 telefono.setAttribute("value", datos[6]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarC");
