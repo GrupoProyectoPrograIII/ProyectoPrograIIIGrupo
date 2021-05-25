@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,6 +53,6 @@
         }
     </style>
     <body>
-        <h1>Hello World!</h1>
+        <h1></h1>
     </body>
 </html>

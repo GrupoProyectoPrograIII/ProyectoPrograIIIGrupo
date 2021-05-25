@@ -88,13 +88,8 @@
                         .appendChild(form);
                 //document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><a class="btn btn-warning" href="ControllerUsuario?accion=editar&id=">Editar</a><button type="button" class="btn btn-danger" onclick="eliminarFila()">Eliminar Fila</button></td>';
             }
-            
-            $(document).ready(function () {
-                $('#edit').on('change', function () {
-                    editarFila(this.value);
-                });
-            });
-            
+
+
             function editarFila(a) {
                 //getsTable
                 var oTable = document.getElementById('myTable');
@@ -116,91 +111,98 @@
 
                 }
 
-                var form = document.createElement("form");
-                form.setAttribute("class", "container")
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerSeguridad");
+                Swal.fire({
+                    title: '¿Deseas modificar el registro de modulos: ' + datos[2] + '?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#30AB26',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirmar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var form = document.createElement("form");
+                        form.setAttribute("class", "container")
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "controllerSeguridad");
 
-                var newlabel = document.createElement("h1");
-                newlabel.setAttribute("type", "text");
-                newlabel.innerHTML = "Editar Fila";
+                        var newlabel = document.createElement("h1");
+                        newlabel.setAttribute("type", "text");
+                        newlabel.innerHTML = "Editar Fila";
 
-                var id = document.createElement("input");
-                id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eidmodulo");
-                id.setAttribute("Value", datos[1]);
+                        var id = document.createElement("input");
+                        id.setAttribute("type", "hidden");
+                        id.setAttribute("name", "Eidmodulo");
+                        id.setAttribute("Value", datos[1]);
 
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Descripcion
-                var des = document.createElement("input");
-                des.setAttribute("type", "text");
-                des.setAttribute("name", "Edescripcion");
-                des.setAttribute("value", datos[3]);
-                // Create an input element for Path
-                var path = document.createElement("input");
-                path.setAttribute("type", "text");
-                path.setAttribute("name", "Epath");
-                path.setAttribute("value", datos[4]);
-                // Create an input element for Nivel
-                var nivel = document.createElement("input");
-                nivel.setAttribute("type", "text");
-                nivel.setAttribute("name", "Enivel");
-                nivel.setAttribute("value", datos[5]);
-                // Create an input element for Orden
-                var orden = document.createElement("input");
-                orden.setAttribute("type", "text");
-                orden.setAttribute("name", "Eorden");
-                orden.setAttribute("value", datos[6]);
-                // Create an input element for Modulo Padre
-                var mp = document.createElement("input");
-                mp.setAttribute("type", "text");
-                mp.setAttribute("name", "EmoduloPadre");
-                mp.setAttribute("value", datos[7]);
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                active.appendChild(option);
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option1);
-                active.appendChild(option2);
+                        // Create an input element for Nombre
+                        var name = document.createElement("input");
+                        name.setAttribute("type", "text");
+                        name.setAttribute("name", "Enombre");
+                        name.setAttribute("Value", datos[2]);
+                        // Create an input element for Descripcion
+                        var des = document.createElement("input");
+                        des.setAttribute("type", "text");
+                        des.setAttribute("name", "Edescripcion");
+                        des.setAttribute("value", datos[3]);
+                        // Create an input element for Path
+                        var path = document.createElement("input");
+                        path.setAttribute("type", "text");
+                        path.setAttribute("name", "Epath");
+                        path.setAttribute("value", datos[4]);
+                        // Create an input element for Nivel
+                        var nivel = document.createElement("input");
+                        nivel.setAttribute("type", "text");
+                        nivel.setAttribute("name", "Enivel");
+                        nivel.setAttribute("value", datos[5]);
+                        // Create an input element for Orden
+                        var orden = document.createElement("input");
+                        orden.setAttribute("type", "text");
+                        orden.setAttribute("name", "Eorden");
+                        orden.setAttribute("value", datos[6]);
+                        // Create an input element for Modulo Padre
+                        var mp = document.createElement("input");
+                        mp.setAttribute("type", "text");
+                        mp.setAttribute("name", "EmoduloPadre");
+                        mp.setAttribute("value", datos[7]);
+                        // Create an input element for Activo
+                        var active = document.createElement("select");
+                        active.setAttribute("name", "Eactivo");
+                        active.setAttribute("placeholder", "Activo");
+                        var option = document.createElement("option");
+                        option.setAttribute("disabled", "selected");
+                        option.setAttribute("selected", "selected");
+                        option.innerHTML = ("seleccione");
+                        active.appendChild(option);
+                        var option1 = document.createElement("option");
+                        option1.setAttribute("value", "1");
+                        option1.innerHTML = ("Activo");
+                        var option2 = document.createElement("option");
+                        option2.setAttribute("value", "0");
+                        option2.innerHTML = ("Inactivo");
+                        active.appendChild(option1);
+                        active.appendChild(option2);
 
-                // Create a submit button
-                var s = document.createElement("button");
-                s.setAttribute("type", "submit");
-                s.setAttribute("name", "accion");
-                s.setAttribute("value", "editarM");
-                s.innerHTML = ("Editar");
+                        // Create a submit button
+                        var s = document.createElement("button");
+                        s.setAttribute("type", "submit");
+                        s.setAttribute("name", "accion");
+                        s.setAttribute("value", "editarM");
+                        s.innerHTML = ("Editar");
 
-                // Append the inputs to the form
-                form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
+                        // Append the inputs to the form
+                        form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
 
-                // Append the button to the form
-                form.append(s);
+                        // Append the button to the form
+                        form.append(s);
 
-                document.getElementsByTagName("body")[0]
-                        .appendChild(form);
+                        document.getElementsByTagName("body")[0]
+                                .appendChild(form);
+                    }
+                });
+
             }
 
-            $(document).ready(function () {
-                $('#delete').on('change', function () {
-                    eliminarFila(this.value);
-                });
-            });
-            
             function eliminarFila(b) {
                 //getsTable
                 var oTable = document.getElementById('myTable');
@@ -222,77 +224,89 @@
 
                 }
 
-                var form = document.createElement("form");
-                form.setAttribute("class", "container")
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "controllerSeguridad");
+                Swal.fire({
+                    title: '¿Deseas eliminar el registro de modulos: ' + datos[2] + '?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#30AB26',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirmar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var form = document.createElement("form");
+                        form.setAttribute("class", "container")
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "controllerSeguridad");
 
-                var newlabel = document.createElement("h1");
-                newlabel.setAttribute("type", "text");
-                newlabel.innerHTML = "Eliminar Fila";
+                        var newlabel = document.createElement("h1");
+                        newlabel.setAttribute("type", "text");
+                        newlabel.innerHTML = "Eliminar Fila";
 
-                var id = document.createElement("input");
-                id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Didmodulo");
-                id.setAttribute("Value", datos[1]);
+                        var id = document.createElement("input");
+                        id.setAttribute("type", "hidden");
+                        id.setAttribute("name", "Didmodulo");
+                        id.setAttribute("Value", datos[1]);
 
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Dnombre");
-                name.setAttribute("Value", datos[2]);
-                name.setAttribute("disabled", "disabled");
-                // Create an input element for Descripcion
-                var des = document.createElement("input");
-                des.setAttribute("type", "text");
-                des.setAttribute("name", "Ddescripcion");
-                des.setAttribute("value", datos[3]);
-                des.setAttribute("disabled", "disabled");
-                // Create an input element for Path
-                var path = document.createElement("input");
-                path.setAttribute("type", "text");
-                path.setAttribute("name", "Dpath");
-                path.setAttribute("value", datos[4]);
-                path.setAttribute("disabled", "disabled");
-                // Create an input element for Nivel
-                var nivel = document.createElement("input");
-                nivel.setAttribute("type", "text");
-                nivel.setAttribute("name", "Dnivel");
-                nivel.setAttribute("value", datos[5]);
-                nivel.setAttribute("disabled", "disabled");
-                // Create an input element for Orden
-                var orden = document.createElement("input");
-                orden.setAttribute("type", "text");
-                orden.setAttribute("name", "Dorden");
-                orden.setAttribute("value", datos[6]);
-                orden.setAttribute("disabled", "disabled");
-                // Create an input element for Modulo Padre
-                var mp = document.createElement("input");
-                mp.setAttribute("type", "text");
-                mp.setAttribute("name", "DmoduloPadre");
-                mp.setAttribute("value", datos[7]);
-                mp.setAttribute("disabled", "disabled");
-                // Create an input element for Activo
-                var active = document.createElement("input");
-                active.setAttribute("type", "text");
-                active.setAttribute("name", "Dactivo");
-                active.setAttribute("value", datos[8]);
-                active.setAttribute("disabled", "disabled");
+                        // Create an input element for Nombre
+                        var name = document.createElement("input");
+                        name.setAttribute("type", "text");
+                        name.setAttribute("name", "Dnombre");
+                        name.setAttribute("Value", datos[2]);
+                        name.setAttribute("disabled", "disabled");
+                        // Create an input element for Descripcion
+                        var des = document.createElement("input");
+                        des.setAttribute("type", "text");
+                        des.setAttribute("name", "Ddescripcion");
+                        des.setAttribute("value", datos[3]);
+                        des.setAttribute("disabled", "disabled");
+                        // Create an input element for Path
+                        var path = document.createElement("input");
+                        path.setAttribute("type", "text");
+                        path.setAttribute("name", "Dpath");
+                        path.setAttribute("value", datos[4]);
+                        path.setAttribute("disabled", "disabled");
+                        // Create an input element for Nivel
+                        var nivel = document.createElement("input");
+                        nivel.setAttribute("type", "text");
+                        nivel.setAttribute("name", "Dnivel");
+                        nivel.setAttribute("value", datos[5]);
+                        nivel.setAttribute("disabled", "disabled");
+                        // Create an input element for Orden
+                        var orden = document.createElement("input");
+                        orden.setAttribute("type", "text");
+                        orden.setAttribute("name", "Dorden");
+                        orden.setAttribute("value", datos[6]);
+                        orden.setAttribute("disabled", "disabled");
+                        // Create an input element for Modulo Padre
+                        var mp = document.createElement("input");
+                        mp.setAttribute("type", "text");
+                        mp.setAttribute("name", "DmoduloPadre");
+                        mp.setAttribute("value", datos[7]);
+                        mp.setAttribute("disabled", "disabled");
+                        // Create an input element for Activo
+                        var active = document.createElement("input");
+                        active.setAttribute("type", "text");
+                        active.setAttribute("name", "Dactivo");
+                        active.setAttribute("value", datos[8]);
+                        active.setAttribute("disabled", "disabled");
 
-                // Create a submit button
-                var s = document.createElement("button");
-                s.setAttribute("type", "submit");
-                s.setAttribute("name", "accion");
-                s.setAttribute("value", "eliminarM");
-                s.innerHTML = ("Eliminar");
+                        // Create a submit button
+                        var s = document.createElement("button");
+                        s.setAttribute("type", "submit");
+                        s.setAttribute("name", "accion");
+                        s.setAttribute("value", "eliminarM");
+                        s.innerHTML = ("Eliminar");
 
-                // Append the inputs to the form
-                form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
-                // Append the button to the form
-                form.append(s);
+                        // Append the inputs to the form
+                        form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
+                        // Append the button to the form
+                        form.append(s);
 
-                document.getElementsByTagName("body")[0]
-                        .appendChild(form);
+                        document.getElementsByTagName("body")[0]
+                                .appendChild(form);
+                    }
+                });
             }
         </script>
     </head>
