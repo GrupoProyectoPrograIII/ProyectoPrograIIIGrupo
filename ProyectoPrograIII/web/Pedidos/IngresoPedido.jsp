@@ -6,39 +6,47 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ingresar Pedido</title>
         <script>
-            $(document).ready(function () {
-                $('#clienteNit').on('change', function () {
-                    verClientes(this.value);
-                });
-            });
-            function verClientes(a) {
-                cliente = a.split(',');
-                document.getElementById("clienteNombre").value = cliente[1] + ' ' + cliente[2];
-                document.getElementById("telefono").value = cliente[3];
-                document.getElementById("direccion").value = cliente[4];
+            function agregarFila() {
+                var tabla = document.getElementById("tablaprueba").insertRow(1);
+                var nofila = (document.getElementById("nofila").value)++;
+                var element1 = document.getElementById("producto").value;
+                var element2 = document.getElementById("precio").value;
+                var element3 = document.getElementById("cantidad").value;
+                var element4 = document.getElementById("totalQ").value;
+
+                //Primera Columna, que lleva el numero de fila
+                var no = document.createElement("td");
+                no.setAttribute("type", "text");
+                no.setAttribute("class", "text-center");
+                no.innerHTML = (nofila.valueOf());
+                // Create an input element for Combo
+                var col1 = document.createElement("td");
+                prod = element1.split(',');
+                col1.innerHTML = prod[1];
+                // Create an input element for Precio
+                var col2 = document.createElement("td");
+                col2.innerHTML = element2;
+                 //Create an input element for Cantidad
+                var col3 = document.createElement("td");
+                col3.innerHTML = element3;
+                // Create an input element for precio c/cantidad
+                var col4 = document.createElement("td");
+                col4.setAttribute("id", "valorColumna");
+                col4.innerHTML = "Q"+element4;
+                tabla.append(no, col1, col2, col3, col4);
+
             }
-            $(document).ready(function () {
-                $('#departamento').on('change', function () {
-                    verMunicipios(this.value);
-                });
-            });
-            function verMunicipios(b) {
-                console.log(b);
 
-                select = document.getElementById('municipio1');
-                document.getElementById('municipio1').innerText = null;
-                Array.from(document.querySelector("#municipio").options).forEach(function (option_element) {
-                    let option_text = option_element.text;
-                    let option_value = option_element.value.split(',');
-                    console.log(option_value[1]);
+            function eliminarFila() {
+                var table = document.getElementById("tablaprueba");
+                var rowCount = table.rows.length;
+                var nofila = (document.getElementById("nofila").value)--;
 
-                    if (b === option_value[1]) {
-                        opcion = new Option(option_text, option_value[0]);
-
-                        select.appendChild(opcion);
-                        console.log(option_value[0], option_text);
-                    }
-                });
+                console.log('row' + rowCount);
+                if (rowCount <= 2)
+                    alert('No hay filas para eliminar');
+                else
+                    table.deleteRow(1);
             }
             $(document).ready(function () {
                 $('#producto').on('change', function () {
@@ -47,88 +55,49 @@
             });
             function verProducto(d) {
                 cliente = d.split(',');
-                document.getElementById("precio").value = cliente[1];
-                console.log(cliente[1]);
-                $("#precio").text(cliente[1]);
+                document.getElementById("precio").value = cliente[2];
+                $("#precio").text(cliente[2]);
             }
-            $(document).ready(function () {
-                $('#cantidad').on('change', function () {
-                    multiplicacion(this.value);
 
+            $(document).ready(function () {
+                $('#producto').on('change', function () {
+
+                    $('#cantidad').on('change', function () {
+                        multiplicacion(this.value);
+                    });
                 });
             });
             function multiplicacion(e) {
                 cantidadA = e;
                 cantidadB = document.getElementById("precio").value;
                 total = cantidadA * cantidadB;
-                console.log(total);
                 document.getElementById("totalQ").value = total;
-                $("#totalQ").text(total);
+                $("#totalQ").text(Qtotal);
+            }
+            function totalOrden() {
+                //getsTable
+                var oTable = document.getElementById('tablaprueba');
+                //gets rows of table
+                var rowLength = oTable.rows.length;
+                //loops through rows    
+
+                var suma = 0;
+                
+                for (var i = 1; i < rowLength - 1; i++) {
+                    //gets cells of current row  
+                    var oCells = oTable.rows.item(i).cells;
+                    //gets amount of cells of current row
+                    var cellLength = oCells.length;
+                    var cellVal = (oCells.item(cellLength - 1).innerHTML);
+                    console.log(cellVal);
+
+                    suma = Number(cellVal) + Number(suma);
+                }
+                console.log("Suma " + suma);
+                document.getElementById("totalOrden").value = suma;
+                $('#totalOrden').text('Q'+suma);
             }
 
-            function agregarFila() {
-                var tabla = document.getElementById("tablaprueba").insertRow(2);
-                //Primera Columna, que lleva el numero de fila
-                var no = document.createElement("td");
-                no.setAttribute("type", "text");
-                no.setAttribute("class", "text-center");
-                no.innerHTML = (1);
-                
-                // Create an input element for Combo
-                var col1 = document.createElement("td");
-                var name = document.createElement("select");
-                name.setAttribute("id", "producto");
-                name.setAttribute("name", "combo");
-                var option = document.createElement("option");
-                option.setAttribute("Value","1,2.5");
-                option.innerHTML = ("Prueba");
-                var option2 = document.createElement("option");
-                option2.setAttribute("Value","1,2.5");
-                option2.innerHTML = ("Prueba");
-                
-                name.appendChild(option);
-                name.appendChild(option2);
-                col1.appendChild(name);
-
-                //Para mostrar el precio del producto
-                var col2 = document.createElement("td");
-                col2.getAttribute("class","text-center");
-                col2.setAttribute("id", "precio");
-                col2.innerHTML = ("Q1.00");
-                
-                var col3 = document.createElement("td");
-                // Create an input element for Cantidad
-                var path = document.createElement("input");
-                path.setAttribute("type", "number");
-                path.setAttribute("id", "cantidad");
-                col3.appendChild(path);
-                
-                var col4 = document.createElement("td");
-                col4.setAttribute("id", "totalQ");
-                col4.setAttribute("class", "text-center");
-                var col5 = document.createElement("td");
-                col5.setAttribute("class", "text-center");
-                // Create an input element for Orden
-                var orden = document.createElement("button");
-                orden.setAttribute("type", "button");
-                orden.setAttribute("class", "btn btn-danger");
-                orden.setAttribute("onclick", "eliminarFila()");
-                orden.innerHTML = ("Eliminar");
-                col5.appendChild(orden);
-                
-                tabla.append(no, col1, col2, col3, col4, col5);
-            }
-            }
-            function eliminarFila() {
-                var table = document.getElementById("tablaprueba");
-                var rowCount = table.rows.length;
-                //console.log(rowCount);
-
-                if (rowCount <= 1)
-                    alert('No se puede eliminar el encabezado');
-                else
-                    table.deleteRow(rowCount - 2);
-            }
         </script>
     </head>
     <body>
@@ -155,76 +124,44 @@
                             <label> Direccion</label> 
                             <input name="direccion" id="direccion" type="text">
                             <br><br>
-                        </form>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
+                                <input type="text" id="nofila" hidden="true" value="1">
+                                <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option><option value="1,prueba,1.00">prueba</option><option value="2,testing,2.50">Testing</option></select>
+                                <input type="text" id="precio" value="0.00" disabled="true">
+                                <input type="number" id="cantidad" style="width: 60px; height: 26px">
+                                <input type="text" id="totalQ" value="0.00" disabled="true">
+                                <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila(); totalOrden()">Eliminar Ultima Fila</button>
+                                <table border="1" class="table" id="tablaprueba">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Total Q</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td> 
+                                            <td id="totalOrden">Q0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- -------------------------------------------------- -->
+
+                                <div class="col-md-3">
+                                    <button id="accion" name="accion" value="create" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
+                                </div>
+                            </div>
+
                     </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary mr-2" onclick="agregarFila()">Agregar</button>
-                        <table border="1" class="table" id="tablaprueba">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Total Q</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center"><select id="producto"><option value="1,1.00">prueba</option><option value="1,2.50">prueba</option></select></td>
-                                    <td class="text-center" id="precio">Q0.00</td>
-                                    <td><input type="number" id="cantidad" style="width: 60px; height: 26px"></td> 
-                                    <td class="text-center" id="totalQ"></td>
-                                    <td class="text-center"></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
-                                    <td>Q0.00</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <!-- -------------------------------------------------- -->
-                        <br><br>
-                        <label>Departamento</label><br>
-                        <select name="departamento" id="departamento">
-                            <option disabled selected>Seleccione Uno</option>
-
-                            <option value=""></option>
-
-                        </select><br><br>
-
-                        <label>Municipio</label><br>
-                        <select type="hidden" name="municipio" id="municipio" style="display: none">
-
-                            <option></option>
-
-                        </select>
-
-                        <select name="municipio1" id="municipio1">
-
-                            <option disabled selected></option>
-
-                        </select><br><br>
-
-
-
-                        <label>Tipo Cambio(Q a $):</label><br><input id="cambio" type="text" value="">
-                        <br>
-                        <!--<label>Total (en Q):</label><br><input id="totalQs" value="0.00"></label><br>
-                        <label>Total (en $):</label><br><input id="totalUsds" value="0.00"><br><br>-->
-                        <div class="col-md-3">
-                            <button id="accion" name="accion" value="create" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
-                        </div>
-                    </div>
-                </div>
             </form>
-        </div>
     </body>
 </html>
