@@ -21,6 +21,54 @@
         List<Area> lstArea = (List) (request.getAttribute("lstArea"));
         List<Area> lstMesa = (List) (request.getAttribute("lstMesa"));
     %>
+    
+    <body>
+        <div class="container">
+            <div class="tab">
+                <button class="tablinks" onclick="openArea(event, 'Area1')">Area1</button>
+                <button class="tablinks" onclick="openArea(event, 'Area2')">Area2</button>
+                <button class="tablinks" onclick="openArea(event, 'Balcon')">Balcon</button>
+            </div>
+
+            <div id="Area1" class="tabcontent">
+                <ul>
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido" method="post"><button type="submit" id="Mesa1"> </button></form>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="Mesa1">Mesa1</label></a></li>
+                </ul>
+            </div>
+            
+            <div id="Area2" class="tabcontent">
+                <ul>
+                    <li>Mesa56</li>
+                    <li>Mesa5</li>
+                    <li>Mesa12</li>
+                </ul>
+            </div>
+
+            <div id="Balcon" class="tabcontent">
+                <ul>
+                    <li>Mesa3</li>
+                    <li>Mesa56</li>
+                    <li>Mesa132</li>
+                </ul>
+            </div>
+            <script>
+                function openArea(evt, Area) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(Area).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+            </script>
+        </div>
+    </body>
     <style>
         body {font-family: Arial;}
 
@@ -61,53 +109,4 @@
             border-top: none;
         }
     </style>
-    <body>
-        <div class="container">
-            <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')">Area1</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Area2</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Balcon</button>
-            </div>
-
-            <div id="London" class="tabcontent">
-                
-                <ul>
-                    <form style="display: none" action="controllerPedido?accion=nuevoPedido" method="post"><button type="submit" id="Mesa1"> </button></form>
-                    <li id="Li2" class="dropdown" ><a id="A2"><label for="Mesa1">Mesa1</label></a></li>
-                </ul>
-            </div>
-
-            <div id="Paris" class="tabcontent">
-                <ul>
-                    <li>Mesa56</li>
-                    <li>Mesa5</li>
-                    <li>Mesa12</li>
-                </ul>
-            </div>
-
-            <div id="Tokyo" class="tabcontent">
-                <ul>
-                    <li>Mesa3</li>
-                    <li>Mesa56</li>
-                    <li>Mesa132</li>
-                </ul>
-            </div>
-
-            <script>
-                function openCity(evt, cityName) {
-                    var i, tabcontent, tablinks;
-                    tabcontent = document.getElementsByClassName("tabcontent");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-                    tablinks = document.getElementsByClassName("tablinks");
-                    for (i = 0; i < tablinks.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" active", "");
-                    }
-                    document.getElementById(cityName).style.display = "block";
-                    evt.currentTarget.className += " active";
-                }
-            </script>
-        </div>
-    </body>
 </html>

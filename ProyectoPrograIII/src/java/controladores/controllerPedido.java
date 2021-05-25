@@ -1,10 +1,8 @@
 package controladores;
 
 import dao.DaoArea;
+import dao.DaoCliente;
 import dao.DaoMesa;
-import dao.DaoModulo;
-import dao.DaoPermiso;
-import dao.DaoRol;
 import dao.DaoUsuario;
 import java.io.IOException;
 import java.util.List;
@@ -15,10 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Area;
+import modelos.Cliente;
 import modelos.Mesa;
-import modelos.Modulo;
-import modelos.Permiso;
-import modelos.Rol;
 import modelos.Usuario;
 
 @WebServlet(name = "controllerPedido", urlPatterns = {"/controllerPedido"})
@@ -40,28 +36,19 @@ public class controllerPedido extends HttpServlet {
         String action = request.getParameter("accion");
 
         DaoUsuario daoUsuario = new DaoUsuario();
-        DaoRol daoRol = new DaoRol();
-        DaoPermiso daoPermiso = new DaoPermiso();
-        DaoModulo daoModulo = new DaoModulo();
         DaoArea daoArea = new DaoArea();
         DaoMesa daoMesa = new DaoMesa();
+        DaoCliente daoCliente = new DaoCliente();
 
         Usuario user = new Usuario();
-        Permiso permiso = new Permiso();
-        Modulo modulo = new Modulo();
-        Rol rol = new Rol();
         Area area = new Area();
         Mesa mesa = new Mesa();
+        Cliente cliente = new Cliente();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
-        List<Modulo> lstModulo = daoModulo.listar();
-        List<Rol> lstRol = daoRol.listar();
-        List<Permiso> lstPermiso = daoPermiso.listar();
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
-        
-        
-        
+        List<Cliente> lstCliente = daoCliente.listar();
         
         switch(action){
             case "readSM":
@@ -87,6 +74,8 @@ public class controllerPedido extends HttpServlet {
                 acceso = listar + "AnularPedido.jsp";
                 break;
             case "editarSM":
+                //daoMesa.modificar(mesa);
+                
                 acceso = listar + "SeleccionarMesa.jsp";
                 break;
             case "editarEM":
@@ -105,6 +94,11 @@ public class controllerPedido extends HttpServlet {
                 acceso = listar + "AnularPedido.jsp";
                 break;
             case "nuevoPedido":
+                lstCliente = daoCliente.listar();
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "IngresoPedido.jsp";
                 break;
         }

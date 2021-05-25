@@ -1,13 +1,16 @@
 package controladores;
 
 import dao.DaoArea;
+import dao.DaoCliente;
+import dao.DaoDetallePedido;
 import dao.DaoMesa;
 import dao.DaoModulo;
+import dao.DaoPedido;
 import dao.DaoPermiso;
+import dao.DaoProductoCombo;
 import dao.DaoRol;
 import dao.DaoUsuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +19,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Area;
+import modelos.Cliente;
+import modelos.DetallePedido;
 import modelos.Mesa;
 import modelos.Modulo;
+import modelos.Pedido;
 import modelos.Permiso;
+import modelos.Producto;
+import modelos.ProductoCombo;
 import modelos.Rol;
 import modelos.Usuario;
 
@@ -46,12 +54,22 @@ public class controllerMantenimiento extends HttpServlet {
         DaoModulo daoModulo = new DaoModulo();
         DaoArea daoArea = new DaoArea();
         DaoMesa daoMesa = new DaoMesa();
+        DaoCliente daoCliente = new DaoCliente();
+        DaoDetallePedido daoDp = new DaoDetallePedido();
+        DaoPedido daoPedido = new DaoPedido();
+        DaoProductoCombo daoProdCombo = new DaoProductoCombo();
+        
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
         Modulo modulo = new Modulo();
         Rol rol = new Rol();
         Mesa mesa = new Mesa();
+        Area area = new Area();
+        Cliente cliente = new Cliente();
+        DetallePedido dp = new DetallePedido();
+        Pedido pedido = new Pedido();
+        Producto producto = new Producto();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
@@ -59,12 +77,15 @@ public class controllerMantenimiento extends HttpServlet {
         List<Permiso> lstPermiso = daoPermiso.listar();
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
+        List<Cliente> lstCliente = daoCliente.listar();
+        List<DetallePedido> lstDp = daoDp.listar();
+        List<Pedido> lstPedido = daoPedido.listar();
+        List<ProductoCombo> lstProdCombo = daoProdCombo.listar();
+        
 
         switch(action){
             case "readA":
-                lstRol = daoRol.listar();
-                //lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
+                lstArea = daoArea.listar();
                 request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;

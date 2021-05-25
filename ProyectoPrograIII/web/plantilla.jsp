@@ -26,7 +26,7 @@
     Boolean seguridad = false, mantenimientos = false, procesos = false, pedidos = false, Reportes = false;//Nivel 1
     Boolean modulos = false, permisos = false, users = false, rols = false, SelectMesa = false, AnularPedido = false, Area = false, Clientes = false, Mesa = false;
     Boolean Monitor = false, ProductoCombinado = false, Productos = false, Proveedores = false, TipoProducto = false, DescargaInventario = false, FacturasCredito = false;
-    Boolean PagoPedido = false, CargaInventario = false, CorteCaja = false, ElegirMonitor = false, InventarioGeneral = false, InventarioParcial = false, Cierre = false, MonitorCaja = false;//nivel 2
+    Boolean PagoPedido = false, CorteCaja = false, ElegirMonitor = false, InventarioGeneral = false, InventarioParcial = false, Cierre = false, MonitorCaja = false;//nivel 2
     while (iterPermiso.hasNext()) {
         permiso = iterPermiso.next();
         if (permiso.getRol().equalsIgnoreCase(roles) && permiso.getModulo().equalsIgnoreCase("SEGURIDAD")) {seguridad = true;}

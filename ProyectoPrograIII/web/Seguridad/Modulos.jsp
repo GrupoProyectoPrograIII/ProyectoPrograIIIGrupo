@@ -88,11 +88,13 @@
                         .appendChild(form);
                 //document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><a class="btn btn-warning" href="ControllerUsuario?accion=editar&id=">Editar</a><button type="button" class="btn btn-danger" onclick="eliminarFila()">Eliminar Fila</button></td>';
             }
+            
             $(document).ready(function () {
                 $('#edit').on('change', function () {
                     editarFila(this.value);
                 });
             });
+            
             function editarFila(a) {
                 //getsTable
                 var oTable = document.getElementById('myTable');
@@ -198,6 +200,7 @@
                     eliminarFila(this.value);
                 });
             });
+            
             function eliminarFila(b) {
                 //getsTable
                 var oTable = document.getElementById('myTable');

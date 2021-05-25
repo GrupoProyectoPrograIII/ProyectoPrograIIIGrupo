@@ -14,7 +14,7 @@
     <body style="padding-bottom: 50px">
         <div class="container"> 
             <h1>Pago de Pedido</h1>        
-            
+                Agregar codigo de "seleccionar mesa"
         </div>
     </body>
 </html>

@@ -25,14 +25,14 @@
                 col1.innerHTML = prod[1];
                 // Create an input element for Precio
                 var col2 = document.createElement("td");
-                col2.innerHTML = element2;
-                 //Create an input element for Cantidad
+                col2.innerHTML = "Q" + element2;
+                //Create an input element for Cantidad
                 var col3 = document.createElement("td");
                 col3.innerHTML = element3;
                 // Create an input element for precio c/cantidad
                 var col4 = document.createElement("td");
                 col4.setAttribute("id", "valorColumna");
-                col4.innerHTML = "Q"+element4;
+                col4.innerHTML = element4;
                 tabla.append(no, col1, col2, col3, col4);
 
             }
@@ -48,32 +48,35 @@
                 else
                     table.deleteRow(1);
             }
+            
             $(document).ready(function () {
                 $('#producto').on('change', function () {
                     verProducto(this.value);
                 });
             });
+            
             function verProducto(d) {
                 cliente = d.split(',');
                 document.getElementById("precio").value = cliente[2];
                 $("#precio").text(cliente[2]);
             }
-
+            
             $(document).ready(function () {
                 $('#producto').on('change', function () {
-
                     $('#cantidad').on('change', function () {
                         multiplicacion(this.value);
                     });
                 });
             });
+            
             function multiplicacion(e) {
                 cantidadA = e;
                 cantidadB = document.getElementById("precio").value;
                 total = cantidadA * cantidadB;
                 document.getElementById("totalQ").value = total;
-                $("#totalQ").text(Qtotal);
+                $("#totalQ").text(total);
             }
+            
             function totalOrden() {
                 //getsTable
                 var oTable = document.getElementById('tablaprueba');
@@ -82,7 +85,7 @@
                 //loops through rows    
 
                 var suma = 0;
-                
+
                 for (var i = 1; i < rowLength - 1; i++) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
@@ -95,22 +98,23 @@
                 }
                 console.log("Suma " + suma);
                 document.getElementById("totalOrden").value = suma;
-                $('#totalOrden').text('Q'+suma);
+                $('#totalOrden').text('Q' + suma);
             }
 
+            
         </script>
     </head>
     <body>
         <div class="container">            
             <h1>Ingreso de nuevo Pedido</h1>
-            <form id="form-work" name="form-work" action="ControllerPedido" method="get">
+            <form id="form-work" name="form-work" action="ControllerPedido" method="post">
                 <div class="form-group" >
                     <%
 
                     %>
                     <label>Cliente</label><br>
-                    <div>
-                        <form name="" action="controllerPedido" method="get">    
+                    <div class="text-center">
+                        
                             <select name="clienteNit" id="clienteNit">
                                 <option disabled selected>Seleccione Uno</option>
 
@@ -124,6 +128,7 @@
                             <label> Direccion</label> 
                             <input name="direccion" id="direccion" type="text">
                             <br><br>
+                        
                             </div>
                             <div class="row">
                                 <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
@@ -157,7 +162,7 @@
                                 <!-- -------------------------------------------------- -->
 
                                 <div class="col-md-3">
-                                    <button id="accion" name="accion" value="create" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
+                                    <button id="accion" name="accion" value="editarSM" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
                                 </div>
                             </div>
 
