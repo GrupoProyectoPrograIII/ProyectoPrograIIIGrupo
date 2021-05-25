@@ -296,7 +296,7 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
+                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("mesa");
                         for (Usuario user : lstUsuario) {
                             iter++;
                     %>

@@ -1,6 +1,7 @@
 package controladores;
 
 import dao.DaoArea;
+import dao.DaoMesa;
 import dao.DaoModulo;
 import dao.DaoPermiso;
 import dao.DaoRol;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Area;
+import modelos.Mesa;
 import modelos.Modulo;
 import modelos.Permiso;
 import modelos.Rol;
@@ -43,22 +45,25 @@ public class controllerMantenimiento extends HttpServlet {
         DaoPermiso daoPermiso = new DaoPermiso();
         DaoModulo daoModulo = new DaoModulo();
         DaoArea daoArea = new DaoArea();
+        DaoMesa daoMesa = new DaoMesa();
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
         Modulo modulo = new Modulo();
         Rol rol = new Rol();
+        Mesa mesa = new Mesa();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
         List<Rol> lstRol = daoRol.listar();
         List<Permiso> lstPermiso = daoPermiso.listar();
         List<Area> lstArea = daoArea.listar();
+        List<Mesa> lstMesa = daoMesa.listar();
 
         switch(action){
             case "readA":
                 lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
+                //lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
@@ -72,9 +77,9 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
             case "readM":
                 lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
+                //lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                request.setAttribute("mesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
             case "readMon":
