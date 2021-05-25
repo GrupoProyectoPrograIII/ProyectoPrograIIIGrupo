@@ -1,3 +1,4 @@
+<%@page import="modelos.Area"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
@@ -215,15 +216,15 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
-                        for (Usuario user : lstUsuario) {
+                        List<Area> lstArea = (List<Area>) request.getAttribute("area");
+                        for (Area area : lstArea) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
+                        <td class="text-center"><%=area.getIdArea()%></td>
+                        <td class="text-center"><%=area.getDescripcion()%></td>
 
-                        <% if (user.getIsActivo() == 1) { %>
+                        <% if (area.getEstado() == 1) { %>
                         <td class="text-center">Activo</td>
                         <%} else {%>
                         <td class="text-center">Inactivo</td>

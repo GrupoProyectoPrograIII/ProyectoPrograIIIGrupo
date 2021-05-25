@@ -1,5 +1,6 @@
 package controladores;
 
+import dao.DaoArea;
 import dao.DaoModulo;
 import dao.DaoPermiso;
 import dao.DaoRol;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Area;
 import modelos.Modulo;
 import modelos.Permiso;
 import modelos.Rol;
@@ -40,6 +42,7 @@ public class controllerMantenimiento extends HttpServlet {
         DaoRol daoRol = new DaoRol();
         DaoPermiso daoPermiso = new DaoPermiso();
         DaoModulo daoModulo = new DaoModulo();
+        DaoArea daoArea = new DaoArea();
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
@@ -50,13 +53,14 @@ public class controllerMantenimiento extends HttpServlet {
         List<Modulo> lstModulo = daoModulo.listar();
         List<Rol> lstRol = daoRol.listar();
         List<Permiso> lstPermiso = daoPermiso.listar();
+        List<Area> lstArea = daoArea.listar();
 
         switch(action){
             case "readA":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;
             case "readC":
