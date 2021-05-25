@@ -4,9 +4,14 @@
     Author     : JAVIER OSORIO
 --%>
 
+<%@page import="dao.DaoMonitor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
+<%
+    DaoMonitor daoM = new DaoMonitor();
+    int cod = Integer.parseInt((String) request.getParameter("seleccion"));
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

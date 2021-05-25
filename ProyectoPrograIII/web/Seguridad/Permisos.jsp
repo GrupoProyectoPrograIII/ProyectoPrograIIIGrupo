@@ -120,7 +120,7 @@
                 }
 
                 Swal.fire({
-                    title: '¿Deseas modificar el registro seleccionado?',
+                    title: '¿Deseas modificar el registro seleccionado de permisos: ' + datos[2] + ' con ' + datos[3] + '?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',
@@ -246,7 +246,7 @@
                 }
 
                 Swal.fire({
-                    title: '¿Deseas eliminar el registro seleccionado?',
+                    title: '¿Deseas eliminar el registro seleccionado de permisos: ' + datos[2] + ' con ' + datos[3] + '?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#30AB26',

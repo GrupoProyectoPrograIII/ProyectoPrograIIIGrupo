@@ -6,6 +6,7 @@
 package controladores;
 
 import dao.DaoModulo;
+import dao.DaoMonitor;
 import dao.DaoPermiso;
 import dao.DaoRol;
 import dao.DaoUsuario;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Modulo;
+import modelos.Monitor;
 import modelos.Permiso;
 import modelos.Rol;
 import modelos.Usuario;
@@ -45,11 +47,13 @@ public class controllerProceso extends HttpServlet {
         DaoRol daoRol = new DaoRol();
         DaoPermiso daoPermiso = new DaoPermiso();
         DaoModulo daoModulo = new DaoModulo();
+        DaoMonitor daoMonitor = new DaoMonitor();
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
         Modulo modulo = new Modulo();
         Rol rol = new Rol();
+        Monitor mon = new Monitor();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
@@ -104,6 +108,12 @@ public class controllerProceso extends HttpServlet {
                 break;
             case "eliminarCC":
                 acceso = listar + "CorteCaja.jsp";
+                break;
+            case "seleccionarMon":
+                mon = new Monitor();
+                mon.setCod_monitor(Integer.parseInt(request.getParameter("codigo")));
+                request.setAttribute("seleccion", mon.getCod_monitor());
+                acceso = listar + "Monitores.jsp";
                 break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web

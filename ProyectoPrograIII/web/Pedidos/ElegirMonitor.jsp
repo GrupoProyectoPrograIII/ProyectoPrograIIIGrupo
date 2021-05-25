@@ -38,7 +38,7 @@
                         <td class="text-center"><%= mon.getCod_monitor() %></td>
                         <td class="text-center"><%= mon.getDescripcion_monitor() %></td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-info" id="seleccionar" onclick="">Seleccionar</button>
+                            <a class="btn btn-info" href="ControllerProceso?accion=seleccionarMon&codigo=<%= mon.getCod_monitor() %>">Seleccionar</a>
                         </td>
                     </tr>
                     <%}%>
