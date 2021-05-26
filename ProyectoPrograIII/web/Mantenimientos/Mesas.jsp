@@ -288,9 +288,9 @@
                         <th class="text-center">Id Mesa</th>
                         <%--<th class="text-center">Id Area</th>--%>
                         <th class="text-center">Descripcion</th>
-                        <th class="text-center">Id Area</th>
+                        <th class="text-center">Area</th>
                         <th class="text-center">Asientos</th>
-                        <th class="text-center">Id Estado</th>
+                        <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>

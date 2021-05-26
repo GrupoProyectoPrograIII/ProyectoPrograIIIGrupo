@@ -32,6 +32,7 @@ public class DaoMesa implements crudMesa{
                 mesa.setIdMesa(rs.getInt("ID_MESA"));
                 mesa.setIdArea(rs.getInt("ID_AREA"));
                 mesa.setDescripcion(rs.getString("DESCRIPCION"));
+                //mesa.setAreaDescrip(rs.getString("AREA"));
                 mesa.setAsientos(rs.getInt("ASIENTOS"));
                 mesa.setIdEstado(rs.getInt("ID_ESTADO"));                
                 lstMesa.add(mesa);

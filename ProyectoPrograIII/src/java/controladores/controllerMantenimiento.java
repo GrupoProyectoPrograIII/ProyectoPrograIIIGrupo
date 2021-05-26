@@ -92,35 +92,39 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
                 
              case "agregarA":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                area = new Area();
+                area.setDescripcion(request.getParameter("Anombre"));
+                area.setEstado(Integer.parseInt(request.getParameter("Aactivo")));
+                daoArea.insertar(area);
+                lstArea = daoArea.listar();
+                request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;
                 
             case "editarA":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                area = new Area();
+                area.setIdArea(Integer.parseInt(request.getParameter("Eidarea")));
+                area.setDescripcion(request.getParameter("Edescripcion"));
+                area.setEstado(Integer.parseInt(request.getParameter("Eactivo")));
+                daoArea.modificar(area);
+                lstArea = daoArea.listar();
+                request.setAttribute("area", lstArea);                
                 acceso = listar + "Areas.jsp";
                 break;
                 
             case "eliminarA":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                area = new Area();
+                area.setIdArea(Integer.parseInt(request.getParameter("Didarea")));
+                daoArea.eliminar(area);
+                lstArea = daoArea.listar();                
+                request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;                
             
         //------- CRUD MESAS -------------------------------------
                 
             case "readM":
-                lstRol = daoRol.listar();
-                //lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
+                lstMesa = daoMesa.listar();               
                 request.setAttribute("mesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;

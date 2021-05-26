@@ -1,7 +1,7 @@
 <%@page import="modelos.Area"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="modelos.Usuario"%>
+<%--<%@page import="modelos.Usuario"%>--%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
@@ -94,13 +94,13 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eiduser");
+                id.setAttribute("name", "Eidarea");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Enombre");
+                name.setAttribute("name", "Edescripcion");
                 name.setAttribute("Value", datos[2]);
                 // Create an input element for Activo
                 var active = document.createElement("select");
@@ -171,13 +171,13 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Diduser");
+                id.setAttribute("name", "Didarea");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Dnombre");
+                name.setAttribute("name", "Ddescripcion");
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("Value", datos[2]);
                 // Create an input element for Activo
