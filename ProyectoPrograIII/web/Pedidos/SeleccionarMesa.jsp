@@ -23,7 +23,9 @@
     %>
     
     <body>
-        <div class="container">
+        
+        <div class="container" id="disponible">
+            <h3>Mesas Disponibles</h3>
             <div class="tab">
                 <button class="tablinks" onclick="openArea(event, 'Area1')">Area1</button>
                 <button class="tablinks" onclick="openArea(event, 'Area2')">Area2</button>
@@ -34,6 +36,8 @@
                 <ul>
                     <form style="display: none" action="controllerPedido?accion=nuevoPedido" method="post"><button type="submit" id="Mesa1"> </button></form>
                     <li id="Li2" class="dropdown" ><a id="A2"> <label for="Mesa1">Mesa1</label></a></li>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:red;" onclick="ocupado()">Mesa1</label></a></li>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:purple;" onclick="limpieza()">Mesa1</label></a></li>
                 </ul>
             </div>
             
@@ -68,6 +72,27 @@
                 }
             </script>
         </div>
+        <script type="text/javascript">
+            function ocupado(){
+            swal.fire({
+                title: "¡Mesa Ocupado!",
+                text: "Escojan otra mesa,que la mesa seleccionada lo estan ocupando",
+                icon: 'error', //warning,info,question,error,success
+                confirmButtonText: "Aceptar",
+                footer: "¡Cualquier error hacerlo saber al gerente!"
+            });
+        }
+        function limpieza(){
+            swal.fire({
+                title: "¡Mesa seleccionada esta en Limpieza!",
+                text: "Escojan otra mesa, la mesa seleccionada esta en proceso de limpieza",
+                icon: 'info', //warning,info,question,error,success
+                confirmButtonText: "Aceptar",
+                footer: "¡Cualquier error hacerlo saber al gerente!"
+            });
+        }
+        
+        </script>
     </body>
     <style>
         body {font-family: Arial;}

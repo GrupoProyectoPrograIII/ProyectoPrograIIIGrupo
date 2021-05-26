@@ -107,7 +107,7 @@
     <body>
         <div class="container">            
             <h1>Ingreso de nuevo Pedido</h1>
-            <form id="form-work" name="form-work" action="ControllerPedido" method="post">
+            <form id="form-work" name="form-work" action="controllerPedido" method="post">
                 <div class="form-group" >
                     <%
 
