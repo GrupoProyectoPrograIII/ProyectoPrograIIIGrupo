@@ -130,31 +130,43 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
                 
             case "agregarM":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                mesa = new Mesa();
+                mesa.setIdArea(Integer.parseInt(request.getParameter("Aarea")));
+                mesa.setDescripcion(request.getParameter("Adescripcion"));
+                //mesa.setAreaDescrip(request.getParameter("Aareadescripcion"));
+                mesa.setAsientos(Integer.parseInt(request.getParameter("Aasiento")));
+                mesa.setIdEstado(Integer.parseInt(request.getParameter("Aestado")));
+                daoMesa.insertar(mesa);
+                lstMesa = daoMesa.listar();                
+                request.setAttribute("mesa", lstMesa);
+                acceso = listar + "Mesas.jsp";
+                break;
+                
+            case "editarM":
+                mesa = new Mesa();
+                mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
+                mesa.setIdArea(Integer.parseInt(request.getParameter("Earea")));
+                mesa.setDescripcion(request.getParameter("Edescripcion"));
+                //mesa.setAreaDescrip(request.getParameter("Eareadescripcion"));
+                mesa.setAsientos(Integer.parseInt(request.getParameter("Easiento")));
+                mesa.setIdEstado(Integer.parseInt(request.getParameter("Eestado")));
+                daoMesa.modificar(mesa);
+                lstMesa = daoMesa.listar();                
+                request.setAttribute("mesa", lstMesa);                
                 acceso = listar + "Mesas.jsp";
                 break;
                 
             case "eliminarM":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                mesa = new Mesa();
+                mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
+                daoMesa.eliminar(mesa);
+                lstMesa = daoMesa.listar();                
+                request.setAttribute("mesa", lstMesa);                
                 acceso = listar + "Mesas.jsp";
                 break;
                 
-        //--------
-                
-            case "editarM":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Mesas.jsp";
-                break;
-                
+        //-------- CLIENTE
+                                     
             case "readC":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -162,6 +174,32 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Clientes.jsp";
                 break;
+                
+            case "agregarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+                
+            case "editarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+                
+            case "eliminarC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Clientes.jsp";
+                break;
+                
+        //------ CRUD MONITOR  ---------------------------------             
             
             case "readMon":
                 lstRol = daoRol.listar();
@@ -170,6 +208,33 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Monitor.jsp";
                 break;
+                
+            case "agregarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+                
+            case "editarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+                
+            case "eliminarMon":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Monitor.jsp";
+                break;
+                
+        //------- CRUD PRODUCTO COMBO -------------------------
+                
             case "readPC":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -177,6 +242,33 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
+                
+            case "agregarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+                
+            case "editarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+                
+            case "eliminarPC":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "ProductoCombinado.jsp";
+                break;
+                
+        //------- CRUD PRODUCTO ---------------------------------
+                
             case "readProd":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -184,6 +276,33 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Productos.jsp";
                 break;
+                
+            case "agregarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+                
+            case "editarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+                
+            case "eliminarProd":
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
+                acceso = listar + "Productos.jsp";
+                break;
+                
+            
+                
             case "readPro":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -199,35 +318,13 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "TipoProductos.jsp";
                 break;
            
-            case "agregarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Clientes.jsp";
-                break;
             
-            case "agregarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-            case "agregarPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "ProductoCombinado.jsp";
-                break;
-            case "agregarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Productos.jsp";
-                break;
+                
+            
+            
+            
+            
+            
             case "agregarPro":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -243,35 +340,11 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "TipoProductos.jsp";
                 break;
             
-            case "editarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Clientes.jsp";
-                break;
             
-            case "editarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-            case "editarPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "ProductoCombinado.jsp";
-                break;
-            case "editarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Productos.jsp";
-                break;
+            
+            
+            
+            
             case "editarPro":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -287,35 +360,11 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "TipoProductos.jsp";
                 break;
             
-            case "eliminarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Clientes.jsp";
-                break;
             
-            case "eliminarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-            case "eliminarPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "ProductoCombinado.jsp";
-                break;
-            case "eliminarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Productos.jsp";
-                break;
+            
+            
+            
+            
             case "eliminarPro":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();

@@ -29,10 +29,10 @@ public class DaoMesa implements crudMesa{
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 mesa = new Mesa();
-                mesa.setIdMesa(rs.getInt("ID_MESA"));
-                mesa.setIdArea(rs.getInt("ID_AREA"));
+                mesa.setIdMesa(rs.getInt("ID_MESA"));                
                 mesa.setDescripcion(rs.getString("DESCRIPCION"));
-                //mesa.setAreaDescrip(rs.getString("AREA"));
+                mesa.setIdArea(rs.getInt("ID_AREA"));
+                mesa.setAreaDescrip(rs.getString("DESCRIPCION"));
                 mesa.setAsientos(rs.getInt("ASIENTOS"));
                 mesa.setIdEstado(rs.getInt("ID_ESTADO"));                
                 lstMesa.add(mesa);
