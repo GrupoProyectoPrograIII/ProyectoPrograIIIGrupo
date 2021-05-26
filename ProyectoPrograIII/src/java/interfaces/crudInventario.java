@@ -15,7 +15,7 @@ import modelos.Inventario;
 public interface crudInventario {
     public List listar_categoria();
     public List listar_inv_general();
-    public List listar_ibv_detalle();
+    public List listar_inv_detalle();
     public Inventario list(int id);
     public boolean insertar(Inventario inv);
     public boolean modificar(Inventario inv);

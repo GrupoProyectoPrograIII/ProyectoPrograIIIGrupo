@@ -372,7 +372,7 @@
         <script type="text/javascript">
             swal.fire({
                 title: "¡Advertencia!",
-                text: "Debe llenar todos los campos que solicita",
+                text: "Debe llenar todos los campos que se solicita",
                 icon: 'warning', //warning,info,question,error,success
                 confirmButtonText: "Aceptar"
             });

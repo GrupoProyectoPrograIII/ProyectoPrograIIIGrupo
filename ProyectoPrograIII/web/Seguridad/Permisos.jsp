@@ -346,6 +346,16 @@
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button> 
         </div>
     </body>
+    <c:if test="${vacio == 1}">
+        <script type="text/javascript">
+            swal.fire({
+                title: "¡Advertencia!",
+                text: "Debe llenar todos los campos que se solicita",
+                icon: 'warning', //warning,info,question,error,success
+                confirmButtonText: "Aceptar"
+            });
+        </script>
+    </c:if>
     <c:if test="${guardar == 0}">
         <script type="text/javascript">
             swal.fire({
