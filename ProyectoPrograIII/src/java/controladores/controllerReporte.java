@@ -25,8 +25,8 @@ public class controllerReporte extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
-        vista.forward(request, response);
+        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
+        //vista.forward(request, response);
     }
 
     @Override

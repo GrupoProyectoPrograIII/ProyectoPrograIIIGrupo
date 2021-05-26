@@ -20,8 +20,6 @@ import modelos.Usuario;
 @WebServlet(name = "controllerSeguridad", urlPatterns = {"/controllerSeguridad"})
 public class controllerSeguridad extends HttpServlet {
 
-    
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,7 +27,7 @@ public class controllerSeguridad extends HttpServlet {
         RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
         vista.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,7 +57,7 @@ public class controllerSeguridad extends HttpServlet {
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar+"Usuarios.jsp";
+                acceso = listar + "Usuarios.jsp";
                 break;
 
             case "agregarU":
@@ -72,12 +70,21 @@ public class controllerSeguridad extends HttpServlet {
                 user.setIdRol(Integer.parseInt(request.getParameter("Arole")));
                 user.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
 
-                daoUsuario.insertar(user);
+                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol()) || "".equals(user.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoUsuario.insertar(user)) {
+                        request.setAttribute("guardar", 1);
+                    } else {
+                        request.setAttribute("guardar", 0);
+                    }
+                }
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar+"Usuarios.jsp";
+                acceso = listar + "Usuarios.jsp";
 
                 break;
             case "editarU":
@@ -91,12 +98,21 @@ public class controllerSeguridad extends HttpServlet {
                 user.setIdRol(Integer.parseInt(request.getParameter("Erole")));
                 user.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                daoUsuario.modificar(user);
+                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol()) || "".equals(user.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoUsuario.modificar(user)) {
+                        request.setAttribute("modificar", 1);
+                    } else {
+                        request.setAttribute("modificar", 0);
+                    }
+                }
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar+"Usuarios.jsp";
+                acceso = listar + "Usuarios.jsp";
                 break;
 
             case "eliminarU":
@@ -104,19 +120,24 @@ public class controllerSeguridad extends HttpServlet {
                 user = new Usuario();
                 user.setIdUser(Integer.parseInt(request.getParameter("Diduser")));
 
-                daoUsuario.eliminar(user);
+                if (daoUsuario.eliminar(user)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
+
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
-                acceso = listar+"Usuarios.jsp";
+                acceso = listar + "Usuarios.jsp";
                 break;
-                
+
             case "readR":
-                
+
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar+"Roles.jsp";
+                acceso = listar + "Roles.jsp";
                 break;
 
             case "agregarR":
@@ -124,11 +145,20 @@ public class controllerSeguridad extends HttpServlet {
                 rol.setNombre(request.getParameter("Anombre"));
                 rol.setDescripcion(request.getParameter("Adescripcion"));
                 rol.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                daoRol.insertar(rol);
+
+                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion()) || "".equals(rol.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoRol.insertar(rol)) {
+                        request.setAttribute("guardar", 1);
+                    } else {
+                        request.setAttribute("guardar", 0);
+                    }
+                }
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar+"Roles.jsp";
+                acceso = listar + "Roles.jsp";
                 break;
             case "editarR":
                 rol = new Rol();
@@ -136,19 +166,33 @@ public class controllerSeguridad extends HttpServlet {
                 rol.setNombre(request.getParameter("Enombre"));
                 rol.setDescripcion(request.getParameter("Edescripcion"));
                 rol.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
-                daoRol.modificar(rol);
+
+                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion()) || "".equals(rol.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoRol.modificar(rol)) {
+                        request.setAttribute("modificar", 1);
+                    } else {
+                        request.setAttribute("modificar", 0);
+                    }
+                }
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar+"Roles.jsp";
+                acceso = listar + "Roles.jsp";
                 break;
             case "eliminarR":
                 rol.setIdRol(Integer.parseInt(request.getParameter("Didrol")));
-                daoRol.eliminar(rol);
+
+                if (daoRol.eliminar(rol)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
 
                 lstRol = daoRol.listar();
                 request.setAttribute("rol", lstRol);
-                acceso = listar+"Roles.jsp";
+                acceso = listar + "Roles.jsp";
                 break;
             case "readP":
                 lstRol = daoRol.listar();
@@ -157,7 +201,7 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Permisos.jsp";
+                acceso = listar + "Permisos.jsp";
                 break;
             case "agregarP":
                 permiso = new Permiso();
@@ -165,10 +209,14 @@ public class controllerSeguridad extends HttpServlet {
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Arol")));
                 permiso.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
 
-                if (daoPermiso.insertar(permiso)) {
-                    request.setAttribute("guardar", 1);
+                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol()) || "".equals(permiso.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
                 } else {
-                    request.setAttribute("guardar", 0);
+                    if (daoPermiso.insertar(permiso)) {
+                        request.setAttribute("guardar", 1);
+                    } else {
+                        request.setAttribute("guardar", 0);
+                    }
                 }
 
                 lstRol = daoRol.listar();
@@ -177,7 +225,7 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Permisos.jsp";
+                acceso = listar + "Permisos.jsp";
                 break;
             case "editarP":
                 permiso = new Permiso();
@@ -186,10 +234,14 @@ public class controllerSeguridad extends HttpServlet {
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Erol")));
                 permiso.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if (daoPermiso.modificar(permiso)) {
-                    request.setAttribute("modificar", 1);
+                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol()) || "".equals(permiso.getIsActivo())) {
+                    request.setAttribute("vacio", 1);
                 } else {
-                    request.setAttribute("modificar", 0);
+                    if (daoPermiso.modificar(permiso)) {
+                        request.setAttribute("modificar", 1);
+                    } else {
+                        request.setAttribute("modificar", 0);
+                    }
                 }
 
                 lstRol = daoRol.listar();
@@ -198,7 +250,7 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Permisos.jsp";
+                acceso = listar + "Permisos.jsp";
                 break;
             case "eliminarP":
                 permiso = new Permiso();
@@ -216,12 +268,12 @@ public class controllerSeguridad extends HttpServlet {
                 request.setAttribute("permiso", lstPermiso);
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Permisos.jsp";
+                acceso = listar + "Permisos.jsp";
                 break;
             case "readM":
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Modulos.jsp";
+                acceso = listar + "Modulos.jsp";
                 break;
             case "agregarM":
                 modulo = new Modulo();
@@ -232,14 +284,20 @@ public class controllerSeguridad extends HttpServlet {
                 modulo.setOrden(Integer.parseInt(request.getParameter("Aorden")));
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("AmoduloPadre")));
                 modulo.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-                if (daoModulo.insertar(modulo)) {
-                    request.setAttribute("guardar", 1);
+
+                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getIsActivo()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
+                    request.setAttribute("vacio", 1);
                 } else {
-                    request.setAttribute("guardar", 0);
+                    if (daoModulo.insertar(modulo)) {
+                        request.setAttribute("guardar", 1);
+                    } else {
+                        request.setAttribute("guardar", 0);
+                    }
                 }
+
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Modulos.jsp";
+                acceso = listar + "Modulos.jsp";
                 break;
             case "editarM":
                 modulo = new Modulo();
@@ -252,18 +310,24 @@ public class controllerSeguridad extends HttpServlet {
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("EmoduloPadre")));
                 modulo.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if (daoModulo.modificar(modulo)) {
-                    request.setAttribute("modificar", 1);
+                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getIsActivo()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
+                    request.setAttribute("vacio", 1);
                 } else {
-                    request.setAttribute("modificar", 0);
+                    if (daoModulo.modificar(modulo)) {
+                        request.setAttribute("modificar", 1);
+                    } else {
+                        request.setAttribute("modificar", 0);
+                    }
                 }
+
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Modulos.jsp";
+                acceso = listar + "Modulos.jsp";
                 break;
             case "eliminarM":
                 modulo = new Modulo();
                 modulo.setIdModulo(Integer.parseInt(request.getParameter("Didmodulo")));
+                
                 if (daoModulo.eliminar(modulo)) {
                     request.setAttribute("eliminar", 1);
                 } else {
@@ -272,7 +336,7 @@ public class controllerSeguridad extends HttpServlet {
 
                 lstModulo = daoModulo.listar();
                 request.setAttribute("modulo", lstModulo);
-                acceso = listar+"Modulos.jsp";
+                acceso = listar + "Modulos.jsp";
                 break;
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
