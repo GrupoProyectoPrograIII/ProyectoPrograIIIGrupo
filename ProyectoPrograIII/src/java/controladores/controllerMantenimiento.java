@@ -318,13 +318,6 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "TipoProductos.jsp";
                 break;
            
-            
-                
-            
-            
-            
-            
-            
             case "agregarPro":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -338,12 +331,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
-                break;
-            
-            
-            
-            
-            
+                break;            
             
             case "editarPro":
                 lstRol = daoRol.listar();
@@ -358,12 +346,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
-                break;
-            
-            
-            
-            
-            
+                break;            
             
             case "eliminarPro":
                 lstRol = daoRol.listar();
