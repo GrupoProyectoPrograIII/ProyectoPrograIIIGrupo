@@ -1,6 +1,6 @@
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="modelos.Usuario"%>
+<%@page import="modelos.Mesa"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Mesas</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -286,7 +286,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">Id Mesa</th>
-                        <th class="text-center">Id Area</th>
+                        <%--<th class="text-center">Id Area</th>--%>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Asientos</th>
                         <th class="text-center">Id Estado</th>
@@ -296,16 +296,17 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("mesa");
-                        for (Usuario user : lstUsuario) {
+                        List<Mesa> lstMesa = (List<Mesa>) request.getAttribute("mesa");
+                        for (Mesa mesa : lstMesa) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <% if (user.getIsActivo() == 1) { %>
+                        <td class="text-center"><%=mesa.getIdMesa()%></td>
+                        <td class="text-center"><%=mesa.getIdArea()%></td>
+                        <td class="text-center"><%=mesa.getDescripcion()%></td>
+                        <td class="text-center"><%=mesa.getAsientos()%></td>
+                        <%--<td class="text-center"><%=mesa.getUser()%></td>--%>
+                        <% if (mesa.getIdEstado() == 1) { %>
                         <td class="text-center">Activo</td>
                         <%} else {%>
                         <td class="text-center">Inactivo</td>
