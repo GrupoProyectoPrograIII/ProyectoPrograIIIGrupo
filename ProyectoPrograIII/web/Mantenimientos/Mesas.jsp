@@ -287,8 +287,8 @@
                     <tr>
                         <th class="text-center">Id Mesa</th>
                         <%--<th class="text-center">Id Area</th>--%>
-                        <th class="text-center">Descripcion</th>
-                        <th class="text-center">Ubicacion</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Area Ubicada</th>
                         <th class="text-center">Asientos</th>
                         <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
@@ -304,15 +304,15 @@
                     <tr>
                         <td class="text-center"><%=mesa.getIdMesa()%></td>
                         <%--<td class="text-center"><%=mesa.getIdArea()%></td>--%>                        
-                        <td class="text-center"><%=mesa.getAreaDescrip()%></td>
+                        <td class="text-center"><%=mesa.getDescripcion()%></td>
                         <td class="text-center"><%=mesa.getDescripcion()%></td>
                         <td class="text-center"><%=mesa.getAsientos()%></td>
                         <%--<td class="text-center"><%=mesa.getUser()%></td>--%>
-                        <% if (mesa.getIdEstado() == 1) { %>
+                        <% //if (mesa.getIdEstado() == 1) { %>
                         <td class="text-center">Activo</td>
-                        <%} else {%>
+                        <%//} else {%>
                         <td class="text-center">Inactivo</td>
-                        <%}%>
+                        <%//}%>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

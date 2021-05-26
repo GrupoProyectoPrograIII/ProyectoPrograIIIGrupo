@@ -1,3 +1,5 @@
+<%@page import="modelos.Cliente"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
@@ -5,6 +7,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ingresar Pedido</title>
+        <%
+            List<Cliente> lstCliente = (List) request.getAttribute("lstCliente");
+        %>
         <script>
             function agregarFila() {
                 var tabla = document.getElementById("tablaprueba").insertRow(1);
@@ -48,19 +53,19 @@
                 else
                     table.deleteRow(1);
             }
-            
+
             $(document).ready(function () {
                 $('#producto').on('change', function () {
                     verProducto(this.value);
                 });
             });
-            
+
             function verProducto(d) {
                 cliente = d.split(',');
                 document.getElementById("precio").value = cliente[2];
                 $("#precio").text(cliente[2]);
             }
-            
+
             $(document).ready(function () {
                 $('#producto').on('change', function () {
                     $('#cantidad').on('change', function () {
@@ -68,7 +73,7 @@
                     });
                 });
             });
-            
+
             function multiplicacion(e) {
                 cantidadA = e;
                 cantidadB = document.getElementById("precio").value;
@@ -76,7 +81,7 @@
                 document.getElementById("totalQ").value = total;
                 $("#totalQ").text(total);
             }
-            
+
             function totalOrden() {
                 //getsTable
                 var oTable = document.getElementById('tablaprueba');
@@ -101,72 +106,94 @@
                 $('#totalOrden').text('Q' + suma);
             }
 
-            
+            $(document).ready(function () {
+                $('#opcionCliente').on('change', function () {
+                    clientes(this.value);
+                });
+            });
+            function clientes(client) {
+                
+                var element1 = document.getElementById("opcionCliente").value;
+                console.log(element1);
+            <%
+                for (Cliente cliente : lstCliente) {%>
+                if (client === '<%=cliente.getNombre()%>') {
+                    document.getElementById("clienteNombre").value = '<%=cliente.getNickname()%>';
+                    $('#clienteNombre').text('<%=cliente.getNickname()%>');
+                    document.getElementById("telefono").value = '<%=cliente.getTelefono()%>';
+                    $('#telefono').text('<%=cliente.getTelefono()%>');
+                    document.getElementById("direccion").value = '<%=cliente.getDireccion()%>';
+                    $('#direccion').text('<%=cliente.getDireccion()%>');
+                    document.getElementById("nit").value = '<%=cliente.getNit()%>';
+                    $('#nit').text('<%=cliente.getNit()%>');
+                }
+            <%}%>
+            }
         </script>
     </head>
     <body>
         <div class="container">            
-            <h1>Ingreso de nuevo Pedido</h1>
+            <h1>Ingreso de nuevo Pedido en <%=request.getParameter("mesa")%> </h1>
             <form id="form-work" name="form-work" action="controllerPedido" method="post">
                 <div class="form-group" >
-                    <%
 
-                    %>
-                    <label>Cliente</label><br>
-                    <div class="text-center">
-                        
-                            <select name="clienteNit" id="clienteNit">
-                                <option disabled selected>Seleccione Uno</option>
+                    <br>
+                    <label>Cliente</label>
+                    <select name="opcionCliente" id="opcionCliente">
+                        <option selected ="selected" disabled="true">Seleccione</option>
+                        <%for (Cliente cliente : lstCliente) {%>
+                        <option value="<%=cliente.getNombre()%>"><%=cliente.getNombre()%></option>
+                        <%}%>
+                    </select><br><br>
+                    <label>Nombre</label>
+                    <input name="clienteNombre" id="clienteNombre" type="text">
+                    <label> Telefono </label> 
+                    <input name="telefono" id="telefono" type="text">
+                    <label> Direccion</label> 
+                    <input name="direccion" id="direccion" type="text">
+                    <label> Nit</label> 
+                    <input name="nit" id="nit" type="text">
+                    <br><br>
+                    
+                    <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
+                    <input type="text" id="nofila" hidden="true" value="1">
+                    <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option><option value="1,prueba,1.00">prueba</option><option value="2,testing,2.50">Testing</option></select>
+                    <input type="text" id="precio" value="0.00" disabled="true">
+                    <input type="number" id="cantidad" style="width: 60px; height: 26px">
+                    <input type="text" id="totalQ" value="0.00" disabled="true">
+                    <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila();totalOrden()">Eliminar Ultima Fila</button>
+                    <br><br>
+                    <div class="row">
 
-                                <option name="nit" value=""></option>
+                        <table border="1" class="table" id="tablaprueba">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Total Q</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td> 
+                                    <td id="totalOrden">Q0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                            </select>
-                            <label>Nombre Apellido </label>
-                            <input name="clienteNombre" id="clienteNombre" type="text">
-                            <label> Telefono </label> 
-                            <input name="telefono" id="telefono" type="text">
-                            <label> Direccion</label> 
-                            <input name="direccion" id="direccion" type="text">
-                            <br><br>
-                        
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
-                                <input type="text" id="nofila" hidden="true" value="1">
-                                <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option><option value="1,prueba,1.00">prueba</option><option value="2,testing,2.50">Testing</option></select>
-                                <input type="text" id="precio" value="0.00" disabled="true">
-                                <input type="number" id="cantidad" style="width: 60px; height: 26px">
-                                <input type="text" id="totalQ" value="0.00" disabled="true">
-                                <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila(); totalOrden()">Eliminar Ultima Fila</button>
-                                <table border="1" class="table" id="tablaprueba">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Producto</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th>Total Q</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td> 
-                                            <td id="totalOrden">Q0.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <!-- -------------------------------------------------- -->
 
-                                <!-- -------------------------------------------------- -->
-
-                                <div class="col-md-3">
-                                    <button id="accion" name="accion" value="editarSM" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
-                                </div>
-                            </div>
-
+                        <div class="col-md-3">
+                            <button id="accion" name="accion" value="editarSM" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
+                        </div>
                     </div>
+
+                </div>
             </form>
     </body>
 </html>
