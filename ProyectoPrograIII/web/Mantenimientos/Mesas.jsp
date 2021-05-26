@@ -288,6 +288,7 @@
                         <th class="text-center">Id Mesa</th>
                         <%--<th class="text-center">Id Area</th>--%>
                         <th class="text-center">Descripcion</th>
+                        <th class="text-center">Id Area</th>
                         <th class="text-center">Asientos</th>
                         <th class="text-center">Id Estado</th>
                         <th class="text-center">Acciones</th>
@@ -304,6 +305,7 @@
                         <td class="text-center"><%=mesa.getIdMesa()%></td>
                         <td class="text-center"><%=mesa.getIdArea()%></td>
                         <td class="text-center"><%=mesa.getDescripcion()%></td>
+                        <td class="text-center"><%=mesa.getIdArea()%></td>
                         <td class="text-center"><%=mesa.getAsientos()%></td>
                         <%--<td class="text-center"><%=mesa.getUser()%></td>--%>
                         <% if (mesa.getIdEstado() == 1) { %>
