@@ -10,7 +10,8 @@
 <!DOCTYPE html>
 <%
     DaoMonitor daoM = new DaoMonitor();
-    int cod = Integer.parseInt((String) request.getParameter("sele"));
+    String cod = (String) request.getAttribute("sele");
+    int ver_cod = Integer.parseInt(cod);
 %>
 <html>
     <head>
@@ -57,7 +58,9 @@
             border-top: none;
         }
     </style>
-    <body>
-        <h1></h1>
+    <body style="padding-bottom: 50px">
+        <div class="container"> 
+            <h1>Monitor</h1>
+        </div>
     </body>
 </html>

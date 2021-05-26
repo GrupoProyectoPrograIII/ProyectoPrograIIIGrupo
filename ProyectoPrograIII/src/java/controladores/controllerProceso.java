@@ -112,9 +112,9 @@ public class controllerProceso extends HttpServlet {
             case "seleccionarMon":
                 mon = new Monitor();
                 mon.setCod_monitor(Integer.parseInt(request.getParameter("codigo")));
-                //int ver = mon.getCod_monitor();
-                //String convertir = String.valueOf(ver);
-                request.setAttribute("sele", mon.getCod_monitor());
+                int ver = mon.getCod_monitor();
+                String convertir = String.valueOf(ver);
+                request.setAttribute("sele", convertir);
                 acceso = listar + "Monitores.jsp";
                 break;
         }
