@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <%
     DaoMonitor daoM = new DaoMonitor();
-    int cod = Integer.parseInt((String) request.getParameter("seleccion"));
+    int cod = Integer.parseInt((String) request.getParameter("sele"));
 %>
 <html>
     <head>

@@ -14,7 +14,31 @@
     <body style="padding-bottom: 50px">
         <div class="container"> 
             <h1>Inventario General</h1>        
-            
+            <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">Codigo Producto</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Categoria</th>
+                        <th class="text-center">Stock</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <%
+                    
+                %>
+                <tbody>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center">
+                                 
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
         </div>
     </body>
 </html>
