@@ -32,8 +32,8 @@ public class controllerProceso extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
-        vista.forward(request, response);
+        //RequestDispatcher vista = request.getRequestDispatcher("index.jsp"); //invoca de modo directo un recurso web
+        //vista.forward(request, response);
     }
 
     @Override
@@ -112,7 +112,9 @@ public class controllerProceso extends HttpServlet {
             case "seleccionarMon":
                 mon = new Monitor();
                 mon.setCod_monitor(Integer.parseInt(request.getParameter("codigo")));
-                request.setAttribute("seleccion", mon.getCod_monitor());
+                //int ver = mon.getCod_monitor();
+                //String convertir = String.valueOf(ver);
+                request.setAttribute("sele", mon.getCod_monitor());
                 acceso = listar + "Monitores.jsp";
                 break;
         }
