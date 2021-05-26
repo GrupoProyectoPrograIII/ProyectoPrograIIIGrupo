@@ -29,16 +29,16 @@
                     List<Monitor> listMon = daoM.listar();
                     Iterator<Monitor> iteraM = listMon.iterator();
                     Monitor mon = null;
-                    
-                    while(iteraM.hasNext()){
+
+                    while (iteraM.hasNext()) {
                         mon = iteraM.next();
                 %>
                 <tbody>
                     <tr>
-                        <td class="text-center"><%= mon.getCod_monitor() %></td>
-                        <td class="text-center"><%= mon.getDescripcion_monitor() %></td>
+                        <td class="text-center"><%= mon.getCod_monitor()%></td>
+                        <td class="text-center"><%= mon.getDescripcion_monitor()%></td>
                         <td class="text-center">
-                            <a class="btn btn-info" href="ControllerProceso?accion=seleccionarMon&codigo=<%= mon.getCod_monitor() %>">Seleccionar</a>
+                            <form action="controllerProceso?accion=seleccionarMon&codigo=<%= mon.getCod_monitor()%>" method="post"><button class="btn btn-info" type="submit">Seleccionar</button></form>                           
                         </td>
                     </tr>
                     <%}%>
