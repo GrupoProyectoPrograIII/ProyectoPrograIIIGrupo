@@ -1,3 +1,4 @@
+<%@page import="modelos.Cliente"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
@@ -96,7 +97,7 @@
                 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eiduser");
+                id.setAttribute("name", "Eidcliente");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
@@ -175,7 +176,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Diduser");
+                id.setAttribute("name", "Didcliente");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
@@ -241,17 +242,17 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
-                        for (Usuario user : lstUsuario) {
+                        List<Cliente> lstCliente = (List<Cliente>) request.getAttribute("cliente");
+                        for (Cliente cliente : lstCliente) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
+                        <td class="text-center"><%=cliente.getIdCliente()%></td>
+                        <td class="text-center"><%=cliente.getNombre()%></td>
+                        <td class="text-center"><%=cliente.getNit()%></td>
+                        <td class="text-center"><%=cliente.getNickname()%></td>
+                        <td class="text-center"><%=cliente.getDireccion()%></td>
+                        <td class="text-center"><%=cliente.getTelefono()%></td>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

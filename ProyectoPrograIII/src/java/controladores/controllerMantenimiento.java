@@ -124,7 +124,9 @@ public class controllerMantenimiento extends HttpServlet {
         //------- CRUD MESAS -------------------------------------
                 
             case "readM":
-                lstMesa = daoMesa.listar();               
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("area", lstArea);
                 request.setAttribute("mesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
@@ -137,7 +139,9 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Aasiento")));
                 mesa.setIdEstado(Integer.parseInt(request.getParameter("Aestado")));
                 daoMesa.insertar(mesa);
-                lstMesa = daoMesa.listar();                
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("area", lstArea);
                 request.setAttribute("mesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
@@ -151,7 +155,9 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Easiento")));
                 mesa.setIdEstado(Integer.parseInt(request.getParameter("Eestado")));
                 daoMesa.modificar(mesa);
-                lstMesa = daoMesa.listar();                
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("area", lstArea);
                 request.setAttribute("mesa", lstMesa);                
                 acceso = listar + "Mesas.jsp";
                 break;
@@ -160,42 +166,54 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa = new Mesa();
                 mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
                 daoMesa.eliminar(mesa);
-                lstMesa = daoMesa.listar();                
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("area", lstArea);
                 request.setAttribute("mesa", lstMesa);                
                 acceso = listar + "Mesas.jsp";
                 break;
                 
-        //-------- CLIENTE
+        //-------- CRUD CLIENTE
                                      
             case "readC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstCliente = daoCliente.listar();
+                request.setAttribute("cliente", lstCliente);                
                 acceso = listar + "Clientes.jsp";
                 break;
                 
             case "agregarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                cliente = new Cliente();
+                cliente.setNombre(request.getParameter("Anombre"));
+                cliente.setNit(request.getParameter("Anit"));
+                cliente.setNickname(request.getParameter("Anick"));
+                cliente.setDireccion(request.getParameter("Adireccion"));
+                cliente.setTelefono(request.getParameter("Atelefono"));
+                daoCliente.insertar(cliente);
+                lstCliente = daoCliente.listar();                
+                request.setAttribute("cliente", lstCliente);                
                 acceso = listar + "Clientes.jsp";
                 break;
                 
             case "editarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                cliente = new Cliente();
+                cliente.setIdCliente(Integer.parseInt(request.getParameter("Eidcliente")));
+                cliente.setNombre(request.getParameter("Enombre"));
+                cliente.setNit(request.getParameter("Enit"));
+                cliente.setNickname(request.getParameter("Enick"));
+                cliente.setDireccion(request.getParameter("Edireccion"));
+                cliente.setTelefono(request.getParameter("Etelefono"));
+                daoCliente.modificar(cliente);
+                lstCliente = daoCliente.listar();                
+                request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
                 
             case "eliminarC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                cliente = new Cliente();
+                cliente.setIdCliente(Integer.parseInt(request.getParameter("Didcliente")));
+                daoCliente.eliminar(cliente);
+                lstCliente = daoCliente.listar();                
+                request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
                 
