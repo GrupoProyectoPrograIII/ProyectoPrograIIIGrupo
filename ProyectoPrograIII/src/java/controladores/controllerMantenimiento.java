@@ -5,6 +5,7 @@ import dao.DaoCliente;
 import dao.DaoDetallePedido;
 import dao.DaoMesa;
 import dao.DaoModulo;
+import dao.DaoMonitor;
 import dao.DaoPedido;
 import dao.DaoPermiso;
 import dao.DaoProductoCombo;
@@ -23,6 +24,7 @@ import modelos.Cliente;
 import modelos.DetallePedido;
 import modelos.Mesa;
 import modelos.Modulo;
+import modelos.Monitor;
 import modelos.Pedido;
 import modelos.Permiso;
 import modelos.Producto;
@@ -55,6 +57,7 @@ public class controllerMantenimiento extends HttpServlet {
         DaoArea daoArea = new DaoArea();
         DaoMesa daoMesa = new DaoMesa();
         DaoCliente daoCliente = new DaoCliente();
+        DaoMonitor daoMonitor = new DaoMonitor();
         DaoDetallePedido daoDp = new DaoDetallePedido();
         DaoPedido daoPedido = new DaoPedido();
         DaoProductoCombo daoProdCombo = new DaoProductoCombo();
@@ -67,6 +70,7 @@ public class controllerMantenimiento extends HttpServlet {
         Mesa mesa = new Mesa();
         Area area = new Area();
         Cliente cliente = new Cliente();
+        Monitor monitor = new Monitor();
         DetallePedido dp = new DetallePedido();
         Pedido pedido = new Pedido();
         Producto producto = new Producto();
@@ -78,6 +82,7 @@ public class controllerMantenimiento extends HttpServlet {
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
         List<Cliente> lstCliente = daoCliente.listar();
+        List<Monitor> lstMonitor = daoMonitor.listar();
         List<DetallePedido> lstDp = daoDp.listar();
         List<Pedido> lstPedido = daoPedido.listar();
         List<ProductoCombo> lstProdCombo = daoProdCombo.listar();
@@ -220,10 +225,10 @@ public class controllerMantenimiento extends HttpServlet {
         //------ CRUD MONITOR  ---------------------------------             
             
             case "readMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
+                lstMonitor = daoMonitor.listar();
+                //lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                //request.setAttribute("user", lstUsuario);
                 acceso = listar + "Monitor.jsp";
                 break;
                 
