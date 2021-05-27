@@ -17,8 +17,10 @@ public interface crudInventario {
     public List listar_inv_general();
     public List listar_inv_detalle();
     public Inventario list(int id);
-    public boolean insertar(Inventario inv);
-    public boolean modificar(Inventario inv);
+    public boolean insertar_general(Inventario inv);
+    public boolean insertar_detalle(Inventario inv);
+    public boolean modificar_general(Inventario inv);
+    public boolean modificar_detalle(Inventario inv);
     public boolean eliminar(Inventario inv);
     public List busqueda(String parametro, String opcion);
 }

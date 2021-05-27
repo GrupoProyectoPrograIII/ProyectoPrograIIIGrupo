@@ -115,23 +115,93 @@ public class DaoInventario implements crudInventario {
     }
 
     @Override
-    public boolean insertar(Inventario inv) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean modificar(Inventario inv) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public boolean eliminar(Inventario inv) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "DELETE FROM INVENTARIO_GENERAL WHERE CODIGO_PRODUCTO = "+inv.getCodigo_pro();
+        System.out.println(sql);
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resp;
     }
 
     @Override
     public List busqueda(String parametro, String opcion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean insertar_general(Inventario inv) {
+        sql = "INSERT INTO INVENTARIO_GENERAL (CODIGO_PRODUCTO, DESCRIPCION, CATEGORIA, STOCK,ID_DETALLE)\n"
+                + "  VALUES ((SELECT ISNULL(MAX(CODIGO_PRODUCTO),0) + 1 FROM INVENTARIO_GENERAL),"
+                + "'" + inv.getDescripcion() + "',"
+                + "'" + inv.getId_categoria() + "',"
+                + "'" + inv.getStock() + "',"
+                + "(SELECT ISNULL(MAX(ID_DETALLE),0) + 1 FROM INVENTARIO_GENERAL))";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
+    }
+
+    @Override
+    public boolean insertar_detalle(Inventario inv) {
+        sql = "INSERT INTO INVENTARIO_DETALLE (ID_DETALLE,PROVEEDOR, UNIDAD, COSTO_UNIDAD, CANTIDAD)\n"
+                + "  VALUES ((SELECT ISNULL(MAX(ID_DETALLE),0) + 1 FROM INVENTARIO_DETALLE),"
+                + "'"+ inv.getProveedor() +"',"
+                + "'"+ inv.getUnidad() +"',"
+                + "'"+ inv.getCosto_uni() +"',"
+                + "'"+ inv.getCantidad() +"')";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
+    }
+
+    @Override
+    public boolean modificar_general(Inventario inv) {
+        sql = "UPDATE INVENTARIO_GENERAL SET "
+                + "DESCRIPCION = '"+ inv.getDescripcion() +"', "
+                + "CATEGORIA = '"+ inv.getId_categoria() +"', "
+                + "STOCK = '"+ inv.getStock() +"' "
+                + "WHERE CODIGO_PRODUCTO = '"+ inv.getCodigo_pro() +"'";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
+    }
+
+    @Override
+    public boolean modificar_detalle(Inventario inv) {
+        sql = "UPDATE INVENTARIO_DETALLE SET "
+                + "PROVEEDOR = '"+ inv.getProveedor() +"', "
+                + "UNIDAD = '"+ inv.getUnidad() +"', "
+                + "COSTO_UNIDAD = '"+ inv.getCosto_uni() +"', "
+                + "CANTIDAD = '"+ inv.getCantidad() +"' "
+                + "WHERE ID_DETALLE = '"+ inv.getDetalle_pro() +"'";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
     }
 
 }

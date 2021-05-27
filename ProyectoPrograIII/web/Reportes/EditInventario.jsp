@@ -4,6 +4,8 @@
     Author     : JAVIER OSORIO
 --%>
 
+<%@page import="modelos.Inventario"%>
+<%@page import="dao.DaoInventario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
@@ -16,15 +18,13 @@
         <div class="container">
         <h1>Modificar Inventario</h1>
         <br>
-        <form id="form-work" class="" name="form-work" action="ControllerReporte" method="POST">
+        <form id="form-work" class="" name="form-work" action="controllerReporte" method="POST">
                 <%
-                    
+                    DaoInventario daoInv = new DaoInventario();
+                    int cod = Integer.parseInt((String) request.getParameter("codigo_pro"));
+                    Inventario inv = new Inventario();  
                 %>
                 <div class="form-group">
-                    <div class="col-md-4">
-                        <label class="control-label" for ="codigo">Código:</label>
-                        <input name="txtcodigo" class="form-control" placeholder="codigo en números" type="number">
-                    </div>
                     <br><br><br>
                     <div class="col-md-4">
                         <label class="control-label" for ="nombre">Nombre:</label>
