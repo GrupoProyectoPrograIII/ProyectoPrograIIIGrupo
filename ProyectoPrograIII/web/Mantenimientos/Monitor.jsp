@@ -298,16 +298,6 @@
                     <tr>
                         <th class="text-center">Id Monitor</th>
                         <th class="text-center">Descripcion</th>
-                        <!--<th class="text-center">Apellido</th>-->
-                        <!--<th class="text-center">Usuario</th>-->
-                        <!--<th class="text-center">Password</th>-->
-                        <!--<th class="text-center">Rol</th>-->
-                        <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <!--<th class="text-center">Activo</th>-->
-                        <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>

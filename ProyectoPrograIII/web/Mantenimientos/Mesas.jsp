@@ -56,8 +56,8 @@
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
                 var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
+                option.setAttribute("disabled", "true");
+                option.setAttribute("selected", "true");
                 option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
@@ -134,9 +134,6 @@
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
                  area.appendChild(option);
                 <% 
                     lstArea= (List<Area>)request.getAttribute("lstArea");
@@ -152,7 +149,7 @@
                 var mesa = document.createElement("input");
                 mesa.setAttribute("type", "text");
                 mesa.setAttribute("name", "Edescripcion");
-                mesa.setAttribute("value", datos[3]);
+                mesa.setAttribute("value", datos[2]);
                 
                 // Create an input element for Asiento
                 
@@ -187,10 +184,10 @@
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "editar");
+                s.setAttribute("value", "editarM");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, area, mesa,asiento,active);
+                form.append(newlabel, id,mesa,area,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -240,14 +237,14 @@
                  // Create an input element for Area
                 var area = document.createElement("input");
                 area.setAttribute("type", "text");
-                area.setAttribute("name", "Edescripcion");
+                area.setAttribute("name", "Darea");
                 area.setAttribute("disabled","disabled");
                 area.setAttribute("value", datos[2]);
                 
                 // Create an input element for Mesa
                 var mesa = document.createElement("input");
                 mesa.setAttribute("type", "text");
-                mesa.setAttribute("name", "Edescripcion");
+                mesa.setAttribute("name", "Ddescripcion");
                 mesa.setAttribute("disabled","disabled");
                 mesa.setAttribute("value", datos[3]);
                 
@@ -255,13 +252,13 @@
                 
                 var asiento = document.createElement("input");
                 asiento.setAttribute("type", "text");
-                asiento.setAttribute("name", "Edescripcion");
+                asiento.setAttribute("name", "Dasiento");
                 asiento.setAttribute("disabled","disabled");
                 asiento.setAttribute("value", datos[4]);
                 
                 var active = document.createElement("input");
                 active.setAttribute("type", "text");
-                active.setAttribute("name", "Edescripcion");
+                active.setAttribute("name", "Dactivo");
                 active.setAttribute("disabled","disabled");
                 active.setAttribute("value", datos[5]);
                 
@@ -269,10 +266,10 @@
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "eliminar");
+                s.setAttribute("value", "eliminarM");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, area, mesa,asiento,active);
+                form.append(newlabel, id,mesa,area,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
