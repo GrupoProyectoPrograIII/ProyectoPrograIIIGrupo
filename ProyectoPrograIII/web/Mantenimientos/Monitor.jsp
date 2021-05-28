@@ -48,7 +48,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
+                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("monitor");
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>

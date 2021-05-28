@@ -225,10 +225,8 @@ public class controllerMantenimiento extends HttpServlet {
         //------ CRUD MONITOR  ---------------------------------             
             
             case "readMon":
-                lstMonitor = daoMonitor.listar();
-                //lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                //request.setAttribute("user", lstUsuario);
+                lstMonitor = daoMonitor.listar();                
+                request.setAttribute("monitor", lstMonitor);                
                 acceso = listar + "Monitor.jsp";
                 break;
                 
