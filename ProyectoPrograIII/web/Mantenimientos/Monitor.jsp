@@ -1,3 +1,4 @@
+<%@page import="modelos.Monitor"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
@@ -8,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Monitores</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -48,7 +49,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("monitor");
+                List<Monitor> lstMonitor = (List<Monitor>) request.getAttribute("monitor");
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -158,7 +159,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
+                lstMonitor = (List<Monitor>) request.getAttribute("monitor");
                 lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -295,15 +296,15 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
+                        <th class="text-center">Id Monitor</th>
+                        <th class="text-center">Descripcion</th>
+                        <!--<th class="text-center">Apellido</th>-->
+                        <!--<th class="text-center">Usuario</th>-->
+                        <!--<th class="text-center">Password</th>-->
+                        <!--<th class="text-center">Rol</th>-->
+                        <%--<th class="text-center">Fecha Creacion</th>--%>
+                        <!--<th class="text-center">Activo</th>-->
+                        <%--<th class="text-center">Fecha Modificacion</th>
                             <th class="text-center">Usuario Creacion</th>
                             <th class="text-center">Usuario Modificacion</th>
                             <th class="text-center">Codigo</th>--%>
@@ -313,16 +314,14 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        for (Usuario user : lstUsuario) {
+                        lstMonitor = (List<Monitor>) request.getAttribute("monitor");
+                        for (Monitor monitor : lstMonitor) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
+                        <td class="text-center"><%=monitor.getIdMonitor()%></td>
+                        <td class="text-center"><%=monitor.getNombre()%></td>
+                        
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

@@ -229,30 +229,6 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "Monitor.jsp";
                 break;
                 
-            case "agregarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-                
-            case "editarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-                
-            case "eliminarMon":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "Monitor.jsp";
-                break;
-                
         //------- CRUD PRODUCTO COMBO -------------------------
                 
             case "readPC":
