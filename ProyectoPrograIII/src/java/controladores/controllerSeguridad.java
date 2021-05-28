@@ -68,9 +68,8 @@ public class controllerSeguridad extends HttpServlet {
                 user.setApellido(request.getParameter("Aapellido"));
                 user.setPass(request.getParameter("Apassword"));
                 user.setIdRol(Integer.parseInt(request.getParameter("Arole")));
-                user.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
 
-                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol()) || "".equals(user.getIsActivo())) {
+                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol())){
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoUsuario.insertar(user)) {
@@ -96,9 +95,8 @@ public class controllerSeguridad extends HttpServlet {
                 user.setApellido(request.getParameter("Eapellido"));
                 user.setPass(request.getParameter("Epassword"));
                 user.setIdRol(Integer.parseInt(request.getParameter("Erole")));
-                user.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol()) || "".equals(user.getIsActivo())) {
+                if ("".equals(user.getNombre()) || "".equals(user.getApellido()) || "".equals(user.getUser()) || "".equals(user.getPass()) || "".equals(user.getRol())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoUsuario.modificar(user)) {
@@ -144,9 +142,8 @@ public class controllerSeguridad extends HttpServlet {
                 rol = new Rol();
                 rol.setNombre(request.getParameter("Anombre"));
                 rol.setDescripcion(request.getParameter("Adescripcion"));
-                rol.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
-
-                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion()) || "".equals(rol.getIsActivo())) {
+                
+                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoRol.insertar(rol)) {
@@ -165,9 +162,8 @@ public class controllerSeguridad extends HttpServlet {
                 rol.setIdRol(Integer.parseInt(request.getParameter("Eidrol")));
                 rol.setNombre(request.getParameter("Enombre"));
                 rol.setDescripcion(request.getParameter("Edescripcion"));
-                rol.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion()) || "".equals(rol.getIsActivo())) {
+                if ("".equals(rol.getNombre()) || "".equals(rol.getDescripcion())){
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoRol.modificar(rol)) {
@@ -207,9 +203,8 @@ public class controllerSeguridad extends HttpServlet {
                 permiso = new Permiso();
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Amodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Arol")));
-                permiso.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
 
-                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol()) || "".equals(permiso.getIsActivo())) {
+                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoPermiso.insertar(permiso)) {
@@ -232,9 +227,8 @@ public class controllerSeguridad extends HttpServlet {
                 permiso.setIdPermiso(Integer.parseInt(request.getParameter("Eidpermiso")));
                 permiso.setIdModulo(Integer.parseInt(request.getParameter("Emodulo")));
                 permiso.setIdRol(Integer.parseInt(request.getParameter("Erol")));
-                permiso.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol()) || "".equals(permiso.getIsActivo())) {
+                if ("".equals(permiso.getIdModulo()) || "".equals(permiso.getIdRol())){
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoPermiso.modificar(permiso)) {
@@ -283,9 +277,8 @@ public class controllerSeguridad extends HttpServlet {
                 modulo.setNivel(Integer.parseInt(request.getParameter("Anivel")));
                 modulo.setOrden(Integer.parseInt(request.getParameter("Aorden")));
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("AmoduloPadre")));
-                modulo.setIsActivo(Integer.parseInt(request.getParameter("Aactivo")));
 
-                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getIsActivo()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
+                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoModulo.insertar(modulo)) {
@@ -308,9 +301,8 @@ public class controllerSeguridad extends HttpServlet {
                 modulo.setNivel(Integer.parseInt(request.getParameter("Enivel")));
                 modulo.setOrden(Integer.parseInt(request.getParameter("Eorden")));
                 modulo.setIdModuloPadre(Integer.parseInt(request.getParameter("EmoduloPadre")));
-                modulo.setIsActivo(Integer.parseInt(request.getParameter("Eactivo")));
 
-                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getIsActivo()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
+                if ("".equals(modulo.getNombre()) || "".equals(modulo.getDescripcion()) || "".equals(modulo.getPath()) || "".equals(modulo.getOrden()) || "".equals(modulo.getNivel()) || "".equals(modulo.getIdModuloPadre())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoModulo.modificar(modulo)) {

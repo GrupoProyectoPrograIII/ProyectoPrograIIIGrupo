@@ -315,12 +315,6 @@
                         <td class="text-center"><%=user.getNombre()%></td>
                         <td class="text-center"><%=user.getApellido()%></td>
                         <td class="text-center"><%=user.getRol()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

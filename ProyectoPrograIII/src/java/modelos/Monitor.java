@@ -1,32 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelos;
 
-/**
- *
- * @author JAVIER OSORIO
- */
 public class Monitor {
-    private int Cod_monitor;
-    private String descripcion_monitor;
+    private int idMonitor;
+    private String nombre;
 
-    public int getCod_monitor() {
-        return Cod_monitor;
+    public int getIdMonitor() {
+        return idMonitor;
     }
 
-    public void setCod_monitor(int Cod_monitor) {
-        this.Cod_monitor = Cod_monitor;
+    public void setIdMonitor(int idMonitor) {
+        this.idMonitor = idMonitor;
     }
 
-    public String getDescripcion_monitor() {
-        return descripcion_monitor;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion_monitor(String descripcion_monitor) {
-        this.descripcion_monitor = descripcion_monitor;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     

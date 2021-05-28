@@ -32,8 +32,7 @@ public class DaoArea implements crudArea {
             while (rs.next()) {
                 area = new Area();
                 area.setIdArea(rs.getInt("ID_AREA"));
-                area.setDescripcion(rs.getString("DESCRIPCION"));
-                //area.setDescripcion(rs.getString("DESCRIPCION"));
+                area.setNombre(rs.getString("DESCRIPCION"));
                 area.setEstado(rs.getInt("ESTADO"));
                 lstArea.add(area);
             }
@@ -56,8 +55,7 @@ public class DaoArea implements crudArea {
             rs = con.executeQuery(sql);
             while(rs.next()){
                 area.setIdArea(rs.getInt("ID_AREA"));
-                //area.setNombre(rs.getString("NOMBRE"));
-                area.setDescripcion(rs.getString("DESCRIPCION"));
+                area.setNombre(rs.getString("DESCRIPCION"));
                 area.setEstado(rs.getInt("ESTADO"));
             }
             rs.close();
@@ -73,7 +71,7 @@ public class DaoArea implements crudArea {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO AREA (ID_AREA, DESCRIPCION, ESTADO) "
                 +"VALUES((SELECT ISNULL(MAX(ID_AREA),0) + 1 FROM AREA),'"
-                +area.getDescripcion()+"','"
+                +area.getNombre()+"','"
                 +area.getEstado()+"')";
         try {
             con.open();
@@ -89,7 +87,7 @@ public class DaoArea implements crudArea {
     public boolean modificar(Area area) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "UPDATE AREA SET ID_AREA="+area.getIdArea()
-                +"', DESCRIPCION='"+area.getDescripcion()
+                +"', DESCRIPCION='"+area.getNombre()
                 +"', ESTADO="+area.getEstado()
                 +" WHERE ID_AREA="+area.getIdArea();
         System.out.println(sql);

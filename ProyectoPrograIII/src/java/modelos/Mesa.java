@@ -3,19 +3,19 @@ package modelos;
 public class Mesa {
     private int idMesa;
     private int idArea;
-    private String Descripcion;
-    private String areaDescrip;
+    private String area;
+    private String mesa;
     private int Asientos;
     private int idEstado;
 
     public Mesa() {
     }
 
-    public Mesa(int idMesa, int idArea, String Descripcion, String areaDescripcion, int Asientos, int idEstado) {
+    public Mesa(int idMesa, int idArea, String mesa, String area, int Asientos, int idEstado) {
         this.idMesa = idMesa;
         this.idArea = idArea;
-        this.Descripcion = Descripcion;
-        this.areaDescrip = areaDescripcion;
+        this.mesa = mesa;
+        this.area = area;
         this.Asientos = Asientos;
         this.idEstado = idEstado;
     }
@@ -36,20 +36,20 @@ public class Mesa {
         this.idArea = idArea;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getMesa() {
+        return mesa;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setMesa(String mesa) {
+        this.mesa = mesa;
     }
     
-    public String getAreaDescrip() {
-        return areaDescrip;
+    public String getArea() {
+        return area;
     }
 
-    public void setAreaDescrip(String areaDescrip) {
-        this.areaDescrip = areaDescrip;
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public int getAsientos() {

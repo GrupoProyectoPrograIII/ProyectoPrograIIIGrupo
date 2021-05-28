@@ -5,7 +5,7 @@ public class Pedido {
     private int idMesa;
     private int idUsuario;
     private int idCliente;
-    private float Total;
+    private double Total;
     private String Observacion;
     private int Estado;
 
@@ -54,7 +54,7 @@ public class Pedido {
         this.idCliente = idCliente;
     }
 
-    public float getTotal() {
+    public double getTotal() {
         return Total;
     }
 

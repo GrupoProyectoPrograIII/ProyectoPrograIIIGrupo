@@ -36,11 +36,10 @@ public class DaoDetallePedido implements crudDetallePedido{
                 detallePedido.setIdDetalle(rs.getInt("ID_DETALLE_PEDIDO"));
                 detallePedido.setIdPedido(rs.getInt("ID_PEDIDO"));
                 detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
+                detallePedido.setCombo(rs.getString("COMBO"));
                 detallePedido.setCantidad(rs.getInt("CANTIDAD"));
                 detallePedido.setPrecio(rs.getFloat("PRECIO"));
                 detallePedido.setTotalLinea(rs.getFloat("TOTAL_LINEA"));
-                detallePedido.setObservacion(rs.getString("OBSERVACION"));
-                detallePedido.setEstado(rs.getInt("ESTADO"));
                 lstDetallePedido.add(detallePedido);
             }
             rs.close();
@@ -69,11 +68,10 @@ public class DaoDetallePedido implements crudDetallePedido{
                 detallePedido.setIdDetalle(rs.getInt("ID_DETALLE_PEDIDO"));
                 detallePedido.setIdPedido(rs.getInt("ID_PEDIDO"));
                 detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
+                detallePedido.setCombo(rs.getString("COMBO"));
                 detallePedido.setCantidad(rs.getInt("CANTIDAD"));
                 detallePedido.setPrecio(rs.getFloat("PRECIO"));
                 detallePedido.setTotalLinea(rs.getFloat("TOTAL_LINEA"));
-                detallePedido.setObservacion(rs.getString("OBSERVACION"));
-                detallePedido.setEstado(rs.getInt("ESTADO"));
             }
             rs.close();
             con.close();
@@ -91,11 +89,10 @@ public class DaoDetallePedido implements crudDetallePedido{
                 + "  VALUES((SELECT ISNULL(MAX(ID_DETALLE_PEDIDO),0)+ 1 FROM DETALLE_PEDIDO),"
                 + " "+ detallePedido.getIdPedido() +","
                 + " "+ detallePedido.getIdCombo() +","
+                + " "+ detallePedido.getCombo()+","
                 + " "+ detallePedido.getCantidad() +","
                 + " "+ detallePedido.getPrecio() +","
-                + " "+ detallePedido.getTotalLinea() +","
-                + " '"+ detallePedido.getObservacion() +"',"
-                + " "+ detallePedido.getEstado() +")";
+                + " "+ detallePedido.getTotalLinea() +")";
         try {
             con.open();
             resp = con.executeSql(sql);
@@ -113,11 +110,10 @@ public class DaoDetallePedido implements crudDetallePedido{
                 + "ID_DETALLE_PEDIDO="+ detallePedido.getIdDetalle() +", "
                 + "ID_PEDIDO="+ detallePedido.getIdPedido() +", "
                 + "ID_COMBO="+ detallePedido.getIdCombo() +", "
+                + "COMBO="+ detallePedido.getCombo() +", "
                 + "CANTIDAD="+ detallePedido.getCantidad() +", "
                 + "PRECIO="+ detallePedido.getPrecio() +", "
-                + "TOTAL_LINEA="+ detallePedido.getTotalLinea() +", "
-                + "OBSERVACION='"+ detallePedido.getObservacion() +"', "
-                + "ESTADO="+ detallePedido.getEstado() +""
+                + "TOTAL_LINEA="+ detallePedido.getTotalLinea() +" "
                 + "WHERE ID_DETALLE_PEDIDO= '"+ detallePedido.getIdDetalle() +"'";
         System.out.println(sql);
         try {

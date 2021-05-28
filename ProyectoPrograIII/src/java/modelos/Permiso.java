@@ -7,8 +7,20 @@ public class Permiso {
     private int idRol;
     private String modulo;
     private String rol;
-    private int isActivo;
 
+    public Permiso() {
+    }
+
+    
+    public Permiso(int idPermiso, int idModulo, int idRol, String modulo, String rol) {
+        this.idPermiso = idPermiso;
+        this.idModulo = idModulo;
+        this.idRol = idRol;
+        this.modulo = modulo;
+        this.rol = rol;
+    }
+
+    
     public int getIdPermiso() {
         return idPermiso;
     }
@@ -49,12 +61,4 @@ public class Permiso {
         this.rol = rol;
     }
 
-    
-    public int getIsActivo() {
-        return isActivo;
-    }
-
-    public void setIsActivo(int isActivo) {
-        this.isActivo = isActivo;
-    }    
 }

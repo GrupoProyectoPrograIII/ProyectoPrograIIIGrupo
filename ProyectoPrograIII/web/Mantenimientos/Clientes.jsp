@@ -53,7 +53,7 @@
                 s.setAttribute("value", "agregarC");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, nit, apellido, users, password,telefono);
+                form.append(newlabel, name, nit, nick, direccion,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -106,20 +106,20 @@
                 name.setAttribute("name", "Enombre");
                 name.setAttribute("value", datos[2]);
                 // Create an input element for NIT
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Enit");
-                apellido.setAttribute("value", datos[3]);
+                var nit = document.createElement("input");
+                nit.setAttribute("type", "text");
+                nit.setAttribute("name", "Enit");
+                nit.setAttribute("value", datos[3]);
                 // Create an input element for Nickname
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Enick");
-                users.setAttribute("value", datos[4]);
+                var nick = document.createElement("input");
+                nick.setAttribute("type", "text");
+                nick.setAttribute("name", "Enick");
+                nick.setAttribute("value", datos[4]);
                 // Create an input element for Direccion
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Edireccion");
-                password.setAttribute("value", datos[5]);
+                var direccion = document.createElement("input");
+                direccion.setAttribute("type", "text");
+                direccion.setAttribute("name", "Edireccion");
+                direccion.setAttribute("value", datos[5]);
                 // Create an input element for Telefono
                 var telefono= document.createElement("input");
                 telefono.setAttribute("type", "text");
@@ -132,7 +132,7 @@
                 s.setAttribute("value", "editarC");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password,telefono);
+                form.append(newlabel, name, nit, nick, direccion,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -186,23 +186,23 @@
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("value", datos[2]);
                 // Create an input element for NIT
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Dnit");
-                apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("value", datos[3]);
+                var nit = document.createElement("input");
+                nit.setAttribute("type", "text");
+                nit.setAttribute("name", "Dnit");
+                nit.setAttribute("disabled", "disabled");
+                nit.setAttribute("value", datos[3]);
                 // Create an input element for Nickname
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Dnick");
-                users.setAttribute("disabled", "disabled");
-                users.setAttribute("value", datos[4]);
+                var nick = document.createElement("input");
+                nick.setAttribute("type", "text");
+                nick.setAttribute("name", "Dnick");
+                nick.setAttribute("disabled", "disabled");
+                nick.setAttribute("value", datos[4]);
                 // Create an input element for Direccion
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Ddireccion");
-                password.setAttribute("disabled", "disabled");
-                password.setAttribute("value", datos[5]);
+                var direccion = document.createElement("input");
+                direccion.setAttribute("type", "text");
+                direccion.setAttribute("name", "Ddireccion");
+                direccion.setAttribute("disabled", "disabled");
+                direccion.setAttribute("value", datos[5]);
                 // Create an input element for Telefono
                 var telefono= document.createElement("input");
                 telefono.setAttribute("type", "text");
@@ -216,7 +216,7 @@
                 s.setAttribute("value", "eliminarC");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password,telefono);
+                form.append(newlabel, name, nit, nick, direccion,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]

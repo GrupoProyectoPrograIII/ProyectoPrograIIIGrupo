@@ -2,15 +2,15 @@ package modelos;
 
 public class Area {
     private int idArea;
-    private String Descripcion;
+    private String nombre;
     private int Estado;
 
     public Area() {
     }
 
-    public Area(int idArea, String Descripcion, int Estado) {
+    public Area(int idArea, String nombre, int Estado) {
         this.idArea = idArea;
-        this.Descripcion = Descripcion;
+        this.nombre = nombre;
         this.Estado = Estado;
     }
 
@@ -22,12 +22,12 @@ public class Area {
         this.idArea = idArea;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getEstado() {

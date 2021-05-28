@@ -31,23 +31,6 @@
                 des.setAttribute("type", "text");
                 des.setAttribute("name", "Adescripcion");
                 des.setAttribute("placeholder", "Descripcion");
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                active.appendChild(option);
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option1);
-                active.appendChild(option2);
 
                 // Create a submit button
                 var s = document.createElement("button");
@@ -57,7 +40,7 @@
                 s.innerHTML = ("Agregar");
 
                 // Append the inputs to the form
-                form.append(newlabel, name, des, active);
+                form.append(newlabel, name, des);
                 // Append the button to the form
                 form.append(s);
 
@@ -121,24 +104,7 @@
                         des.setAttribute("type", "text");
                         des.setAttribute("name", "Edescripcion");
                         des.setAttribute("value", datos[3]);
-                        // Create an input element for Activo
-                        var active = document.createElement("select");
-                        active.setAttribute("name", "Eactivo");
-                        active.setAttribute("value", "Activo");
-                        var option = document.createElement("option");
-                        option.setAttribute("disabled", "selected");
-                        option.setAttribute("selected", "selected");
-                        option.innerHTML = ("seleccione");
-                        active.appendChild(option);
-                        var option1 = document.createElement("option");
-                        option1.setAttribute("value", "1");
-                        option1.innerHTML = ("Activo");
-                        var option2 = document.createElement("option");
-                        option2.setAttribute("value", "0");
-                        option2.innerHTML = ("Inactivo");
-                        active.appendChild(option1);
-                        active.appendChild(option2);
-
+                        
                         // Create a submit button
                         var s = document.createElement("button");
                         s.setAttribute("type", "submit");
@@ -147,7 +113,7 @@
                         s.innerHTML = ("Editar");
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, des, active);
+                        form.append(newlabel, id, name, des);
 
                         // Append the button to the form
                         form.append(s);
@@ -214,12 +180,6 @@
                         des.setAttribute("name", "Ddescripcion");
                         des.setAttribute("value", datos[3]);
                         des.setAttribute("disabled", "disabled");
-                        var active = document.createElement("input");
-                        active.setAttribute("type", "text");
-                        active.setAttribute("name", "Dactivo");
-                        active.setAttribute("Value", datos[4]);
-                        active.setAttribute("disabled", "disabled");
-
                         // Create a submit button
                         var s = document.createElement("button");
                         s.setAttribute("type", "submit");
@@ -228,7 +188,7 @@
                         s.innerHTML = ("Eliminar");
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, des, active);
+                        form.append(newlabel, id, name, des);
                         // Append the button to the form
                         form.append(s);
 
@@ -250,7 +210,6 @@
                         <th class="text-center">Id Rol</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Descripcion</th>
-                        <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -265,11 +224,6 @@
                         <td class="text-center"><%=rol.getIdRol()%></td>
                         <td class="text-center"><%=rol.getNombre()%></td>
                         <td class="text-center"><%=rol.getDescripcion()%></td>
-                        <% if (rol.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
                         <td class="text-center">
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

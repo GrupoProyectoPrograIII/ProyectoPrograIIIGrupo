@@ -34,7 +34,6 @@ public class DaoModulo implements crudModulo{
                 modulo.setNivel(rs.getInt("NIVEL"));
                 modulo.setOrden(rs.getInt("ORDEN"));
                 modulo.setIdModuloPadre(rs.getInt("ID_MODULO_PADRE"));
-                modulo.setIsActivo(rs.getInt("ACTIVO"));
                 lstModulo.add(modulo);
             }
             rs.close();
@@ -62,7 +61,6 @@ public class DaoModulo implements crudModulo{
                 modulo.setNivel(rs.getInt("NIVEL"));
                 modulo.setOrden(rs.getInt("ORDEN"));
                 modulo.setIdModuloPadre(rs.getInt("ID_MODULO_PADRE"));
-                modulo.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
             con.close();
@@ -78,11 +76,11 @@ public class DaoModulo implements crudModulo{
     public boolean insertar(Modulo modulo) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO MODULO (ID_MODULO, NOMBRE, DESCRIPCION, "
-                +"PATH, NIVEL, ORDEN, ID_MODULO_PADRE, ACTIVO) "
+                +"PATH, NIVEL, ORDEN, ID_MODULO_PADRE) "
                 +"VALUES((SELECT ISNULL(MAX(ID_MODULO),0) + 1 FROM "
                 +"MODULO),'"+modulo.getNombre()+"','"+modulo.getDescripcion()
                 +"','"+modulo.getPath()+"',"+modulo.getNivel()+","+modulo.getOrden()
-                +","+modulo.getIdModuloPadre()+","+modulo.getIsActivo()+")";
+                +","+modulo.getIdModuloPadre()+")";
         try {
             con.open();            
             resp = con.executeSql(sql);            
@@ -104,8 +102,7 @@ public class DaoModulo implements crudModulo{
                 +"PATH='"+modulo.getPath()+"', "
                 +"NIVEL="+modulo.getNivel()+", "
                 +"ORDEN="+modulo.getOrden()+", "
-                +"ID_MODULO_PADRE="+modulo.getIdModuloPadre()+", "
-                +"ACTIVO="+modulo.getIsActivo()+" "
+                +"ID_MODULO_PADRE="+modulo.getIdModuloPadre()+" "
                 +"WHERE ID_MODULO="+modulo.getIdModulo();
         try {           
             con.open();            

@@ -63,24 +63,6 @@
                 optionR.innerHTML = "<%=rol.getNombre()%>";
                 role.appendChild(optionR);
             <%}%>
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                active.appendChild(option);
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option1);
-                active.appendChild(option2);
-
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -89,7 +71,7 @@
                 s.innerHTML = ("Agregar");
 
                 // Append the inputs to the form
-                form.append(newlabel, modulo, role, active);
+                form.append(newlabel, modulo, role);
                 // Append the button to the form
                 form.append(s);
 
@@ -185,23 +167,6 @@
                         optionR.innerHTML = "<%=rol.getNombre()%>";
                         role.appendChild(optionR);
             <%}%>
-                        // Create an input element for Activo
-                        var active = document.createElement("select");
-                        active.setAttribute("name", "Eactivo");
-                        active.setAttribute("placeholder", "Activo");
-                        var option = document.createElement("option");
-                        option.setAttribute("disabled", "selected");
-                        option.setAttribute("selected", "selected");
-                        option.innerHTML = ("seleccione");
-                        active.appendChild(option);
-                        var option1 = document.createElement("option");
-                        option1.setAttribute("value", "1");
-                        option1.innerHTML = ("Activo");
-                        var option2 = document.createElement("option");
-                        option2.setAttribute("value", "0");
-                        option2.innerHTML = ("Inactivo");
-                        active.appendChild(option1);
-                        active.appendChild(option2);
 
                         // Create a submit button
                         var s = document.createElement("button");
@@ -212,7 +177,7 @@
 
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, modulo, role, active);
+                        form.append(newlabel, id, modulo, role);
 
                         // Append the button to the form
                         form.append(s);
@@ -281,12 +246,6 @@
                         role.setAttribute("type", "text");
                         role.setAttribute("disabled", "disabled");
                         role.setAttribute("Value", datos[3]);
-                        // Create an input element for Activo
-                        var active = document.createElement("input");
-                        active.setAttribute("type", "text");
-                        active.setAttribute("name", "Dactivo");
-                        active.setAttribute("disabled", "disabled");
-                        active.setAttribute("Value", datos[4]);
 
                         // Create a submit button
                         var s = document.createElement("button");
@@ -296,7 +255,7 @@
                         s.innerHTML = ("Eliminar");
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, modulo, role, active);
+                        form.append(newlabel, id, modulo, role);
                         // Append the button to the form
                         form.append(s);
 
@@ -316,7 +275,6 @@
                         <th class="text-center">No Permiso</th>
                         <th class="text-center">Modulo</th>
                         <th class="text-center">Rol</th>
-                        <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -330,11 +288,6 @@
                         <td class="text-center"><%=permiso.getIdPermiso()%></td>
                         <td class="text-center"><%=permiso.getModulo()%></td>
                         <td class="text-center"><%=permiso.getRol()%></td>
-                        <% if (permiso.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
                         <td class="text-center">                           
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

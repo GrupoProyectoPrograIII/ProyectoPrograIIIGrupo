@@ -60,23 +60,6 @@
                 option.innerHTML = ("<%=rol.getNombre()%>");
                 role.appendChild(option);
             <%}%>
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -84,7 +67,7 @@
                 s.setAttribute("value", "agregarU");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, name, apellido, users, password, role);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -105,12 +88,6 @@
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Password</th>
                         <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -127,16 +104,6 @@
                         <td class="text-center"><%=user.getUser()%></td>
                         <td class="text-center"><%=user.getPass()%></td>
                         <td class="text-center"><%=user.getRol()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
-                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
-                        <td class="text-center"><%=user.getUserCrear()%></td>
-                        <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>--%>
 
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
@@ -226,7 +193,7 @@
                         option.innerHTML = ("seleccione");
                         role.appendChild(option);
             <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
+                
                 lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -235,24 +202,6 @@
                         option.innerHTML = ("<%=rol.getNombre()%>");
                         role.appendChild(option);
             <%}%>
-                        // Create an input element for Activo
-                        var active = document.createElement("select");
-                        active.setAttribute("name", "Eactivo");
-                        active.setAttribute("placeholder", "Activo");
-                        var option = document.createElement("option");
-                        option.setAttribute("disabled", "selected");
-                        option.setAttribute("selected", "selected");
-                        option.innerHTML = ("seleccione");
-                        var option1 = document.createElement("option");
-                        option1.setAttribute("value", "1");
-                        option1.innerHTML = ("Activo");
-                        var option2 = document.createElement("option");
-                        option2.setAttribute("value", "0");
-                        option2.innerHTML = ("Inactivo");
-                        active.appendChild(option);
-                        active.appendChild(option1);
-                        active.appendChild(option2);
-
                         // Create a submit button
                         var s = document.createElement("button");
                         s.setAttribute("type", "submit");
@@ -260,7 +209,7 @@
                         s.setAttribute("value", "editarU");
                         s.innerHTML = "Editar";
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, apellido, users, password, role, active);
+                        form.append(newlabel, id, name, apellido, users, password, role);
                         // Append the button to the form
                         form.append(s);
                         document.getElementsByTagName("body")[0]
@@ -345,12 +294,6 @@
                         role.setAttribute("name", "Drole");
                         role.setAttribute("disabled", "disabled");
                         role.setAttribute("value", datos[6]);
-                        // Create an input element for Activo
-                        var active = document.createElement("input");
-                        active.setAttribute("type", "text");
-                        active.setAttribute("name", "Dactivo");
-                        active.setAttribute("disabled", "disabled");
-                        active.setAttribute("Value", datos[7]);
                         // Create a submit button
                         var s = document.createElement("button");
                         s.setAttribute("type", "submit");
@@ -358,7 +301,7 @@
                         s.setAttribute("value", "eliminarU");
                         s.innerHTML = ("Eliminar");
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, apellido, users, password, role, active);
+                        form.append(newlabel, id, name, apellido, users, password, role);
                         // Append the button to the form
                         form.append(s);
                         document.getElementsByTagName("body")[0]

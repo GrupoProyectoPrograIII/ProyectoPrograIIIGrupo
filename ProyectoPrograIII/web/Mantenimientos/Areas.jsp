@@ -24,25 +24,28 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Anombre");
-                name.setAttribute("placeholder", "Nombre");
+                name.setAttribute("name", "Aarea");
+                name.setAttribute("placeholder", "Nombre del Area");
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
+                option1.innerHTML = ("Disponible");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
+                option2.setAttribute("value", "2");
+                option2.innerHTML = ("Limpieza");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "0");
+                option3.innerHTML = ("Ocupado");
                 active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
+                active.appendChild(option3);
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -55,7 +58,6 @@
                 form.append(s);
                 document.getElementsByTagName("body")[0]
                         .appendChild(form);
-
             }
             $(document).ready(function () {
                 $('#edit').on('change', function () {
@@ -100,26 +102,28 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Edescripcion");
+                name.setAttribute("name", "Earea");
                 name.setAttribute("Value", datos[2]);
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
+                option1.innerHTML = ("Disponible");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
+                option2.setAttribute("value", "2");
+                option2.innerHTML = ("Limpieza");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "0");
+                option3.innerHTML = ("Ocupado");
                 active.appendChild(option);
                 active.appendChild(option1);
                 active.appendChild(option2);
-
+                active.appendChild(option3);
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -177,7 +181,7 @@
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Ddescripcion");
+                name.setAttribute("name", "Darea");
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("Value", datos[2]);
                 // Create an input element for Activo
@@ -208,7 +212,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">Id Area</th>
-                        <th class="text-center">Nombre Area</th>
+                        <th class="text-center">Area</th>
                         <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -222,12 +226,13 @@
                     %>
                     <tr>
                         <td class="text-center"><%=area.getIdArea()%></td>
-                        <td class="text-center"><%=area.getDescripcion()%></td>
-
+                        <td class="text-center"><%=area.getNombre()%></td>
                         <% if (area.getEstado() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
+                        <td class="text-center">Disponible</td>
+                        <%} else if(area.getEstado() == 2){%>
+                        <td class="text-center">Mantenimiento</td>
+                        <%}else if(area.getEstado() == 0){%>
+                        <td class="text-center">Ocupado</td>
                         <%}%>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>

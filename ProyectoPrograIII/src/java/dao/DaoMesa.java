@@ -23,18 +23,18 @@ public class DaoMesa implements crudMesa{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         ArrayList<Mesa> lstMesa = new ArrayList<>();
         try {
-            sql = "SELECT MESA.ID_MESA, AREA.DESCRIPCION, MESA.DESCRIPCION AS AREA, "
-                    +"MESA.ASIENTOS, AREA.ESTADO FROM AREA INNER JOIN MESA ON AREA.ID_AREA = MESA.ID_AREA";
+            sql = "SELECT MESA.ID_MESA, MESA.ID_AREA, MESA.DESCRIPCION AS 'MESA', AREA.DESCRIPCION AS 'AREA',"
+                    + " MESA.ASIENTOS, MESA.ID_ESTADO FROM MESA JOIN AREA ON MESA.ID_AREA=AREA.ID_AREA;";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("ID_MESA"));                
-                mesa.setDescripcion(rs.getString("DESCRIPCION"));
-                //mesa.setIdArea(rs.getInt("ID_AREA"));
-                mesa.setAreaDescrip(rs.getString("DESCRIPCION"));
+                mesa.setMesa(rs.getString("MESA"));
+                mesa.setIdArea(rs.getInt("ID_AREA"));
+                mesa.setArea(rs.getString("AREA"));
                 mesa.setAsientos(rs.getInt("ASIENTOS"));
-                //mesa.setIdEstado(rs.getInt("ID_ESTADO"));                
+                mesa.setIdEstado(rs.getInt("ID_ESTADO"));                
                 lstMesa.add(mesa);
             }
             rs.close();
@@ -50,18 +50,18 @@ public class DaoMesa implements crudMesa{
     @Override
     public Mesa list(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "SELECT MESA.ID_MESA, AREA.DESCRIPCION, MESA.DESCRIPCION AS AREA, "
-                +"MESA.ASIENTOS, AREA.ESTADO FROM AREA INNER JOIN MESA ON "
-                +"AREA.ID_AREA = MESA.ID_AREA WHERE ID_MESA=" + id;
+        sql = "SELECT MESA.ID_MESA, MESA.ID_AREA, MESA.DESCRIPCION AS 'MESA', AREA.DESCRIPCION AS 'AREA',"
+                + " MESA.ASIENTOS, MESA.ID_ESTADO FROM MESA JOIN AREA ON MESA.ID_AREA=AREA.ID_AREA WHERE ID_MESA=" + id;
         try {
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
-                mesa.setIdMesa(rs.getInt("ID_MESA"));
-               // mesa.setIdArea(rs.getInt("ID_AREA"));
-                mesa.setDescripcion(rs.getString("AREA"));
+                mesa.setIdMesa(rs.getInt("ID_MESA"));                
+                mesa.setMesa(rs.getString("MESA"));
+                mesa.setIdArea(rs.getInt("ID_AREA"));
+                mesa.setArea(rs.getString("AREA"));
                 mesa.setAsientos(rs.getInt("ASIENTOS"));
-               // mesa.setIdEstado(rs.getInt("ID_ESTADO"));                
+                mesa.setIdEstado(rs.getInt("ID_ESTADO"));                 
             }
             rs.close();
             con.close();
@@ -77,7 +77,8 @@ public class DaoMesa implements crudMesa{
         sql = "INSERT INTO MESA(ID_MESA,ID_AREA,DESCRIPCION,ASIENTOS,ID_ESTADO) "
                 + "VALUES((SELECT ISNULL(MAX(ID_MESA),0)+ 1 FROM MESA),"
                 + " "+ mesa.getIdArea() +","
-                + "'"+ mesa.getDescripcion() +"',"
+                + "'"+ mesa.getMesa() +"',"
+                + "'"+ mesa.getArea() +"',"
                 + " "+ mesa.getAsientos() +","
                 + " "+ mesa.getIdEstado() +")";
         try {
@@ -95,7 +96,8 @@ public class DaoMesa implements crudMesa{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "UPDATE MESA SET ID_MESA="+ mesa.getIdMesa() +", "
                 + "ID_AREA="+ mesa.getIdArea() +", "
-                + "DESCRIPCION='"+ mesa.getDescripcion() +"' "
+                + "AREA='"+ mesa.getArea() +"' "
+                + "MESA='"+ mesa.getMesa() +"' "
                 + "ASIENTOS="+ mesa.getAsientos() +" "
                 + "ID_ESTADO="+ mesa.getIdEstado() +" "
                 + "WHERE ID_MESA="+ mesa.getIdMesa() +"";

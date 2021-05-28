@@ -323,16 +323,6 @@
                         <td class="text-center"><%=user.getUser()%></td>
                         <td class="text-center"><%=user.getPass()%></td>
                         <td class="text-center"><%=user.getRol()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
-                        <%--<td class="text-center"><%=user.getFechaMod()%></td>
-                        <td class="text-center"><%=user.getUserCrear()%></td>
-                        <td class="text-center"><%=user.getUserMod()%></td>
-                        <td class="text-center"><%=user.getCodigo()%></td>--%>
 
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>

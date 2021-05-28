@@ -35,7 +35,6 @@ public class DaoUsuario implements crudUsuario{
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
                 user.setRol(rs.getString("ROL"));
-                user.setIsActivo(rs.getInt("ACTIVO"));
                 lstUsuario.add(user);
             }
             rs.close();
@@ -63,7 +62,6 @@ public class DaoUsuario implements crudUsuario{
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
                 user.setRol(rs.getString("ROL"));
-                user.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
             con.close();
@@ -81,7 +79,7 @@ public class DaoUsuario implements crudUsuario{
         sql = "INSERT INTO USUARIO (ID_USUARIO, NOMBRE, APELLIDO, USUARIO, "
                 + "PASSW, ID_ROL,ACTIVO) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
                 + " 1 FROM USUARIO),'" + user.getNombre() + "','" + user.getApellido() + "','"
-                + user.getUser() + "','" + user.getPass() + "'," + user.getIdRol() + "," + user.getIsActivo() + ")";
+                + user.getUser() + "','" + user.getPass() + "'," + user.getIdRol() + ")";
         System.out.println(sql);
         try {
             con.open();
@@ -103,8 +101,7 @@ public class DaoUsuario implements crudUsuario{
                 + "APELLIDO='" + user.getApellido() + "', "
                 + "USUARIO='" + user.getUser() + "', "
                 + "PASSW='" + user.getPass() + "', "
-                + "ID_ROL=" + user.getIdRol() + ", "
-                + "ACTIVO=" + user.getIsActivo() + " "
+                + "ID_ROL=" + user.getIdRol() + " "
                 + "WHERE ID_USUARIO=" + user.getIdUser();
         System.out.println(sql);
         try {
@@ -158,7 +155,6 @@ public class DaoUsuario implements crudUsuario{
                 user.setApellido(rs.getString("APELLIDO"));
                 user.setUser(rs.getString("USUARIO"));
                 user.setPass(rs.getString("PASSW"));
-                user.setIsActivo(rs.getInt("ACTIVO"));
                 user.setRol(rs.getString("ROL"));
             }
             rs.close();

@@ -35,7 +35,6 @@ public class DaoRol implements crudRol{
                 rol.setIdRol(rs.getInt("ID_ROL"));
                 rol.setNombre(rs.getString("NOMBRE"));
                 rol.setDescripcion(rs.getString("DESCRIPCION"));
-                rol.setIsActivo(rs.getInt("ACTIVO"));
                 lstRol.add(rol);
             }
             rs.close();
@@ -59,7 +58,6 @@ public class DaoRol implements crudRol{
                 rol.setIdRol(rs.getInt("ID_ROL"));
                 rol.setNombre(rs.getString("NOMBRE"));
                 rol.setDescripcion(rs.getString("DESCRIPCION"));
-                rol.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
             con.close();
@@ -73,7 +71,7 @@ public class DaoRol implements crudRol{
     public boolean insertar(Rol rol) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO ROL (ID_ROL, NOMBRE, DESCRIPCION, ACTIVO) "
-                +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),'"+rol.getNombre()+"','"+rol.getDescripcion()+"','"+rol.getIsActivo()+"')";
+                +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),'"+rol.getNombre()+"','"+rol.getDescripcion()+"')";
         try {
             con.open();
             resp = con.executeSql(sql);
@@ -87,7 +85,7 @@ public class DaoRol implements crudRol{
     @Override
     public boolean modificar(Rol rol) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "UPDATE ROL SET ID_ROL="+rol.getIdRol()+", NOMBRE= '"+rol.getNombre()+"', DESCRIPCION='"+rol.getDescripcion()+"', ACTIVO="+rol.getIsActivo()+" WHERE ID_ROL="+rol.getIdRol();
+        sql = "UPDATE ROL SET ID_ROL="+rol.getIdRol()+", NOMBRE= '"+rol.getNombre()+"', DESCRIPCION='"+rol.getDescripcion()+"' WHERE ID_ROL="+rol.getIdRol();
         System.out.println(sql);
         try {
             con.open();

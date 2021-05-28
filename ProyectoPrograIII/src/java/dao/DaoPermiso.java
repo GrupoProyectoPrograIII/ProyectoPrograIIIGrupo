@@ -32,7 +32,6 @@ public class DaoPermiso implements crudPermiso{
                 permisos.setIdRol(rs.getInt("ID_ROL"));
                 permisos.setModulo(rs.getString("MODULO"));
                 permisos.setRol(rs.getString("ROL"));
-                permisos.setIsActivo(rs.getInt("ACTIVO"));
                 lstPermiso.add(permisos);
             }
             rs.close();
@@ -58,7 +57,6 @@ public class DaoPermiso implements crudPermiso{
                 permisos.setIdRol(rs.getInt("ID_ROL"));
                 permisos.setModulo(rs.getString("MODULO"));
                 permisos.setRol(rs.getString("ROL"));
-                permisos.setIsActivo(rs.getInt("ACTIVO"));
             }
             rs.close();
             con.close();
@@ -74,8 +72,7 @@ public class DaoPermiso implements crudPermiso{
         sql = "INSERT INTO PERMISO(ID_PERMISO,ID_MODULO,ID_ROL,ACTIVO) \n"
                 + "  VALUES((SELECT ISNULL(MAX(ID_PERMISO),0)+ 1 FROM PERMISO),"
                 + "'"+ permiso.getIdModulo() +"',"
-                + "'"+ permiso.getIdRol() +"',"
-                + "'"+ permiso.getIsActivo() +"')";
+                + "'"+ permiso.getIdRol() +"')";
         try {
             con.open();
             resp = con.executeSql(sql);
@@ -90,8 +87,7 @@ public class DaoPermiso implements crudPermiso{
     public boolean modificar(Permiso permiso) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "UPDATE PERMISO SET ID_MODULO= '"+ permiso.getIdModulo() +"', "
-                + "ID_ROL= '"+ permiso.getIdRol() +"', "
-                + "ACTIVO= '"+ permiso.getIsActivo() +"'"
+                + "ID_ROL= '"+ permiso.getIdRol() +"'"
                 + "WHERE ID_PERMISO= '"+ permiso.getIdPermiso() +"'";
         System.out.println(sql);
         try {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import configuracion.Conexion;
@@ -13,10 +8,6 @@ import java.util.List;
 import java.util.logging.*;
 import modelos.Inventario;
 
-/**
- *
- * @author JAVIER OSORIO
- */
 public class DaoInventario implements crudInventario {
 
     String sql = "";
@@ -29,7 +20,7 @@ public class DaoInventario implements crudInventario {
     public List listar_categoria() {
         ArrayList<Inventario> lstCast = new ArrayList<>();
         try {
-            sql = "SELECT        ID_CATEGORIA_PRODUCTO, DESCRIPCION\n"
+            sql = "SELECT   ID_CATEGORIA_PRODUCTO, DESCRIPCION\n"
                     + "FROM            dbo.CATEGORIA_PRODUCTO";
             con.open();
             rs = con.executeQuery(sql);

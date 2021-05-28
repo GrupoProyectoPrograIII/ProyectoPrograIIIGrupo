@@ -8,11 +8,20 @@ public class Modulo {
     private int nivel;
     private int orden;
     private int idModuloPadre;
-    private int isActivo;
 
     public Modulo() {
     }
 
+    public Modulo(int idModulo, String nombre, String descripcion, String path, int nivel, int orden, int idModuloPadre) {
+        this.idModulo = idModulo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.path = path;
+        this.nivel = nivel;
+        this.orden = orden;
+        this.idModuloPadre = idModuloPadre;
+    }
+    
     public int getIdModulo() {
         return idModulo;
     }
@@ -68,14 +77,5 @@ public class Modulo {
     public void setIdModuloPadre(int idModuloPadre) {
         this.idModuloPadre = idModuloPadre;
     }
-
-    public int getIsActivo() {
-        return isActivo;
-    }
-
-    public void setIsActivo(int isActivo) {
-        this.isActivo = isActivo;
-    }
-
     
 }

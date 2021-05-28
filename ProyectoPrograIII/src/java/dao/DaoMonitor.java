@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import configuracion.Conexion;
@@ -13,10 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.*;
 
-/**
- *
- * @author JAVIER OSORIO
- */
 public class DaoMonitor implements crudMonitores{
 
     Conexion con = new Conexion();
@@ -34,8 +25,8 @@ public class DaoMonitor implements crudMonitores{
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 mon = new Monitor();
-                mon.setCod_monitor(rs.getInt("CODIGO"));
-                mon.setDescripcion_monitor(rs.getString("DESCRIPCION"));
+                mon.setIdMonitor(rs.getInt("CODIGO"));
+                mon.setNombre(rs.getString("DESCRIPCION"));
                 lstMon.add(mon);
             }
             rs.close();

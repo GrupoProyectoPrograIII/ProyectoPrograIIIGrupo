@@ -55,23 +55,6 @@
                 mp.setAttribute("type", "text");
                 mp.setAttribute("name", "AmoduloPadre");
                 mp.setAttribute("placeholder", "Modulo Padre");
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                active.appendChild(option);
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option1);
-                active.appendChild(option2);
 
                 // Create a submit button
                 var s = document.createElement("button");
@@ -81,7 +64,7 @@
                 s.innerHTML = ("Agregar");
 
                 // Append the inputs to the form
-                form.append(newlabel, name, des, path, nivel, orden, mp, active);
+                form.append(newlabel, name, des, path, nivel, orden, mp);
                 // Append the button to the form
                 form.append(s);
 
@@ -165,23 +148,6 @@
                         mp.setAttribute("type", "text");
                         mp.setAttribute("name", "EmoduloPadre");
                         mp.setAttribute("value", datos[7]);
-                        // Create an input element for Activo
-                        var active = document.createElement("select");
-                        active.setAttribute("name", "Eactivo");
-                        active.setAttribute("placeholder", "Activo");
-                        var option = document.createElement("option");
-                        option.setAttribute("disabled", "selected");
-                        option.setAttribute("selected", "selected");
-                        option.innerHTML = ("seleccione");
-                        active.appendChild(option);
-                        var option1 = document.createElement("option");
-                        option1.setAttribute("value", "1");
-                        option1.innerHTML = ("Activo");
-                        var option2 = document.createElement("option");
-                        option2.setAttribute("value", "0");
-                        option2.innerHTML = ("Inactivo");
-                        active.appendChild(option1);
-                        active.appendChild(option2);
 
                         // Create a submit button
                         var s = document.createElement("button");
@@ -191,7 +157,7 @@
                         s.innerHTML = ("Editar");
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
+                        form.append(newlabel, id, name, des, path, nivel, orden, mp);
 
                         // Append the button to the form
                         form.append(s);
@@ -284,12 +250,6 @@
                         mp.setAttribute("name", "DmoduloPadre");
                         mp.setAttribute("value", datos[7]);
                         mp.setAttribute("disabled", "disabled");
-                        // Create an input element for Activo
-                        var active = document.createElement("input");
-                        active.setAttribute("type", "text");
-                        active.setAttribute("name", "Dactivo");
-                        active.setAttribute("value", datos[8]);
-                        active.setAttribute("disabled", "disabled");
 
                         // Create a submit button
                         var s = document.createElement("button");
@@ -299,7 +259,7 @@
                         s.innerHTML = ("Eliminar");
 
                         // Append the inputs to the form
-                        form.append(newlabel, id, name, des, path, nivel, orden, mp, active);
+                        form.append(newlabel, id, name, des, path, nivel, orden, mp);
                         // Append the button to the form
                         form.append(s);
 
@@ -323,7 +283,6 @@
                         <th class="text-center">Nivel</th>
                         <th class="text-center">Orden</th>
                         <th class="text-center">Modulo Padre</th>
-                        <th class="text-center">Activo</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -342,11 +301,6 @@
                         <td class="text-center"><%=modulo.getNivel()%></td>
                         <td class="text-center"><%=modulo.getOrden()%></td>
                         <td class="text-center"><%=modulo.getIdModuloPadre()%></td>
-                        <% if (modulo.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
 
                         <td class="text-center">
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>

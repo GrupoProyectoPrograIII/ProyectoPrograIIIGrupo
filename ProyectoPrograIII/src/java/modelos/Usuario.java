@@ -8,12 +8,11 @@ public class Usuario {
     private String user;
     private String pass;
     private String rol;
-    private int isActivo;
     
     public Usuario() {
     }
 
-    public Usuario(int idUser, int idRol, String nombre, String apellido, String user, String pass, String rol, int isActivo) {
+    public Usuario(int idUser, int idRol, String nombre, String apellido, String user, String pass, String rol) {
         this.idUser = idUser;
         this.idRol = idRol;
         this.nombre = nombre;
@@ -21,7 +20,6 @@ public class Usuario {
         this.user = user;
         this.pass = pass;
         this.rol = rol;
-        this.isActivo = isActivo;
     }
 
     public int getIdUser() {
@@ -79,12 +77,5 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
-    public int getIsActivo() {
-        return isActivo;
-    }
-
-    public void setIsActivo(int isActivo) {
-        this.isActivo = isActivo;
-    }    
+    
 }

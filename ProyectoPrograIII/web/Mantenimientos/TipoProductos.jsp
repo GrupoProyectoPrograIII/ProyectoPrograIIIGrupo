@@ -317,12 +317,6 @@
                         <td class="text-center"><%=user.getIdUser()%></td>
                         <td class="text-center"><%=user.getNombre()%></td>
                         <td class="text-center"><%=user.getApellido()%></td>
-                        <%--<td class="text-center"><%=user.getFechaCrear()%></td>--%>
-                        <% if (user.getIsActivo() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%}%>
                         <%--<td class="text-center"><%=user.getFechaMod()%></td>
                         <td class="text-center"><%=user.getUserCrear()%></td>
                         <td class="text-center"><%=user.getUserMod()%></td>

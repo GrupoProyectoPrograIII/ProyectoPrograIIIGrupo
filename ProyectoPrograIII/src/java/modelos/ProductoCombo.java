@@ -2,20 +2,18 @@ package modelos;
 
 public class ProductoCombo {
     private int idCombo;
-    private int idTipo;
-    private String Descripcion;
-    private float Precio;
-    private int Estado;
+    private String tipoCombo;
+    private String nombre;
+    private double precio;
 
     public ProductoCombo() {
     }
 
-    public ProductoCombo(int idCombo, int idTipo, String Descripcion, float Precio, int Estado) {
+    public ProductoCombo(int idCombo, String tipoCombo, String nombre, double precio) {
         this.idCombo = idCombo;
-        this.idTipo = idTipo;
-        this.Descripcion = Descripcion;
-        this.Precio = Precio;
-        this.Estado = Estado;
+        this.tipoCombo = tipoCombo;
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
     public int getIdCombo() {
@@ -26,36 +24,28 @@ public class ProductoCombo {
         this.idCombo = idCombo;
     }
 
-    public int getIdTipo() {
-        return idTipo;
+    public String getTipoCombo() {
+        return tipoCombo;
     }
 
-    public void setIdTipo(int idTipo) {
-        this.idTipo = idTipo;
+    public void setTipoCombo(String tipoCombo) {
+        this.tipoCombo = tipoCombo;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public float getPrecio() {
-        return Precio;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecio(float Precio) {
-        this.Precio = Precio;
-    }
-
-    public int getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(int Estado) {
-        this.Estado = Estado;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
     
 }

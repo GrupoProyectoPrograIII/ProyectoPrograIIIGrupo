@@ -31,15 +31,15 @@
                 <%
                 for(Area area: lstArea){
             %>
-                <button class="tablinks" onclick="openArea(event, '<%=area.getDescripcion()%>')"><%=area.getDescripcion()%></button>
+                <button class="tablinks" onclick="openArea(event, '<%=area.getNombre()%>')"><%=area.getNombre()%></button>
             <%}%>
             </div>
             <% int iter=0;
                 for(Mesa mesa: lstMesa){%>
-            <div id="<%=mesa.getDescripcion()%>" class="tabcontent">
+            <div id="<%=mesa.getArea()%>" class="tabcontent">
                 <ul>
-                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getDescripcion()%>" method="post"><button type="submit" id="mesa<%=iter%>"> </button></form>
-                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="mesa<%=iter%>"><%=mesa.getDescripcion()%></label></a></li>
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>" method="post"><button type="submit" id="mesa<%=iter%>"> </button></form>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="mesa<%=iter%>"><%=mesa.getMesa()%></label></a></li>
                     <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:red;" onclick="ocupado()">Mesa1</label></a></li>
                     <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:purple;" onclick="limpieza()">Mesa1</label></a></li>
                 </ul>

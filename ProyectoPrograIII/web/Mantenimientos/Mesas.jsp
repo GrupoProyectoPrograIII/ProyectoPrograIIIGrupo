@@ -1,3 +1,4 @@
+<%@page import="modelos.Area"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Mesa"%>
@@ -25,20 +26,24 @@
                 area.setAttribute("name", "Aarea");
                 area.setAttribute("placeholder", "Aarea");
                 var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
+                option.setAttribute("disabled", "true");
+                option.setAttribute("selected", "true");
                 option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
                 area.appendChild(option);
+                <% 
+                    List<Area> lstArea= (List<Area>)request.getAttribute("lstArea");
+                    for(Area area: lstArea){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", <%=area.getIdArea()%>);
+                option1.innerHTML = ("<%=area.getNombre()%>");
                 area.appendChild(option1);
-                
-                // Create an input element for Descripcion
-                var des = document.createElement("input");
-                des.setAttribute("type", "text");
-                des.setAttribute("name", "Adescripcion");
-                des.setAttribute("placeholder", "Descripcion");
+                <%}%>
+                // Create an input element for Mesa
+                var mesa = document.createElement("input");
+                mesa.setAttribute("type", "text");
+                mesa.setAttribute("name", "Adescripcion");
+                mesa.setAttribute("placeholder", "Descripcion");
                 
                 // Create an input element for Asiento
                 
@@ -47,23 +52,26 @@
                 asiento.setAttribute("name", "Aasiento");
                 asiento.setAttribute("placeholder", "Asiento");
                 
-                //Create an input element for Estado
-                var estado = document.createElement("select");
-                estado.setAttribute("name", "Aestado");
-                estado.setAttribute("placeholder", "Estado");
+                // Create an input element for Activo
+                var active = document.createElement("select");
+                active.setAttribute("name", "Aactivo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
-                option1.innerHTML = ("Ocupado");
+                option1.innerHTML = ("Disponible");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Disponible");
-                estado.appendChild(option);
-                estado.appendChild(option1);
-                estado.appendChild(option2);
+                option2.setAttribute("value", "2");
+                option2.innerHTML = ("Limpieza");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "0");
+                option3.innerHTML = ("Ocupado");
+                active.appendChild(option);
+                active.appendChild(option1);
+                active.appendChild(option2);
+                active.appendChild(option3);
                 
                 // Create a submit button
                 var s = document.createElement("button");
@@ -72,7 +80,7 @@
                 s.setAttribute("value", "agregarM");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, area, des,asiento,estado);
+                form.append(newlabel, area, mesa,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -129,14 +137,22 @@
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
                 option1.innerHTML = ("Activo");
-                area.appendChild(option);
+                 area.appendChild(option);
+                <% 
+                    lstArea= (List<Area>)request.getAttribute("lstArea");
+                    for(Area area: lstArea){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", <%=area.getIdArea()%>);
+                option1.innerHTML = ("<%=area.getNombre()%>");
                 area.appendChild(option1);
+                <%}%>
                 
-                // Create an input element for Descripcion
-                var des = document.createElement("input");
-                des.setAttribute("type", "text");
-                des.setAttribute("name", "Edescripcion");
-                des.setAttribute("value", datos[3]);
+                // Create an input element for Mesa
+                var mesa = document.createElement("input");
+                mesa.setAttribute("type", "text");
+                mesa.setAttribute("name", "Edescripcion");
+                mesa.setAttribute("value", datos[3]);
                 
                 // Create an input element for Asiento
                 
@@ -145,23 +161,27 @@
                 asiento.setAttribute("name", "Easiento");
                 asiento.setAttribute("value", datos[4]);
                 
-                //Create an input element for Estado
-                var estado = document.createElement("select");
-                estado.setAttribute("name", "Eestado");
-                estado.setAttribute("placeholder", "Estado");
+                //Create an input element for Activo
+                var active = document.createElement("select");
+                active.setAttribute("name", "Eestado");
+                active.setAttribute("placeholder", "Estado");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
-                option1.innerHTML = ("Ocupado");
+                option1.innerHTML = ("Disponible");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Disponible");
-                estado.appendChild(option);
-                estado.appendChild(option1);
-                estado.appendChild(option2);
+                option2.setAttribute("value", "2");
+                option2.innerHTML = ("Limpieza");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "0");
+                option3.innerHTML = ("Ocupado");
+                active.appendChild(option);
+                active.appendChild(option1);
+                active.appendChild(option2);
+                active.appendChild(option3);
                 
                 // Create a submit button
                 var s = document.createElement("button");
@@ -170,7 +190,7 @@
                 s.setAttribute("value", "editar");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, area, des,asiento,estado);
+                form.append(newlabel, area, mesa,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -218,51 +238,32 @@
                 id.setAttribute("value", datos[1]);
 
                  // Create an input element for Area
-                var area = document.createElement("select");
-                area.setAttribute("name", "Earea");
-                area.setAttribute("placeholder", "Area");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                area.appendChild(option);
-                area.appendChild(option1);
+                var area = document.createElement("input");
+                area.setAttribute("type", "text");
+                area.setAttribute("name", "Edescripcion");
+                area.setAttribute("disabled","disabled");
+                area.setAttribute("value", datos[2]);
                 
-                // Create an input element for Descripcion
-                var des = document.createElement("input");
-                des.setAttribute("type", "text");
-                des.setAttribute("name", "Edescripcion");
-                des.setAttribute("disabled","disabled");
-                des.setAttribute("value", datos[3]);
+                // Create an input element for Mesa
+                var mesa = document.createElement("input");
+                mesa.setAttribute("type", "text");
+                mesa.setAttribute("name", "Edescripcion");
+                mesa.setAttribute("disabled","disabled");
+                mesa.setAttribute("value", datos[3]);
                 
                 // Create an input element for Asiento
                 
                 var asiento = document.createElement("input");
                 asiento.setAttribute("type", "text");
-                asiento.setAttribute("name", "Easiento");
+                asiento.setAttribute("name", "Edescripcion");
                 asiento.setAttribute("disabled","disabled");
                 asiento.setAttribute("value", datos[4]);
                 
-                //Create an input element for Estado
-                var estado = document.createElement("select");
-                estado.setAttribute("name", "Eestado");
-                estado.setAttribute("placeholder", "Estado");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Ocupado");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Disponible");
-                estado.appendChild(option);
-                estado.appendChild(option1);
-                estado.appendChild(option2);
+                var active = document.createElement("input");
+                active.setAttribute("type", "text");
+                active.setAttribute("name", "Edescripcion");
+                active.setAttribute("disabled","disabled");
+                active.setAttribute("value", datos[5]);
                 
                 // Create a submit button
                 var s = document.createElement("button");
@@ -271,7 +272,7 @@
                 s.setAttribute("value", "eliminar");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, area, des,asiento,estado);
+                form.append(newlabel, area, mesa,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -286,7 +287,6 @@
                 <thead>
                     <tr>
                         <th class="text-center">Id Mesa</th>
-                        <%--<th class="text-center">Id Area</th>--%>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Area Ubicada</th>
                         <th class="text-center">Asientos</th>
@@ -295,24 +295,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <%
                         int iter = 0;
-                        List<Mesa> lstMesa = (List<Mesa>) request.getAttribute("mesa");
+                        List<Mesa> lstMesa = (List<Mesa>) request.getAttribute("lstMesa");
                         for (Mesa mesa : lstMesa) {
                             iter++;
                     %>
+                    
                     <tr>
                         <td class="text-center"><%=mesa.getIdMesa()%></td>
                         <%--<td class="text-center"><%=mesa.getIdArea()%></td>--%>                        
-                        <td class="text-center"><%=mesa.getDescripcion()%></td>
-                        <td class="text-center"><%=mesa.getDescripcion()%></td>
+                        <td class="text-center"><%=mesa.getMesa()%></td>
+                        <td class="text-center"><%=mesa.getArea()%></td>
                         <td class="text-center"><%=mesa.getAsientos()%></td>
-                        <%--<td class="text-center"><%=mesa.getUser()%></td>--%>
-                        <% //if (mesa.getIdEstado() == 1) { %>
-                        <td class="text-center">Activo</td>
-                        <%//} else {%>
-                        <td class="text-center">Inactivo</td>
-                        <%//}%>
+                        <% if (mesa.getIdEstado() == 1) { %>
+                        <td class="text-center">Disponible</td>
+                        <%} else if(mesa.getIdEstado() == 2){%>
+                        <td class="text-center">Mantenimiento</td>
+                        <%}else if(mesa.getIdEstado() == 0){%>
+                        <td class="text-center">Ocupado</td>
+                        <%}%>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

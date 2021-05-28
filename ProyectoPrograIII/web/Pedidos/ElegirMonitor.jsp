@@ -75,10 +75,10 @@
                 %>
                 <tbody>
                     <tr>
-                        <td class="text-center"><%= mon.getCod_monitor()%></td>
-                        <td class="text-center"><%= mon.getDescripcion_monitor()%></td>
+                        <td class="text-center"><%= mon.getIdMonitor()%></td>
+                        <td class="text-center"><%= mon.getNombre()%></td>
                         <td class="text-center">
-                            <form action="controllerProceso?accion=seleccionarMon&codigo=<%= mon.getCod_monitor()%>" method="post"><button class="btn btn-info" type="submit">Seleccionar</button></form>                           
+                            <form action="controllerProceso?accion=seleccionarMon&codigo=<%= mon.getIdMonitor()%>" method="post"><button class="btn btn-info" type="submit">Seleccionar</button></form>                           
                         </td>
                     </tr>
                     <%}%>

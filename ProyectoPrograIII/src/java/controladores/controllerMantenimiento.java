@@ -98,7 +98,7 @@ public class controllerMantenimiento extends HttpServlet {
                 
              case "agregarA":
                 area = new Area();
-                area.setDescripcion(request.getParameter("Anombre"));
+                area.setNombre(request.getParameter("Aarea"));
                 area.setEstado(Integer.parseInt(request.getParameter("Aactivo")));
                 daoArea.insertar(area);
                 lstArea = daoArea.listar();
@@ -109,7 +109,7 @@ public class controllerMantenimiento extends HttpServlet {
             case "editarA":
                 area = new Area();
                 area.setIdArea(Integer.parseInt(request.getParameter("Eidarea")));
-                area.setDescripcion(request.getParameter("Edescripcion"));
+                area.setNombre(request.getParameter("Edescripcion"));
                 area.setEstado(Integer.parseInt(request.getParameter("Eactivo")));
                 daoArea.modificar(area);
                 lstArea = daoArea.listar();
@@ -131,23 +131,22 @@ public class controllerMantenimiento extends HttpServlet {
             case "readM":
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
-                request.setAttribute("area", lstArea);
-                request.setAttribute("mesa", lstMesa);
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
                 
             case "agregarM":
                 mesa = new Mesa();
                 mesa.setIdArea(Integer.parseInt(request.getParameter("Aarea")));
-                mesa.setDescripcion(request.getParameter("Adescripcion"));
-                //mesa.setAreaDescrip(request.getParameter("Aareadescripcion"));
+                mesa.setArea(request.getParameter("Adescripcion"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Aasiento")));
                 mesa.setIdEstado(Integer.parseInt(request.getParameter("Aestado")));
                 daoMesa.insertar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
-                request.setAttribute("area", lstArea);
-                request.setAttribute("mesa", lstMesa);
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
                 
@@ -155,15 +154,15 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa = new Mesa();
                 mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
                 mesa.setIdArea(Integer.parseInt(request.getParameter("Earea")));
-                mesa.setDescripcion(request.getParameter("Edescripcion"));
+                mesa.setArea(request.getParameter("Edescripcion"));
                 //mesa.setAreaDescrip(request.getParameter("Eareadescripcion"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Easiento")));
                 mesa.setIdEstado(Integer.parseInt(request.getParameter("Eestado")));
                 daoMesa.modificar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
-                request.setAttribute("area", lstArea);
-                request.setAttribute("mesa", lstMesa);                
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);              
                 acceso = listar + "Mesas.jsp";
                 break;
                 
@@ -173,8 +172,8 @@ public class controllerMantenimiento extends HttpServlet {
                 daoMesa.eliminar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
-                request.setAttribute("area", lstArea);
-                request.setAttribute("mesa", lstMesa);                
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);               
                 acceso = listar + "Mesas.jsp";
                 break;
                 
