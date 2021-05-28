@@ -139,7 +139,7 @@ public class controllerMantenimiento extends HttpServlet {
             case "agregarM":
                 mesa = new Mesa();
                 mesa.setIdArea(Integer.parseInt(request.getParameter("Aarea")));
-                mesa.setArea(request.getParameter("Amesa"));
+                mesa.setMesa(request.getParameter("Amesa"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Aasiento")));
                 mesa.setIdEstado(Integer.parseInt(request.getParameter("Aactivo")));
                 daoMesa.insertar(mesa);
@@ -157,7 +157,7 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa.setArea(request.getParameter("Edescripcion"));
                 //mesa.setAreaDescrip(request.getParameter("Eareadescripcion"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Easiento")));
-                mesa.setIdEstado(Integer.parseInt(request.getParameter("Eactivo")));
+                mesa.setIdEstado(Integer.parseInt(request.getParameter("Eestado")));
                 daoMesa.modificar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();

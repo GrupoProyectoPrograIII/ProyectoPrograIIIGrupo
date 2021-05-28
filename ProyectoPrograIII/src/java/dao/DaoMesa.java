@@ -96,8 +96,7 @@ public class DaoMesa implements crudMesa{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "UPDATE MESA SET ID_MESA="+ mesa.getIdMesa() +", "
                 + "ID_AREA="+ mesa.getIdArea() +", "
-                + "AREA='"+ mesa.getArea() +"' "
-                + "MESA='"+ mesa.getMesa() +"' "
+                + "DESCRICPCION='"+ mesa.getMesa() +"' "
                 + "ASIENTOS="+ mesa.getAsientos() +" "
                 + "ID_ESTADO="+ mesa.getIdEstado() +" "
                 + "WHERE ID_MESA="+ mesa.getIdMesa() +"";

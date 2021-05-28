@@ -22,7 +22,7 @@ public class DaoUsuario implements crudUsuario{
         try {
             sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE, "
                     + " dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO,dbo.USUARIO.PASSW,"
-                    + "dbo.USUARIO.ID_ROL,dbo.ROL.NOMBRE as 'ROL',dbo.USUARIO.ACTIVO"
+                    + "dbo.USUARIO.ID_ROL,dbo.ROL.NOMBRE as 'ROL'"
                     + " from dbo.USUARIO join dbo.ROL on dbo.USUARIO.ID_ROL=dbo.ROL.ID_ROL";
             con.open();
             rs = con.executeQuery(sql);
