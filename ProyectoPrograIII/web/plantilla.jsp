@@ -3,7 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.DaoPermiso"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="icon" type="text/css" href="img/icono_logo.ico">
 <%
     String nom = (String) session.getAttribute("nombre");
     String ape = (String) session.getAttribute("apellido");
