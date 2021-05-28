@@ -1,6 +1,6 @@
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="modelos.Usuario"%>
+<%@page import="modelos.ProductoCombo"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Producto Combinado</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -306,15 +306,15 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
-                        for (Usuario user : lstUsuario) {
+                        List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("ProductoCombo");
+                        for (ProductoCombo productoCombo : lstProductoCombo) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
+                        <td class="text-center"><%=productoCombo.getIdCombo() %></td>
+                        <td class="text-center"><%=productoCombo.getTipoCombo()%></td>
+                        <td class="text-center"><%=productoCombo.getNombre()%></td>
+                        <td class="text-center"><%=productoCombo.getPrecio()%></td>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

@@ -60,7 +60,7 @@ public class controllerMantenimiento extends HttpServlet {
         DaoMonitor daoMonitor = new DaoMonitor();
         DaoDetallePedido daoDp = new DaoDetallePedido();
         DaoPedido daoPedido = new DaoPedido();
-        DaoProductoCombo daoProdCombo = new DaoProductoCombo();
+        DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
         
 
         Usuario user = new Usuario();
@@ -85,7 +85,7 @@ public class controllerMantenimiento extends HttpServlet {
         List<Monitor> lstMonitor = daoMonitor.listar();
         List<DetallePedido> lstDp = daoDp.listar();
         List<Pedido> lstPedido = daoPedido.listar();
-        List<ProductoCombo> lstProdCombo = daoProdCombo.listar();
+        List<ProductoCombo> lstProductoCombo = daoProductoCombo.listar();
         
 
         switch(action){
@@ -232,10 +232,8 @@ public class controllerMantenimiento extends HttpServlet {
         //------- CRUD PRODUCTO COMBO -------------------------
                 
             case "readPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstProductoCombo = daoProductoCombo.listar();                
+                request.setAttribute("productoCombo", lstProductoCombo);                
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
                 
