@@ -1,7 +1,6 @@
 <%@page import="modelos.Area"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
-<%--<%@page import="modelos.Usuario"%>--%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
@@ -14,8 +13,8 @@
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
+                form.setAttribute("method", "POST");
                 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -52,6 +51,7 @@
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarA");
                 s.innerHTML = ("Agregar");
+                
                 // Append the inputs to the form
                 form.append(newlabel, name, active);
                 // Append the button to the form
@@ -88,7 +88,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -167,7 +167,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");

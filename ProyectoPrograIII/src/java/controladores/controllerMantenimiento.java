@@ -109,7 +109,7 @@ public class controllerMantenimiento extends HttpServlet {
             case "editarA":
                 area = new Area();
                 area.setIdArea(Integer.parseInt(request.getParameter("Eidarea")));
-                area.setNombre(request.getParameter("Edescripcion"));
+                area.setNombre(request.getParameter("Earea"));
                 area.setEstado(Integer.parseInt(request.getParameter("Eactivo")));
                 daoArea.modificar(area);
                 lstArea = daoArea.listar();
@@ -139,9 +139,9 @@ public class controllerMantenimiento extends HttpServlet {
             case "agregarM":
                 mesa = new Mesa();
                 mesa.setIdArea(Integer.parseInt(request.getParameter("Aarea")));
-                mesa.setArea(request.getParameter("Adescripcion"));
+                mesa.setArea(request.getParameter("Amesa"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Aasiento")));
-                mesa.setIdEstado(Integer.parseInt(request.getParameter("Aestado")));
+                mesa.setIdEstado(Integer.parseInt(request.getParameter("Aactivo")));
                 daoMesa.insertar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
@@ -157,7 +157,7 @@ public class controllerMantenimiento extends HttpServlet {
                 mesa.setArea(request.getParameter("Edescripcion"));
                 //mesa.setAreaDescrip(request.getParameter("Eareadescripcion"));
                 mesa.setAsientos(Integer.parseInt(request.getParameter("Easiento")));
-                mesa.setIdEstado(Integer.parseInt(request.getParameter("Eestado")));
+                mesa.setIdEstado(Integer.parseInt(request.getParameter("Eactivo")));
                 daoMesa.modificar(mesa);
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();

@@ -14,7 +14,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
@@ -117,7 +117,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
                 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -228,7 +228,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");

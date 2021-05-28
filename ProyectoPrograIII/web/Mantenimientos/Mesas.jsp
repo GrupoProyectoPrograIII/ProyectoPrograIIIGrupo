@@ -15,7 +15,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
                 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -42,7 +42,7 @@
                 // Create an input element for Mesa
                 var mesa = document.createElement("input");
                 mesa.setAttribute("type", "text");
-                mesa.setAttribute("name", "Adescripcion");
+                mesa.setAttribute("name", "Amesa");
                 mesa.setAttribute("placeholder", "Descripcion");
                 
                 // Create an input element for Asiento
@@ -115,7 +115,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
                 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
@@ -226,7 +226,7 @@
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "contollerMantenimiento");
+                form.setAttribute("action", "controllerMantenimiento");
 
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");

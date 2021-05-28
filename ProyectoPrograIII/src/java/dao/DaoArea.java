@@ -87,7 +87,7 @@ public class DaoArea implements crudArea {
     public boolean modificar(Area area) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "UPDATE AREA SET ID_AREA="+area.getIdArea()
-                +"', DESCRIPCION='"+area.getNombre()
+                +", DESCRIPCION='"+area.getNombre()
                 +"', ESTADO="+area.getEstado()
                 +" WHERE ID_AREA="+area.getIdArea();
         System.out.println(sql);
