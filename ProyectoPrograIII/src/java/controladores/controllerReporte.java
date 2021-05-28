@@ -69,7 +69,7 @@ public class controllerReporte extends HttpServlet {
                 acceso = listar + "MonitorCaja.jsp";
                 break;
             case "agregarIG":
-                acceso = listar + "InventarioGeneral.jsp";
+                acceso = listar + "AddInventario.jsp";
                 break;
             case "insertarInventario":
                 inv = new Inventario();
@@ -100,8 +100,8 @@ public class controllerReporte extends HttpServlet {
                 acceso = listar + "MonitorCaja.jsp";
                 break;
             case "editarIG":
-                request.setAttribute("codigo", request.getParameter("codigo_pro"));
-                acceso = listar + "AddInventario.jsp";
+                request.setAttribute("cod", request.getParameter("codigo"));
+                acceso = listar + "EditInventario.jsp";
                 break;
             case "modificarInventario":
                 inv = new Inventario();
@@ -117,7 +117,7 @@ public class controllerReporte extends HttpServlet {
                 if("".equals(inv.getCantidad()) || "".equals(inv.getCodigo_pro()) || "".equals(inv.getCosto_uni()) || "".equals(inv.getDescripcion()) || "".equals(inv.getId_categoria()) || "".equals(inv.getProveedor()) || "".equals(inv.getStock()) || "".equals(inv.getUnidad())){
                     request.setAttribute("vacio", 1);
                 }else{
-                    if (daoInventario.insertar_general(inv) && daoInventario.insertar_detalle(inv)) {
+                    if (daoInventario.modificar_general(inv) && daoInventario.modificar_detalle(inv)) {
                         request.setAttribute("modificar", 1);
                     } else {
                         request.setAttribute("modificar", 0);

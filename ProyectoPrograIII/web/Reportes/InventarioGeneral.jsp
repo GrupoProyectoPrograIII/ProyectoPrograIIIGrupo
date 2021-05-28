@@ -16,7 +16,8 @@
     </head>
     <body style="padding-bottom: 50px">
         <div class="container"> 
-            <h1>Inventario General</h1>        
+            <h1>Inventario General</h1>
+            <form action="controllerReporte?accion=agregarIG" method="POST"><button class="btn btn-info" type="submit">Agregar Producto</button></form>
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
