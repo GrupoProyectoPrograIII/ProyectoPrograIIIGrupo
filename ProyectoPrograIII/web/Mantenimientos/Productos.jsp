@@ -53,7 +53,7 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregarPro");
+                s.setAttribute("value", "agregarProd");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
                 form.append(newlabel, descripcion, precio, unidad, idProveedor, stock, idTipo);

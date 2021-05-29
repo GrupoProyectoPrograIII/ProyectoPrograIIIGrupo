@@ -82,9 +82,9 @@ public class controllerMantenimiento extends HttpServlet {
         ProductoCombo productoCombo = new ProductoCombo();
         Proveedor proveedor = new Proveedor();
 
-        List<Usuario> lstUsuario = daoUsuario.listar();
+        //List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
-        List<Rol> lstRol = daoRol.listar();
+        //List<Rol> lstRol = daoRol.listar();
         List<Permiso> lstPermiso = daoPermiso.listar();
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
@@ -309,7 +309,7 @@ public class controllerMantenimiento extends HttpServlet {
                 producto.setStock(Integer.parseInt(request.getParameter("Astock")));
                 producto.setIdTipoProducto(Integer.parseInt(request.getParameter("AidTipo")));
                 
-                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getStock()) ){
+                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getIdProveedor()) || "".equals(producto.getStock()) || "".equals(producto.getIdTipoProducto()) ){
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoProducto.insertar(producto)) {
@@ -334,7 +334,7 @@ public class controllerMantenimiento extends HttpServlet {
                 producto.setStock(Integer.parseInt(request.getParameter("Estock")));
                 producto.setIdTipoProducto(Integer.parseInt(request.getParameter("EidTipo")));
                 
-                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getStock())) {
+                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getIdProveedor()) || "".equals(producto.getStock()) || "".equals(producto.getIdTipoProducto())) {
                     request.setAttribute("vacio", 1);
                 } else {
                     if (daoProducto.modificar(producto)) {
