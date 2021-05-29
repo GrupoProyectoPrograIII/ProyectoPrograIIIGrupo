@@ -59,6 +59,7 @@ public class controllerProceso extends HttpServlet {
         List<Modulo> lstModulo = daoModulo.listar();
         List<Rol> lstRol = daoRol.listar();
         List<Permiso> lstPermiso = daoPermiso.listar();
+        List<Monitor> lstMonitor = daoMonitor.listar();
 
         switch (action) {
             case "readDI":
