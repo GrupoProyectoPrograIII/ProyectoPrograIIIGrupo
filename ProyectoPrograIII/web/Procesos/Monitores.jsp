@@ -34,13 +34,14 @@
             %>
             <div class="container" id="disponible">
 
-                <div class="tab">
+                <div>
                     <%
                         while (iteMon.hasNext()) {
                             mon = iteMon.next();
                             if (ver_cod == mon.getIdMonitor()) {
                     %>
-                    <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
+                    <button class="tablinks btn btn-primary" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
+                    <br><br>
                     <table border="1" width="1" cellspacing="1" class="table table-hover">
                         <thead>
                             <tr>
@@ -48,6 +49,7 @@
                                 <th class="text-center">Descripcion</th>
                                 <th class="text-center">Area</th>
                                 <th class="text-center">Mesa</th>
+                                <th class="text-center">Accion</th>
                             </tr>
                         </thead>
                         <%
@@ -55,16 +57,19 @@
                             List<Despacho> lstdes = daoDes.listar();
                             Iterator<Despacho> iteD = lstdes.iterator();
                             Despacho des = null;
-                            
-                            while(iteD.hasNext()){
+
+                            while (iteD.hasNext()) {
                                 des = iteD.next();
                         %>
                         <tbody>
                             <tr>
-                                <th class="text-center"><%= des.getPedido() %></th>
-                                <th class="text-center"><%= des.getDescripcion() %></th>
-                                <th class="text-center"><%= des.getArea() %></th>
-                                <th class="text-center"><%= des.getMesa() %></th>
+                                <th class="text-center"><%= des.getPedido()%></th>
+                                <th class="text-center"><%= des.getDescripcion()%></th>
+                                <th class="text-center"><%= des.getArea()%></th>
+                                <th class="text-center"><%= des.getMesa()%></th>
+                                <td class="text-center">
+                                    <form action="controllerProceso?accion=eliminarDes&id=<%= des.getId_despacho() %>" method="post"><button class="btn btn-info" type="submit">Despachar</button></form>                           
+                                </td>
                             </tr>
                             <%}%>
                         </tbody>
