@@ -314,7 +314,8 @@
                         <td class="text-center"><%=productoCombo.getIdCombo() %></td>
                         <td class="text-center"><%=productoCombo.getTipoCombo()%></td>
                         <td class="text-center"><%=productoCombo.getNombre()%></td>
-                        <td class="text-center"><%=productoCombo.getPrecio()%></td>
+                        <td class="text-center"><%=productoCombo.getPrecio()%></td>                
+                       
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
