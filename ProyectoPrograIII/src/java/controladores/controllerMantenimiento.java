@@ -8,7 +8,6 @@ import dao.DaoModulo;
 import dao.DaoMonitor;
 import dao.DaoPedido;
 import dao.DaoPermiso;
-import dao.DaoProducto;
 import dao.DaoProductoCombo;
 import dao.DaoProveedor;
 import dao.DaoRol;
@@ -65,8 +64,6 @@ public class controllerMantenimiento extends HttpServlet {
         DaoPedido daoPedido = new DaoPedido();
         DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
         DaoProveedor daoProveedor = new DaoProveedor();
-        DaoProducto daoProducto = new DaoProducto();
-        
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
@@ -94,19 +91,16 @@ public class controllerMantenimiento extends HttpServlet {
         List<Pedido> lstPedido = daoPedido.listar();
         List<ProductoCombo> lstProductoCombo = daoProductoCombo.listar();
         List<Proveedor> lstProveedor = daoProveedor.listar();
-        List<Producto> lstProducto = daoProducto.listar();
-        
-        
 
-        switch(action){
-        //--------- CRUD AREAS  --------------------------------  
+        switch (action) {
+            //--------- CRUD AREAS  --------------------------------  
             case "readA":
                 lstArea = daoArea.listar();
                 request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;
-                
-             case "agregarA":
+
+            case "agregarA":
                 area = new Area();
                 area.setNombre(request.getParameter("Aarea"));
                 area.setEstado(Integer.parseInt(request.getParameter("Aactivo")));
@@ -115,7 +109,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;
-                
+
             case "editarA":
                 area = new Area();
                 area.setIdArea(Integer.parseInt(request.getParameter("Eidarea")));
@@ -123,21 +117,20 @@ public class controllerMantenimiento extends HttpServlet {
                 area.setEstado(Integer.parseInt(request.getParameter("Eactivo")));
                 daoArea.modificar(area);
                 lstArea = daoArea.listar();
-                request.setAttribute("area", lstArea);                
+                request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
                 break;
-                
+
             case "eliminarA":
                 area = new Area();
                 area.setIdArea(Integer.parseInt(request.getParameter("Didarea")));
                 daoArea.eliminar(area);
-                lstArea = daoArea.listar();                
+                lstArea = daoArea.listar();
                 request.setAttribute("area", lstArea);
                 acceso = listar + "Areas.jsp";
-                break;                
-            
-        //------- CRUD MESAS -------------------------------------
-                
+                break;
+
+            //------- CRUD MESAS -------------------------------------
             case "readM":
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
@@ -145,7 +138,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
-                
+
             case "agregarM":
                 mesa = new Mesa();
                 mesa.setIdArea(Integer.parseInt(request.getParameter("Aarea")));
@@ -159,7 +152,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
-                
+
             case "editarM":
                 mesa = new Mesa();
                 mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
@@ -172,10 +165,10 @@ public class controllerMantenimiento extends HttpServlet {
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
                 request.setAttribute("lstArea", lstArea);
-                request.setAttribute("lstMesa", lstMesa);              
+                request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
-                
+
             case "eliminarM":
                 mesa = new Mesa();
                 mesa.setIdMesa(Integer.parseInt(request.getParameter("Eidmesa")));
@@ -183,18 +176,17 @@ public class controllerMantenimiento extends HttpServlet {
                 lstArea = daoArea.listar();
                 lstMesa = daoMesa.listar();
                 request.setAttribute("lstArea", lstArea);
-                request.setAttribute("lstMesa", lstMesa);               
+                request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "Mesas.jsp";
                 break;
-                
-        //-------- CRUD CLIENTE
-                                     
+
+            //-------- CRUD CLIENTE
             case "readC":
                 lstCliente = daoCliente.listar();
-                request.setAttribute("cliente", lstCliente);                
+                request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
-                
+
             case "agregarC":
                 cliente = new Cliente();
                 cliente.setNombre(request.getParameter("Anombre"));
@@ -203,11 +195,11 @@ public class controllerMantenimiento extends HttpServlet {
                 cliente.setDireccion(request.getParameter("Adireccion"));
                 cliente.setTelefono(request.getParameter("Atelefono"));
                 daoCliente.insertar(cliente);
-                lstCliente = daoCliente.listar();                
-                request.setAttribute("cliente", lstCliente);                
+                lstCliente = daoCliente.listar();
+                request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
-                
+
             case "editarC":
                 cliente = new Cliente();
                 cliente.setIdCliente(Integer.parseInt(request.getParameter("Eidcliente")));
@@ -217,36 +209,34 @@ public class controllerMantenimiento extends HttpServlet {
                 cliente.setDireccion(request.getParameter("Edireccion"));
                 cliente.setTelefono(request.getParameter("Etelefono"));
                 daoCliente.modificar(cliente);
-                lstCliente = daoCliente.listar();                
+                lstCliente = daoCliente.listar();
                 request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
-                
+
             case "eliminarC":
                 cliente = new Cliente();
                 cliente.setIdCliente(Integer.parseInt(request.getParameter("Didcliente")));
                 daoCliente.eliminar(cliente);
-                lstCliente = daoCliente.listar();                
+                lstCliente = daoCliente.listar();
                 request.setAttribute("cliente", lstCliente);
                 acceso = listar + "Clientes.jsp";
                 break;
-                
-        //------ CRUD MONITOR  ---------------------------------             
-            
+
+            //------ CRUD MONITOR  ---------------------------------             
             case "readMon":
-                lstMonitor = daoMonitor.listar();                
-                request.setAttribute("monitor", lstMonitor);                
+                lstMonitor = daoMonitor.listar();
+                request.setAttribute("monitor", lstMonitor);
                 acceso = listar + "Monitor.jsp";
                 break;
-                
-        //------- CRUD PRODUCTO COMBO -------------------------
-                
+
+            //------- CRUD PRODUCTO COMBO -------------------------
             case "readPC":
-                lstProductoCombo = daoProductoCombo.listar();                
-                request.setAttribute("productoCombo", lstProductoCombo);                
+                lstProductoCombo = daoProductoCombo.listar();
+                request.setAttribute("productoCombo", lstProductoCombo);
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
-                
+
             case "agregarPC":
                 productoCombo = new ProductoCombo();
                 productoCombo.setTipoCombo(request.getParameter("AidTipo"));
@@ -258,7 +248,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
-                
+
             case "editarPC":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -266,7 +256,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
-                
+
             case "eliminarPC":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -274,15 +264,16 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
-                
-        //------- CRUD PRODUCTO ---------------------------------
-                
+
+            //------- CRUD PRODUCTO ---------------------------------
             case "readProd":
-                lstProducto = daoProducto.listar();                
-                request.setAttribute("producto", lstProducto);               
+                lstRol = daoRol.listar();
+                lstUsuario = daoUsuario.listar();
+                request.setAttribute("rol", lstRol);
+                request.setAttribute("user", lstUsuario);
                 acceso = listar + "Productos.jsp";
                 break;
-                
+
             case "agregarProd":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -290,7 +281,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Productos.jsp";
                 break;
-                
+
             case "editarProd":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -298,7 +289,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Productos.jsp";
                 break;
-                
+
             case "eliminarProd":
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
@@ -306,9 +297,8 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "Productos.jsp";
                 break;
-                
+
             //CRUD PROVEEDOR
-                
             case "readPro":
                 lstRol = daoRol.listar();
                 lstProveedor = daoProveedor.listar();
@@ -323,12 +313,20 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
                 break;
-           
+
             case "agregarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                proveedor = new Proveedor();
+                proveedor.setNombre_proveedor(request.getParameter("Pnombre"));
+                proveedor.setTelefono(request.getParameter("Ptelefono"));
+                proveedor.setDireccion(request.getParameter("Pdireccion"));
+
+                if ("".equals(proveedor.getNombre_proveedor()) || "".equals(proveedor.getTelefono()) || "".equals(proveedor.getDireccion())) {
+                } else {
+                    daoProveedor.insertar(proveedor);
+                }
+
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;
             case "agregarTP":
@@ -337,13 +335,21 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
-                break;            
-            
+                break;
+
             case "editarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                proveedor = new Proveedor();
+                proveedor.setId_proveedor(Integer.parseInt(request.getParameter("Pidprovee")));
+                proveedor.setNombre_proveedor(request.getParameter("Pnombre"));
+                proveedor.setTelefono(request.getParameter("Ptelefono"));
+                proveedor.setDireccion(request.getParameter("Pdireccion"));
+
+                if ("".equals(proveedor.getNombre_proveedor()) || "".equals(proveedor.getTelefono()) || "".equals(proveedor.getDireccion())) {
+                } else {
+                    daoProveedor.modificar(proveedor);
+                }
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;
             case "editarTP":
@@ -352,13 +358,16 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("rol", lstRol);
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
-                break;            
-            
+                break;
+
             case "eliminarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                proveedor = new Proveedor();
+                proveedor.setId_proveedor(Integer.parseInt(request.getParameter("Pidprovee")));
+
+                daoProveedor.eliminar(proveedor);
+
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;
             case "eliminarTP":
@@ -368,7 +377,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
                 break;
-                
+
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);
