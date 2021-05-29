@@ -24,11 +24,11 @@
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Anombre");
                 name.setAttribute("placeholder", "Descripcion");
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aprecio");
-                apellido.setAttribute("placeholder", "Precio");
+                // Create an input element for Precio
+                var precio = document.createElement("input");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("name", "Aprecio");
+                precio.setAttribute("placeholder", "Precio");
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
@@ -71,10 +71,10 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "agregarProd");
+                s.setAttribute("value", "agregarPro");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, name, precio, users, password, role, active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]

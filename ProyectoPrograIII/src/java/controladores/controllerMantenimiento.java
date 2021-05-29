@@ -367,63 +367,27 @@ public class controllerMantenimiento extends HttpServlet {
             //CRUD PROVEEDOR
                 
             case "readPro":
-                lstRol = daoRol.listar();
                 lstProveedor = daoProveedor.listar();
-                request.setAttribute("rol", lstRol);
                 request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;
-            case "readTP":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "TipoProductos.jsp";
-                break;
            
             case "agregarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
-                break;
-            case "agregarTP":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "TipoProductos.jsp";
-                break;            
+                break;        
             
             case "editarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
-                break;
-            case "editarTP":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "TipoProductos.jsp";
-                break;            
+                break;         
             
             case "eliminarPro":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstProveedor = daoProveedor.listar();
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
-                break;
-            case "eliminarTP":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
-                acceso = listar + "TipoProductos.jsp";
                 break;
                 
         }
