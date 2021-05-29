@@ -60,7 +60,6 @@
                     verProducto(this.value);
                 });
             });
-
             function verProducto(d) {
                 cliente = d.split(',');
                 document.getElementById("precio").value = cliente[2];
@@ -130,15 +129,15 @@
                 }
             <%}%>
             }
-            
-            
-            function enviar(){
-                 //getsTable
+
+
+            function enviar() {
+                //getsTable
                 var oTable = document.getElementById('tablaprueba');
                 //gets rows of table
                 var rowLength = oTable.rows.length;
                 //loops through rows    
-                for (var i = rowLength-2; i>=1; i--) {
+                for (var i = rowLength - 2; i >= 1; i--) {
                     //gets cells of current row  
                     var oCells = oTable.rows.item(i).cells;
                     //gets amount of cells of current row
@@ -152,13 +151,13 @@
                     datos = cellVal.split(',');
 
                 }
-                console.log("Total: "+datos);
-               
-                
-                document.getElementById("testing").value = datos+ " ";
+                console.log("Total: " + datos);
+
+
+                document.getElementById("testing").value = datos + " ";
                 $('#testing').text(datos);
             }
-            
+
         </script>
     </head>
     <body>
@@ -185,7 +184,8 @@
                     <input name="nit" id="nit" type="text">
                     <br><br>
 
-                    <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
+                    <button type="button" class="btn btn-primary mr-2" onclick="agregarFila();
+                            totalOrden()">Agregar</button>
                     <input type="text" id="nofila" hidden="true" value="1">
 
                     <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option>
@@ -203,7 +203,8 @@
                     <input type="text" id="precio" value="0.00" disabled="true">
                     <input type="number" id="cantidad" style="width: 60px; height: 26px">
                     <input type="text" id="totalQ" value="0.00" disabled="true">
-                    <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila();totalOrden();enviar()">Eliminar Ultima Fila</button>
+                    <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila();
+                            totalOrden();enviar()">Eliminar Ultima Fila</button>
                     <br><br>
                     <div class="row">
 
@@ -228,7 +229,7 @@
                             </tbody>
                         </table>
                         <!-- -------------------------------------------------- -->
-                        
+
                         <input hidden="true" name="mesa" value="<%=mesas%>">
                         <input hidden="true" name="areas" value="<%=areas%>">
                         <input hidden="true" name="no" id="no" value=" ">

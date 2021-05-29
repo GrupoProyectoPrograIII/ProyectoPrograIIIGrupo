@@ -87,9 +87,9 @@ public class controllerPedido extends HttpServlet {
                 break;
             case "editarSM":
                 despacho = new Despacho();
-                despacho.setId_despacho(Integer.parseInt(request.getParameter("")));
+                despacho.setId_despacho(Integer.parseInt(request.getParameter("pedido")));
                 despacho.setPedido(Integer.parseInt(request.getParameter("")));
-                despacho.setDescripcion(request.getParameter(""));
+                //despacho.setDescripcion(request.par ameter("Asrea"));
                 despacho.setMesa(mesas);
                 despacho.setArea(areas);
                 

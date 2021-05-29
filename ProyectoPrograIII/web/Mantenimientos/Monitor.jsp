@@ -19,52 +19,13 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
+                
                 // Create an input element for Nombre
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Anombre");
                 name.setAttribute("placeholder", "Nombre");
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aapellido");
-                apellido.setAttribute("placeholder", "Apellido");
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Auser");
-                users.setAttribute("placeholder", "Usuario");
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Apassword");
-                password.setAttribute("placeholder", "Password");
-                // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Arole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
+                
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -72,7 +33,7 @@
                 s.setAttribute("value", "agregarMon");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, name);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -124,48 +85,7 @@
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Enombre");
                 name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Eapellido");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Euser");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Epassword");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Erole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
-
+                
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -173,7 +93,7 @@
                 s.setAttribute("value", "editarMon");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, name);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -226,35 +146,7 @@
                 name.setAttribute("name", "Dnombre");
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "DApellido");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Duser");
-                users.setAttribute("disabled", "disabled");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Dpassword");
-                password.setAttribute("disabled", "disabled");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("input");
-                role.setAttribute("name", "Drole");
-                role.setAttribute("disabled", "disabled");
-                role.setAttribute("value", datos[6]);
-                // Create an input element for Activo
-                var active = document.createElement("input");
-                active.setAttribute("type", "text");
-                active.setAttribute("name", "Dactivo");
-                active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[7]);
+                
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -262,7 +154,7 @@
                 s.setAttribute("value", "eliminarMon");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, name);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
