@@ -2,6 +2,7 @@ package controladores;
 
 import dao.DaoArea;
 import dao.DaoCliente;
+import dao.DaoDespacho;
 import dao.DaoMesa;
 import dao.DaoProductoCombo;
 import dao.DaoUsuario;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.Area;
 import modelos.Cliente;
+import modelos.Despacho;
 import modelos.Mesa;
 import modelos.ProductoCombo;
 import modelos.Usuario;
@@ -36,19 +38,24 @@ public class controllerPedido extends HttpServlet {
         String listar = "Pedidos/";
         String acceso = "";
         String action = request.getParameter("accion");
-
+        String mesas = request.getParameter("mesa");
+        String areas = request.getParameter("areas");
+        
         DaoUsuario daoUsuario = new DaoUsuario();
         DaoArea daoArea = new DaoArea();
         DaoMesa daoMesa = new DaoMesa();
         DaoCliente daoCliente = new DaoCliente();
         DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
-
+        DaoDespacho daoDespacho = new DaoDespacho();
+        
         Usuario user = new Usuario();
         Area area = new Area();
         Mesa mesa = new Mesa();
         Cliente cliente = new Cliente();
         ProductoCombo productoCombo = new ProductoCombo();
-
+        Despacho despacho = new Despacho();
+        
+        List<Despacho> lstDesp = daoDespacho.listar();
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
@@ -79,9 +86,19 @@ public class controllerPedido extends HttpServlet {
                 acceso = listar + "AnularPedido.jsp";
                 break;
             case "editarSM":
-                //daoMesa.modificar(mesa);
+                despacho = new Despacho();
+                despacho.setId_despacho(Integer.parseInt(request.getParameter("")));
+                despacho.setPedido(Integer.parseInt(request.getParameter("")));
+                despacho.setDescripcion(request.getParameter(""));
+                despacho.setMesa(mesas);
+                despacho.setArea(areas);
                 
-                acceso = listar + "SeleccionarMesa.jsp";
+                lstArea = daoArea.listar();
+                lstMesa = daoMesa.listar();
+                request.setAttribute("lstArea", lstArea);
+                request.setAttribute("lstMesa", lstMesa);
+                //request.setAttribute("datos", datos);
+                acceso = "Procesos/Monitores.jsp";
                 break;
             case "editarEM":
                 acceso = listar + "ElegirMonitor.jsp";
@@ -104,8 +121,8 @@ public class controllerPedido extends HttpServlet {
                 //lstMesa = daoMesa.listar();
                 request.setAttribute("lstCliente", lstCliente);
                 request.setAttribute("lstProductoCombo", lstProductoCombo);
-                request.setAttribute("mesa", request.getParameter("mesa"));
-                request.setAttribute("area", request.getParameter("area"));
+                request.setAttribute("mesa", mesas);
+                request.setAttribute("area", areas);
                 //request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "IngresoPedido.jsp";
                 break;

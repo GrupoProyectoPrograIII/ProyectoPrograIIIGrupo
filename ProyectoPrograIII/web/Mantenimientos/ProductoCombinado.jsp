@@ -43,7 +43,7 @@
                 option3.setAttribute("value", "2");
                 option3.innerHTML = ("Cena");
                 var option4 = document.createElement("option");
-                option4.setAttribute("value", "0");
+                option4.setAttribute("value", "3");
                 option4.innerHTML = ("Refaccion");
                 tc.appendChild(option);
                 tc.appendChild(option1);

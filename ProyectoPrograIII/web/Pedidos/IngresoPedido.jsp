@@ -10,6 +10,7 @@
         <title>Ingresar Pedido</title>
         <%
             List<Cliente> lstCliente = (List) request.getAttribute("lstCliente");
+            String mesas = request.getParameter("mesa"), areas = request.getParameter("area");
         %>
         <script>
             function agregarFila() {
@@ -129,11 +130,40 @@
                 }
             <%}%>
             }
+            
+            
+            function enviar(){
+                 //getsTable
+                var oTable = document.getElementById('tablaprueba');
+                //gets rows of table
+                var rowLength = oTable.rows.length;
+                //loops through rows    
+                for (var i = rowLength-2; i>=1; i--) {
+                    //gets cells of current row  
+                    var oCells = oTable.rows.item(i).cells;
+                    //gets amount of cells of current row
+                    var cellLength = oCells.length;
+                    //loops through each cell in current row
+                    for (var j = 0; j < 2; j++) {
+                        var cellVal = cellVal + "," + oCells.item(j).innerHTML;
+
+                        console.log(cellVal);
+                    }
+                    datos = cellVal.split(',');
+
+                }
+                console.log("Total: "+datos);
+               
+                
+                document.getElementById("testing").value = datos+ " ";
+                $('#testing').text(datos);
+            }
+            
         </script>
     </head>
     <body>
         <div class="container">            
-            <h1>Ingreso de nuevo Pedido en <%=request.getParameter("mesa")%> en <%=request.getParameter("area")%> </h1>
+            <h1>Ingreso de nuevo Pedido en <%=mesas%> en <%=areas%> </h1>
             <form id="form-work" name="form-work" action="controllerPedido" method="post">
                 <div class="form-group" >
 
@@ -173,7 +203,7 @@
                     <input type="text" id="precio" value="0.00" disabled="true">
                     <input type="number" id="cantidad" style="width: 60px; height: 26px">
                     <input type="text" id="totalQ" value="0.00" disabled="true">
-                    <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila();totalOrden()">Eliminar Ultima Fila</button>
+                    <button type="button" class="btn btn-danger mr-2" onclick="eliminarFila();totalOrden();enviar()">Eliminar Ultima Fila</button>
                     <br><br>
                     <div class="row">
 
@@ -197,9 +227,12 @@
                                 </tr>
                             </tbody>
                         </table>
-
                         <!-- -------------------------------------------------- -->
-
+                        
+                        <input hidden="true" name="mesa" value="<%=mesas%>">
+                        <input hidden="true" name="areas" value="<%=areas%>">
+                        <input hidden="true" name="no" id="no" value=" ">
+                        <input hidden="true" name="combo" id="combo" value=" ">
                         <div class="col-md-3">
                             <button id="accion" name="accion" value="editarSM" class="btn btn-success btn-lg" type="submit">Aceptar</button>                    
                         </div>

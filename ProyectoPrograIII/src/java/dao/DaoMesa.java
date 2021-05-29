@@ -122,7 +122,18 @@ public class DaoMesa implements crudMesa{
             System.out.println(e);
         }
     }
-
+    public boolean ocupacion(String mesa, int estado){
+        sql = "UPDATE MESA SET DESCRIPCION='"+mesa+"', ID_ESTADO="+estado+" WHERE DESCRIPCION='"+ mesa +"'";
+        System.out.println(sql);
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resp;
+    }
     @Override
     public List busqueda(String parametro, String opcion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
