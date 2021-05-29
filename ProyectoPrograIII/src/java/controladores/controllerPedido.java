@@ -95,11 +95,10 @@ public class controllerPedido extends HttpServlet {
                 break;
             case "nuevoPedido":
                 lstCliente = daoCliente.listar();
-                lstArea = daoArea.listar();
                 //lstMesa = daoMesa.listar();
-                request.setAttribute("lstArea", lstArea);
                 request.setAttribute("lstCliente", lstCliente);
                 request.setAttribute("mesa", request.getParameter("mesa"));
+                request.setAttribute("area", request.getParameter("area"));
                 //request.setAttribute("lstMesa", lstMesa);
                 acceso = listar + "IngresoPedido.jsp";
                 break;

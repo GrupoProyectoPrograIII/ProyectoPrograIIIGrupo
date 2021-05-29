@@ -80,7 +80,7 @@
                 s.setAttribute("value", "agregarM");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, area, mesa,asiento,active);
+                form.append(newlabel, mesa,area,asiento,active);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]

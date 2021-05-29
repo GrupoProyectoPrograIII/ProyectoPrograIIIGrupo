@@ -78,7 +78,6 @@ public class DaoMesa implements crudMesa{
                 + "VALUES((SELECT ISNULL(MAX(ID_MESA),0)+ 1 FROM MESA),"
                 + " "+ mesa.getIdArea() +","
                 + "'"+ mesa.getMesa() +"',"
-                + "'"+ mesa.getArea() +"',"
                 + " "+ mesa.getAsientos() +","
                 + " "+ mesa.getIdEstado() +")";
         try {

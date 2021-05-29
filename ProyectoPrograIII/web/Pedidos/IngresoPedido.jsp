@@ -133,7 +133,7 @@
     </head>
     <body>
         <div class="container">            
-            <h1>Ingreso de nuevo Pedido en <%=request.getParameter("mesa")%> </h1>
+            <h1>Ingreso de nuevo Pedido en <%=request.getParameter("mesa")%> en <%=request.getParameter("area")%> </h1>
             <form id="form-work" name="form-work" action="controllerPedido" method="post">
                 <div class="form-group" >
 

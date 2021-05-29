@@ -22,26 +22,49 @@
         List<Area> lstArea = (List) (request.getAttribute("lstArea"));
         List<Mesa> lstMesa = (List) (request.getAttribute("lstMesa"));
     %>
-    
+
     <body>
-        
+
         <div class="container" id="disponible">
-            
+
             <div class="tab">
                 <%
-                for(Area area: lstArea){
-            %>
+                    int iter = 0;
+                    for (Area area : lstArea) {
+                %>
                 <button class="tablinks" onclick="openArea(event, '<%=area.getNombre()%>')"><%=area.getNombre()%></button>
-            <%}%>
+                <%}%>
             </div>
-            <% int iter=0;
-                for(Mesa mesa: lstMesa){%>
-            <div id="<%=mesa.getArea()%>" class="tabcontent">
+            <%for (Area area : lstArea) {%>
+            <div id="<%=area.getNombre()%>" class="tabcontent">
+
                 <ul>
-                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>" method="post"><button type="submit" id="mesa<%=iter%>"> </button></form>
-                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="mesa<%=iter%>"><%=mesa.getMesa()%></label></a></li>
-                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:red;" onclick="ocupado()">Mesa1</label></a></li>
-                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:purple;" onclick="limpieza()">Mesa1</label></a></li>
+                    <%for (Mesa mesa : lstMesa) {
+                        if(mesa.getIdArea()== area.getIdArea()){
+                    %>
+
+                    
+                    <%
+                        if (mesa.getIdEstado() == 1) {
+                    %>
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>&area=<%=area.getNombre()%>" method="post"><button type="submit" id="<%=mesa.getMesa()%>"> </button></form>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="<%=mesa.getMesa()%>"><%=mesa.getMesa()%></label></a></li>
+                            <%
+                                }
+                                if (mesa.getIdEstado() == 0) {
+                            %>
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:red;" onclick="ocupado()" ><%=mesa.getMesa()%></label></a></li>
+                            <%
+                                }
+                                if (mesa.getIdEstado() == 2) {
+                            %>
+
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label style="color:purple;" onclick="limpieza()" ><%=mesa.getMesa()%></label></a></li>
+                            <%
+                                }
+                            %>
+                            <%} }%>
+
                 </ul>
             </div>
             <%}%>
@@ -62,25 +85,25 @@
             </script>
         </div>
         <script type="text/javascript">
-            function ocupado(){
-            swal.fire({
-                title: "¡Mesa Ocupado!",
-                text: "Escojan otra mesa,que la mesa seleccionada lo estan ocupando",
-                icon: 'error', //warning,info,question,error,success
-                confirmButtonText: "Aceptar",
-                footer: "¡Cualquier error hacerlo saber al gerente!"
-            });
-        }
-        function limpieza(){
-            swal.fire({
-                title: "¡Mesa seleccionada esta en Limpieza!",
-                text: "Escojan otra mesa, la mesa seleccionada esta en proceso de limpieza",
-                icon: 'info', //warning,info,question,error,success
-                confirmButtonText: "Aceptar",
-                footer: "¡Cualquier error hacerlo saber al gerente!"
-            });
-        }
-        
+            function ocupado() {
+                swal.fire({
+                    title: "¡Mesa Ocupado!",
+                    text: "Escojan otra mesa,que la mesa seleccionada lo estan ocupando",
+                    icon: 'error', //warning,info,question,error,success
+                    confirmButtonText: "Aceptar",
+                    footer: "¡Cualquier error hacerlo saber al gerente!"
+                });
+            }
+            function limpieza() {
+                swal.fire({
+                    title: "¡Mesa seleccionada esta en Limpieza!",
+                    text: "Escojan otra mesa, la mesa seleccionada esta en proceso de limpieza",
+                    icon: 'info', //warning,info,question,error,success
+                    confirmButtonText: "Aceptar",
+                    footer: "¡Cualquier error hacerlo saber al gerente!"
+                });
+            }
+
         </script>
     </body>
     <style>
