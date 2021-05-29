@@ -73,7 +73,15 @@ public class DaoDespacho implements crudDespacho{
 
     @Override
     public boolean eliminar(Despacho despacho) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "DELETE FROM DESPACHO WHERE ID_DESPACHO=" + despacho.getId_despacho();
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
     }
 
     @Override
