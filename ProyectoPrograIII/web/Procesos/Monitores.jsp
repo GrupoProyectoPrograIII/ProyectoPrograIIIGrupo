@@ -36,18 +36,23 @@
                         while (iteMon.hasNext()) {
                             mon = iteMon.next();
                             System.out.println(mon.getIdMonitor());
-                            if (mon.getIdMonitor() == 1) {
-                                //break;
+                            if (ver_cod != mon.getIdMonitor()) {
                     %>
                     <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
-                    <% } else if (ver_cod == mon.getIdMonitor()) {
-                    %>
-                    <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
-                    <%
-                            }
+                    <table border="1" width="1" cellspacing="1" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No Pedido</th>
+                                <th class="text-center">Descripcion</th>
+                                <th class="text-center">Area</th>
+                                <th class="text-center">Mesa</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <% }
                         }
-
                     %>
+
 
                 </div>           
             </div>
