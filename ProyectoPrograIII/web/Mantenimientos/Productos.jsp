@@ -23,23 +23,32 @@
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
                 name.setAttribute("name", "Anombre");
-                name.setAttribute("placeholder", "Nombre");
+                name.setAttribute("placeholder", "Descripcion");
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aapellido");
-                apellido.setAttribute("placeholder", "Apellido");
+                apellido.setAttribute("name", "Aprecio");
+                apellido.setAttribute("placeholder", "Precio");
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Auser");
-                users.setAttribute("placeholder", "Usuario");
+                users.setAttribute("name", "Aunidad");
+                users.setAttribute("placeholder", "Unidad");
                 // Create an input element for Password
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Apassword");
-                password.setAttribute("placeholder", "Password");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "AidProveedor");
+                password.setAttribute("placeholder", "idProveedor");
                 // Create an input element for Rol
+                 var password = document.createElement("input");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Astock");
+                password.setAttribute("placeholder", "Stock");
+                
+                 var password = document.createElement("input");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "AidTipo");
+                password.setAttribute("placeholder", "idTipo");
                
                 // Create an input element for Activo
                 var active = document.createElement("select");
@@ -109,7 +118,7 @@
                 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eiduser");
+                id.setAttribute("name", "Eidproducto");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
@@ -119,20 +128,29 @@
                 name.setAttribute("Value", datos[2]);
                 // Create an input element for Apellido
                 var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Eapellido");
+                apellido.setAttribute("name", "Eprecio");
                 apellido.setAttribute("type", "text");
                 apellido.setAttribute("Value", datos[3]);
                 // Create an input element for Usuario
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Euser");
+                users.setAttribute("name", "Eunidad");
                 users.setAttribute("Value", datos[4]);
                 // Create an input element for Password
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Epassword");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "EidProveedor");
                 password.setAttribute("Value", datos[5]);
                 // Create an input element for Rol
+                var password = document.createElement("input");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Estock");
+                password.setAttribute("Value", datos[5]);
+                
+                var password = document.createElement("input");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "EidTipo");
+                password.setAttribute("Value", datos[5]);
                 
                 // Create an input element for Activo
                 var active = document.createElement("select");
@@ -203,7 +221,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Diduser");
+                id.setAttribute("name", "Didproducto");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre

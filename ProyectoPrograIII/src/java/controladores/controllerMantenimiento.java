@@ -275,26 +275,66 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
 
             case "agregarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                producto = new Producto();
+                producto.setNombre(request.getParameter("Anombre"));
+                producto.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
+                producto.setUnidad(request.getParameter("Aunidad"));
+                producto.setIdProveedor(Integer.parseInt(request.getParameter("AidProveedor")));
+                producto.setStock(Integer.parseInt(request.getParameter("Astock")));
+                producto.setIdTipoProducto(Integer.parseInt(request.getParameter("AidTipo")));
+                
+                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getStock()) ){
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoProducto.insertar(producto)) {
+                        request.setAttribute("guardar", 1);
+                    } else {
+                        request.setAttribute("guardar", 0);
+                    }
+                }
+                
+                lstProducto = daoProducto.listar();                
+                request.setAttribute("producto", lstProducto);               
                 acceso = listar + "Productos.jsp";
                 break;
 
             case "editarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                producto = new Producto();
+                producto.setIdProducto(Integer.parseInt(request.getParameter("Eidproducto")));
+                producto.setNombre(request.getParameter("Enombre"));
+                producto.setPrecio(Float.parseFloat(request.getParameter("Eprecio")));
+                producto.setUnidad(request.getParameter("Eunidad"));
+                producto.setIdProveedor(Integer.parseInt("EidProveedor"));
+                producto.setStock(Integer.parseInt(request.getParameter("Estock")));
+                producto.setIdTipoProducto(Integer.parseInt(request.getParameter("EidTipo")));
+                
+                if ("".equals(producto.getNombre()) || "".equals(producto.getPrecio()) || "".equals(producto.getUnidad()) || "".equals(producto.getStock())) {
+                    request.setAttribute("vacio", 1);
+                } else {
+                    if (daoProducto.modificar(producto)) {
+                        request.setAttribute("modificar", 1);
+                    } else {
+                        request.setAttribute("modificar", 0);
+                    }
+                }
+                
+                lstProducto = daoProducto.listar();                
+                request.setAttribute("producto", lstProducto);                
                 acceso = listar + "Productos.jsp";
                 break;
 
             case "eliminarProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                producto = new Producto();
+                producto.setIdProducto(Integer.parseInt(request.getParameter("Didproducto")));
+                
+                if (daoProducto.eliminar(producto)) {
+                    request.setAttribute("eliminar", 1);
+                } else {
+                    request.setAttribute("eliminar", 0);
+                }
+                
+                lstProducto = daoProducto.listar();                
+                request.setAttribute("producto", lstProducto);                
                 acceso = listar + "Productos.jsp";
                 break;
 
