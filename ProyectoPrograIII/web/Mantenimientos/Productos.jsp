@@ -269,7 +269,7 @@
                         <th class="text-center">Proveedor</th>
                         <th class="text-center">Stock</th>
                         <th class="text-center">Tipo</th>
-                        <th class="text-center">Activo</th>                           
+                        <!--<th class="text-center">Activo</th>-->                           
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
