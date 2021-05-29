@@ -19,54 +19,36 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Anombre");
-                name.setAttribute("placeholder", "Descripcion");
+                // Create an input element for Descripcion
+                var descripcion = document.createElement("input");
+                descripcion.setAttribute("type", "text");
+                descripcion.setAttribute("name", "Anombre");
+                descripcion.setAttribute("placeholder", "Descripcion");
                 // Create an input element for Precio
                 var precio = document.createElement("input");
                 precio.setAttribute("type", "text");
                 precio.setAttribute("name", "Aprecio");
                 precio.setAttribute("placeholder", "Precio");
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Aunidad");
-                users.setAttribute("placeholder", "Unidad");
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "AidProveedor");
-                password.setAttribute("placeholder", "idProveedor");
-                // Create an input element for Rol
-                 var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Astock");
-                password.setAttribute("placeholder", "Stock");
-                
-                 var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "AidTipo");
-                password.setAttribute("placeholder", "idTipo");
-               
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
+                // Create an input element for Unidad
+                var unidad = document.createElement("input");
+                unidad.setAttribute("type", "text");
+                unidad.setAttribute("name", "Aunidad");
+                unidad.setAttribute("placeholder", "Unidad");
+                // Create an input element for id Proveedor
+                var idProveedor = document.createElement("input");
+                idProveedor.setAttribute("type", "text");
+                idProveedor.setAttribute("name", "AidProveedor");
+                idProveedor.setAttribute("placeholder", "idProveedor");
+                // Create an input element for Stock
+                var stock = document.createElement("input");
+                stock.setAttribute("type", "text");
+                stock.setAttribute("name", "Astock");
+                stock.setAttribute("placeholder", "Stock");
+                // Create an input element for id Tipo Producto
+                 var idTipo = document.createElement("input");
+                idTipo.setAttribute("type", "text");
+                idTipo.setAttribute("name", "AidTipo");
+                idTipo.setAttribute("placeholder", "idTipo");                
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -74,7 +56,7 @@
                 s.setAttribute("value", "agregarPro");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, precio, users, password, role, active);
+                form.append(newlabel, descripcion, precio, unidad, idProveedor, stock, idTipo);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -121,55 +103,36 @@
                 id.setAttribute("name", "Eidproducto");
                 id.setAttribute("value", datos[1]);
 
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Eprecio");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Eunidad");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "EidProveedor");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Estock");
-                password.setAttribute("Value", datos[5]);
-                
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "EidTipo");
-                password.setAttribute("Value", datos[5]);
-                
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
-
+                // Create an input element for Descripcion
+                var descripcion = document.createElement("input");
+                descripcion.setAttribute("type", "text");
+                descripcion.setAttribute("name", "Enombre");
+                descripcion.setAttribute("Value", datos[2]);
+                // Create an input element for Precio
+                var precio = document.createElement("input");
+                precio.setAttribute("name", "Eprecio");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("Value", datos[3]);
+                // Create an input element for Unidad
+                var unidad = document.createElement("input");
+                unidad.setAttribute("type", "text");
+                unidad.setAttribute("name", "Eunidad");
+                unidad.setAttribute("Value", datos[4]);
+                // Create an input element for id Proveedor
+                var idProveedor = document.createElement("input");
+                idProveedor.setAttribute("type", "text");
+                idProveedor.setAttribute("name", "EidProveedor");
+                idProveedor.setAttribute("Value", datos[5]);
+                // Create an input element for Stock
+                var stock = document.createElement("input");
+                stock.setAttribute("type", "text");
+                stock.setAttribute("name", "Estock");
+                stock.setAttribute("Value", datos[5]);
+                // Create an input element for id Tipo
+                var idTipo = document.createElement("input");
+                idTipo.setAttribute("type", "text");
+                idTipo.setAttribute("name", "EidTipo");
+                idTipo.setAttribute("Value", datos[5]);                
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -177,7 +140,7 @@
                 s.setAttribute("value", "editarTP");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, descripcion, precio, unidad, idProveedor, stock, idTipo);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -224,41 +187,40 @@
                 id.setAttribute("name", "Didproducto");
                 id.setAttribute("value", datos[1]);
 
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Dnombre");
-                name.setAttribute("disabled", "disabled");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "DApellido");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Duser");
-                users.setAttribute("disabled", "disabled");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Dpassword");
-                password.setAttribute("disabled", "disabled");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("input");
-                role.setAttribute("name", "Drole");
-                role.setAttribute("disabled", "disabled");
-                role.setAttribute("value", datos[6]);
-                // Create an input element for Activo
-                var active = document.createElement("input");
-                active.setAttribute("type", "text");
-                active.setAttribute("name", "Dactivo");
-                active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[7]);
+                // Create an input element for Descripcion
+                var descripcion = document.createElement("input");
+                descripcion.setAttribute("type", "text");
+                descripcion.setAttribute("name", "Dnombre");
+                descripcion.setAttribute("disabled", "disabled");
+                descripcion.setAttribute("Value", datos[2]);
+                // Create an input element for Precio
+                var precio = document.createElement("input");
+                precio.setAttribute("name", "Dprecio");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("disabled", "disabled");
+                precio.setAttribute("Value", datos[3]);
+                // Create an input element for Unidad
+                var unidad = document.createElement("input");
+                unidad.setAttribute("type", "text");
+                unidad.setAttribute("name", "Dunidad");
+                unidad.setAttribute("disabled", "disabled");
+                unidad.setAttribute("Value", datos[4]);
+                // Create an input element for id Proveedor
+                var idProveedor = document.createElement("input");
+                idProveedor.setAttribute("type", "text");
+                idProveedor.setAttribute("name", "DidProveedor");
+                idProveedor.setAttribute("disabled", "disabled");
+                idProveedor.setAttribute("Value", datos[5]);
+                // Create an input element for Stock
+                var stock = document.createElement("input");
+                stock.setAttribute("name", "Dstock");
+                stock.setAttribute("disabled", "disabled");
+                stock.setAttribute("value", datos[6]);
+                // Create an input element for id Tipo
+                var idTipo = document.createElement("input");
+                idTipo.setAttribute("name", "DidTipo");
+                idTipo.setAttribute("disabled", "disabled");
+                idTipo.setAttribute("value", datos[6]);                
                 // Create a submit button
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
@@ -266,7 +228,7 @@
                 s.setAttribute("value", "eliminarTP");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, descripcion, precio, unidad, idProveedor, stock, idTipo);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
