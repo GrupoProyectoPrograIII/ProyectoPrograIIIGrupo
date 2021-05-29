@@ -40,24 +40,7 @@
                 password.setAttribute("name", "Apassword");
                 password.setAttribute("placeholder", "Password");
                 // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Arole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-            <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
-                List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
+               
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
@@ -150,24 +133,7 @@
                 password.setAttribute("name", "Epassword");
                 password.setAttribute("Value", datos[5]);
                 // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Erole");
-                role.setAttribute("placeholder", "Rol");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-            <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
-                lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
+                
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
