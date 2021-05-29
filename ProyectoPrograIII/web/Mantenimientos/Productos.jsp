@@ -1,3 +1,4 @@
+<%@page import="modelos.Producto"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
@@ -8,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Productos</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -295,34 +296,32 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
+                        <th class="text-center">Id Producto</th>
+                        <th class="text-center">Descripcion</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">Unidad</th>
+                        <th class="text-center">Proveedor</th>
+                        <th class="text-center">Stock</th>
+                        <th class="text-center">Tipo</th>
+                        <th class="text-center">Activo</th>                           
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
-                        for (Usuario user : lstUsuario) {
+                        List<Producto> lstProducto = (List<Producto>) request.getAttribute("producto");
+                        for (Producto producto : lstProducto) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
+                        <td class="text-center"><%=producto.getIdProducto() %></td>
+                        <td class="text-center"><%=producto.getNombre()%></td>
+                        <td class="text-center"><%=producto.getPrecio()%></td>
+                        <td class="text-center"><%=producto.getUnidad()%></td>
+                        <td class="text-center"><%=producto.getIdProveedor()%></td>
+                        <td class="text-center"><%=producto.getStock()%></td>
+                        <td class="text-center"><%=producto.getIdTipoProducto()%></td>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>

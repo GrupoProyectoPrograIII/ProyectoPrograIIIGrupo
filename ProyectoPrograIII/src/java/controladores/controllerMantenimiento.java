@@ -8,6 +8,7 @@ import dao.DaoModulo;
 import dao.DaoMonitor;
 import dao.DaoPedido;
 import dao.DaoPermiso;
+import dao.DaoProducto;
 import dao.DaoProductoCombo;
 import dao.DaoProveedor;
 import dao.DaoRol;
@@ -64,6 +65,7 @@ public class controllerMantenimiento extends HttpServlet {
         DaoPedido daoPedido = new DaoPedido();
         DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
         DaoProveedor daoProveedor = new DaoProveedor();
+        DaoProducto daoProducto = new DaoProducto();
         
 
         Usuario user = new Usuario();
@@ -92,6 +94,8 @@ public class controllerMantenimiento extends HttpServlet {
         List<Pedido> lstPedido = daoPedido.listar();
         List<ProductoCombo> lstProductoCombo = daoProductoCombo.listar();
         List<Proveedor> lstProveedor = daoProveedor.listar();
+        List<Producto> lstProducto = daoProducto.listar();
+        
         
 
         switch(action){
@@ -274,10 +278,8 @@ public class controllerMantenimiento extends HttpServlet {
         //------- CRUD PRODUCTO ---------------------------------
                 
             case "readProd":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                lstProducto = daoProducto.listar();                
+                request.setAttribute("producto", lstProducto);               
                 acceso = listar + "Productos.jsp";
                 break;
                 

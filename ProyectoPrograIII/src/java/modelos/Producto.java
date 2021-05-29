@@ -6,25 +6,25 @@ public class Producto {
     private double precio;
     private String unidad;
     private int idProveedor;
-    private String proveedor;
+    //private String proveedor;
     private int stock;
     private int idTipoProducto;
-    private String tipoProducto;
+   // private String tipoProducto;
 
     public Producto() {
     }
     
     
-    public Producto(int idProducto, String nombre, double precio, String unidad, int idProveedor, String proveedor, int stock, int idTipoProducto, String tipoProducto) {
+    public Producto(int idProducto, String nombre, double precio, String unidad, int idProveedor, int stock, int idTipoProducto) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.precio = precio;
         this.unidad = unidad;
         this.idProveedor = idProveedor;
-        this.proveedor = proveedor;
+        //this.proveedor = proveedor;
         this.stock = stock;
         this.idTipoProducto = idTipoProducto;
-        this.tipoProducto = tipoProducto;
+        //this.tipoProducto = tipoProducto;
     }
 
     public int getIdProducto() {
@@ -67,13 +67,7 @@ public class Producto {
         this.idProveedor = idProveedor;
     }
 
-    public String getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(String proveedor) {
-        this.proveedor = proveedor;
-    }
+   
 
     public int getStock() {
         return stock;
@@ -91,12 +85,6 @@ public class Producto {
         this.idTipoProducto = idTipoProducto;
     }
 
-    public String getTipoProducto() {
-        return tipoProducto;
-    }
-
-    public void setTipoProducto(String tipoProducto) {
-        this.tipoProducto = tipoProducto;
-    }
+    
     
 }
