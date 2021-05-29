@@ -38,7 +38,7 @@ public class DaoDespacho implements crudDespacho{
             while(rs.next()){
                 despacho.setId_despacho(rs.getInt("ID_DESPACHO"));
                 despacho.setPedido(rs.getInt("PEDIDO"));
-                despacho.setDescripcion(rs.getNString("DESCRIPCION"));
+                despacho.setDescripcion(rs.getString("DESCRIPCION"));
                 despacho.setArea(rs.getString("AREA"));
                 despacho.setMesa(rs.getString("MESA"));                
             }
