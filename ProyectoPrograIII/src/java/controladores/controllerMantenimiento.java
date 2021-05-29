@@ -253,7 +253,7 @@ public class controllerMantenimiento extends HttpServlet {
                 productoCombo = new ProductoCombo();
                 productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Atc")));
                 productoCombo.setNombre(request.getParameter("Adesc1")+request.getParameter("Adesc2"));
-                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
+                productoCombo.setPrecio(Double.parseDouble(request.getParameter("Aprecio")));
                 productoCombo.setEstado(Integer.parseInt(request.getParameter("Aestado")));
                 daoProductoCombo.insertar(productoCombo);
                 
@@ -266,12 +266,12 @@ public class controllerMantenimiento extends HttpServlet {
                 
             case "editarPC":
                 productoCombo = new ProductoCombo();
-                productoCombo.setIdCombo(Integer.parseInt(request.getParameter("Aidpc")));
-                productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Atc")));
-                productoCombo.setNombre(request.getParameter("Adesc1")+request.getParameter("Adesc2"));
-                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
-                productoCombo.setEstado(Integer.parseInt(request.getParameter("Aestado")));
-                daoProductoCombo.insertar(productoCombo);
+                productoCombo.setIdCombo(Integer.parseInt(request.getParameter("Eidpc")));
+                productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Etc")));
+                productoCombo.setNombre(request.getParameter("Edesc1")+"+"+request.getParameter("Edesc2"));
+                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Eprecio")));
+                productoCombo.setEstado(Integer.parseInt(request.getParameter("Eestado")));
+                daoProductoCombo.modificar(productoCombo);
                 
                 lstProducto = daoProducto.listar();
                 lstProductoCombo = daoProductoCombo.listar();                
@@ -281,10 +281,14 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
                 
             case "eliminarPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                productoCombo = new ProductoCombo();
+                productoCombo.setIdCombo(Integer.parseInt(request.getParameter("Didpc")));
+                daoProductoCombo.eliminar(productoCombo);
+                
+                lstProducto = daoProducto.listar();
+                lstProductoCombo = daoProductoCombo.listar();                
+                request.setAttribute("lstProductoCombo", lstProductoCombo);                
+                request.setAttribute("lstProducto", lstProducto);                
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
                 

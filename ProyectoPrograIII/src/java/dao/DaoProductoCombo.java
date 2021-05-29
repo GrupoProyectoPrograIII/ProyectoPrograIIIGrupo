@@ -71,7 +71,7 @@ public class DaoProductoCombo implements crudProductoCombo{
     public boolean insertar(ProductoCombo productoCombo) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO PRODUCTO_COMBO(ID_COMBO,ID_TIPO_COMBO,DESCRIPCION,PRECIO,ESTADO)"
-                + "  VALUES((SELECT ISNULL(MAX(ID_PRODUCTO_COMBO),0)+ 1 FROM PRODUCTO_COMBO),"
+                + "  VALUES((SELECT ISNULL(MAX(ID_COMBO),0)+ 1 FROM PRODUCTO_COMBO),"
                 + " "+ productoCombo.getIdTipoCombo() +","
                 + " '"+ productoCombo.getNombre() +"',"
                 + " '"+ productoCombo.getPrecio() +"',"
@@ -92,7 +92,8 @@ public class DaoProductoCombo implements crudProductoCombo{
         sql = "UPDATE PRODUCTO_COMBO SET ID_COMBO="+ productoCombo.getIdCombo() +", "
                 + "ID_TIPO_COMBO="+ productoCombo.getIdTipoCombo() +", "
                 + "DESCRIPCION='"+ productoCombo.getNombre() +"', "
-                + "PRECIO="+ productoCombo.getPrecio() +" "
+                + "PRECIO="+ productoCombo.getPrecio() +", "
+                + "ESTADO="+ productoCombo.getEstado() +" "
                 + "WHERE ID_COMBO="+ productoCombo.getIdCombo() +"";
         System.out.println(sql);
         try {

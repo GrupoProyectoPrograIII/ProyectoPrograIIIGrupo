@@ -28,7 +28,7 @@
                 
                 // Create an input element for Tipo Combo
                 var tc = document.createElement("select");
-                tc.setAttribute("name", "Eestado");
+                tc.setAttribute("name", "Atc");
                 tc.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
@@ -66,7 +66,7 @@
                     for(Producto producto:lstProducto){
                 %>
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.setAttribute("value", "<%=producto.getNombre() %>");
                 option1.innerHTML = ("<%=producto.getNombre()%>");
                 desc1.appendChild(option1);
                 <%}%>
@@ -168,7 +168,7 @@
 
                 // Create an input element for Tipo Combo
                 var tc = document.createElement("select");
-                tc.setAttribute("name", "Eestado");
+                tc.setAttribute("name", "Etc");
                 tc.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
@@ -205,7 +205,7 @@
                     for(Producto producto:lstProducto){
                 %>
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.setAttribute("value", "<%=producto.getNombre() %>");
                 option1.innerHTML = ("<%=producto.getNombre()%>");
                 desc1.appendChild(option1);
                 <%}%>
@@ -222,7 +222,7 @@
                     for(Producto producto:lstProducto){
                 %>
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.setAttribute("value", "<%=producto.getNombre() %>");
                 option1.innerHTML = ("<%=producto.getNombre()%>");
                 desc2.appendChild(option1);
                 <%}%>
@@ -306,29 +306,29 @@
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Tipo Combo
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Dtc");
-                name.setAttribute("disabled", "disabled");
-                name.setAttribute("Value", datos[2]);
+                var tc = document.createElement("input");
+                tc.setAttribute("type", "text");
+                tc.setAttribute("name", "Dtc");
+                tc.setAttribute("disabled", "disabled");
+                tc.setAttribute("Value", datos[2]);
                 // Create an input element for Descripcion
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Ddescripcion");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("disabled", "disabled");
-                apellido.setAttribute("Value", datos[3]);
+                var des = document.createElement("input");
+                des.setAttribute("name", "Ddescripcion");
+                des.setAttribute("type", "text");
+                des.setAttribute("disabled", "disabled");
+                des.setAttribute("Value", datos[3]);
                 // Create an input element for Precio
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Dprecio");
-                users.setAttribute("disabled", "disabled");
-                users.setAttribute("Value", datos[4]);
+                var precio = document.createElement("input");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("name", "Dprecio");
+                precio.setAttribute("disabled", "disabled");
+                precio.setAttribute("Value", datos[4]);
                 // Create an input element for Estado
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Destado");
-                password.setAttribute("disabled", "disabled");
-                password.setAttribute("Value", datos[5]);
+                var estado = document.createElement("input");
+                estado.setAttribute("type", "text");
+                estado.setAttribute("name", "Destado");
+                estado.setAttribute("disabled", "disabled");
+                estado.setAttribute("Value", datos[5]);
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -336,7 +336,7 @@
                 s.setAttribute("value", "eliminarPC");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password);
+                form.append(newlabel, id, tc, name, des, precio, estado);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -380,8 +380,11 @@
                         
                         <td class="text-center"><%=productoCombo.getNombre()%></td>
                         <td class="text-center"><%=productoCombo.getPrecio()%></td>  
-                        <td class="text-center"><%=productoCombo.getEstado()%></td>                
-                       
+                        <% if(productoCombo.getEstado()==1){ %>
+                        <td class="text-center">Disponible</td>
+                        <%}else if(productoCombo.getEstado()==0 ){%>
+                        <td class="text-center">Agotado</td>                
+                       <%}%>
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
                             <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
