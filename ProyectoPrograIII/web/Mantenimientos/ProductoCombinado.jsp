@@ -1,3 +1,4 @@
+<%@page import="modelos.Producto"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.ProductoCombo"%>
@@ -18,40 +19,90 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
+                
+                <%
+                    List<Producto> lstProducto = (List<Producto>)request.getAttribute("lstProducto");
+                    //List<TipoProducto> lstTipoProducto =(List<TipoProducto>)request.getAttribute("lstTipoCombo");
+                    
+                %>
+                
                 // Create an input element for Tipo Combo
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "AidTipo");
-                name.setAttribute("placeholder", "idTipoCombo");
-                // Create an input element for Descripcion(primer producto)
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Anombre");               
-                name.setAttribute("placeholder", "Nombre");
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aprecio");
-                apellido.setAttribute("placeholder", "Precio");
-                // Create an input element for Descripcion(Segundo Producto)
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Adescripcion2");
-                users.setAttribute("placeholder", "Usuario");
-                // Create an input element for precio
-                var password = document.createElement("input");
-                password.setAttribute("type", "text");
-                password.setAttribute("name", "Aprecio");
-                password.setAttribute("placeholder", "Password");
-                // Create an input element for Estado
-                var role = document.createElement("select");
-                role.setAttribute("name", "Estado");
-                role.setAttribute("placeholder", "Rol");
+                var tc = document.createElement("select");
+                tc.setAttribute("name", "Atc");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
+                option.innerHTML = ("Tipo Combo");
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "1");
+                option1.innerHTML = ("Disponible");
+                var option2 = document.createElement("option");
+                option2.setAttribute("value", "0");
+                option2.innerHTML = ("Agotado");
+                tc.appendChild(option);
+                tc.appendChild(option1);
+                tc.appendChild(option2);
+                
+                // Create an input element for Descripcion(primer producto)
+                
+                var desc1 = document.createElement("select");
+                desc1.setAttribute("name", "Adesc1");
+                desc1.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Descripcion 1");
+                desc1.appendChild(option);
+                <%
+                    for(Producto producto:lstProducto){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.innerHTML = ("<%=producto.getNombre()%>");
+                desc1.appendChild(option1);
+                <%}%>
+                
+                // Create an input element for Descripcion(Segundo Producto)
+                var desc2 = document.createElement("select");
+                desc2.setAttribute("name", "Adesc2");
+                desc2.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Descripcion 2");
+                desc2.appendChild(option);
+                <%
+                    for(Producto producto:lstProducto){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.innerHTML = ("<%=producto.getNombre()%>");
+                desc2.appendChild(option1);
+                <%}%>
+                // Create an input element for precio
+                var precio = document.createElement("input");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("name", "Aprecio");
+                precio.setAttribute("placeholder", "Precio");
+                
+                // Create an input element for Estado
+                var estado = document.createElement("select");
+                estado.setAttribute("name", "Aestado");
+                estado.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Estado");
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "1");
+                option1.innerHTML = ("Disponible");
+                var option2 = document.createElement("option");
+                option2.setAttribute("value", "0");
+                option2.innerHTML = ("Agotado");
+                estado.appendChild(option);
+                estado.appendChild(option1);
+                estado.appendChild(option2);
+                
                 // Create a submit button
                 var s = document.createElement("button");
                 s.setAttribute("type", "submit");
@@ -59,7 +110,7 @@
                 s.setAttribute("value", "agregarPC");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role);
+                form.append(newlabel, tc, name, desc1, desc2, precio, estado);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -103,64 +154,94 @@
                 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Eiduser");
+                id.setAttribute("name", "Eidpc");
                 id.setAttribute("value", datos[1]);
 
-                // Create an input element for Nombre
-                var name = document.createElement("input");
-                name.setAttribute("type", "text");
-                name.setAttribute("name", "Enombre");
-                name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
-                var apellido = document.createElement("input");
-                apellido.setAttribute("name", "Eapellido");
-                apellido.setAttribute("type", "text");
-                apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
-                var users = document.createElement("input");
-                users.setAttribute("type", "text");
-                users.setAttribute("name", "Euser");
-                users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
-                var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Epassword");
-                password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("select");
-                role.setAttribute("name", "Erole");
-                role.setAttribute("placeholder", "Rol");
+                // Create an input element for Tipo Combo
+                var tc = document.createElement("select");
+                tc.setAttribute("name", "Aestado");
+                tc.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                role.appendChild(option);
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Eactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
+                option.innerHTML = ("Tipo Combo");
                 var option1 = document.createElement("option");
                 option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
+                option1.innerHTML = ("Disponible");
                 var option2 = document.createElement("option");
                 option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
-
+                option2.innerHTML = ("Agotado");
+                tc.appendChild(option);
+                tc.appendChild(option1);
+                tc.appendChild(option2);
+                
+                // Create an input element for Descripcion(primer producto)
+                
+                var desc1 = document.createElement("select");
+                desc1.setAttribute("name", "Edesc1");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Descripcion 1");
+                desc1.appendChild(option);
+                <%
+                    for(Producto producto:lstProducto){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.innerHTML = ("<%=producto.getNombre()%>");
+                desc1.appendChild(option1);
+                <%}%>
+                
+                // Create an input element for Descripcion(Segundo Producto)
+                var desc2 = document.createElement("select");
+                desc2.setAttribute("name", "Edesc2");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Descripcion 2");
+                desc2.appendChild(option);
+                <%
+                    for(Producto producto:lstProducto){
+                %>
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.innerHTML = ("<%=producto.getNombre()%>");
+                desc2.appendChild(option1);
+                <%}%>
+                
+                // Create an input element for precio
+                var precio = document.createElement("input");
+                precio.setAttribute("type", "text");
+                precio.setAttribute("name", "Eprecio");
+                precio.setAttribute("value", datos[4]);
+                
+                // Create an input element for Estado
+                var estado = document.createElement("select");
+                estado.setAttribute("name", "Eestado");
+                estado.setAttribute("placeholder", "Activo");
+                var option = document.createElement("option");
+                option.setAttribute("disabled", "selected");
+                option.setAttribute("selected", "selected");
+                option.innerHTML = ("Estado");
+                var option1 = document.createElement("option");
+                option1.setAttribute("value", "1");
+                option1.innerHTML = ("Disponible");
+                var option2 = document.createElement("option");
+                option2.setAttribute("value", "0");
+                option2.innerHTML = ("Agotado");
+                estado.appendChild(option);
+                estado.appendChild(option1);
+                estado.appendChild(option2);
+                
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarPC");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, tc, name, desc1, desc2, precio, estado);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -204,52 +285,41 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Diduser");
+                id.setAttribute("name", "Didpc");
                 id.setAttribute("value", datos[1]);
 
-                // Create an input element for Nombre
+                // Create an input element for Tipo Combo
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Dnombre");
+                name.setAttribute("name", "Dtc");
                 name.setAttribute("disabled", "disabled");
                 name.setAttribute("Value", datos[2]);
-                // Create an input element for Apellido
+                // Create an input element for Descripcion
                 var apellido = document.createElement("input");
-                apellido.setAttribute("name", "DApellido");
+                apellido.setAttribute("name", "Ddescripcion");
                 apellido.setAttribute("type", "text");
                 apellido.setAttribute("disabled", "disabled");
                 apellido.setAttribute("Value", datos[3]);
-                // Create an input element for Usuario
+                // Create an input element for Precio
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Duser");
+                users.setAttribute("name", "Dprecio");
                 users.setAttribute("disabled", "disabled");
                 users.setAttribute("Value", datos[4]);
-                // Create an input element for Password
+                // Create an input element for Estado
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Dpassword");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Destado");
                 password.setAttribute("disabled", "disabled");
                 password.setAttribute("Value", datos[5]);
-                // Create an input element for Rol
-                var role = document.createElement("input");
-                role.setAttribute("name", "Drole");
-                role.setAttribute("disabled", "disabled");
-                role.setAttribute("value", datos[6]);
-                // Create an input element for Activo
-                var active = document.createElement("input");
-                active.setAttribute("type", "text");
-                active.setAttribute("name", "Dactivo");
-                active.setAttribute("disabled", "disabled");
-                active.setAttribute("Value", datos[7]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarPC");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, id, name, apellido, users, password, role, active);
+                form.append(newlabel, id, name, apellido, users, password);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -264,26 +334,36 @@
                 <thead>
                     <tr>
                         <th class="text-center">Id Combo</th>
-                        <th class="text-center">Id Tipo Combo</th>
+                        <th class="text-center">Tipo Combo</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Precio</th>
-                        <!--<th class="text-center">Estado</th>-->
+                        <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
-                        List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("productoCombo");
+                        List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("lstProductoCombo");
                         for (ProductoCombo productoCombo : lstProductoCombo) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=productoCombo.getIdCombo() %></td>
-                        <td class="text-center"><%=productoCombo.getTipoCombo()%></td>
+                        
+                        <td class="text-center"><%=productoCombo.getIdCombo()%></td>
+                        <% if (productoCombo.getIdTipoCombo() == 0) { %>
+                        <td class="text-center">Desayuno</td>
+                        <%} else if(productoCombo.getIdTipoCombo() == 1){%>
+                        <td class="text-center">Almuerzo</td>
+                        <%}else if(productoCombo.getIdTipoCombo() == 2){%>
+                        <td class="text-center">Cena</td>
+                        <%}else if(productoCombo.getIdTipoCombo() == 3){%>
+                        <td class="text-center">Refaccion</td>
+                        <%}%>
+                        
                         <td class="text-center"><%=productoCombo.getNombre()%></td>
                         <td class="text-center"><%=productoCombo.getPrecio()%></td>  
-                                       
+                        <td class="text-center"><%=productoCombo.getEstado()%></td>                
                        
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
