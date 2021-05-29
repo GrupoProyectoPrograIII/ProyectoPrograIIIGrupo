@@ -1,19 +1,22 @@
 package modelos;
 
 public class ProductoCombo {
+
     private int idCombo;
     private String tipoCombo;
     private String nombre;
     private double precio;
+    private int estado;
 
     public ProductoCombo() {
     }
 
-    public ProductoCombo(int idCombo, String tipoCombo, String nombre, double precio) {
+    public ProductoCombo(int idCombo, String tipoCombo, String nombre, double precio, int estado) {
         this.idCombo = idCombo;
         this.tipoCombo = tipoCombo;
         this.nombre = nombre;
         this.precio = precio;
+        this.estado = estado;
     }
 
     public int getIdCombo() {
@@ -47,5 +50,13 @@ public class ProductoCombo {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
 }

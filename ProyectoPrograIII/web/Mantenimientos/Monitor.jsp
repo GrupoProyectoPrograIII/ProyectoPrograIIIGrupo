@@ -48,16 +48,6 @@
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
-            <%
-                List<Monitor> lstMonitor = (List<Monitor>) request.getAttribute("monitor");
-                List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Aactivo");
@@ -158,16 +148,6 @@
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
-            <%
-                lstMonitor = (List<Monitor>) request.getAttribute("monitor");
-                lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
@@ -304,7 +284,7 @@
                 <tbody>
                     <%
                         int iter = 0;
-                        lstMonitor = (List<Monitor>) request.getAttribute("monitor");
+                        List<Monitor> lstMonitor = (List<Monitor>) request.getAttribute("monitor");
                         for (Monitor monitor : lstMonitor) {
                             iter++;
                     %>

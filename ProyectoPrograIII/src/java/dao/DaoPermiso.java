@@ -22,7 +22,7 @@ public class DaoPermiso implements crudPermiso{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         ArrayList<Permiso> lstPermiso = new ArrayList<>();
         try {
-            sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.PERMISO.ID_MODULO, dbo.MODULO.NOMBRE as 'MODULO', dbo.PERMISO.ID_ROL,dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL";
+            sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.PERMISO.ID_MODULO, dbo.MODULO.NOMBRE as 'MODULO', dbo.PERMISO.ID_ROL,dbo.ROL.NOMBRE as 'ROL' from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
@@ -47,7 +47,7 @@ public class DaoPermiso implements crudPermiso{
     @Override
     public Permiso list(int id) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.MODULO.NOMBRE as 'MODULO', dbo.ROL.NOMBRE as 'ROL', dbo.PERMISO.ACTIVO from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL WHERE ID_ROL=" + id;
+        sql = "SELECT dbo.PERMISO.ID_PERMISO,  dbo.MODULO.NOMBRE as 'MODULO', dbo.ROL.NOMBRE as 'ROL' from dbo.PERMISO join dbo.MODULO on dbo.PERMISO.ID_MODULO=dbo.MODULO.ID_MODULO join dbo.ROL on dbo.PERMISO.ID_ROL= dbo.ROL.ID_ROL WHERE ID_ROL=" + id;
         try {
             con.open();
             rs = con.executeQuery(sql);
@@ -69,7 +69,7 @@ public class DaoPermiso implements crudPermiso{
     @Override
     public boolean insertar(Permiso permiso) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "INSERT INTO PERMISO(ID_PERMISO,ID_MODULO,ID_ROL,ACTIVO) \n"
+        sql = "INSERT INTO PERMISO(ID_PERMISO,ID_MODULO,ID_ROL) \n"
                 + "  VALUES((SELECT ISNULL(MAX(ID_PERMISO),0)+ 1 FROM PERMISO),"
                 + "'"+ permiso.getIdModulo() +"',"
                 + "'"+ permiso.getIdRol() +"')";

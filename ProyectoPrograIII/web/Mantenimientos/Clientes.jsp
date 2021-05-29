@@ -14,7 +14,7 @@
             function agregarFila() {
                 var form = document.createElement("form");
                 form.setAttribute("class", "container");
-                form.setAttribute("method", "get");
+                form.setAttribute("method", "Post");
                 form.setAttribute("action", "controllerMantenimiento");
                 
                 var newlabel = document.createElement("h1");
@@ -132,7 +132,7 @@
                 s.setAttribute("value", "editarC");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
-                form.append(newlabel, name, nit, nick, direccion,telefono);
+                form.append(newlabel, id,name, nit, nick, direccion,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -216,7 +216,7 @@
                 s.setAttribute("value", "eliminarC");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
-                form.append(newlabel, name, nit, nick, direccion,telefono);
+                form.append(newlabel, id, name, nit, nick, direccion,telefono);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]

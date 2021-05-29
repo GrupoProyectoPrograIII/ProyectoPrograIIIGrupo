@@ -70,7 +70,7 @@ public class DaoRol implements crudRol{
     @Override
     public boolean insertar(Rol rol) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        sql = "INSERT INTO ROL (ID_ROL, NOMBRE, DESCRIPCION, ACTIVO) "
+        sql = "INSERT INTO ROL (ID_ROL, NOMBRE, DESCRIPCION) "
                 +"VALUES((SELECT ISNULL(MAX(ID_ROL),0) + 1 FROM ROL),'"+rol.getNombre()+"','"+rol.getDescripcion()+"')";
         try {
             con.open();

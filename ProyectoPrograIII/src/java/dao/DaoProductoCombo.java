@@ -32,6 +32,7 @@ public class DaoProductoCombo implements crudProductoCombo{
                 productoCombo.setTipoCombo(rs.getString("DESCRIPCION"));
                 productoCombo.setNombre(rs.getString("DESCRIPCION"));
                 productoCombo.setPrecio(rs.getFloat("PRECIO"));   
+                productoCombo.setEstado(rs.getInt("ESTADO"));   
                 lstProductoCombo.add(productoCombo);
             }
             rs.close();

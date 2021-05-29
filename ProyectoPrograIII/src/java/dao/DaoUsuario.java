@@ -77,7 +77,7 @@ public class DaoUsuario implements crudUsuario{
     public boolean insertar(Usuario user) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO USUARIO (ID_USUARIO, NOMBRE, APELLIDO, USUARIO, "
-                + "PASSW, ID_ROL,ACTIVO) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
+                + "PASSW, ID_ROL) VALUES((SELECT ISNULL(MAX(ID_USUARIO),0) +"
                 + " 1 FROM USUARIO),'" + user.getNombre() + "','" + user.getApellido() + "','"
                 + user.getUser() + "','" + user.getPass() + "'," + user.getIdRol() + ")";
         System.out.println(sql);
@@ -142,9 +142,10 @@ public class DaoUsuario implements crudUsuario{
     
     public Usuario validar(String usr, String pass) {
         Usuario user = new Usuario();
-        sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE AS 'NOMBRE', dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO, dbo.USUARIO.PASSW, dbo.USUARIO.ID_ROL, dbo.USUARIO.ACTIVO AS 'ACTIVO', dbo.ROL.NOMBRE AS 'ROL'\n"
+        sql = "SELECT dbo.USUARIO.ID_USUARIO, dbo.USUARIO.NOMBRE AS 'NOMBRE', dbo.USUARIO.APELLIDO, dbo.USUARIO.USUARIO, dbo.USUARIO.PASSW, dbo.USUARIO.ID_ROL, dbo.ROL.NOMBRE AS 'ROL'\n"
                 + "FROM dbo.USUARIO INNER JOIN\n"
                 + "dbo.ROL ON dbo.USUARIO.ID_ROL = dbo.ROL.ID_ROL WHERE USUARIO = '" + usr + "' AND PASSW = '" + pass + "'";
+        System.out.println(sql);
         try {
             con.open();
             rs = con.executeQuery(sql);

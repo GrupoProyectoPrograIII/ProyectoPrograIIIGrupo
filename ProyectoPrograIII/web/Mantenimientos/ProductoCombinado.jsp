@@ -18,70 +18,43 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
-                // Create an input element for Nombre
+                // Create an input element for Tipo Combo
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Anombre");
-                name.setAttribute("placeholder", "Nombre");
-                // Create an input element for Apellido
+                name.setAttribute("name", "Atipocombo");
+                name.setAttribute("placeholder", "AtipoCombo");
+                // Create an input element for Descripcion(primer producto)
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Aapellido");
+                apellido.setAttribute("name", "Adescripcion1");
                 apellido.setAttribute("placeholder", "Apellido");
-                // Create an input element for Usuario
+                // Create an input element for Descripcion(Segundo Producto)
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
-                users.setAttribute("name", "Auser");
+                users.setAttribute("name", "Adescripcion2");
                 users.setAttribute("placeholder", "Usuario");
-                // Create an input element for Password
+                // Create an input element for precio
                 var password = document.createElement("input");
-                password.setAttribute("type", "password");
-                password.setAttribute("name", "Apassword");
+                password.setAttribute("type", "text");
+                password.setAttribute("name", "Aprecio");
                 password.setAttribute("placeholder", "Password");
-                // Create an input element for Rol
+                // Create an input element for Estado
                 var role = document.createElement("select");
-                role.setAttribute("name", "Arole");
+                role.setAttribute("name", "Estado");
                 role.setAttribute("placeholder", "Rol");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
-            <%
-                
-                List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
-                // Create an input element for Activo
-                var active = document.createElement("select");
-                active.setAttribute("name", "Aactivo");
-                active.setAttribute("placeholder", "Activo");
-                var option = document.createElement("option");
-                option.setAttribute("disabled", "selected");
-                option.setAttribute("selected", "selected");
-                option.innerHTML = ("seleccione");
-                var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Activo");
-                var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Inactivo");
-                active.appendChild(option);
-                active.appendChild(option1);
-                active.appendChild(option2);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarPC");
                 s.innerHTML = ("Agregar");
                 // Append the inputs to the form
-                form.append(newlabel, name, apellido, users, password, role, active);
+                form.append(newlabel, name, apellido, users, password, role);
                 // Append the button to the form
                 form.append(s);
                 document.getElementsByTagName("body")[0]
@@ -157,16 +130,6 @@
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
-            <%
-                
-                lstRol = (List<Rol>) request.getAttribute("rol");
-                for (Rol rol : lstRol) {
-            %>
-                option = document.createElement("option");
-                option.setAttribute("value", "<%=rol.getIdRol()%>");
-                option.innerHTML = ("<%=rol.getNombre()%>");
-                role.appendChild(option);
-            <%}%>
                 // Create an input element for Activo
                 var active = document.createElement("select");
                 active.setAttribute("name", "Eactivo");
@@ -299,14 +262,14 @@
                         <th class="text-center">Id Tipo Combo</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Precio</th>
-                        <th class="text-center">Activo</th>
+                        <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
-                        List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("ProductoCombo");
+                        List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("productoCombo");
                         for (ProductoCombo productoCombo : lstProductoCombo) {
                             iter++;
                     %>
@@ -314,7 +277,8 @@
                         <td class="text-center"><%=productoCombo.getIdCombo() %></td>
                         <td class="text-center"><%=productoCombo.getTipoCombo()%></td>
                         <td class="text-center"><%=productoCombo.getNombre()%></td>
-                        <td class="text-center"><%=productoCombo.getPrecio()%></td>                
+                        <td class="text-center"><%=productoCombo.getPrecio()%></td>  
+                        <td class="text-center"><%=productoCombo.getEstado()%></td>                
                        
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
@@ -322,6 +286,10 @@
                         </td>
                     </tr>
                     <%}%>
+                    <td class="text-center">                            
+                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
+                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
+                        </td>
                 </tbody>
             </table>
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
