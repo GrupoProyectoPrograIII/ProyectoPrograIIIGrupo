@@ -9,6 +9,7 @@ import dao.DaoMonitor;
 import dao.DaoPedido;
 import dao.DaoPermiso;
 import dao.DaoProductoCombo;
+import dao.DaoProveedor;
 import dao.DaoRol;
 import dao.DaoUsuario;
 import java.io.IOException;
@@ -29,6 +30,7 @@ import modelos.Pedido;
 import modelos.Permiso;
 import modelos.Producto;
 import modelos.ProductoCombo;
+import modelos.Proveedor;
 import modelos.Rol;
 import modelos.Usuario;
 
@@ -61,6 +63,7 @@ public class controllerMantenimiento extends HttpServlet {
         DaoDetallePedido daoDp = new DaoDetallePedido();
         DaoPedido daoPedido = new DaoPedido();
         DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
+        DaoProveedor daoProveedor = new DaoProveedor();
         
 
         Usuario user = new Usuario();
@@ -74,6 +77,7 @@ public class controllerMantenimiento extends HttpServlet {
         DetallePedido dp = new DetallePedido();
         Pedido pedido = new Pedido();
         Producto producto = new Producto();
+        Proveedor proveedor = new Proveedor();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
@@ -86,6 +90,7 @@ public class controllerMantenimiento extends HttpServlet {
         List<DetallePedido> lstDp = daoDp.listar();
         List<Pedido> lstPedido = daoPedido.listar();
         List<ProductoCombo> lstProductoCombo = daoProductoCombo.listar();
+        List<Proveedor> lstProveedor = daoProveedor.listar();
         
 
         switch(action){
@@ -295,13 +300,13 @@ public class controllerMantenimiento extends HttpServlet {
                 acceso = listar + "Productos.jsp";
                 break;
                 
-            
+            //CRUD PROVEEDOR
                 
             case "readPro":
                 lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
+                lstProveedor = daoProveedor.listar();
                 request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;
             case "readTP":
@@ -356,6 +361,7 @@ public class controllerMantenimiento extends HttpServlet {
                 request.setAttribute("user", lstUsuario);
                 acceso = listar + "TipoProductos.jsp";
                 break;
+                
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso); //invoca de modo directo un recurso web
         vista.forward(request, response);

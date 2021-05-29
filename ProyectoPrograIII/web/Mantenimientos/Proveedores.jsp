@@ -1,6 +1,8 @@
+<%@page import="modelos.Proveedor"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
+<%@page import="dao.DaoProveedor"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="../plantilla.jsp"/>
@@ -8,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuarios</title>
+        <title>Proveedores</title>
         <script>
             function agregarFila() {
                 var form = document.createElement("form");
@@ -48,7 +50,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                List<Usuario> lstUsuario = (List<Usuario>) request.getAttribute("user");
+                List<Proveedor> lstProvee = (List<Proveedor>) request.getAttribute("proveedor");
                 List<Rol> lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -158,7 +160,7 @@
                 option.innerHTML = ("seleccione");
                 role.appendChild(option);
             <%
-                lstUsuario = (List<Usuario>) request.getAttribute("user");
+                lstProvee = (List<Proveedor>) request.getAttribute("proveedor");
                 lstRol = (List<Rol>) request.getAttribute("rol");
                 for (Rol rol : lstRol) {
             %>
@@ -295,34 +297,24 @@
             <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
                 <thead>
                     <tr>
-                        <th class="text-center">Id Usuario</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Apellido</th>
-                        <th class="text-center">Usuario</th>
-                        <th class="text-center">Password</th>
-                        <th class="text-center">Rol</th>
-                            <%--<th class="text-center">Fecha Creacion</th>--%>
-                        <th class="text-center">Activo</th>
-                            <%--<th class="text-center">Fecha Modificacion</th>
-                            <th class="text-center">Usuario Creacion</th>
-                            <th class="text-center">Usuario Modificacion</th>
-                            <th class="text-center">Codigo</th>--%>
+                        <th class="text-center">Id Proveedor</th>
+                        <th class="text-center">Proveedor</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Direccion</th>    
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         int iter = 0;
-                        for (Usuario user : lstUsuario) {
+                        for (Proveedor provee : lstProvee) {
                             iter++;
                     %>
                     <tr>
-                        <td class="text-center"><%=user.getIdUser()%></td>
-                        <td class="text-center"><%=user.getNombre()%></td>
-                        <td class="text-center"><%=user.getApellido()%></td>
-                        <td class="text-center"><%=user.getUser()%></td>
-                        <td class="text-center"><%=user.getPass()%></td>
-                        <td class="text-center"><%=user.getRol()%></td>
+                        <td class="text-center"><%=provee.getId_proveedor() %></td>
+                        <td class="text-center"><%=provee.getNombre_proveedor() %></td>
+                        <td class="text-center"><%=provee.getTelefono() %></td>
+                        <td class="text-center"><%=provee.getDireccion() %></td>
 
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
