@@ -77,6 +77,7 @@ public class controllerMantenimiento extends HttpServlet {
         DetallePedido dp = new DetallePedido();
         Pedido pedido = new Pedido();
         Producto producto = new Producto();
+        ProductoCombo productoCombo = new ProductoCombo();
         Proveedor proveedor = new Proveedor();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
@@ -243,6 +244,10 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
                 
             case "agregarPC":
+                productoCombo = new ProductoCombo();
+                productoCombo.setTipoCombo(request.getParameter("AidTipo"));
+                productoCombo.setNombre(request.getParameter("Anombre"));
+                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
                 lstRol = daoRol.listar();
                 lstUsuario = daoUsuario.listar();
                 request.setAttribute("rol", lstRol);

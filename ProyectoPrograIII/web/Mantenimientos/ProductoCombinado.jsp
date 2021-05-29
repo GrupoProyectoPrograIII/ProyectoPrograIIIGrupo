@@ -21,13 +21,18 @@
                 // Create an input element for Tipo Combo
                 var name = document.createElement("input");
                 name.setAttribute("type", "text");
-                name.setAttribute("name", "Atipocombo");
-                name.setAttribute("placeholder", "AtipoCombo");
+                name.setAttribute("name", "AidTipo");
+                name.setAttribute("placeholder", "idTipoCombo");
                 // Create an input element for Descripcion(primer producto)
                 var apellido = document.createElement("input");
                 apellido.setAttribute("type", "text");
-                apellido.setAttribute("name", "Adescripcion1");
-                apellido.setAttribute("placeholder", "Apellido");
+                apellido.setAttribute("name", "Anombre");               
+                name.setAttribute("placeholder", "Nombre");
+                // Create an input element for Apellido
+                var apellido = document.createElement("input");
+                apellido.setAttribute("type", "text");
+                apellido.setAttribute("name", "Aprecio");
+                apellido.setAttribute("placeholder", "Precio");
                 // Create an input element for Descripcion(Segundo Producto)
                 var users = document.createElement("input");
                 users.setAttribute("type", "text");
@@ -262,7 +267,7 @@
                         <th class="text-center">Id Tipo Combo</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Precio</th>
-                        <th class="text-center">Estado</th>
+                        <!--<th class="text-center">Estado</th>-->
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -278,7 +283,7 @@
                         <td class="text-center"><%=productoCombo.getTipoCombo()%></td>
                         <td class="text-center"><%=productoCombo.getNombre()%></td>
                         <td class="text-center"><%=productoCombo.getPrecio()%></td>  
-                        <td class="text-center"><%=productoCombo.getEstado()%></td>                
+                                       
                        
                         <td class="text-center">                            
                             <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
