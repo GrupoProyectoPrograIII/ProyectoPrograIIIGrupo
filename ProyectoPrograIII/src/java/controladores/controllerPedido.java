@@ -3,6 +3,7 @@ package controladores;
 import dao.DaoArea;
 import dao.DaoCliente;
 import dao.DaoMesa;
+import dao.DaoProductoCombo;
 import dao.DaoUsuario;
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelos.Area;
 import modelos.Cliente;
 import modelos.Mesa;
+import modelos.ProductoCombo;
 import modelos.Usuario;
 
 @WebServlet(name = "controllerPedido", urlPatterns = {"/controllerPedido"})
@@ -39,16 +41,19 @@ public class controllerPedido extends HttpServlet {
         DaoArea daoArea = new DaoArea();
         DaoMesa daoMesa = new DaoMesa();
         DaoCliente daoCliente = new DaoCliente();
+        DaoProductoCombo daoProductoCombo = new DaoProductoCombo();
 
         Usuario user = new Usuario();
         Area area = new Area();
         Mesa mesa = new Mesa();
         Cliente cliente = new Cliente();
+        ProductoCombo productoCombo = new ProductoCombo();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Area> lstArea = daoArea.listar();
         List<Mesa> lstMesa = daoMesa.listar();
         List<Cliente> lstCliente = daoCliente.listar();
+        List<ProductoCombo> lstProductoCombo = daoProductoCombo.listar();
         
         switch(action){
             case "readSM":
@@ -95,8 +100,10 @@ public class controllerPedido extends HttpServlet {
                 break;
             case "nuevoPedido":
                 lstCliente = daoCliente.listar();
+                lstProductoCombo = daoProductoCombo.listar();
                 //lstMesa = daoMesa.listar();
                 request.setAttribute("lstCliente", lstCliente);
+                request.setAttribute("lstProductoCombo", lstProductoCombo);
                 request.setAttribute("mesa", request.getParameter("mesa"));
                 request.setAttribute("area", request.getParameter("area"));
                 //request.setAttribute("lstMesa", lstMesa);

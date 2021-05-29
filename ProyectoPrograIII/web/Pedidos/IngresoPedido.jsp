@@ -1,3 +1,4 @@
+<%@page import="modelos.ProductoCombo"%>
 <%@page import="modelos.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +19,6 @@
                 var element2 = document.getElementById("precio").value;
                 var element3 = document.getElementById("cantidad").value;
                 var element4 = document.getElementById("totalQ").value;
-
                 //Primera Columna, que lleva el numero de fila
                 var no = document.createElement("td");
                 no.setAttribute("type", "text");
@@ -112,7 +112,7 @@
                 });
             });
             function clientes(client) {
-                
+
                 var element1 = document.getElementById("opcionCliente").value;
                 console.log(element1);
             <%
@@ -154,10 +154,22 @@
                     <label> Nit</label> 
                     <input name="nit" id="nit" type="text">
                     <br><br>
-                    
+
                     <button type="button" class="btn btn-primary mr-2" onclick="agregarFila(); totalOrden()">Agregar</button>
                     <input type="text" id="nofila" hidden="true" value="1">
-                    <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option><option value="1,prueba,1.00">prueba</option><option value="2,testing,2.50">Testing</option></select>
+
+                    <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option>
+                        <%
+                            List<ProductoCombo> lstProductoCombo = (List<ProductoCombo>) request.getAttribute("lstProductoCombo");
+                            for (ProductoCombo pc : lstProductoCombo) {
+                        %>
+                        <option value="<%=pc.getIdCombo()%>,<%=pc.getNombre()%>,<%=pc.getPrecio()%>"><%=pc.getNombre()%></option>
+                        <%
+                            }
+                        %>
+
+                    </select>
+
                     <input type="text" id="precio" value="0.00" disabled="true">
                     <input type="number" id="cantidad" style="width: 60px; height: 26px">
                     <input type="text" id="totalQ" value="0.00" disabled="true">

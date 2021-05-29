@@ -43,12 +43,12 @@
                         if(mesa.getIdArea()== area.getIdArea()){
                     %>
 
-                    
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>&area=<%=area.getNombre()%>" method="post"><button type="submit" id="<%=mesa.getMesa()%>_<%=mesa.getArea()%>"> </button></form>
                     <%
                         if (mesa.getIdEstado() == 1) {
                     %>
-                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>&area=<%=area.getNombre()%>" method="post"><button type="submit" id="<%=mesa.getMesa()%>"> </button></form>
-                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="<%=mesa.getMesa()%>"><%=mesa.getMesa()%></label></a></li>
+                    
+                    <li id="Li2" class="dropdown" ><a id="A2"> <label for="<%=mesa.getMesa()%>_<%=mesa.getArea()%>"><%=mesa.getMesa()%></label></a></li>
                             <%
                                 }
                                 if (mesa.getIdEstado() == 0) {
