@@ -52,7 +52,18 @@ public class DaoDespacho implements crudDespacho{
 
     @Override
     public boolean insertar(Despacho despacho) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         sql = "INSERT INTO DESPACHO (ID_DESPACHO, PEDIDO, DESCRIPCION, AREA, MESA) "
+                +"VALUES((SELECT ISNULL(MAX(ID_DESPACHO),0) + 1 FROM DESPACHO),"
+                +despacho.getPedido()+",'"+despacho.getDescripcion()+"','"+despacho.getArea()+"','"+despacho.getMesa()+"')";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resp;
     }
 
     @Override
