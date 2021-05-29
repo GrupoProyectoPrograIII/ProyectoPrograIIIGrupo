@@ -4,6 +4,8 @@
     Author     : JAVIER OSORIO
 --%>
 
+<%@page import="modelos.Despacho"%>
+<%@page import="dao.DaoDespacho"%>
 <%@page import="modelos.ProductoCombo"%>
 <%@page import="dao.DaoProductoCombo"%>
 <%@page import="java.util.Iterator"%>
@@ -25,7 +27,6 @@
                 DaoMonitor daoMon = new DaoMonitor();
                 List<Monitor> lstMon = daoMon.listar();
                 Iterator<Monitor> iteMon = lstMon.iterator();
-                Iterator<Monitor> iteMon2 = lstMon.iterator();
                 Monitor mon = null;
 
                 String cod = (String) request.getAttribute("sele");
@@ -50,20 +51,20 @@
                             </tr>
                         </thead>
                         <%
-                            DaoProductoCombo daoPCombo = new DaoProductoCombo();
-                            List<ProductoCombo> lstpc = daoPCombo.listar();
-                            Iterator<ProductoCombo> itePC = lstpc.iterator();
-                            ProductoCombo pc = null;
+                            DaoDespacho daoDes = new DaoDespacho();
+                            List<Despacho> lstdes = daoDes.listar();
+                            Iterator<Despacho> iteD = lstdes.iterator();
+                            Despacho des = null;
                             
-                            while(itePC.hasNext()){
-                                pc = itePC.next();
+                            while(iteD.hasNext()){
+                                des = iteD.next();
                         %>
                         <tbody>
                             <tr>
-                                <th class="text-center"><%= pc.getIdCombo() %></th>
-                                <th class="text-center"><%= pc.getNombre() %></th>
-                                <th class="text-center"><%= pc.getPrecio() %></th>
-                                <th class="text-center"><%= pc.getNombre() %></th>
+                                <th class="text-center"><%= des.getPedido() %></th>
+                                <th class="text-center"><%= des.getDescripcion() %></th>
+                                <th class="text-center"><%= des.getArea() %></th>
+                                <th class="text-center"><%= des.getMesa() %></th>
                             </tr>
                             <%}%>
                         </tbody>

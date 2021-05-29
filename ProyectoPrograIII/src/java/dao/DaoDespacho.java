@@ -8,7 +8,9 @@ package dao;
 import configuracion.Conexion;
 import interfaces.crudDespacho;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.*;
 import modelos.Despacho;
 
 /**
@@ -25,7 +27,29 @@ public class DaoDespacho implements crudDespacho{
     
     @Override
     public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Despacho> lstDespacho = new ArrayList<>();
+        try {
+            sql = "SELECT * FROM DESPACHO";
+            con.open();
+            rs = con.executeQuery(sql);
+            while (rs.next()) {
+                despacho = new Despacho();
+                despacho.setId_despacho(rs.getInt("ID_DESPACHO"));
+                despacho.setPedido(rs.getInt("PEDIDO"));
+                despacho.setDescripcion(rs.getString("DESCRIPCION"));
+                despacho.setMesa(rs.getString("MESA"));
+                despacho.setArea(rs.getString("AREA"));
+                lstDespacho.add(despacho);
+            }
+            rs.close();
+            con.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DaoPedido.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(DaoPedido.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lstDespacho;
     }
 
     @Override
