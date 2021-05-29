@@ -17,20 +17,20 @@ import modelos.Proveedor;
  *
  * @author JAVIER OSORIO
  */
-public class DaoProveedor implements crudProveedor{
+public class DaoProveedor implements crudProveedor {
 
     String sql = "";
     Conexion con = new Conexion();
     ResultSet rs = null;
     boolean resp = false;
     Proveedor provee = new Proveedor();
-    
+
     @Override
     public List listar() {
         ArrayList<Proveedor> lstProvee = new ArrayList<>();
         try {
-            sql = "SELECT  ID_PROVEEDOR, NOMBRE_PROVEEDOR, TELEFONO, DIRECCION\n" +
-"FROM            dbo.PROVEEDOR";
+            sql = "SELECT  ID_PROVEEDOR, NOMBRE_PROVEEDOR, TELEFONO, DIRECCION\n"
+                    + "FROM            dbo.PROVEEDOR";
             con.open();
             rs = con.executeQuery(sql);
             while (rs.next()) {
@@ -58,22 +58,53 @@ public class DaoProveedor implements crudProveedor{
 
     @Override
     public boolean insertar(Proveedor prove) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "INSERT INTO PROVEEDOR(ID_PROVEEDOR,NOMBRE_PROVEEDOR,TELEFONO,DIRECCION) VALUES((SELECT ISNULL(MAX(ID_PROVEEDOR),0) + 1 FROM PROVEEDOR),"
+                + "'"+ prove.getNombre_proveedor() +"',"
+                + "'"+ prove.getTelefono() +"',"
+                + "'"+ prove.getDireccion() +"')";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
     }
 
     @Override
     public boolean modificar(Proveedor prove) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "UPDATE PROVEEDOR SET "
+                + "NOMBRE_PROVEEDOR = '"+ prove.getNombre_proveedor() +"', "
+                + "TELEFONO = '"+ prove.getTelefono() +"', "
+                + "DIRECCION = '"+ prove.getDireccion() +"' "
+                + "WHERE ID_PROVEEDOR = '"+ prove.getId_proveedor() +"'";
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
     }
 
     @Override
     public boolean eliminar(Proveedor prove) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sql = "DELETE FROM PROVEEDOR WHERE ID_PROVEEDOR = " + prove.getId_proveedor();
+        try {
+            con.open();
+            resp = con.executeSql(sql);
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return resp;
     }
 
     @Override
     public List busqueda(String parametro, String opcion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

@@ -242,28 +242,41 @@ public class controllerMantenimiento extends HttpServlet {
         //------- CRUD PRODUCTO COMBO -------------------------
                 
             case "readPC":
+                lstProducto = daoProducto.listar();
                 lstProductoCombo = daoProductoCombo.listar();                
-                request.setAttribute("productoCombo", lstProductoCombo);                
+                request.setAttribute("lstProductoCombo", lstProductoCombo);                
+                request.setAttribute("lstProducto", lstProducto);                
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
                 
             case "agregarPC":
                 productoCombo = new ProductoCombo();
-                productoCombo.setTipoCombo(request.getParameter("AidTipo"));
-                productoCombo.setNombre(request.getParameter("Anombre"));
+                productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Atc")));
+                productoCombo.setNombre(request.getParameter("Adesc1")+request.getParameter("Adesc2"));
                 productoCombo.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                productoCombo.setEstado(Integer.parseInt(request.getParameter("Aestado")));
+                daoProductoCombo.insertar(productoCombo);
+                
+                lstProducto = daoProducto.listar();
+                lstProductoCombo = daoProductoCombo.listar();                
+                request.setAttribute("lstProductoCombo", lstProductoCombo);                
+                request.setAttribute("lstProducto", lstProducto);                
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
                 
             case "editarPC":
-                lstRol = daoRol.listar();
-                lstUsuario = daoUsuario.listar();
-                request.setAttribute("rol", lstRol);
-                request.setAttribute("user", lstUsuario);
+                productoCombo = new ProductoCombo();
+                productoCombo.setIdCombo(Integer.parseInt(request.getParameter("Aidpc")));
+                productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Atc")));
+                productoCombo.setNombre(request.getParameter("Adesc1")+request.getParameter("Adesc2"));
+                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
+                productoCombo.setEstado(Integer.parseInt(request.getParameter("Aestado")));
+                daoProductoCombo.insertar(productoCombo);
+                
+                lstProducto = daoProducto.listar();
+                lstProductoCombo = daoProductoCombo.listar();                
+                request.setAttribute("lstProductoCombo", lstProductoCombo);                
+                request.setAttribute("lstProducto", lstProducto);                
                 acceso = listar + "ProductoCombinado.jsp";
                 break;
                 
