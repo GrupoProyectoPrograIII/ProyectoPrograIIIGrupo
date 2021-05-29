@@ -28,20 +28,29 @@
                 
                 // Create an input element for Tipo Combo
                 var tc = document.createElement("select");
-                tc.setAttribute("name", "Atc");
+                tc.setAttribute("name", "Eestado");
+                tc.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("Tipo Combo");
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Disponible");
+                option1.setAttribute("value", "0");
+                option1.innerHTML = ("Desayuno");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Agotado");
+                option2.setAttribute("value", "1");
+                option2.innerHTML = ("Almuerzo");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "2");
+                option3.innerHTML = ("Cena");
+                var option4 = document.createElement("option");
+                option4.setAttribute("value", "0");
+                option4.innerHTML = ("Refaccion");
                 tc.appendChild(option);
                 tc.appendChild(option1);
                 tc.appendChild(option2);
+                tc.appendChild(option3);
+                tc.appendChild(option4);
                 
                 // Create an input element for Descripcion(primer producto)
                 
@@ -159,21 +168,29 @@
 
                 // Create an input element for Tipo Combo
                 var tc = document.createElement("select");
-                tc.setAttribute("name", "Aestado");
+                tc.setAttribute("name", "Eestado");
                 tc.setAttribute("placeholder", "Activo");
                 var option = document.createElement("option");
                 option.setAttribute("disabled", "selected");
                 option.setAttribute("selected", "selected");
                 option.innerHTML = ("Tipo Combo");
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "1");
-                option1.innerHTML = ("Disponible");
+                option1.setAttribute("value", "0");
+                option1.innerHTML = ("Desayuno");
                 var option2 = document.createElement("option");
-                option2.setAttribute("value", "0");
-                option2.innerHTML = ("Agotado");
+                option2.setAttribute("value", "1");
+                option2.innerHTML = ("Almuerzo");
+                var option3 = document.createElement("option");
+                option3.setAttribute("value", "2");
+                option3.innerHTML = ("Cena");
+                var option4 = document.createElement("option");
+                option4.setAttribute("value", "0");
+                option4.innerHTML = ("Refaccion");
                 tc.appendChild(option);
                 tc.appendChild(option1);
                 tc.appendChild(option2);
+                tc.appendChild(option3);
+                tc.appendChild(option4);
                 
                 // Create an input element for Descripcion(primer producto)
                 
@@ -371,10 +388,6 @@
                         </td>
                     </tr>
                     <%}%>
-                    <td class="text-center">                            
-                            <button type="button" class="btn btn-warning" id="edit" onclick="editarFila(<%=iter%>)">Editar</button>
-                            <button type="button" class="btn btn-danger" id="delete" onclick="eliminarFila(<%=iter%>)">Eliminar</button>
-                        </td>
                 </tbody>
             </table>
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
