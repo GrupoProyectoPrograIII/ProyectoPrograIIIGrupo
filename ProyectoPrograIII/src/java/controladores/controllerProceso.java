@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import dao.DaoDespacho;
 import dao.DaoModulo;
 import dao.DaoMonitor;
 import dao.DaoPermiso;
@@ -19,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Despacho;
 import modelos.Modulo;
 import modelos.Monitor;
 import modelos.Permiso;
@@ -48,12 +50,14 @@ public class controllerProceso extends HttpServlet {
         DaoPermiso daoPermiso = new DaoPermiso();
         DaoModulo daoModulo = new DaoModulo();
         DaoMonitor daoMonitor = new DaoMonitor();
+        DaoDespacho daoDespacho = new DaoDespacho();
 
         Usuario user = new Usuario();
         Permiso permiso = new Permiso();
         Modulo modulo = new Modulo();
         Rol rol = new Rol();
         Monitor mon = new Monitor();
+        Despacho des = new Despacho();
 
         List<Usuario> lstUsuario = daoUsuario.listar();
         List<Modulo> lstModulo = daoModulo.listar();
@@ -116,6 +120,12 @@ public class controllerProceso extends HttpServlet {
                 int ver = mon.getIdMonitor();
                 String convertir = String.valueOf(ver);
                 request.setAttribute("sele", convertir);
+                acceso = listar + "Monitores.jsp";
+                break;
+            case "eliminarDes":
+                des = new Despacho();
+                des.setId_despacho(Integer.parseInt(request.getParameter("id")));
+                daoDespacho.eliminar(des);
                 acceso = listar + "Monitores.jsp";
                 break;
         }
