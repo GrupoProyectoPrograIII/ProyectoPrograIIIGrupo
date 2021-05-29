@@ -50,7 +50,7 @@
                 idTipo.setAttribute("name", "AidTipo");
                 idTipo.setAttribute("placeholder", "idTipo");                
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarProd");
@@ -134,7 +134,7 @@
                 idTipo.setAttribute("name", "EidTipo");
                 idTipo.setAttribute("Value", datos[5]);                
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarProd");
@@ -222,7 +222,7 @@
                 idTipo.setAttribute("disabled", "disabled");
                 idTipo.setAttribute("value", datos[6]);                
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarProd");

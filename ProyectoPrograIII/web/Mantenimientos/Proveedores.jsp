@@ -114,7 +114,7 @@
                 lstProvee = (List<Proveedor>) request.getAttribute("proveedor");
             %>
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarPro");
@@ -186,7 +186,7 @@
                 direccion.setAttribute("disabled", "disabled");
                 direccion.setAttribute("Value", datos[4]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarPro");

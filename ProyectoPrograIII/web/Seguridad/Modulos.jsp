@@ -1,13 +1,12 @@
 <%@page import="java.util.List"%>
 <%@page import="modelos.Modulo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <jsp:include page="../plantilla.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+        
         <title>Modulos</title>
         <%
             List<Modulo> lstModulo = null;
@@ -94,16 +93,7 @@
 
                 }
 
-                Swal.fire({
-                    title: '¿Deseas modificar el registro de modulos: ' + datos[2] + '?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#30AB26',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirmar',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
+                
                         var form = document.createElement("form");
                         form.setAttribute("class", "container")
                         form.setAttribute("method", "post");
@@ -164,9 +154,6 @@
 
                         document.getElementsByTagName("body")[0]
                                 .appendChild(form);
-                    }
-                });
-
             }
 
             function eliminarFila(b) {
@@ -190,16 +177,6 @@
 
                 }
 
-                Swal.fire({
-                    title: '¿Deseas eliminar el registro de modulos: ' + datos[2] + '?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#30AB26',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirmar',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
                         var form = document.createElement("form");
                         form.setAttribute("class", "container")
                         form.setAttribute("method", "post");
@@ -265,8 +242,6 @@
 
                         document.getElementsByTagName("body")[0]
                                 .appendChild(form);
-                    }
-                });
             }
         </script>
     </head>
@@ -313,74 +288,5 @@
             <button type="button" class="btn btn-success" onclick="agregarFila()">Agregar</button>
         </div>
     </body>
-    <c:if test="${vacio == 1}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Advertencia!",
-                text: "Debe llenar todos los campos que se solicita",
-                icon: 'warning', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${guardar == 0}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Error!",
-                text: "El registro no se pudo guardar",
-                icon: 'error', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${guardar == 1}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Éxito!",
-                text: "El registro se guardo correctamente",
-                icon: 'success', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${modificar == 0}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Error!",
-                text: "El registro no se pudo modificar",
-                icon: 'error', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${modificar == 1}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Éxito!",
-                text: "El registro se modifico correctamente",
-                icon: 'success', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${eliminar == 0}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Error!",
-                text: "El registro no se pudo eliminar",
-                icon: 'error', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
-    <c:if test="${eliminar == 1}">
-        <script type="text/javascript">
-            swal.fire({
-                title: "¡Éxito!",
-                text: "El registro se elimino correctamente",
-                icon: 'success', //warning,info,question,error,success
-                confirmButtonText: "Aceptar"
-            });
-        </script>
-    </c:if>
+   
 </html>

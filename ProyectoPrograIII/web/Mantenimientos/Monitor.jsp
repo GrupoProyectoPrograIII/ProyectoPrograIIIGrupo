@@ -66,7 +66,7 @@
                 active.appendChild(option1);
                 active.appendChild(option2);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarMon");
@@ -167,7 +167,7 @@
                 active.appendChild(option2);
 
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "editarMon");
@@ -256,7 +256,7 @@
                 active.setAttribute("disabled", "disabled");
                 active.setAttribute("Value", datos[7]);
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "eliminarMon");
