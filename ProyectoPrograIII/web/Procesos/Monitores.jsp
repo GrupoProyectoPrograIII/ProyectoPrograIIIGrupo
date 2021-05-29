@@ -4,6 +4,8 @@
     Author     : JAVIER OSORIO
 --%>
 
+<%@page import="modelos.ProductoCombo"%>
+<%@page import="dao.DaoProductoCombo"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Monitor"%>
 <%@page import="java.util.List"%>
@@ -35,8 +37,7 @@
                     <%
                         while (iteMon.hasNext()) {
                             mon = iteMon.next();
-                            System.out.println(mon.getIdMonitor());
-                            if (ver_cod != mon.getIdMonitor()) {
+                            if (ver_cod == mon.getIdMonitor()) {
                     %>
                     <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
                     <table border="1" width="1" cellspacing="1" class="table table-hover">
@@ -48,6 +49,24 @@
                                 <th class="text-center">Mesa</th>
                             </tr>
                         </thead>
+                        <%
+                            DaoProductoCombo daoPCombo = new DaoProductoCombo();
+                            List<ProductoCombo> lstpc = daoPCombo.listar();
+                            Iterator<ProductoCombo> itePC = lstpc.iterator();
+                            ProductoCombo pc = null;
+                            
+                            while(itePC.hasNext()){
+                                pc = itePC.next();
+                        %>
+                        <tbody>
+                            <tr>
+                                <th class="text-center"><%= pc.getIdCombo() %></th>
+                                <th class="text-center"><%= pc.getNombre() %></th>
+                                <th class="text-center"><%= pc.getPrecio() %></th>
+                                <th class="text-center"><%= pc.getNombre() %></th>
+                            </tr>
+                            <%}%>
+                        </tbody>
                     </table>
                     <% }
                         }
