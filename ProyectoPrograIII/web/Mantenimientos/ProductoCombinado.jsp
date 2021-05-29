@@ -22,7 +22,6 @@
                 
                 <%
                     List<Producto> lstProducto = (List<Producto>)request.getAttribute("lstProducto");
-                    //List<TipoProducto> lstTipoProducto =(List<TipoProducto>)request.getAttribute("lstTipoCombo");
                     
                 %>
                 
@@ -84,7 +83,7 @@
                     for(Producto producto:lstProducto){
                 %>
                 var option1 = document.createElement("option");
-                option1.setAttribute("value", "<%=producto.getIdProducto() %>");
+                option1.setAttribute("value", "<%=producto.getNombre() %>");
                 option1.innerHTML = ("<%=producto.getNombre()%>");
                 desc2.appendChild(option1);
                 <%}%>

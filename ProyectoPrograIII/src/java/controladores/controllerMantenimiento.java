@@ -269,7 +269,7 @@ public class controllerMantenimiento extends HttpServlet {
                 productoCombo.setIdCombo(Integer.parseInt(request.getParameter("Eidpc")));
                 productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Etc")));
                 productoCombo.setNombre(request.getParameter("Edesc1")+"+"+request.getParameter("Edesc2"));
-                productoCombo.setPrecio(Float.parseFloat(request.getParameter("Eprecio")));
+                productoCombo.setPrecio(Double.parseDouble(request.getParameter("Eprecio")));
                 productoCombo.setEstado(Integer.parseInt(request.getParameter("Eestado")));
                 daoProductoCombo.modificar(productoCombo);
                 
@@ -303,7 +303,7 @@ public class controllerMantenimiento extends HttpServlet {
             case "agregarProd":
                 producto = new Producto();
                 producto.setNombre(request.getParameter("Anombre"));
-                producto.setPrecio(Float.parseFloat(request.getParameter("Aprecio")));
+                producto.setPrecio(Double.parseDouble(request.getParameter("Aprecio")));
                 producto.setUnidad(request.getParameter("Aunidad"));
                 producto.setIdProveedor(Integer.parseInt(request.getParameter("AidProveedor")));
                 producto.setStock(Integer.parseInt(request.getParameter("Astock")));
@@ -328,7 +328,7 @@ public class controllerMantenimiento extends HttpServlet {
                 producto = new Producto();
                 producto.setIdProducto(Integer.parseInt(request.getParameter("Eidproducto")));
                 producto.setNombre(request.getParameter("Enombre"));
-                producto.setPrecio(Float.parseFloat(request.getParameter("Eprecio")));
+                producto.setPrecio(Double.parseDouble(request.getParameter("Eprecio")));
                 producto.setUnidad(request.getParameter("Eunidad"));
                 producto.setIdProveedor(Integer.parseInt(request.getParameter("EidProveedor")));
                 producto.setStock(Integer.parseInt(request.getParameter("Estock")));
@@ -366,6 +366,7 @@ public class controllerMantenimiento extends HttpServlet {
                 
             //CRUD PROVEEDOR
                 
+               
             case "readPro":
                 lstProveedor = daoProveedor.listar();
                 request.setAttribute("proveedor", lstProveedor);
@@ -373,18 +374,32 @@ public class controllerMantenimiento extends HttpServlet {
                 break;
            
             case "agregarPro":
+                proveedor = new Proveedor();
+                proveedor.setNombre_proveedor(request.getParameter("Aproveedor"));
+                proveedor.setTelefono(request.getParameter("Atelefono"));
+                proveedor.setDireccion(request.getParameter("Adireccion"));
+                daoProveedor.insertar(proveedor);
                 lstProveedor = daoProveedor.listar();
                 request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;        
             
             case "editarPro":
+                proveedor = new Proveedor();
+                proveedor.setId_proveedor(Integer.parseInt(request.getParameter("Eidprovee")));
+                proveedor.setNombre_proveedor(request.getParameter("Enombre"));
+                proveedor.setTelefono(request.getParameter("Etelefono"));
+                proveedor.setDireccion(request.getParameter("Edireccion"));
+                daoProveedor.modificar(proveedor);
                 lstProveedor = daoProveedor.listar();
                 request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";
                 break;         
             
             case "eliminarPro":
+                proveedor = new Proveedor();
+                proveedor.setId_proveedor(Integer.parseInt(request.getParameter("Didprovee")));
+                daoProveedor.eliminar(proveedor);
                 lstProveedor = daoProveedor.listar();
                 request.setAttribute("proveedor", lstProveedor);
                 acceso = listar + "Proveedores.jsp";

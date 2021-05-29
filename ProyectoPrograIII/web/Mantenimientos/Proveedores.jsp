@@ -21,26 +21,27 @@
                 var newlabel = document.createElement("h1");
                 newlabel.setAttribute("type", "text");
                 newlabel.innerHTML = "Agregar Fila";
-                // Create an input element for Nombre
+                
+                // Create an input element for Proveedor
                 var provee = document.createElement("input");
                 provee.setAttribute("type", "text");
-                provee.setAttribute("name", "Pnombre");
+                provee.setAttribute("name", "Aproveedor");
                 provee.setAttribute("placeholder", "Proveedor");
-                // Create an input element for Apellido
+                // Create an input element for Telefono
                 var telefono = document.createElement("input");
                 telefono.setAttribute("type", "text");
-                telefono.setAttribute("name", "Ptelefono");
+                telefono.setAttribute("name", "Atelefono");
                 telefono.setAttribute("placeholder", "Telefono");
-                // Create an input element for Usuario
+                // Create an input element for Direccion
                 var direccion = document.createElement("input");
                 direccion.setAttribute("type", "text");
-                direccion.setAttribute("name", "Pdireccion");
+                direccion.setAttribute("name", "Adireccion");
                 direccion.setAttribute("placeholder", "Direccion");
             <%
                 List<Proveedor> lstProvee = (List<Proveedor>) request.getAttribute("proveedor");
             %>
                 // Create a submit button
-                var s = document.createElement("input");
+                var s = document.createElement("button");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
                 s.setAttribute("value", "agregarPro");
@@ -91,23 +92,23 @@
                 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Pidprovee");
+                id.setAttribute("name", "Eidprovee");
                 id.setAttribute("value", datos[1]);
 
                 // Create an input element for Nombre
                 var provee = document.createElement("input");
                 provee.setAttribute("type", "text");
-                provee.setAttribute("name", "Pnombre");
+                provee.setAttribute("name", "Enombre");
                 provee.setAttribute("Value", datos[2]);
                 // Create an input element for Apellido
                 var telefono = document.createElement("input");
-                telefono.setAttribute("name", "Ptelefono");
+                telefono.setAttribute("name", "Etelefono");
                 telefono.setAttribute("type", "text");
                 telefono.setAttribute("Value", datos[3]);
                 // Create an input element for Usuario
                 var direccion = document.createElement("input");
                 direccion.setAttribute("type", "text");
-                direccion.setAttribute("name", "Pdireccion");
+                direccion.setAttribute("name", "Edireccion");
                 direccion.setAttribute("Value", datos[4]);
             <%
                 lstProvee = (List<Proveedor>) request.getAttribute("proveedor");
@@ -164,7 +165,7 @@
 
                 var id = document.createElement("input");
                 id.setAttribute("type", "hidden");
-                id.setAttribute("name", "Pidprovee");
+                id.setAttribute("name", "Didprovee");
                 id.setAttribute("value", datos[1]);
 
                 var provee = document.createElement("input");
