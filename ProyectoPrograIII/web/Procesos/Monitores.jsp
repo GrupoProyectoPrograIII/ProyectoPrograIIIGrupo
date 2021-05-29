@@ -23,6 +23,7 @@
                 DaoMonitor daoMon = new DaoMonitor();
                 List<Monitor> lstMon = daoMon.listar();
                 Iterator<Monitor> iteMon = lstMon.iterator();
+                Iterator<Monitor> iteMon2 = lstMon.iterator();
                 Monitor mon = null;
 
                 String cod = (String) request.getAttribute("sele");
@@ -34,18 +35,20 @@
                     <%
                         while (iteMon.hasNext()) {
                             mon = iteMon.next();
+                            System.out.println(mon.getIdMonitor());
                             if (mon.getIdMonitor() == 1) {
+                                //break;
                     %>
                     <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
-                    <% }
+                    <% } else if (ver_cod == mon.getIdMonitor()) {
+                    %>
+                    <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
+                    <%
+                            }
                         }
-                        while (iteMon.hasNext()) {
-                            mon = iteMon.next();
-                            if (mon.getIdMonitor() == ver_cod) {
+
                     %>
-                    <button class="tablinks" onclick="openArea(event, '<%=mon.getIdMonitor()%>')"><%=mon.getNombre()%></button>
-                    <%}
-                        }%>
+
                 </div>           
             </div>
             <script>
