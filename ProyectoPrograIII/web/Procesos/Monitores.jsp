@@ -68,7 +68,7 @@
                                 <th class="text-center"><%= des.getArea()%></th>
                                 <th class="text-center"><%= des.getMesa()%></th>
                                 <td class="text-center">
-                                    <form action="controllerProceso?accion=eliminarDes&id=<%= des.getId_despacho() %>" method="post"><button class="btn btn-info" type="submit">Despachar</button></form>                           
+                                    <form action="controllerProceso?accion=eliminarDes&id=<%= des.getId_despacho() %>&codigo=<%=mon.getIdMonitor()%>" method="post"><button class="btn btn-info" type="submit">Despachar</button></form>                           
                                 </td>
                             </tr>
                             <%}%>

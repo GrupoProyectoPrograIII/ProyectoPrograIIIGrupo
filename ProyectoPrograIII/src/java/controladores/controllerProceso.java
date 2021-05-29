@@ -123,9 +123,14 @@ public class controllerProceso extends HttpServlet {
                 acceso = listar + "Monitores.jsp";
                 break;
             case "eliminarDes":
+                mon = new Monitor();
+                mon.setIdMonitor(Integer.parseInt(request.getParameter("codigo")));
                 des = new Despacho();
                 des.setId_despacho(Integer.parseInt(request.getParameter("id")));
                 daoDespacho.eliminar(des);
+                ver = mon.getIdMonitor();
+                convertir = String.valueOf(ver);
+                request.setAttribute("sele", convertir);
                 acceso = listar + "Monitores.jsp";
                 break;
         }
