@@ -78,12 +78,7 @@ public class DaoProducto implements crudProducto{
         sql = "INSERT INTO PRODUCTO (ID_PRODUCTO, NOMBRE, PRECIO, UNIDAD, "
                 +"ID_PROVEEDOR, STOCK, ID_TIPO_PRODUCTO) "
                 +"VALUES((SELECT ISNULL(MAX(ID_PRODUCTO),0) + 1 FROM PRODUCTO),'"
-                +producto.getNombre()
-                +"',"+producto.getPrecio()
-                +",'"+producto.getUnidad()
-                +"',"+producto.getIdProveedor()
-                +","+producto.getStock()
-                +","+producto.getIdTipoProducto()+")";
+                +producto.getNombre()+"',"+producto.getPrecio()+",'"+producto.getUnidad()+"',"+producto.getIdProveedor()+","+producto.getStock()+","+producto.getIdTipoProducto()+")";
         try {
             con.open();
             resp = con.executeSql(sql);
@@ -104,7 +99,7 @@ public class DaoProducto implements crudProducto{
                 +"', ID_PROVEEDOR="+producto.getIdProveedor()
                 +", STOCK="+producto.getStock()
                 +",ID_TIPO_PRODUCTO="+producto.getIdTipoProducto()
-                +"' WHERE ID_PRODUCTO="+producto.getIdProducto();
+                +" WHERE ID_PRODUCTO="+producto.getIdProducto();
         System.out.println(sql);
         try {
             con.open();

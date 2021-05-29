@@ -330,7 +330,7 @@ public class controllerMantenimiento extends HttpServlet {
                 producto.setNombre(request.getParameter("Enombre"));
                 producto.setPrecio(Float.parseFloat(request.getParameter("Eprecio")));
                 producto.setUnidad(request.getParameter("Eunidad"));
-                producto.setIdProveedor(Integer.parseInt("EidProveedor"));
+                producto.setIdProveedor(Integer.parseInt(request.getParameter("EidProveedor")));
                 producto.setStock(Integer.parseInt(request.getParameter("Estock")));
                 producto.setIdTipoProducto(Integer.parseInt(request.getParameter("EidTipo")));
                 

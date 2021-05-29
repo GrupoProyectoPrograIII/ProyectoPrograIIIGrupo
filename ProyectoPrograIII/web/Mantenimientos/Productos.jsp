@@ -137,7 +137,7 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "editarTP");
+                s.setAttribute("value", "editarProd");
                 s.innerHTML = ("Editar");
                 // Append the inputs to the form
                 form.append(newlabel, id, descripcion, precio, unidad, idProveedor, stock, idTipo);
@@ -225,7 +225,7 @@
                 var s = document.createElement("input");
                 s.setAttribute("type", "submit");
                 s.setAttribute("name", "accion");
-                s.setAttribute("value", "eliminarTP");
+                s.setAttribute("value", "eliminarProd");
                 s.innerHTML = ("Eliminar");
                 // Append the inputs to the form
                 form.append(newlabel, id, descripcion, precio, unidad, idProveedor, stock, idTipo);
