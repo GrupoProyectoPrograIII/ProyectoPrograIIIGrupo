@@ -76,7 +76,7 @@ CREATE TABLE USUARIO(
 GO
 
 INSERT INTO USUARIO(ID_USUARIO,NOMBRE,APELLIDO,USUARIO,PASSW,ID_ROL)
- VALUES (1,'Administrator','System','Admin','12345678',1),
+ VALUES (1,'Administrator','System','Admin','1234',1),
  (2,'Edgar','Sandoval','esandoval','123',2),
  (3,'Lester','Carrillo','lcarrillo','1234',3)
 GO
