@@ -253,7 +253,7 @@ public class controllerMantenimiento extends HttpServlet {
                 productoCombo = new ProductoCombo();
                 productoCombo.setIdTipoCombo(Integer.parseInt(request.getParameter("Atc")));
                 productoCombo.setNombre(request.getParameter("Adesc1")+request.getParameter("Adesc2"));
-                productoCombo.setPrecio(Double.parseDouble(request.getParameter("Aprecio")));
+                productoCombo.setPrecio(Math.round((Double.parseDouble(request.getParameter("Aprecio")))*100.0)/100);
                 productoCombo.setEstado(Integer.parseInt(request.getParameter("Aestado")));
                 daoProductoCombo.insertar(productoCombo);
                 

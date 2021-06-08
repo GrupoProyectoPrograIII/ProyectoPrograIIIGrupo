@@ -21,6 +21,7 @@
     <%
         List<Area> lstArea = (List) (request.getAttribute("lstArea"));
         List<Mesa> lstMesa = (List) (request.getAttribute("lstMesa"));
+        String usuarios = (String) session.getAttribute("usuario");
     %>
 
     <body>
@@ -43,7 +44,7 @@
                         if(mesa.getIdArea()== area.getIdArea()){
                     %>
 
-                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>&area=<%=area.getNombre()%>" method="post"><button type="submit" id="<%=mesa.getMesa()%>_<%=mesa.getArea()%>"> </button></form>
+                    <form style="display: none" action="controllerPedido?accion=nuevoPedido&mesa=<%=mesa.getMesa()%>&area=<%=area.getNombre()%>&usuario=<%=usuarios%>" method="post"><button type="submit" id="<%=mesa.getMesa()%>_<%=mesa.getArea()%>"> </button></form>
                     <%
                         if (mesa.getIdEstado() == 1) {
                     %>

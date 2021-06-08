@@ -22,7 +22,7 @@ public class DaoPedido implements crudPedido{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         ArrayList<Pedido> lstPedido = new ArrayList<>();
         try {
-            sql = "SELECT PEDIDO.ID_PEDIDO, MESA.DESCRIPCION AS MESA, USUARIO.USUARIO, "
+            sql = "SELECT PEDIDO.ID_PEDIDO,PEDIDO.ID_MESA, MESA.DESCRIPCION AS MESA, USUARIO.USUARIO, "
                     +"CLIENTE.NOMBRE, PEDIDO.TOTAL, PEDIDO.OBSERVACION, PEDIDO.ESTADO "
                     +"FROM PEDIDO INNER JOIN MESA ON PEDIDO.ID_MESA = MESA.ID_MESA "
                     +"INNER JOIN USUARIO ON PEDIDO.ID_USUARIO = USUARIO.ID_USUARIO "
@@ -33,8 +33,8 @@ public class DaoPedido implements crudPedido{
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt("ID_PEDIDO"));
                 pedido.setIdMesa(rs.getInt("ID_MESA"));
-                pedido.setIdUsuario(rs.getInt("ID_USUARIO"));
-                pedido.setIdCliente(rs.getInt("ID_CLIENTE"));
+                //pedido.setIdUsuario(rs.getInt("ID_USUARIO"));
+               // pedido.setIdCliente(rs.getInt("ID_CLIENTE"));
                 pedido.setTotal(rs.getFloat("TOTAL"));
                 pedido.setObservacion("OBSERVACION");
                 pedido.setEstado(rs.getInt("ESTADO"));

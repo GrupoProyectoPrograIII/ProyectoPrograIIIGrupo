@@ -1,5 +1,12 @@
-<%@page import="modelos.Monitor"%>
-<%@page import="dao.DaoMonitor"%>
+<%@page import="modelos.DetallePedido"%>
+<%@page import="modelos.Pedido"%>
+<%@page import="modelos.Mesa"%>
+<%@page import="modelos.Area"%>
+<%@page import="java.util.Random"%>
+<%@page import="java.awt.Polygon"%>
+<%@page import="java.awt.Color"%>
+<%@page import="java.awt.Graphics"%>
+<%@page import="java.awt.image.BufferedImage"%>
 <%@page import="modelos.Rol"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelos.Usuario"%>
@@ -10,9 +17,95 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Elegir Monitor</title>
+        <title>Seleccionar una Mesa</title>
 
     </head>
+    <%
+        List<Area> lstArea = (List) (request.getAttribute("lstArea"));
+        List<Mesa> lstMesa = (List) (request.getAttribute("lstMesa"));
+    %>
+
+    <body>
+
+        <div style="padding-left:5%; padding-right: 5%;" id="disponible">
+            <div class="tab">
+                <%
+                    int iter = 0;
+                    for (Area area : lstArea) {
+                %>
+                <button class="tablinks" onclick="openArea(event, '<%=area.getNombre()%>')"><%=area.getNombre()%></button>
+                <%}%>
+            </div>
+            <%for (Area area : lstArea) {%>
+            <div id="<%=area.getNombre()%>" class="tabcontent">
+                <ul>
+                    <%for (Mesa mesa : lstMesa) {
+                            if (mesa.getIdArea() == area.getIdArea()) {
+                                if (mesa.getIdEstado() == 0) {
+                    %>
+                    <table border="1" width="1" cellspacing="1" class="table table-hover">
+                        <thead>
+                        <h4 style="color:red;"><%=mesa.getMesa()%></h4>
+                        <th class="text-center">No Pedido</th>
+                        <th class="text-center">Descripcion</th>
+                        <th class="text-center">Mesero Encargado</th>
+                        <th class="text-center">Area</th>
+                        <th class="text-center">Mesa</th>
+                        <th class="text-center">Accion</th>
+                        </thead>
+                        <tbody>
+                            <%
+                                List<Pedido> lstPedido = (List) request.getAttribute("lstPedido");
+                                List<DetallePedido> lstDp = (List) request.getAttribute("lstDetallePedido");
+                                for (Pedido p : lstPedido) { %>
+                        <td><%=p.getIdPedido()%></td>
+                            <%        if (p.getIdMesa() == mesa.getIdMesa()) {
+                                    for (DetallePedido dp : lstDp) {
+
+                            %>
+                        <td>
+                            <ul>
+                                <li><%=dp.getCombo()%> <button class="btn btn-info" type="submit">Despachar</button></li>
+
+                            </ul>
+                        </td>
+                        <%}%>
+                        <td class="text-center"><%=p.getIdMesa()%></td>
+
+                        <td><button class="btn btn-info" type="submit">Despachar</button></td>
+                        <%
+                            }
+                        %>
+                        <td><%=p.getIdUsuario()%></td>
+                        </tbody>
+                    </table>
+                    <%
+                                    }
+                                }
+                            }
+                        }
+                    %>
+
+                </ul>
+            </div>
+            <%}%>
+            <script>
+                function openArea(evt, Area) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(Area).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+            </script>
+        </div>
+    </body>
     <style>
         body {font-family: Arial;}
 
@@ -53,36 +146,4 @@
             border-top: none;
         }
     </style>
-    <body style="padding-bottom: 50px">
-        <div class="container"> 
-            <h1>Elegir Monitor</h1> 
-            <table border="1" width="1" cellspacing="1" class="table table-hover" id="myTable">
-                <thead>
-                    <tr>
-                        <th class="text-center">Codigo Monitor</th>
-                        <th class="text-center">Monitor</th>
-                        <th class="text-center">Acciones</th>
-                    </tr>
-                </thead>
-                <%
-                    DaoMonitor daoM = new DaoMonitor();
-                    List<Monitor> listMon = daoM.listar();
-                    Iterator<Monitor> iteraM = listMon.iterator();
-                    Monitor mon = null;
-
-                    while (iteraM.hasNext()) {
-                        mon = iteraM.next();
-                %>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><%= mon.getIdMonitor()%></td>
-                        <td class="text-center"><%= mon.getNombre()%></td>
-                        <td class="text-center">
-                            <form action="controllerProceso?accion=seleccionarMon&codigo=<%= mon.getIdMonitor()%>" method="post"><button class="btn btn-info" type="submit">Seleccionar</button></form>                           
-                        </td>
-                    </tr>
-                    <%}%>
-                </tbody>
-        </div>
-    </body>
 </html>

@@ -33,13 +33,13 @@ public class DaoDetallePedido implements crudDetallePedido{
             rs = con.executeQuery(sql);
             while (rs.next()) {
                 detallePedido = new DetallePedido();
-                detallePedido.setIdDetalle(rs.getInt("ID_DETALLE_PEDIDO"));
+                detallePedido.setIdDetalle(rs.getInt("ID"));
                 detallePedido.setIdPedido(rs.getInt("ID_PEDIDO"));
-                detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
+                //detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
                 detallePedido.setCombo(rs.getString("COMBO"));
                 detallePedido.setCantidad(rs.getInt("CANTIDAD"));
                 detallePedido.setPrecio(rs.getFloat("PRECIO"));
-                detallePedido.setTotalLinea(rs.getFloat("TOTAL_LINEA"));
+                detallePedido.setTotalLinea(rs.getFloat("TOTAL"));
                 lstDetallePedido.add(detallePedido);
             }
             rs.close();
