@@ -8,11 +8,12 @@ public class DetallePedido {
     private int Cantidad;
     private float Precio;
     private float totalLinea;
+    private int idEstado;
 
     public DetallePedido() {
     }
 
-    public DetallePedido(int idDetalle, int idPedido, int idCombo, String Combo, int Cantidad, float Precio, float totalLinea) {
+    public DetallePedido(int idDetalle, int idPedido, int idCombo, String Combo, int Cantidad, float Precio, float totalLinea, int idEstado) {
         this.idDetalle = idDetalle;
         this.idPedido = idPedido;
         this.idCombo = idCombo;
@@ -20,6 +21,7 @@ public class DetallePedido {
         this.Cantidad = Cantidad;
         this.Precio = Precio;
         this.totalLinea = totalLinea;
+        this.idEstado = idEstado;
     }
 
     public int getIdDetalle() {
@@ -78,4 +80,12 @@ public class DetallePedido {
         this.totalLinea = totalLinea;
     }
 
+    public int getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(int idEstado) {
+        this.idEstado = idEstado;
+    }
+    
 }

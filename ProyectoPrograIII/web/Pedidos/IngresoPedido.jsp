@@ -98,7 +98,7 @@
     <body>
         <div class="container">            
             <h1>Ingreso de nuevo Pedido en <%=mesas%> en <%=areas%> </h1>
-            <h3>Mesero de pedido: <%= request.getAttribute("user") %></h3>
+            <h3>Mesero de pedido: <%= request.getAttribute("user")%></h3>
             <form id="form-work" name="form-work" action="controllerPedido" method="post">
                 <div class="form-group" >
 
@@ -120,7 +120,7 @@
                     <input name="nit" id="nit" type="text">
                     <br><br>
 
-                    <button type="submit" class="btn btn-primary mr-2">Agregar</button>
+                    <button type="submit" class="btn btn-primary mr-2" name="accion" value="editarDp">Agregar</button>
                     <input type="text" id="nofila" hidden="true" value="1">
 
                     <select id="producto"><option selected ="selected" disabled="true" >Seleccione</option>
@@ -154,7 +154,9 @@
                                 <%
                                     List<DetallePedido> lstDp = (List<DetallePedido>) request.getAttribute("lstDp");
                                     List<Pedido> lstPedido = (List<Pedido>) request.getAttribute("lstPedido");
-                                    for (DetallePedido dp : lstDp) {
+                                    for (Pedido p : lstPedido) {
+                                        for (DetallePedido dp : lstDp) {
+                                            if(dp.getIdPedido()==p.getIdPedido())
                                 %>
                                 <tr>
                                     <td><%=dp.getIdDetalle()%></td>
@@ -164,7 +166,9 @@
                                     <td><%=dp.getPrecio()%></td>
                                     <td>test</td>
                                 </tr> 
-                                <%}%>
+                                <%}
+                                    }
+                                %>
                                 <tr>
                                     <td></td>
                                     <td></td>

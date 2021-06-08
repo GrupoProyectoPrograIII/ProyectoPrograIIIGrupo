@@ -23,7 +23,7 @@ public class DaoDetallePedido implements crudDetallePedido{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         ArrayList<DetallePedido> lstDetallePedido = new ArrayList<>();
         try {
-            sql = "SELECT DETALLE_PEDIDO.ID_DETALLE_PEDIDO AS ID, DETALLE_PEDIDO.ID_PEDIDO, "
+            sql = "SELECT DETALLE_PEDIDO.ID_DETALLE_PEDIDO AS ID, DETALLE_PEDIDO.ID_PEDIDO,DETALLE_PEDIDO.ID_COMBO, "
                     +"PRODUCTO_COMBO.DESCRIPCION AS COMBO, DETALLE_PEDIDO.CANTIDAD, "
                     +"DETALLE_PEDIDO.PRECIO, DETALLE_PEDIDO.TOTAL_LINEA AS TOTAL, "
                     +"DETALLE_PEDIDO.ESTADO FROM DETALLE_PEDIDO "
@@ -35,7 +35,7 @@ public class DaoDetallePedido implements crudDetallePedido{
                 detallePedido = new DetallePedido();
                 detallePedido.setIdDetalle(rs.getInt("ID"));
                 detallePedido.setIdPedido(rs.getInt("ID_PEDIDO"));
-                //detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
+                detallePedido.setIdCombo(rs.getInt("ID_COMBO"));
                 detallePedido.setCombo(rs.getString("COMBO"));
                 detallePedido.setCantidad(rs.getInt("CANTIDAD"));
                 detallePedido.setPrecio(rs.getFloat("PRECIO"));
@@ -85,14 +85,15 @@ public class DaoDetallePedido implements crudDetallePedido{
     public boolean insertar(DetallePedido detallePedido) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         sql = "INSERT INTO DETALLE_PEDIDO(ID_DETALLE_PEDIDO,ID_COMBO,CANTIDAD,"
-                +"PRECIO,TOTAL_LINEA,OBSERVACION,ESTADO) "
+                +"PRECIO,TOTAL_LINEA,ESTADO) "
                 + "  VALUES((SELECT ISNULL(MAX(ID_DETALLE_PEDIDO),0)+ 1 FROM DETALLE_PEDIDO),"
                 + " "+ detallePedido.getIdPedido() +","
                 + " "+ detallePedido.getIdCombo() +","
-                + " "+ detallePedido.getCombo()+","
                 + " "+ detallePedido.getCantidad() +","
                 + " "+ detallePedido.getPrecio() +","
-                + " "+ detallePedido.getTotalLinea() +")";
+                + " "+ detallePedido.getTotalLinea()+","
+                + " "+ detallePedido.getIdEstado() +")"; 
+        System.out.println(sql);
         try {
             con.open();
             resp = con.executeSql(sql);
